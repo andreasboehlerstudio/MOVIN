@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #00c2cb;
+  --color-primary-hover: #00a8af;
+  --color-secondary: #0a0f4d;
+  --color-dark: #101828;
+  --color-light: #f9fafb;
+  --color-mint: #e0fbfc;
+  --color-blue-tint: #f0f9ff;
+  --color-border: #eaecf0;
+  --color-accent: #00c2cb;
+
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Outfit", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-slate-700 bg-white antialiased leading-relaxed;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-secondary font-bold tracking-tight leading-tight;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-extrabold;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+  p {
+    @apply text-base md:text-lg;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  .container-custom {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .card-base {
+    @apply bg-white border border-border rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-full text-white bg-primary hover:bg-primary-hover hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-full text-white bg-secondary hover:bg-secondary/90 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-3.5 border-2 border-border text-base font-semibold rounded-full text-secondary bg-white hover:border-primary hover:text-primary hover:shadow-md hover:-translate-y-0.5 transition-all duration-300;
+  }
+  .text-gradient-teal-mint {
+    @apply bg-gradient-to-r from-[#B4DFBB] to-[#00b2ba] bg-clip-text text-transparent;
+  }
+  .bg-gradient-teal-mint {
+    @apply bg-gradient-to-r from-[#B4DFBB] to-[#00b2ba];
+  }
+}

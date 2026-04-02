@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /datenschutz/
+Disallow: /impressum/
+Allow: /
+
+Sitemap: https://movin-freiburg.de/sitemap.xml

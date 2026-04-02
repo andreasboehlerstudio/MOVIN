@@ -1,0 +1,235 @@
+import React, { useState } from 'react';
+import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import SEO from '../components/seo/SEO';
+
+export default function Kontakt() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    standort: 'lorettoberg'
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      setFormData({ name: '', email: '', phone: '', message: '', standort: 'lorettoberg' });
+      setTimeout(() => setIsSuccess(false), 5000);
+    }, 1500);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <>
+      <SEO 
+        title="Kontakt | MOVIN Physiotherapie Freiburg & Rust"
+        description="Kontaktiere MOVIN Physiotherapie in Freiburg oder Rust. Nutze unser Formular, ruf an oder schreibe eine E-Mail. Wir melden uns schnellstmöglich!"
+      />
+
+      {/* Hero */}
+      <section className="bg-light py-20 md:py-32 border-b border-border">
+        <div className="container-custom text-center max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-black mb-6 text-gradient-teal-mint">Kontakt</h1>
+          <p className="text-xl text-dark/80 leading-relaxed">
+            Hast du Fragen zu unseren Therapien, möchtest einen Termin vereinbaren oder benötigst Hilfe? Wir sind für dich da.
+          </p>
+        </div>
+      </section>
+
+      {/* Content */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            
+            {/* Left Col: Contact Info */}
+            <div className="lg:col-span-5 flex flex-col gap-12">
+              <div>
+                <h2 className="text-3xl font-bold text-secondary mb-8">Unsere Standorte</h2>
+                
+                <div className="flex flex-col gap-8">
+                  {/* Lorettoberg */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-mint flex items-center justify-center text-primary shrink-0">
+                      <MapPin className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-secondary text-lg mb-1">Lorettoberg (Freiburg)</h4>
+                      <p className="text-dark/70 mb-2">Mercystrasse 14, 79100 Freiburg</p>
+                      <a href="tel:+497617073366" className="flex items-center gap-2 text-primary hover:underline mb-1">
+                        <Phone className="w-4 h-4" /> +49 761 707 33 66
+                      </a>
+                      <a href="mailto:lorettoberg@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
+                        <Mail className="w-4 h-4" /> lorettoberg@movin-freiburg.de
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Mooswald */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-mint flex items-center justify-center text-primary shrink-0">
+                      <MapPin className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-secondary text-lg mb-1">Mooswald (Freiburg)</h4>
+                      <p className="text-dark/70 mb-2">Wirthstraße 9, 79110 Freiburg</p>
+                      <a href="tel:+497617073377" className="flex items-center gap-2 text-primary hover:underline mb-1">
+                        <Phone className="w-4 h-4" /> +49 761 707 33 77
+                      </a>
+                      <a href="mailto:mooswald@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
+                        <Mail className="w-4 h-4" /> mooswald@movin-freiburg.de
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Rust */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-full bg-mint flex items-center justify-center text-primary shrink-0">
+                      <MapPin className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-secondary text-lg mb-1">Europa-Park (Rust)</h4>
+                      <p className="text-dark/70 mb-2">Peter-Thumb-Str. 8, 77977 Rust</p>
+                      <a href="tel:+497617073377" className="flex items-center gap-2 text-primary hover:underline mb-1">
+                        <Phone className="w-4 h-4" /> +49 761 707 33 77
+                      </a>
+                      <a href="mailto:rust@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
+                        <Mail className="w-4 h-4" /> rust@movin-freiburg.de
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-light p-6 rounded-2xl border border-border">
+                <div className="flex items-center gap-3 mb-4">
+                  <Clock className="w-6 h-6 text-primary" />
+                  <h3 className="text-xl font-bold text-secondary">Zentrale Öffnungszeiten</h3>
+                </div>
+                <p className="text-dark/80 mb-2"><strong>Montag - Freitag:</strong> 08:00 - 19:00 Uhr</p>
+                <p className="text-dark/80"><strong>Wochenende:</strong> Nach Vereinbarung</p>
+              </div>
+            </div>
+
+            {/* Right Col: Form */}
+            <div className="lg:col-span-7">
+              <div className="card-base p-8 md:p-10 shadow-xl">
+                <h3 className="text-2xl font-bold text-secondary mb-6">Schreib uns eine Nachricht</h3>
+                
+                {isSuccess ? (
+                  <div className="bg-mint text-primary p-6 rounded-xl flex flex-col items-center text-center gap-4">
+                    <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center">
+                      <Send className="w-8 h-8" />
+                    </div>
+                    <h4 className="text-xl font-bold">Vielen Dank!</h4>
+                    <p>Deine Nachricht wurde erfolgreich gesendet. Wir melden uns in Kürze bei dir.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="name" className="text-sm font-semibold text-secondary">Name *</label>
+                        <input 
+                          type="text" 
+                          id="name" 
+                          name="name" 
+                          required 
+                          value={formData.name}
+                          onChange={handleChange}
+                          className="px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light"
+                          placeholder="Max Mustermann"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="phone" className="text-sm font-semibold text-secondary">Telefon *</label>
+                        <input 
+                          type="tel" 
+                          id="phone" 
+                          name="phone" 
+                          required 
+                          value={formData.phone}
+                          onChange={handleChange}
+                          className="px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light"
+                          placeholder="+49 123 456789"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="email" className="text-sm font-semibold text-secondary">E-Mail *</label>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        value={formData.email}
+                        onChange={handleChange}
+                        className="px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light"
+                        placeholder="max@beispiel.de"
+                      />
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="standort" className="text-sm font-semibold text-secondary">Gewünschter Standort</label>
+                      <select 
+                        id="standort" 
+                        name="standort" 
+                        value={formData.standort}
+                        onChange={handleChange}
+                        className="px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light appearance-none"
+                      >
+                        <option value="lorettoberg">Freiburg - Lorettoberg</option>
+                        <option value="mooswald">Freiburg - Mooswald</option>
+                        <option value="rust">Europa-Park - Rust</option>
+                        <option value="egal">Egal / Keine Präferenz</option>
+                      </select>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <label htmlFor="message" className="text-sm font-semibold text-secondary">Deine Nachricht *</label>
+                      <textarea 
+                        id="message" 
+                        name="message" 
+                        required 
+                        rows={5}
+                        value={formData.message}
+                        onChange={handleChange}
+                        className="px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light resize-none"
+                        placeholder="Wie können wir dir helfen?"
+                      ></textarea>
+                    </div>
+
+                    <div className="flex items-start gap-3 mt-2">
+                      <input type="checkbox" id="privacy" required className="mt-1" />
+                      <label htmlFor="privacy" className="text-sm text-dark/70">
+                        Ich stimme zu, dass meine Angaben aus dem Kontaktformular zur Beantwortung meiner Anfrage erhoben und verarbeitet werden. Detaillierte Informationen findest du in unserer <a href="/datenschutz/" className="text-primary hover:underline">Datenschutzerklärung</a>.
+                      </label>
+                    </div>
+
+                    <button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="btn-primary w-full justify-center text-lg py-4 mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? 'Wird gesendet...' : 'Nachricht senden'}
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
