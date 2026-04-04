@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
-import { Smartphone, CheckCircle2, PlayCircle, MessageCircle, Calendar, FileText, Activity, Pill, Video } from 'lucide-react';
+import { Smartphone, CheckCircle2, PlayCircle, MessageCircle, Calendar, FileText, Activity, Pill, Video, QrCode } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { QRCodeSVG } from 'qrcode.react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
 
 export default function DigitalApp() {
+  const iosUrl = "https://apps.apple.com/app/movin-physiotherapie/id123456789";
+  const androidUrl = "https://play.google.com/store/apps/details?id=de.movin.app";
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -35,7 +39,7 @@ export default function DigitalApp() {
         </div>
         
         <div className="container-custom relative z-10 text-white mt-16 text-center max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-2 text-primary font-semibold uppercase tracking-wider text-sm mb-4">
+          <div className="flex items-center justify-center gap-2 text-primary font-heading font-semibold uppercase tracking-wider text-sm mb-4">
             <Smartphone className="w-4 h-4" /> Digital Health
           </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 text-gradient-teal-mint">Die MOVIN App</h1>
@@ -207,10 +211,10 @@ export default function DigitalApp() {
                   ></iframe>
                 </div>
                 <div className="mt-6">
-                  <span className="px-3 py-1 bg-mint text-primary text-xs font-bold rounded-full uppercase tracking-wider mb-3 inline-block">
+                  <span className="px-3 py-1 bg-mint text-primary text-xs font-heading font-bold rounded-full uppercase tracking-wider mb-3 inline-block">
                     {video.tag}
                   </span>
-                  <p className="text-xs font-medium text-primary mb-1 uppercase tracking-widest">{video.subtitle}</p>
+                  <p className="text-xs font-heading font-medium text-primary mb-1 uppercase tracking-widest">{video.subtitle}</p>
                   <h4 className="text-xl font-bold text-secondary">{video.title}</h4>
                 </div>
               </motion.div>
@@ -252,7 +256,7 @@ export default function DigitalApp() {
               viewport={{ once: true }}
               className="bg-secondary p-8 rounded-[2.5rem] text-white"
             >
-              <h4 className="text-xl font-bold mb-4">Telemedizin</h4>
+              <h4 className="text-xl font-bold mb-4 text-white">Telemedizin</h4>
               <p className="text-blue-tint/80 mb-6">
                 Bald kannst du deine Therapiegespräche auch bequem per Video-Call führen – egal wo du bist.
               </p>
@@ -270,25 +274,44 @@ export default function DigitalApp() {
           <div className="flex justify-center mb-8">
             <Logo className="h-12 w-auto" variant="white" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Bereit für die Physiotherapie von morgen?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Bereit für die Physiotherapie von morgen?</h2>
           <p className="text-blue-tint/80 text-lg mb-10">
             Lade dir die MOVIN App kostenlos im App Store oder bei Google Play herunter. (Zugangsdaten erhältst du bei deinem ersten Termin).
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <a href="#" className="transform transition-transform hover:scale-105">
+          <div className="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+            <a href={iosUrl} target="_blank" rel="noopener noreferrer" className="transform transition-transform hover:scale-105">
               <img 
                 src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
                 alt="Download on App Store" 
                 className="h-14 w-auto"
               />
             </a>
-            <a href="#" className="transform transition-transform hover:scale-105">
+            <a href={androidUrl} target="_blank" rel="noopener noreferrer" className="transform transition-transform hover:scale-105">
               <img 
                 src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
                 alt="Get it on Google Play" 
                 className="h-14 w-auto"
               />
             </a>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-center items-center gap-12 pt-8 border-t border-white/10">
+            <div className="flex flex-col items-center gap-4">
+              <div className="p-3 bg-white rounded-2xl shadow-lg">
+                <QRCodeSVG value={iosUrl} size={120} level="H" includeMargin={true} />
+              </div>
+              <p className="text-sm font-heading font-bold text-blue-tint/60 uppercase tracking-widest flex items-center gap-2">
+                <QrCode className="w-4 h-4" /> iOS App Store
+              </p>
+            </div>
+            <div className="flex flex-col items-center gap-4">
+              <div className="p-3 bg-white rounded-2xl shadow-lg">
+                <QRCodeSVG value={androidUrl} size={120} level="H" includeMargin={true} />
+              </div>
+              <p className="text-sm font-heading font-bold text-blue-tint/60 uppercase tracking-widest flex items-center gap-2">
+                <QrCode className="w-4 h-4" /> Google Play Store
+              </p>
+            </div>
           </div>
         </div>
       </section>

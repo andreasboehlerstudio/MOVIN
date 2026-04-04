@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, MapPin, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, MapPin, ArrowRight, ClipboardList } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 
 export default function Termin() {
@@ -66,6 +66,25 @@ export default function Termin() {
             <Link to="/digital/movin-app/" className="btn-primary shrink-0 md:ml-auto flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
               Zur App
+            </Link>
+          </div>
+
+          {/* Anamnesebogen Highlight */}
+          <div className="max-w-4xl mx-auto bg-primary/5 border border-primary/10 rounded-2xl p-6 md:p-8 mb-16 flex flex-col md:flex-row items-center gap-6">
+            <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-primary shrink-0 shadow-sm border border-primary/10">
+              <ClipboardList className="w-8 h-8" />
+            </div>
+            <div className="flex-grow">
+              <div className="flex items-center gap-2 mb-2">
+                <h3 className="text-xl font-bold text-secondary">Digitaler Anamnesebogen</h3>
+                <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded-full">Jederzeit</span>
+              </div>
+              <p className="text-dark/80">
+                Sparen Sie Zeit bei Ihrem ersten Termin und füllen Sie unseren Anamnesebogen bereits vorab digital aus – ganz bequem von zu Hause und zu jeder Zeit.
+              </p>
+            </div>
+            <Link to="/digital/anamnesebogen/" className="btn-primary shrink-0 md:ml-auto">
+              Bogen ausfüllen
             </Link>
           </div>
 

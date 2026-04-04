@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Activity, MapPin, Brain, Clock, ArrowRight, Star, Smartphone, PlayCircle, Calendar, ArrowDown } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Activity, MapPin, Brain, Clock, ArrowRight, Star, Smartphone, PlayCircle, Calendar, ArrowDown, ClipboardList } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
 import InstagramFeed from '../components/social/InstagramFeed';
@@ -45,45 +45,83 @@ export default function Home() {
         </div>
         
         <div className="container-custom relative z-10 text-white w-full">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <div className="text-sm md:text-base text-white/90 font-medium tracking-[0.15em] uppercase mb-4">
+          <div className="max-w-3xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-sm md:text-base text-white/90 font-heading font-medium tracking-[0.15em] uppercase mb-4"
+            >
               Physiotherapie in Freiburg
-            </div>
+            </motion.div>
             
-            <h1 className="text-6xl md:text-[5.5rem] font-bold mb-6 leading-[1.1] text-white tracking-tight uppercase">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="text-6xl md:text-[5.5rem] font-bold mb-6 leading-[1.1] text-white tracking-tight uppercase"
+            >
               Bewegung.<br />
               <span className="text-gradient-teal-mint">Innovation.</span><br />
               Heilung.
-            </h1>
+            </motion.h1>
             
-            <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl font-light leading-relaxed">
+            <motion.p 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl font-light leading-relaxed"
+            >
               Evidenzbasierte Physiotherapie für ein aktives Leben.<br />
               Innovativ · bewegt — an drei Standorten in Freiburg und Rust.
-            </p>
+            </motion.p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/standorte/" className="bg-primary text-white hover:bg-primary-hover transition-colors rounded-full text-base font-medium px-8 py-3 text-center">
-                Unsere Standorte
-              </Link>
-              <Link to="/leistungen/" className="bg-transparent border border-white/50 text-white hover:bg-white/10 transition-colors rounded-full text-base font-medium px-8 py-3 backdrop-blur-sm text-center">
-                Leistungen entdecken
-              </Link>
-            </div>
-          </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 500, damping: 15 }}
+              >
+                <Link to="/standorte/" className="bg-primary text-white hover:bg-primary-hover transition-colors rounded-full text-base font-medium px-8 py-3 text-center block">
+                  Unsere Standorte
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 500, damping: 15 }}
+              >
+                <Link to="/leistungen/" className="bg-transparent border border-white/50 text-white hover:bg-white/10 transition-colors rounded-full text-base font-medium px-8 py-3 backdrop-blur-sm text-center block">
+                  Leistungen entdecken
+                </Link>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10"
+        >
           <ArrowDown className="w-5 h-5 text-white/70" />
-        </div>
+        </motion.div>
       </section>
 
       {/* USP Bar */}
-      <section className="bg-white py-12 border-b border-border relative z-20 -mt-12 mx-4 md:mx-auto max-w-7xl rounded-2xl shadow-2xl">
+      <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 1 }}
+        className="bg-white py-12 border-b border-border relative z-20 -mt-12 mx-4 md:mx-auto max-w-7xl rounded-2xl shadow-2xl"
+      >
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="flex flex-col items-center text-center gap-3">
@@ -116,22 +154,25 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Standorte */}
       <section className="section-padding bg-light">
         <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl mb-6 tracking-tight">
-              Unsere <span className="text-gradient-teal-mint">Standorte</span>
-            </h2>
-            <p className="text-lg text-dark/80">Boutique Physiotherapie in Wohlfühlatmosphäre. Finde die MOVIN Praxis in deiner Nähe.</p>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl md:text-5xl mb-6 tracking-tight">
+                Unsere <span className="text-gradient-teal-mint">Standorte</span>
+              </h2>
+              <p className="text-lg text-dark/80">Boutique Physiotherapie in Wohlfühlatmosphäre. Finde die MOVIN Praxis in deiner Nähe.</p>
+            </div>
+            <Link to="/standorte/" className="btn-outline shrink-0">Alle Standorte</Link>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { name: 'Lorettoberg', address: 'Mercystrasse 14, 79100 Freiburg', img: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800', path: '/standorte/physiotherapie-freiburg-lorettoberg/' },
-              { name: 'Mooswald', address: 'Wirthstraße 9, 79110 Freiburg', img: 'https://movin-freiburg.de/wp-content/uploads/2020/06/Mooswald_Empfang.png', path: '/standorte/physiotherapie-freiburg-mooswald/' },
+              { name: 'Mooswald', address: 'Wirthstraße 9, 79110 Freiburg', img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800', path: '/standorte/physiotherapie-freiburg-mooswald/' },
               { name: 'Europa-Park', address: 'Peter-Thumb-Str. 8, 77977 Rust', img: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=800', path: '/standorte/physiotherapie-europa-park-rust/' },
             ].map((standort) => (
               <Link to={standort.path} key={standort.name} className="card-base group hover:shadow-xl transition-all duration-300 flex flex-col">
@@ -197,7 +238,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2">
-              <span className="text-gradient-teal-mint font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Digital Health</span>
+              <span className="text-gradient-teal-mint font-heading font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Digital Health</span>
               <h2 className="text-4xl md:text-5xl mb-6 text-white tracking-tight">
                 Die <span className="text-gradient-teal-mint">MOVIN App</span>:<br/> Deine Therapie für die Hosentasche
               </h2>
@@ -214,7 +255,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Link to="/digital/movin-app/" className="btn-primary">App entdecken</Link>
+              <Link to="/digital/" className="btn-primary">Digital Health entdecken</Link>
             </div>
             <div className="lg:w-1/2 relative">
               <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
@@ -250,6 +291,36 @@ export default function Home() {
               <Link to="/digital/movin-app/" className="btn-primary flex items-center justify-center gap-2 whitespace-nowrap">
                 <Smartphone className="w-5 h-5" />
                 App herunterladen
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Anamnesebogen Highlight */}
+      <section className="py-12 bg-white border-b border-border">
+        <div className="container-custom">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-light p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left">
+              <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                <ClipboardList className="w-10 h-10" />
+              </div>
+              <div>
+                <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
+                  <h3 className="text-2xl md:text-3xl font-bold text-secondary">
+                    Digitaler Anamnesebogen
+                  </h3>
+                  <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded-full">Jederzeit</span>
+                </div>
+                <p className="text-dark/70 text-lg max-w-2xl">
+                  Sparen Sie Zeit bei Ihrem ersten Termin und füllen Sie unseren Anamnesebogen bereits vorab digital aus – ganz bequem von zu Hause und zu jeder Zeit.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full md:w-auto">
+              <Link to="/digital/anamnesebogen/" className="btn-primary flex items-center justify-center gap-2 whitespace-nowrap">
+                <ClipboardList className="w-5 h-5" />
+                Bogen ausfüllen
               </Link>
             </div>
           </div>
@@ -293,7 +364,7 @@ export default function Home() {
       {/* Partners */}
       <section className="py-12 bg-white border-y border-border">
         <div className="container-custom">
-          <p className="text-center text-sm font-bold text-dark/50 uppercase tracking-widest mb-8">Unsere starken Partner</p>
+          <p className="text-center text-sm font-heading font-bold text-dark/50 uppercase tracking-widest mb-8">Unsere starken Partner</p>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
             {['EHC Wölfe Freiburg', 'Urban Sports Club', 'Hansefit', 'Wellhub', 'Loretto Krankenhaus'].map((partner) => (
               <div key={partner} className="text-xl font-heading font-black text-secondary">

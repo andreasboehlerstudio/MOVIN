@@ -54,7 +54,7 @@
     @apply inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-full text-white bg-primary hover:bg-primary-hover hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-full text-white bg-secondary hover:bg-secondary/90 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md;
+    @apply inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-full text-white bg-secondary hover:bg-[#0a0f4de6] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md;
   }
   .btn-outline {
     @apply inline-flex items-center justify-center px-8 py-3.5 border-2 border-border text-base font-semibold rounded-full text-secondary bg-white hover:border-primary hover:text-primary hover:shadow-md hover:-translate-y-0.5 transition-all duration-300;

@@ -81,7 +81,7 @@ export default function StandortPage() {
                   {standort.description}
                 </p>
                 
-                <h3 className="text-xl font-bold text-secondary mb-4">Highlights am Standort:</h3>
+                <h3 className="text-xl font-bold text-secondary mb-4">Was dich erwartet:</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {standort.highlights.map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-dark/70">

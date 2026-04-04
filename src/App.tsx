@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import LeistungenHub from './pages/LeistungenHub';
 import LeistungDetail from './pages/LeistungDetail';
 import StandortPage from './pages/StandortPage';
+import StandorteHub from './pages/StandorteHub';
 import UeberUns from './pages/UeberUns';
 import Karriere from './pages/Karriere';
 import Faq from './pages/Faq';
@@ -12,6 +13,8 @@ import Kontakt from './pages/Kontakt';
 import Termin from './pages/Termin';
 import DigitalApp from './pages/DigitalApp';
 import DigitalKi from './pages/DigitalKi';
+import KISymptomcheck from './pages/KISymptomcheck';
+import Anamnesebogen from './pages/Anamnesebogen';
 import Training from './pages/Training';
 import StationaereVersorgung from './pages/StationaereVersorgung';
 import Impressum from './pages/Impressum';
@@ -35,11 +38,14 @@ export default function App() {
             <Route path="leistungen/:slug" element={<LeistungDetail />} />
             
             {/* Standorte */}
+            <Route path="standorte" element={<StandorteHub />} />
             <Route path="standorte/:slug" element={<StandortPage />} />
             
             {/* Digital */}
             <Route path="digital/movin-app" element={<DigitalApp />} />
             <Route path="digital/ki-physiotherapie" element={<DigitalKi />} />
+            <Route path="digital/ki-symptomcheck" element={<KISymptomcheck />} />
+            <Route path="digital/anamnesebogen" element={<Anamnesebogen />} />
             
             {/* Other Pages */}
             <Route path="training" element={<Training />} />

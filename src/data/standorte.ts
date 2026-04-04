@@ -25,7 +25,7 @@ export const standorteData = {
     address: 'Wirthstraße 9, 79110 Freiburg',
     phone: '+49 761 707 33 77',
     email: 'mooswald@movin-freiburg.de',
-    image: 'https://movin-freiburg.de/wp-content/uploads/2020/06/Mooswald_Empfang.png',
+    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800',
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2668.5!2d7.8!3d48.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sWirthstra%C3%9Fe%209%2C%2079110%20Freiburg!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: 'Willkommen in unserer hochmodernen Boutique-Praxis im Stadtteil Mooswald. Hier setzen wir neue Maßstäbe in der Physiotherapie: Ein exklusives Ambiente trifft auf modernste Technologie. Mit unserer KI-gestützten Diagnostik und einem voll ausgestatteten Trainingsbereich bieten wir dir die besten Voraussetzungen für eine erfolgreiche Rehabilitation.',
     highlights: [

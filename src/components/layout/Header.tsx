@@ -52,6 +52,8 @@ export default function Header() {
       dropdown: [
         { name: 'MOVIN App', path: '/digital/movin-app/' },
         { name: 'KI-Physiotherapie', path: '/digital/ki-physiotherapie/' },
+        { name: 'KI Symptomcheck', path: '/digital/ki-symptomcheck/' },
+        { name: 'Anamnesebogen', path: '/digital/anamnesebogen/' },
       ]
     },
     { name: 'Training', path: '/training/' },

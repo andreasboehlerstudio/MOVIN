@@ -32,7 +32,7 @@ export default function DigitalKi() {
         </div>
         
         <div className="container-custom relative z-10 text-white mt-16 text-center max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-2 text-primary font-semibold uppercase tracking-wider text-sm mb-4">
+          <div className="flex items-center justify-center gap-2 text-primary font-heading font-semibold uppercase tracking-wider text-sm mb-4">
             <Brain className="w-4 h-4" /> Innovation
           </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 text-gradient-teal-mint">KI-Physiotherapie</h1>
@@ -129,7 +129,7 @@ export default function DigitalKi() {
           <div className="flex justify-center mb-8">
             <Logo className="h-12 w-auto" variant="white" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Erlebe die Therapie der Zukunft</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Erlebe die Therapie der Zukunft</h2>
           <p className="text-blue-tint/80 text-lg mb-10">
             Kombiniere therapeutische Expertise mit modernster KI-Technologie für deinen optimalen Behandlungserfolg.
           </p>
