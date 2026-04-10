@@ -9,20 +9,13 @@ export default function Logo({ className = "h-10 md:h-12 w-auto", variant = 'def
   return (
     <div className={`relative flex items-center ${className}`}>
       <img 
-        src={variant === 'white' ? "/logo-white.png" : "/logo.png"} 
+        src={variant === 'white' 
+          ? "https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_1C_pos.png" 
+          : "https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_RGB_gradient.png"
+        } 
         alt="MOVIN Logo" 
         className="h-full w-auto object-contain"
         referrerPolicy="no-referrer"
-        onError={(e) => {
-          // Fallback if logo-white.png doesn't exist yet
-          if (variant === 'white') {
-            const target = e.target as HTMLImageElement;
-            if (!target.src.includes('logo.png')) {
-              target.src = '/logo.png';
-              target.classList.add('brightness-0', 'invert');
-            }
-          }
-        }}
       />
     </div>
   );

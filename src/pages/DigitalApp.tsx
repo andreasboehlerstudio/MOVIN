@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { QRCodeSVG } from 'qrcode.react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
+import { GdprEmbed } from '../components/gdpr/GdprEmbed';
 
 export default function DigitalApp() {
   const iosUrl = "https://apps.apple.com/app/movin-physiotherapie/id123456789";
@@ -201,14 +202,16 @@ export default function DigitalApp() {
                 className="flex flex-col h-full"
               >
                 <div className="relative aspect-[9/16] rounded-2xl overflow-hidden shadow-2xl bg-light border border-primary/10">
-                  <iframe
-                    src={video.videoUrl}
-                    className="w-full h-full border-0"
-                    allowTransparency={true}
-                    allow="encrypted-media"
-                    scrolling="no"
-                    frameBorder="0"
-                  ></iframe>
+                  <GdprEmbed category="marketing" provider="Instagram">
+                    <iframe
+                      src={video.videoUrl}
+                      className="w-full h-full border-0"
+                      allowTransparency={true}
+                      allow="encrypted-media"
+                      scrolling="no"
+                      frameBorder="0"
+                    ></iframe>
+                  </GdprEmbed>
                 </div>
                 <div className="mt-6">
                   <span className="px-3 py-1 bg-mint text-primary text-xs font-heading font-bold rounded-full uppercase tracking-wider mb-3 inline-block">

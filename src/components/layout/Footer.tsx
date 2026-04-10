@@ -111,6 +111,15 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <Link to="/impressum/" className="text-blue-tint/60 hover:text-white transition-colors text-sm">Impressum</Link>
             <Link to="/datenschutz/" className="text-blue-tint/60 hover:text-white transition-colors text-sm">Datenschutz</Link>
+            <button 
+              onClick={() => {
+                localStorage.removeItem('movin_cookie_consent');
+                window.location.reload();
+              }}
+              className="text-blue-tint/60 hover:text-white transition-colors text-sm"
+            >
+              Cookie-Einstellungen
+            </button>
           </div>
         </div>
       </div>

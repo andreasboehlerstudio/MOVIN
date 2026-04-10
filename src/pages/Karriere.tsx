@@ -20,7 +20,7 @@ export default function Karriere() {
       "@type": "Organization",
       "name": "MOVIN Physiotherapie",
       "sameAs": "https://movin-freiburg.de",
-      "logo": "https://movin-freiburg.de/wp-content/uploads/2020/01/movin-logo-neu.png"
+      "logo": "https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_RGB_gradient.png"
     },
     "jobLocation": {
       "@type": "Place",

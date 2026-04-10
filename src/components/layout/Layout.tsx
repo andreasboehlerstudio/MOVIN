@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-import CookieBanner from './CookieBanner';
 import AIChatbot from './AIChatbot';
 import { MessageCircle } from 'lucide-react';
 
@@ -31,7 +30,6 @@ export default function Layout() {
       <Footer />
       <FloatingCTA />
       <AIChatbot />
-      <CookieBanner />
     </div>
   );
 }

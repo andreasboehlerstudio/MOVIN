@@ -17,21 +17,46 @@ interface Region {
   side: 'front' | 'back';
 }
 
+const BodySilhouette = ({ side }: { side: 'front' | 'back' }) => (
+  <svg viewBox="0 0 100 220" className="h-full w-auto text-secondary/5 fill-current transition-all duration-500 drop-shadow-sm">
+    {/* Head & Neck */}
+    <path d="M50 5 C56 5 61 10 61 17 C61 24 56 29 50 29 C44 29 39 24 39 17 C39 10 44 5 50 5 M46 29 L54 29 L54 35 L46 35 Z" />
+    
+    {/* Torso & Arms */}
+    <path d="M30 45 C25 45 20 50 18 60 L12 100 C11 110 16 115 22 110 L28 70 L30 45 H70 L72 70 L78 110 C84 115 89 110 88 100 L82 60 C80 50 75 45 70 45 Z" />
+    <path d="M30 45 L35 115 C35 125 65 125 65 115 L70 45 Z" />
+    
+    {/* Hips & Legs */}
+    <path d="M35 115 C35 130 65 130 65 115 L62 140 C62 145 38 145 38 140 Z" />
+    <path d="M38 140 L32 210 C31 220 44 220 45 210 L50 145 Z" />
+    <path d="M62 140 L68 210 C69 220 56 220 55 210 L50 145 Z" />
+    
+    {/* Feet */}
+    <path d="M32 210 Q32 218 42 218 L42 210 Z" />
+    <path d="M68 210 Q68 218 58 218 L58 210 Z" />
+    
+    {/* Back specific details (spine hint) */}
+    {side === 'back' && (
+      <path d="M50 45 V115" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" className="text-secondary/10" />
+    )}
+  </svg>
+);
+
 const REGIONS: Region[] = [
-  { id: 'kopf', label: 'Kopf', x: 50, y: 8, side: 'front' },
-  { id: 'nacken', label: 'Nacken', x: 50, y: 15, side: 'back' },
-  { id: 'schulter-links', label: 'Schulter links', x: 62, y: 18, side: 'front' },
-  { id: 'schulter-rechts', label: 'Schulter rechts', x: 38, y: 18, side: 'front' },
-  { id: 'oberarm-links', label: 'Oberarm links', x: 68, y: 28, side: 'front' },
-  { id: 'oberarm-rechts', label: 'Oberarm rechts', x: 32, y: 28, side: 'front' },
-  { id: 'ruecken-oben', label: 'Rücken oben', x: 50, y: 25, side: 'back' },
-  { id: 'ruecken-unten', label: 'Rücken unten', x: 50, y: 40, side: 'back' },
-  { id: 'huefte-links', label: 'Hüfte links', x: 58, y: 45, side: 'front' },
-  { id: 'huefte-rechts', label: 'Hüfte rechts', x: 42, y: 45, side: 'front' },
-  { id: 'knie-links', label: 'Knie links', x: 58, y: 72, side: 'front' },
-  { id: 'knie-rechts', label: 'Knie rechts', x: 42, y: 72, side: 'front' },
-  { id: 'fuss-links', label: 'Fuß links', x: 58, y: 92, side: 'front' },
-  { id: 'fuss-rechts', label: 'Fuß rechts', x: 42, y: 92, side: 'front' },
+  { id: 'kopf', label: 'Kopf', x: 50, y: 7, side: 'front' },
+  { id: 'nacken', label: 'Nacken', x: 50, y: 14, side: 'back' },
+  { id: 'schulter-links', label: 'Schulter links', x: 72, y: 21, side: 'front' },
+  { id: 'schulter-rechts', label: 'Schulter rechts', x: 28, y: 21, side: 'front' },
+  { id: 'oberarm-links', label: 'Oberarm links', x: 82, y: 38, side: 'front' },
+  { id: 'oberarm-rechts', label: 'Oberarm rechts', x: 18, y: 38, side: 'front' },
+  { id: 'ruecken-oben', label: 'Rücken oben', x: 50, y: 28, side: 'back' },
+  { id: 'ruecken-unten', label: 'Rücken unten', x: 50, y: 48, side: 'back' },
+  { id: 'huefte-links', label: 'Hüfte links', x: 62, y: 58, side: 'front' },
+  { id: 'huefte-rechts', label: 'Hüfte rechts', x: 38, y: 58, side: 'front' },
+  { id: 'knie-links', label: 'Knie links', x: 64, y: 82, side: 'front' },
+  { id: 'knie-rechts', label: 'Knie rechts', x: 36, y: 82, side: 'front' },
+  { id: 'fuss-links', label: 'Fuß links', x: 66, y: 96, side: 'front' },
+  { id: 'fuss-rechts', label: 'Fuß rechts', x: 34, y: 96, side: 'front' },
 ];
 
 interface FormData {
@@ -259,9 +284,78 @@ export default function KISymptomcheck() {
             animate={{ opacity: 1, x: 0 }}
             className="max-w-6xl mx-auto"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-              {/* Sidebar: Selected Regions */}
-              <div className="lg:col-span-3">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+              {/* Main Map Area - First on mobile, Right on desktop */}
+              <div className="lg:col-span-9 order-1 lg:order-2">
+                <div className="bg-white rounded-[2rem] md:rounded-[3.5rem] border border-border shadow-2xl relative overflow-hidden flex flex-col h-[500px] md:h-[750px]">
+                  {/* Map Header: Toggle */}
+                  <div className="absolute top-6 md:top-10 left-1/2 -translate-x-1/2 z-20 w-full px-4 flex justify-center">
+                    <div className="bg-light/80 backdrop-blur-md p-1 rounded-full flex items-center border border-border shadow-lg">
+                      <button 
+                        onClick={() => setViewSide('front')}
+                        className={`px-4 md:px-8 py-2 rounded-full text-xs md:text-sm font-black transition-all ${viewSide === 'front' ? 'bg-secondary text-white shadow-lg' : 'text-dark/40 hover:text-secondary'}`}
+                      >
+                        Vorderseite
+                      </button>
+                      <button 
+                        onClick={() => setViewSide('back')}
+                        className={`px-4 md:px-8 py-2 rounded-full text-xs md:text-sm font-black transition-all ${viewSide === 'back' ? 'bg-secondary text-white shadow-lg' : 'text-dark/40 hover:text-secondary'}`}
+                      >
+                        Rückseite
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* The Map */}
+                  <div className="relative flex-1 bg-[#fcfdfe] flex items-center justify-center p-8 md:p-16">
+                    <div className="relative h-full aspect-[1/2.2] flex items-center justify-center">
+                      {/* Custom SVG Silhouette */}
+                      <BodySilhouette side={viewSide} />
+
+                      {/* Markers */}
+                      {REGIONS.filter(r => r.side === viewSide).map(region => (
+                        <button
+                          key={region.id}
+                          onClick={() => handleRegionToggle(region.id)}
+                          style={{ left: `${region.x}%`, top: `${region.y}%` }}
+                          className={`absolute -translate-x-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 rounded-full border-2 transition-all flex items-center justify-center shadow-xl backdrop-blur-[2px] ${
+                            formData.regions.includes(region.id)
+                              ? 'bg-primary/90 border-white scale-110 z-10'
+                              : 'bg-primary/10 border-primary/40 hover:bg-primary/20 hover:border-primary hover:scale-110'
+                          }`}
+                        >
+                          {formData.regions.includes(region.id) ? (
+                            <CheckCircle2 className="w-4 h-4 md:w-6 md:h-6 text-white" />
+                          ) : (
+                            <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary/60" />
+                          )}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Zoom Controls (Visual) */}
+                    <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex flex-col gap-2 md:gap-3">
+                      <button className="w-10 h-10 md:w-12 md:h-12 bg-white border border-border rounded-xl md:rounded-2xl flex items-center justify-center text-dark/30 hover:text-secondary hover:shadow-xl transition-all">
+                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4" /></svg>
+                      </button>
+                      <button className="w-10 h-10 md:w-12 md:h-12 bg-white border border-border rounded-xl md:rounded-2xl flex items-center justify-center text-dark/30 hover:text-secondary hover:shadow-xl transition-all">
+                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M20 12H4" /></svg>
+                      </button>
+                    </div>
+
+                    {/* Status Badge */}
+                    <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
+                      <div className="bg-white/90 backdrop-blur-md px-3 py-1.5 md:px-5 md:py-2.5 rounded-full border border-border shadow-lg flex items-center gap-2 md:gap-3">
+                        <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-primary animate-pulse" />
+                        <span className="text-[8px] md:text-[10px] font-black text-secondary uppercase tracking-[0.2em]">Interaktive Karte aktiv</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Sidebar: Selected Regions - Second on mobile, Left on desktop */}
+              <div className="lg:col-span-3 order-2 lg:order-1">
                 <div className="flex flex-col h-full">
                   <h3 className="text-[10px] font-black text-dark/40 uppercase tracking-[0.2em] mb-6">Ausgewählte Regionen</h3>
                   
@@ -293,13 +387,14 @@ export default function KISymptomcheck() {
                       );
                     })}
 
-                    {formData.regions.length < 6 && (
-                      <div className="p-8 border-2 border-dashed border-border rounded-2xl flex flex-col items-center justify-center text-center bg-light/20 group hover:bg-light/40 transition-colors">
-                        <div className="w-12 h-12 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                          <svg className="w-6 h-6 text-dark/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-                          </svg>
-                        </div>
+                    {formData.regions.length === 0 && (
+                      <div className="p-8 border-2 border-dashed border-border rounded-2xl flex flex-col items-center justify-center text-center bg-light/20">
+                        <p className="text-xs font-bold text-dark/30">Noch keine Region ausgewählt</p>
+                      </div>
+                    )}
+
+                    {formData.regions.length > 0 && formData.regions.length < 6 && (
+                      <div className="p-6 border-2 border-dashed border-border rounded-2xl flex flex-col items-center justify-center text-center bg-light/10">
                         <p className="text-[10px] font-black text-dark/30 uppercase tracking-[0.15em]">Weitere Regionen hinzufügen</p>
                       </div>
                     )}
@@ -320,86 +415,6 @@ export default function KISymptomcheck() {
                     >
                       Vorgang abbrechen
                     </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Main Map Area */}
-              <div className="lg:col-span-9">
-                <div className="bg-white rounded-[3.5rem] border border-border shadow-2xl relative overflow-hidden flex flex-col h-[750px]">
-                  {/* Map Header: Toggle */}
-                  <div className="absolute top-10 left-1/2 -translate-x-1/2 z-20">
-                    <div className="bg-light/80 backdrop-blur-md p-1.5 rounded-full flex items-center border border-border shadow-lg">
-                      <button 
-                        onClick={() => setViewSide('front')}
-                        className={`px-8 py-2.5 rounded-full text-sm font-black transition-all ${viewSide === 'front' ? 'bg-secondary text-white shadow-lg' : 'text-dark/40 hover:text-secondary'}`}
-                      >
-                        Vorderseite
-                      </button>
-                      <button 
-                        onClick={() => setViewSide('back')}
-                        className={`px-8 py-2.5 rounded-full text-sm font-black transition-all ${viewSide === 'back' ? 'bg-secondary text-white shadow-lg' : 'text-dark/40 hover:text-secondary'}`}
-                      >
-                        Rückseite
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* The Map */}
-                  <div className="relative flex-1 bg-[#fcfdfe] flex items-center justify-center p-16">
-                    <div className="relative h-full aspect-[1/2.2]">
-                      {/* Anatomical Image */}
-                      <img 
-                        src={viewSide === 'front' 
-                          ? "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=1000" 
-                          : "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80&w=1000"
-                        } 
-                        alt="Anatomical Model"
-                        className="h-full w-auto object-contain mix-blend-multiply opacity-90"
-                        referrerPolicy="no-referrer"
-                      />
-
-                      {/* Markers */}
-                      {REGIONS.filter(r => r.side === viewSide).map(region => (
-                        <button
-                          key={region.id}
-                          onClick={() => handleRegionToggle(region.id)}
-                          style={{ left: `${region.x}%`, top: `${region.y}%` }}
-                          className={`absolute -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full border-2 transition-all flex items-center justify-center shadow-xl backdrop-blur-[2px] ${
-                            formData.regions.includes(region.id)
-                              ? 'bg-primary/90 border-white scale-110 z-10'
-                              : 'bg-primary/10 border-primary/40 hover:bg-primary/20 hover:border-primary hover:scale-110'
-                          }`}
-                        >
-                          {formData.regions.includes(region.id) ? (
-                            <CheckCircle2 className="w-6 h-6 text-white" />
-                          ) : (
-                            <div className="w-2 h-2 rounded-full bg-primary/60" />
-                          )}
-                        </button>
-                      ))}
-                    </div>
-
-                    {/* Zoom Controls (Visual) */}
-                    <div className="absolute bottom-10 right-10 flex flex-col gap-3">
-                      <button className="w-12 h-12 bg-white border border-border rounded-2xl flex items-center justify-center text-dark/30 hover:text-secondary hover:shadow-xl hover:-translate-y-0.5 transition-all">
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4" /></svg>
-                      </button>
-                      <button className="w-12 h-12 bg-white border border-border rounded-2xl flex items-center justify-center text-dark/30 hover:text-secondary hover:shadow-xl hover:-translate-y-0.5 transition-all">
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M20 12H4" /></svg>
-                      </button>
-                      <button className="w-12 h-12 bg-white border border-border rounded-2xl flex items-center justify-center text-dark/30 hover:text-secondary hover:shadow-xl hover:-translate-y-0.5 transition-all mt-2">
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
-                      </button>
-                    </div>
-
-                    {/* Status Badge */}
-                    <div className="absolute bottom-10 left-10">
-                      <div className="bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-border shadow-lg flex items-center gap-3">
-                        <div className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(0,194,203,0.5)]" />
-                        <span className="text-[10px] font-black text-secondary uppercase tracking-[0.2em]">Interaktive Karte aktiv</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

@@ -26,38 +26,38 @@ export default function Header() {
     { name: 'Start', path: '/' },
     { 
       name: 'Leistungen', 
-      path: '/leistungen/',
+      path: '/leistungen',
       dropdown: [
-        { name: 'Krankengymnastik', path: '/leistungen/krankengymnastik/' },
-        { name: 'Manuelle Therapie', path: '/leistungen/manuelle-therapie/' },
-        { name: 'Sportphysiotherapie', path: '/leistungen/sportphysiotherapie/' },
-        { name: 'Rücken-Therapie', path: '/leistungen/ruecken-therapie/' },
-        { name: 'Knie- & Schulter', path: '/leistungen/knie-schulter-therapie/' },
-        { name: 'Lymphdrainage', path: '/leistungen/lymphdrainage/' },
-        { name: 'Prävention', path: '/leistungen/praevention-gesundheitsfoerderung/' },
+        { name: 'Krankengymnastik', path: '/leistungen/krankengymnastik' },
+        { name: 'Manuelle Therapie', path: '/leistungen/manuelle-therapie' },
+        { name: 'Sportphysiotherapie', path: '/leistungen/sportphysiotherapie' },
+        { name: 'Rücken-Therapie', path: '/leistungen/ruecken-therapie' },
+        { name: 'Knie- & Schulter', path: '/leistungen/knie-schulter-therapie' },
+        { name: 'Lymphdrainage', path: '/leistungen/lymphdrainage' },
+        { name: 'Prävention', path: '/leistungen/praevention-gesundheitsfoerderung' },
       ]
     },
     { 
       name: 'Standorte', 
-      path: '/standorte/',
+      path: '/standorte',
       dropdown: [
-        { name: 'Lorettoberg', path: '/standorte/physiotherapie-freiburg-lorettoberg/' },
-        { name: 'Mooswald', path: '/standorte/physiotherapie-freiburg-mooswald/' },
-        { name: 'Europa-Park Rust', path: '/standorte/physiotherapie-europa-park-rust/' },
+        { name: 'Lorettoberg', path: '/standorte/physiotherapie-freiburg-lorettoberg' },
+        { name: 'Mooswald', path: '/standorte/physiotherapie-freiburg-mooswald' },
+        { name: 'Europa-Park Rust', path: '/standorte/physiotherapie-europa-park-rust' },
       ]
     },
     { 
       name: 'Digital', 
-      path: '/digital/',
+      path: '/digital',
       dropdown: [
-        { name: 'MOVIN App', path: '/digital/movin-app/' },
-        { name: 'KI-Physiotherapie', path: '/digital/ki-physiotherapie/' },
-        { name: 'KI Symptomcheck', path: '/digital/ki-symptomcheck/' },
-        { name: 'Anamnesebogen', path: '/digital/anamnesebogen/' },
+        { name: 'MOVIN App', path: '/digital/movin-app' },
+        { name: 'KI-Physiotherapie', path: '/digital/ki-physiotherapie' },
+        { name: 'KI Symptomcheck', path: '/digital/ki-symptomcheck' },
+        { name: 'Anamnesebogen', path: '/digital/anamnesebogen' },
       ]
     },
-    { name: 'Training', path: '/training/' },
-    { name: 'Über uns', path: '/ueber-uns/' },
+    { name: 'Training', path: '/training' },
+    { name: 'Über uns', path: '/ueber-uns' },
   ];
 
   return (
@@ -110,7 +110,7 @@ export default function Header() {
 
         {/* CTA & Mobile Toggle */}
         <div className="flex items-center gap-4 z-50">
-          <Link to="/termin/" className="hidden md:flex items-center gap-2 bg-gradient-to-r from-[#B4DFBB] to-[#00b2ba] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity shadow-md">
+          <Link to="/termin" className="hidden md:flex items-center gap-2 bg-gradient-to-r from-[#B4DFBB] to-[#00b2ba] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity shadow-md">
             <Calendar className="w-4 h-4" />
             Termin vereinbaren
           </Link>
@@ -158,7 +158,7 @@ export default function Header() {
                 </div>
               ))}
               <div className="mt-4 p-4 border-t border-border flex flex-col gap-4">
-                <Link to="/termin/" className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#B4DFBB] to-[#00b2ba] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity w-full shadow-md">
+                <Link to="/termin" className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#B4DFBB] to-[#00b2ba] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity w-full shadow-md">
                   <Calendar className="w-4 h-4" />
                   Termin vereinbaren
                 </Link>

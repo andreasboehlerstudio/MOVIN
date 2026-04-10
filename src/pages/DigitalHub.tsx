@@ -1,250 +1,164 @@
+import { motion } from 'framer-motion';
+import { Smartphone, Brain, Activity, FileText, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Smartphone, Brain, ArrowRight, CheckCircle2, Activity, Zap, ClipboardList } from 'lucide-react';
-import { motion } from 'motion/react';
 import SEO from '../components/seo/SEO';
 
-export default function DigitalHub() {
-  const digitalServices = [
-    {
-      title: 'MOVIN App',
-      slug: 'movin-app',
-      icon: Smartphone,
-      description: 'Deine Therapie für die Hosentasche. Die MOVIN App ist dein täglicher Begleiter auf dem Weg zur Genesung. Sie verbindet dich direkt mit deinem Therapeuten und bietet dir maßgeschneiderte Unterstützung, wann immer du sie brauchst.',
-      features: [
-        'Personalisierte Video-Trainingspläne',
-        'Echtzeit-Chat mit deinem Therapeuten',
-        'Digitales Schmerztagebuch & Tracking',
-        'Einfache Terminübersicht & Buchung',
-        'Anamnese-Fragebögen vorab ausfüllen',
-        'Alle Befunde & Rezepte digital dabei'
-      ],
-      image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=800',
-      color: 'teal'
-    },
-    {
-      title: 'KI-Physiotherapie',
-      slug: 'ki-physiotherapie',
-      icon: Brain,
-      description: 'Präziser, schneller, wirksamer. Durch den Einsatz modernster Künstlicher Intelligenz und 3D-Kamerasensoren heben wir die Diagnostik auf ein neues Level. Erlebe eine Analyse, die über das menschliche Auge hinausgeht und uns hilft, die Ursachen deiner Beschwerden noch exakter zu identifizieren.',
-      features: [
-        'KI-gestützte Bewegungsanalyse in Echtzeit',
-        'Objektive Messung von Gelenkwinkeln',
-        'Erkennung muskulärer Dysbalancen',
-        'Datenbasierte Erfolgskontrolle',
-        'Präzise Vorher-Nachher-Vergleiche',
-        'Optimierte Return-to-Sport Diagnostik'
-      ],
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800',
-      color: 'mint'
-    },
-    {
-      title: 'KI Symptomcheck',
-      slug: 'ki-symptomcheck',
-      icon: Activity,
-      description: 'Erhalte eine erste Einschätzung deiner Beschwerden in Sekundenschnelle. Unser KI-gestützter Symptomcheck analysiert deine Angaben und gibt dir wertvolle Orientierungshilfen sowie Empfehlungen für die nächsten Schritte.',
-      features: [
-        'Schnelle Ersteinschätzung',
-        'KI-gestützte Ursachenanalyse',
-        'Empfehlungen für nächste Schritte',
-        'Erkennung von Warnsignalen (Red Flags)',
-        'Diskret und jederzeit verfügbar',
-        'Vorbereitung für das Therapeutengespräch'
-      ],
-      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800',
-      color: 'teal'
-    },
-    {
-      title: 'Digitaler Anamnesebogen',
-      slug: 'anamnesebogen',
-      icon: ClipboardList,
-      description: 'Spare Zeit und bereite dich optimal auf deinen ersten Termin vor. Fülle unseren digitalen Anamnesebogen bequem von zu Hause aus aus – ganz flexibel und zu jeder Zeit. Deine Daten werden sicher an uns übermittelt.',
-      features: [
-        'Bequem von zu Hause ausfüllen',
-        'Sichere digitale Übermittlung',
-        'Zeitersparnis beim ersten Termin',
-        'Detaillierte Erfassung deiner Beschwerden',
-        'PDF-Download für deine Unterlagen',
-        'Optimale Vorbereitung für den Therapeuten'
-      ],
-      image: 'https://images.unsplash.com/photo-1505751172107-5739a00723a5?auto=format&fit=crop&q=80&w=800',
-      color: 'blue'
-    }
-  ];
+const digitalServices = [
+  {
+    title: 'MOVIN App',
+    description: 'Deine Therapie für die Hosentasche. Trainingspläne, Fortschritts-Tracking und direkter Chat mit deinem Therapeuten.',
+    path: '/digital/movin-app',
+    icon: Smartphone,
+    color: 'bg-blue-500',
+    image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    title: 'KI Physiotherapie',
+    description: 'Erlebe die Zukunft der Bewegung. Intelligente Analyse und KI-gestützte Therapieansätze für maximale Effizienz.',
+    path: '/digital/ki-physiotherapie',
+    icon: Brain,
+    color: 'bg-purple-500',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    title: 'KI Symptomcheck',
+    description: 'Erhalte eine erste Einschätzung deiner Beschwerden durch unsere intelligente KI-Analyse.',
+    path: '/digital/ki-symptomcheck',
+    icon: Activity,
+    color: 'bg-teal-500',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    title: 'Digitaler Anamnesebogen',
+    description: 'Bereite dich optimal auf deinen Termin vor. Fülle deinen Anamnesebogen bequem und sicher von zu Hause aus.',
+    path: '/digital/anamnesebogen',
+    icon: FileText,
+    color: 'bg-orange-500',
+    image: 'https://images.unsplash.com/photo-1586772002130-b0f3daa6288b?auto=format&fit=crop&q=80&w=800'
+  }
+];
 
+export default function DigitalHub() {
   return (
     <>
       <SEO 
-        title="Digital Health | Physiotherapie der Zukunft | MOVIN"
-        description="Entdecke die digitale Welt von MOVIN. Mit unserer App und KI-gestützter Physiotherapie begleiten wir dich modern und effektiv auf deinem Weg zur Genesung."
+        title="Digital Health | MOVIN Physiotherapie Freiburg"
+        description="Entdecke unsere digitalen Services: Von der MOVIN App über KI-gestützte Physiotherapie bis hin zum intelligenten Symptomcheck."
       />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-secondary overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
+      <section className="relative h-[50vh] min-h-[400px] flex items-center bg-secondary overflow-hidden">
+        <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000" 
-            alt="Digital Health Background" 
-            className="w-full h-full object-cover"
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=2000" 
+            alt="Digital Health" 
+            className="w-full h-full object-cover opacity-20 mix-blend-overlay"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/80 to-transparent" />
         </div>
-        <div className="container-custom relative z-10 text-white text-center">
+        
+        <div className="container-custom relative z-10 text-white mt-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-primary text-sm font-heading font-bold uppercase tracking-widest mb-6"
+            className="max-w-3xl"
           >
-            <Zap className="w-4 h-4" /> Innovation @ MOVIN
+            <span className="text-primary font-heading font-bold uppercase tracking-widest text-sm mb-4 block">
+              Zukunft der Bewegung
+            </span>
+            <h1 className="text-5xl md:text-7xl font-black mb-6 text-gradient-teal-mint">
+              Digital Health
+            </h1>
+            <p className="text-xl text-blue-tint/90 leading-relaxed">
+              Wir verbinden erstklassige Physiotherapie mit modernster Technologie. Entdecke unsere digitalen Lösungen für einen schnelleren und nachhaltigen Therapieerfolg.
+            </p>
           </motion.div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black mb-6 text-gradient-teal-mint"
-          >
-            Digital Health
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-blue-tint/90 max-w-3xl mx-auto"
-          >
-            Wir kombinieren therapeutische Exzellenz mit modernster Technologie, um deinen Heilungsprozess optimal zu unterstützen.
-          </motion.p>
         </div>
       </section>
 
       {/* Services Grid */}
       <section className="section-padding bg-light">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {digitalServices.map((service, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {digitalServices.map((service, idx) => (
               <motion.div
-                key={service.slug}
-                initial={{ opacity: 0, y: 30 }}
+                key={service.title}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className="group bg-white rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col h-full border border-primary/5"
+                transition={{ delay: idx * 0.1 }}
               >
-                {/* Image Header */}
-                <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent" />
-                  <div className="absolute bottom-6 left-8 flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-white shadow-lg">
-                      <service.icon className="w-8 h-8" />
-                    </div>
-                    <h2 className="text-3xl font-black text-white">{service.title}</h2>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-8 md:p-10 flex flex-col flex-grow">
-                  <p className="text-lg text-dark/80 mb-8 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <div className="space-y-4 mb-10 flex-grow">
-                    <h3 className="text-sm font-heading font-bold text-secondary uppercase tracking-wider">Was dich erwartet:</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {service.features.map((feature, i) => (
-                        <div key={i} className="flex items-center gap-3 text-dark/70">
-                          <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                          <span className="text-sm font-medium">{feature}</span>
-                        </div>
-                      ))}
+                <Link 
+                  to={service.path}
+                  className="group block bg-white rounded-[2.5rem] overflow-hidden border border-border hover:border-primary/30 hover:shadow-2xl transition-all duration-500 h-full"
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-6 left-8">
+                      <div className={`w-12 h-12 ${service.color} rounded-2xl flex items-center justify-center text-white shadow-lg mb-2`}>
+                        <service.icon className="w-6 h-6" />
+                      </div>
                     </div>
                   </div>
-
-                  <Link 
-                    to={`/digital/${service.slug}/`} 
-                    className="btn-primary w-full justify-center group/btn"
-                  >
-                    Details entdecken
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
+                  
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold text-secondary mb-4 group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-dark/70 mb-6 leading-relaxed">
+                      {service.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-primary font-bold">
+                      Mehr erfahren <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                    </div>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Why Digital Section */}
-      <section className="section-padding bg-white">
+      {/* Innovation Quote */}
+      <section className="py-24 bg-white overflow-hidden">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl md:text-5xl font-black text-secondary mb-8 leading-tight">
-                Warum <span className="text-gradient-teal-mint">Digital</span>?
-              </h2>
-              <div className="space-y-8">
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 rounded-2xl bg-mint flex items-center justify-center text-primary shrink-0">
-                    <Activity className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-secondary mb-2">Kontinuität</h3>
-                    <p className="text-dark/70">Deine Therapie endet nicht an der Praxistür. Mit digitalen Tools bleibst du auch zu Hause am Ball.</p>
-                  </div>
-                </div>
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 rounded-2xl bg-mint flex items-center justify-center text-primary shrink-0">
-                    <Zap className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-secondary mb-2">Präzision</h3>
-                    <p className="text-dark/70">KI-gestützte Analysen liefern objektive Daten, die uns helfen, deine Therapie noch individueller zu gestalten.</p>
-                  </div>
-                </div>
-                <div className="flex gap-6">
-                  <div className="w-12 h-12 rounded-2xl bg-mint flex items-center justify-center text-primary shrink-0">
-                    <CheckCircle2 className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-secondary mb-2">Transparenz</h3>
-                    <p className="text-dark/70">Verfolge deinen Fortschritt schwarz auf weiß und sieh genau, wie du dich von Woche zu Woche verbesserst.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="absolute inset-0 bg-primary/10 rounded-[3rem] transform translate-x-6 translate-y-6" />
-              <img 
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1000" 
-                alt="Therapeut nutzt Tablet" 
-                className="relative z-10 rounded-[3rem] shadow-2xl"
-              />
-            </motion.div>
+          <div className="relative max-w-4xl mx-auto text-center">
+            <div className="absolute -top-12 -left-12 text-primary/10">
+              <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V3L14.017 3C14.017 1.89543 14.9124 1 16.017 1H19.017C21.2261 1 23.017 2.79086 23.017 5V15C23.017 18.3137 20.3307 21 17.017 21H14.017ZM1.017 21L1.017 18C1.017 16.8954 1.91243 16 3.017 16H6.017C6.56928 16 7.017 15.5523 7.017 15V9C7.017 8.44772 6.56928 8 6.017 8H3.017C1.91243 8 1.017 7.10457 1.017 6V3L1.017 3C1.017 1.89543 1.91243 1 3.017 1H6.017C8.22614 1 10.017 2.79086 10.017 5V15C10.017 18.3137 7.33071 21 4.017 21H1.017Z" />
+              </svg>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary leading-tight italic relative z-10">
+              "Die Digitalisierung ist für uns kein Selbstzweck, sondern ein Werkzeug, um die Qualität deiner Therapie messbar zu steigern und dich noch individueller zu begleiten."
+            </h2>
+            <div className="mt-8 flex flex-col items-center">
+              <div className="w-16 h-1 bg-primary mb-4" />
+              <p className="font-bold text-secondary uppercase tracking-widest text-sm">Das MOVIN Team</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Global CTA */}
-      <section className="py-20 bg-secondary text-white text-center">
-        <div className="container-custom max-w-3xl">
-          <h2 className="text-3xl md:text-5xl font-black mb-6">Bereit für die Zukunft?</h2>
-          <p className="text-blue-tint/80 text-lg mb-10">
-            Erlebe selbst, wie digitale Innovation deine Gesundheit fördern kann. Vereinbare jetzt deinen Termin in einem unserer modernen Zentren.
-          </p>
-          <Link to="/termin/" className="btn-primary text-lg px-10 py-4">
-            Termin vereinbaren
-          </Link>
+      {/* CTA Section */}
+      <section className="py-20 bg-secondary">
+        <div className="container-custom">
+          <div className="bg-gradient-to-br from-primary to-teal-600 rounded-[3rem] p-12 md:p-20 text-white text-center relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-5xl font-black mb-6">Hast du Fragen zu unseren digitalen Services?</h2>
+              <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+                Unser Team berät dich gerne dazu, wie du die MOVIN App und unsere anderen digitalen Angebote optimal für deinen Therapieerfolg nutzen kannst.
+              </p>
+              <Link to="/kontakt" className="btn-white text-primary px-10 py-4 text-lg">
+                Jetzt Kontakt aufnehmen
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </>
