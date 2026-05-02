@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import SEO from '../components/seo/SEO';
 import { useCookieConsent } from '../components/gdpr/CookieContext';
 import { Trash2, ShieldCheck, RefreshCw } from 'lucide-react';

@@ -14,8 +14,6 @@ import {
   AlertCircle
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
 
 type FormData = {
   // Personal Info
@@ -225,6 +223,9 @@ export default function Anamnesebogen() {
   const prevStep = () => setStep(prev => Math.max(prev - 1, 1));
 
   const generatePDF = async () => {
+    const { jsPDF } = await import('jspdf');
+    const html2canvas = (await import('html2canvas')).default;
+
     console.log("Starting PDF generation...");
     if (!pdfRef.current) {
       console.error("PDF Ref is null");

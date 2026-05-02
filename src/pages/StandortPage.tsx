@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router';
 import { MapPin, Phone, Mail, Clock, Calendar, CheckCircle2 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import { standorteData, Standort } from '../data/standorte';
@@ -91,6 +91,25 @@ export default function StandortPage() {
                   ))}
                 </ul>
               </div>
+
+              {/* Gallery */}
+              {standort.gallery && (
+                <div>
+                  <h3 className="text-2xl font-bold text-secondary mb-8">Einblicke in unsere Praxis</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {standort.gallery.map((img, i) => (
+                      <div key={i} className={`relative overflow-hidden rounded-2xl shadow-lg ${i === 0 ? 'sm:col-span-2 h-80' : 'h-60'}`}>
+                        <img 
+                          src={img} 
+                          alt={`${standort.name} Impression ${i + 1}`} 
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Gallery */}
               {standort.gallery && (

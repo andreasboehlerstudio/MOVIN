@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Smartphone, Brain, Activity, FileText, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import SEO from '../components/seo/SEO';
 
 const digitalServices = [

@@ -1,4 +1,4 @@
-import { useParams, Link, Navigate } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router';
 import { Activity, ArrowRight, CheckCircle2, Calendar } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import { leistungenData } from '../data/leistungen';

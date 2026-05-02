@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Settings, Check, X, ChevronRight, Info } from 'lucide-react';
 import { useCookieConsent, CookieCategory } from './CookieContext';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 export const CookieConsent: React.FC = () => {
   const { consent, hasResponded, acceptAll, declineAll, updateConsent } = useCookieConsent();

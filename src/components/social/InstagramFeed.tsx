@@ -66,7 +66,7 @@ export default function InstagramFeed() {
   }, [feedUrl]);
 
   // Fallback-Daten, falls kein API-Key vorhanden ist oder ein Fehler auftritt
-  const fallbackPosts = [
+  const fallbackPosts: InstagramPost[] = [
     { id: '1', media_url: 'https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?auto=format&fit=crop&q=80&w=400', permalink: 'https://www.instagram.com/movinfreiburg/' },
     { id: '2', media_url: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=400', permalink: 'https://www.instagram.com/movinfreiburg/' },
     { id: '3', media_url: 'https://images.unsplash.com/photo-1591258739299-5b65d5cbb235?auto=format&fit=crop&q=80&w=400', permalink: 'https://www.instagram.com/movinfreiburg/' },

@@ -10,7 +10,7 @@ interface SEOProps {
 export default function SEO({ title, description, canonical, schema }: SEOProps) {
   const siteName = "MOVIN Physiotherapie Freiburg";
   const fullTitle = `${title} | ${siteName}`;
-  const currentUrl = canonical || window.location.href;
+  const currentUrl = canonical || (typeof window !== 'undefined' ? window.location.href : '');
 
   return (
     <Helmet>

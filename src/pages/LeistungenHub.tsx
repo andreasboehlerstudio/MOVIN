@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Activity, ArrowRight, CheckCircle2, Filter } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/seo/SEO';

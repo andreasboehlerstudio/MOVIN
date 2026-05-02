@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
 import Logo from '../common/Logo';
 

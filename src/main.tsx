@@ -1,10 +1,20 @@
-import {StrictMode} from 'react';
-import {createRoot} from 'react-dom/client';
+import { StrictMode } from 'react';
+import { hydrateRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router';
+import { HelmetProvider } from 'react-helmet-async';
+import { CookieProvider } from './components/gdpr/CookieContext';
 import App from './App.tsx';
 import './index.css';
 
-createRoot(document.getElementById('root')!).render(
+hydrateRoot(
+  document.getElementById('root')!,
   <StrictMode>
-    <App />
-  </StrictMode>,
+    <HelmetProvider>
+      <CookieProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CookieProvider>
+    </HelmetProvider>
+  </StrictMode>
 );

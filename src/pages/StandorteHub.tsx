@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { MapPin, Phone, Mail, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { motion } from 'motion/react';
 import SEO from '../components/seo/SEO';

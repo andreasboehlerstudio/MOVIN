@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Smartphone, CheckCircle2, PlayCircle, MessageCircle, Calendar, FileText, Activity, Pill, Video, QrCode } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { QRCodeSVG } from 'qrcode.react';
@@ -301,7 +301,7 @@ export default function DigitalApp() {
           <div className="flex flex-col md:flex-row justify-center items-center gap-12 pt-8 border-t border-white/10">
             <div className="flex flex-col items-center gap-4">
               <div className="p-3 bg-white rounded-2xl shadow-lg">
-                <QRCodeSVG value={iosUrl} size={120} level="H" includeMargin={true} />
+                {typeof window !== 'undefined' && <QRCodeSVG value={iosUrl} size={120} level="H" includeMargin={true} />}
               </div>
               <p className="text-sm font-heading font-bold text-blue-tint/60 uppercase tracking-widest flex items-center gap-2">
                 <QrCode className="w-4 h-4" /> iOS App Store
@@ -309,7 +309,7 @@ export default function DigitalApp() {
             </div>
             <div className="flex flex-col items-center gap-4">
               <div className="p-3 bg-white rounded-2xl shadow-lg">
-                <QRCodeSVG value={androidUrl} size={120} level="H" includeMargin={true} />
+                {typeof window !== 'undefined' && <QRCodeSVG value={androidUrl} size={120} level="H" includeMargin={true} />}
               </div>
               <p className="text-sm font-heading font-bold text-blue-tint/60 uppercase tracking-widest flex items-center gap-2">
                 <QrCode className="w-4 h-4" /> Google Play Store

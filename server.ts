@@ -1,6 +1,7 @@
 import express from "express";
 import { createServer as createViteServer } from "vite";
 import path from "path";
+import fs from "fs/promises";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
@@ -67,9 +68,46 @@ async function startServer() {
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: "spa",
+      appType: "custom",
     });
     app.use(vite.middlewares);
+
+    app.get('*', async (req, res, next) => {
+      const url = req.originalUrl;
+      try {
+        // 1. Read index.html
+        let template = await fs.readFile(path.resolve(process.cwd(), 'index.html'), 'utf-8');
+
+        // 2. Apply Vite HTML transforms
+        template = await vite.transformIndexHtml(url, template);
+
+        // 3. Load the server entry
+        const { render } = await vite.ssrLoadModule('/src/entry-server.tsx');
+
+        // 4. Render the app HTML
+        const { html: appHtml, helmetContext } = await render(url);
+        const helmet = (helmetContext as any).helmet;
+
+        // 5. Inject the app-rendered HTML and helmet tags into the template
+        let helmetTags = `
+          ${helmet?.title?.toString() || "<title>My Google AI Studio App</title>"}
+          ${helmet?.meta?.toString() || ""}
+          ${helmet?.link?.toString() || ""}
+        `;
+
+        let html = template
+          .replace(`<!--app-html-->`, appHtml)
+          .replace(`<title>My Google AI Studio App</title>`, helmetTags);
+
+        // 6. Send the rendered HTML back
+        res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+      } catch (e: any) {
+        // If an error is caught, let Vite fix the stack trace so it maps back
+        // to your actual source code.
+        vite.ssrFixStacktrace(e);
+        next(e);
+      }
+    });
   } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));

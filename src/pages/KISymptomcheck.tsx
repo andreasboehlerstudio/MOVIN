@@ -4,8 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { GoogleGenAI } from "@google/genai";
 import SEO from '../components/seo/SEO';
 
-// Initialize Gemini API
-const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+// Initialize Gemini API (now handled inside handleCheck for SSR compatibility)
 
 type Step = 'intro' | 'location' | 'details' | 'history' | 'functional' | 'summary' | 'analysis';
 
@@ -153,6 +152,7 @@ export default function KISymptomcheck() {
     setStep('analysis');
 
     try {
+      const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
       const model = "gemini-3-flash-preview";
       const prompt = `
         Du bist ein erfahrener Physiotherapeut und medizinischer Berater. 

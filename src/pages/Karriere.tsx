@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Briefcase, CheckCircle2, ArrowRight, MapPin } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 

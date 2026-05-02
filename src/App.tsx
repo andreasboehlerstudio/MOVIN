@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
@@ -26,12 +26,10 @@ import { CookieConsent } from './components/gdpr/CookieConsent';
 
 export default function App() {
   return (
-    <HelmetProvider>
-      <CookieProvider>
-        <Router>
-          <CookieConsent />
-          <Routes>
-          <Route path="/" element={<Layout />}>
+    <>
+      <CookieConsent />
+      <Routes>
+        <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             
             {/* Leistungen */}
@@ -66,9 +64,7 @@ export default function App() {
             <Route path="*" element={<GenericPage />} />
           </Route>
         </Routes>
-      </Router>
-      </CookieProvider>
-    </HelmetProvider>
+    </>
   );
 }
 

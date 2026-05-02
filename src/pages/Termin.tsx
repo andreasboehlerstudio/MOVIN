@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Calendar, Clock, MapPin, ArrowRight, ClipboardList } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 
