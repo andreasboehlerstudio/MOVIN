@@ -64,57 +64,60 @@ async function startServer() {
     }
   });
 
-  // Vite middleware for development
+  let vite: any;
   if (process.env.NODE_ENV !== "production") {
-    const vite = await createViteServer({
+    vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "custom",
     });
     app.use(vite.middlewares);
-
-    app.get('*', async (req, res, next) => {
-      const url = req.originalUrl;
-      try {
-        // 1. Read index.html
-        let template = await fs.readFile(path.resolve(process.cwd(), 'index.html'), 'utf-8');
-
-        // 2. Apply Vite HTML transforms
-        template = await vite.transformIndexHtml(url, template);
-
-        // 3. Load the server entry
-        const { render } = await vite.ssrLoadModule('/src/entry-server.tsx');
-
-        // 4. Render the app HTML
-        const { html: appHtml, helmetContext } = await render(url);
-        const helmet = (helmetContext as any).helmet;
-
-        // 5. Inject the app-rendered HTML and helmet tags into the template
-        let helmetTags = `
-          ${helmet?.title?.toString() || "<title>My Google AI Studio App</title>"}
-          ${helmet?.meta?.toString() || ""}
-          ${helmet?.link?.toString() || ""}
-        `;
-
-        let html = template
-          .replace(`<!--app-html-->`, appHtml)
-          .replace(`<title>My Google AI Studio App</title>`, helmetTags);
-
-        // 6. Send the rendered HTML back
-        res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
-      } catch (e: any) {
-        // If an error is caught, let Vite fix the stack trace so it maps back
-        // to your actual source code.
-        vite.ssrFixStacktrace(e);
-        next(e);
-      }
-    });
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath));
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
-    });
+    app.use(express.static(path.join(process.cwd(), 'dist'), { index: false }));
   }
+
+  app.get('*', async (req, res, next) => {
+    const url = req.originalUrl;
+    
+    // Ignore static asset requests that might have fallen through
+    if (url.includes('.') && !url.endsWith('.html')) {
+      return next();
+    }
+
+    try {
+      let template: string;
+      let render: any;
+
+      if (process.env.NODE_ENV !== "production") {
+        template = await fs.readFile(path.resolve(process.cwd(), 'index.html'), 'utf-8');
+        template = await vite.transformIndexHtml(url, template);
+        render = (await vite.ssrLoadModule('/src/entry-server.tsx')).render;
+      } else {
+        template = await fs.readFile(path.resolve(process.cwd(), 'dist/index.html'), 'utf-8');
+        // In this environment, we can import the tsx file directly thanks to tsx
+        render = (await import('./src/entry-server.tsx')).render;
+      }
+
+      const { html: appHtml, helmetContext } = await render(url);
+      const helmet = (helmetContext as any).helmet;
+
+      let helmetTags = `
+        ${helmet?.title?.toString() || ""}
+        ${helmet?.meta?.toString() || ""}
+        ${helmet?.link?.toString() || ""}
+      `;
+
+      let html = template
+        .replace(`<!--app-html-->`, appHtml)
+        .replace(/<title>.*?<\/title>/, helmetTags);
+
+      res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
+    } catch (e: any) {
+      if (process.env.NODE_ENV !== "production" && vite) {
+        vite.ssrFixStacktrace(e);
+      }
+      next(e);
+    }
+  });
 
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);
