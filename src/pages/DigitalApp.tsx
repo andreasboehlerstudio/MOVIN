@@ -1,5 +1,6 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router';
-import { Smartphone, CheckCircle2, PlayCircle, MessageCircle, Calendar, FileText, Activity, Pill, Video, QrCode } from 'lucide-react';
+import { Smartphone, CheckCircle2, PlayCircle, MessageCircle, Calendar, FileText, Activity, Pill, Video, QrCode, ClipboardList, Brain } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { QRCodeSVG } from 'qrcode.react';
 import SEO from '../components/seo/SEO';
@@ -7,6 +8,12 @@ import Logo from '../components/common/Logo';
 import { GdprEmbed } from '../components/gdpr/GdprEmbed';
 
 export default function DigitalApp() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const iosUrl = "https://apps.apple.com/app/movin-physiotherapie/id123456789";
   const androidUrl = "https://play.google.com/store/apps/details?id=de.movin.app";
 
@@ -84,11 +91,11 @@ export default function DigitalApp() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
                   { icon: PlayCircle, title: 'Übungsvideos', desc: 'Individuelle Pläne mit Videoanleitungen.' },
-                  { icon: CheckCircle2, title: 'Fortschritt', desc: 'Tracking von Training & Schmerz.' },
-                  { icon: MessageCircle, title: 'Direkter Chat', desc: 'Fragen direkt an deinen Therapeuten.' },
+                  { icon: ClipboardList, title: 'Anamnesebögen', desc: 'Fragebögen bequem vorab ausfüllen.' },
+                  { icon: Activity, title: 'Schmerztagebuch', desc: 'Tracking von Training & Schmerz.' },
+                  { icon: Brain, title: 'KI mit Pia', desc: 'Intelligente Symptomanalyse & Beratung.' },
+                  { icon: CheckCircle2, title: 'Praxisbegleiter', desc: 'Dein aktiver Begleiter durch die Therapie.' },
                   { icon: Calendar, title: 'Termine', desc: 'Alle Termine digital im Blick.' },
-                  { icon: FileText, title: 'Anamnese', desc: 'Fragebögen bequem vorab ausfüllen.' },
-                  { icon: CheckCircle2, title: 'Dokumente', desc: 'Rezepte & Befunde immer dabei.' },
                 ].map((feature, i) => (
                   <motion.div 
                     key={i} 
@@ -301,7 +308,7 @@ export default function DigitalApp() {
           <div className="flex flex-col md:flex-row justify-center items-center gap-12 pt-8 border-t border-white/10">
             <div className="flex flex-col items-center gap-4">
               <div className="p-3 bg-white rounded-2xl shadow-lg">
-                {typeof window !== 'undefined' && <QRCodeSVG value={iosUrl} size={120} level="H" includeMargin={true} />}
+                {isMounted && <QRCodeSVG value={iosUrl} size={120} level="H" includeMargin={true} />}
               </div>
               <p className="text-sm font-heading font-bold text-blue-tint/60 uppercase tracking-widest flex items-center gap-2">
                 <QrCode className="w-4 h-4" /> iOS App Store
@@ -309,7 +316,7 @@ export default function DigitalApp() {
             </div>
             <div className="flex flex-col items-center gap-4">
               <div className="p-3 bg-white rounded-2xl shadow-lg">
-                {typeof window !== 'undefined' && <QRCodeSVG value={androidUrl} size={120} level="H" includeMargin={true} />}
+                {isMounted && <QRCodeSVG value={androidUrl} size={120} level="H" includeMargin={true} />}
               </div>
               <p className="text-sm font-heading font-bold text-blue-tint/60 uppercase tracking-widest flex items-center gap-2">
                 <QrCode className="w-4 h-4" /> Google Play Store

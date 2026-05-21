@@ -8,57 +8,85 @@ import Logo from '../components/common/Logo';
 export default function LeistungenHub() {
   const [selectedCategory, setSelectedCategory] = useState('Alle');
 
-  const categories = ['Alle', 'Physiotherapie', 'Spezialisierung', 'Prävention'];
+  const categories = ['Alle', 'Physiotherapie', 'Spezialisierung', 'Prävention', 'Betriebe'];
 
   const leistungen = [
     { 
       title: 'Krankengymnastik', 
-      desc: 'Individuelle Bewegungstherapie zur Wiederherstellung der Mobilität und Kraft.', 
+      desc: 'Aktive und passive Behandlungsform zur Wiederherstellung der Beweglichkeit und Kraft.', 
       path: '/leistungen/krankengymnastik/',
       category: 'Physiotherapie',
       area: 'Ganzkörper'
     },
     { 
       title: 'Manuelle Therapie', 
-      desc: 'Spezielle Handgrifftechniken zur Schmerzlinderung und Mobilisation von Gelenken.', 
+      desc: 'Spezialisierter Ansatz zur Behandlung von Funktionsstörungen des Bewegungssystems.', 
       path: '/leistungen/manuelle-therapie/',
       category: 'Physiotherapie',
       area: 'Gelenke'
     },
     { 
+      title: 'Krankengymnastik am Gerät', 
+      desc: 'Medizinische Trainingsgeräte zur Verbesserung von Kraft, Ausdauer und Koordination.', 
+      path: '/leistungen/krankengymnastik-am-geraet/',
+      category: 'Physiotherapie',
+      area: 'Ganzkörper'
+    },
+    { 
+      title: 'Manuelle Lymphdrainage', 
+      desc: 'Sanfte Entstauungstherapie zur Förderung des Abtransports von Gewebeflüssigkeit.', 
+      path: '/leistungen/lymphdrainage/',
+      category: 'Physiotherapie',
+      area: 'Gewebe'
+    },
+    { 
+      title: 'Betriebliche Gesundheitsförderung', 
+      desc: 'Maßgeschneiderte Gesundheitslösungen für Ihr Unternehmen und Ihre Mitarbeiter.', 
+      path: '/leistungen/betriebliche-gesundheitsfoerderung/',
+      category: 'Betriebe',
+      area: 'B2B'
+    },
+    { 
       title: 'Sportphysiotherapie', 
-      desc: 'Betreuung von Athleten für optimale Leistung, Prävention und schnelle Reha.', 
+      desc: 'Spezialisierung auf Sportverletzungen und Leistungsoptimierung für Athleten.', 
       path: '/leistungen/sportphysiotherapie/',
       category: 'Spezialisierung',
       area: 'Sport'
     },
     { 
-      title: 'Rücken-Therapie', 
-      desc: 'Gezielte Behandlung von Wirbelsäulenbeschwerden, Bandscheibenvorfällen und Haltungsschäden.', 
-      path: '/leistungen/ruecken-therapie/',
-      category: 'Spezialisierung',
-      area: 'Rücken'
-    },
-    { 
-      title: 'Knie- & Schulter-Therapie', 
-      desc: 'Spezialisierte Rehabilitation nach Verletzungen, Überlastungen oder Operationen.', 
-      path: '/leistungen/knie-schulter-therapie/',
-      category: 'Spezialisierung',
-      area: 'Extremitäten'
-    },
-    { 
-      title: 'Lymphdrainage', 
-      desc: 'Sanfte Massage zur Entstauung von geschwollenem Gewebe nach OPs oder Traumata.', 
-      path: '/leistungen/lymphdrainage/',
-      category: 'Physiotherapie',
-      area: 'Ganzkörper'
-    },
-    { 
-      title: 'Prävention & Gesundheitsförderung', 
-      desc: 'Proaktive Maßnahmen und Kurse, um Beschwerden vorzubeugen und fit zu bleiben.', 
-      path: '/leistungen/praevention-gesundheitsfoerderung/',
+      title: 'Personal Training', 
+      desc: 'Hochqualifiziertes Training auf Selbstzahlerbasis für eine nachhaltige Gesundheit.', 
+      path: '/leistungen/personal-training/',
       category: 'Prävention',
-      area: 'Prävention'
+      area: 'Fitness'
+    },
+    { 
+      title: 'Medizinisches Training (MTT)', 
+      desc: 'Zielgerichtetes, gerätegestütztes Training zur Rehabilitation und zum Aufbau.', 
+      path: '/leistungen/mtt-training/',
+      category: 'Prävention',
+      area: 'Training'
+    },
+    { 
+      title: 'Skillcourt Training', 
+      desc: 'Innovatives videomotorisches Training, das Kognition mit Bewegung verknüpft.', 
+      path: '/leistungen/skillcourt/',
+      category: 'Prävention',
+      area: 'Kognition'
+    },
+    { 
+      title: 'SensoPro Training', 
+      desc: 'Koordinationskonzept zur Stabilisierung und zum Training der Tiefenmuskulatur.', 
+      path: '/leistungen/sensopro/',
+      category: 'Prävention',
+      area: 'Koordination'
+    },
+    { 
+      title: 'EAP - Physiotherapie (Privat)', 
+      desc: 'Erweiterte Ambulante Physiotherapie als intensivierte Form der Rehabilitation.', 
+      path: '/leistungen/eap-privat/',
+      category: 'Spezialisierung',
+      area: 'Intensiv'
     },
   ];
 

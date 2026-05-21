@@ -104,6 +104,7 @@ async function startServer() {
         ${helmet?.title?.toString() || ""}
         ${helmet?.meta?.toString() || ""}
         ${helmet?.link?.toString() || ""}
+        ${helmet?.script?.toString() || ""}
       `;
 
       let html = template

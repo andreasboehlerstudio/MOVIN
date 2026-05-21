@@ -34,6 +34,7 @@ export default function Header() {
         { name: 'Rücken-Therapie', path: '/leistungen/ruecken-therapie' },
         { name: 'Knie- & Schulter', path: '/leistungen/knie-schulter-therapie' },
         { name: 'Lymphdrainage', path: '/leistungen/lymphdrainage' },
+        { name: 'BGF (Betriebe)', path: '/leistungen/betriebliche-gesundheitsfoerderung' },
         { name: 'Prävention', path: '/leistungen/praevention-gesundheitsfoerderung' },
       ]
     },
@@ -52,7 +53,6 @@ export default function Header() {
       dropdown: [
         { name: 'MOVIN App', path: '/digital/movin-app' },
         { name: 'KI-Physiotherapie', path: '/digital/ki-physiotherapie' },
-        { name: 'KI Symptomcheck', path: '/digital/ki-symptomcheck' },
         { name: 'Anamnesebogen', path: '/digital/anamnesebogen' },
       ]
     },

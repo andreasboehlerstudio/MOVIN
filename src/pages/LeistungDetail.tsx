@@ -10,7 +10,7 @@ export default function LeistungDetail() {
     return <Navigate to="/leistungen/" replace />;
   }
 
-  const leistung = leistungenData[slug as keyof typeof leistungenData];
+  const leistung = leistungenData[slug as keyof typeof leistungenData] as any;
 
   const schema = {
     "@context": "https://schema.org",
@@ -75,13 +75,29 @@ export default function LeistungDetail() {
             {/* Right Col: Sidebar */}
             <div className="lg:col-span-4">
               <div className="card-base p-8 sticky top-32 border-t-4 border-t-primary shadow-2xl bg-light">
-                <h3 className="text-2xl font-bold text-secondary mb-4">Bereit für den nächsten Schritt?</h3>
+                <h3 className="text-2xl font-bold text-secondary mb-4">
+                  {leistung.isB2B ? 'Angebot für Ihr Unternehmen' : 'Bereit für den nächsten Schritt?'}
+                </h3>
                 <p className="text-dark/70 mb-8">
-                  Lass uns gemeinsam an deiner Gesundheit arbeiten. Buche jetzt deinen Termin für {leistung.title} bei MOVIN.
+                  {leistung.isB2B 
+                    ? 'Investieren Sie in die Gesundheit Ihrer Mitarbeiter. Kontaktieren Sie uns für ein unverbindliches Erstgespräch.'
+                    : `Lass uns gemeinsam an deiner Gesundheit arbeiten. Buche jetzt deinen Termin für ${leistung.title} bei MOVIN.`}
                 </p>
-                <Link to="/termin/" className="btn-primary w-full justify-center text-lg py-4 shadow-lg shadow-primary/20 mb-4">
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Termin buchen
+                <Link 
+                  to={leistung.isB2B ? "/kontakt/" : "/termin/"} 
+                  className="btn-primary w-full justify-center text-lg py-4 shadow-lg shadow-primary/20 mb-4"
+                >
+                  {leistung.isB2B ? (
+                    <>
+                      <ArrowRight className="w-5 h-5 mr-2" />
+                      Angebot anfragen
+                    </>
+                  ) : (
+                    <>
+                      <Calendar className="w-5 h-5 mr-2" />
+                      Termin buchen
+                    </>
+                  )}
                 </Link>
                 <Link to="/leistungen/" className="flex items-center justify-center gap-2 text-primary font-medium hover:underline">
                   <ArrowRight className="w-4 h-4" /> Alle Leistungen ansehen

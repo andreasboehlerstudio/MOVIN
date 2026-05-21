@@ -14,7 +14,6 @@ import Termin from './pages/Termin';
 import DigitalApp from './pages/DigitalApp';
 import DigitalKi from './pages/DigitalKi';
 import DigitalHub from './pages/DigitalHub';
-import KISymptomcheck from './pages/KISymptomcheck';
 import Anamnesebogen from './pages/Anamnesebogen';
 import Training from './pages/Training';
 import StationaereVersorgung from './pages/StationaereVersorgung';
@@ -44,7 +43,6 @@ export default function App() {
             <Route path="digital" element={<DigitalHub />} />
             <Route path="digital/movin-app" element={<DigitalApp />} />
             <Route path="digital/ki-physiotherapie" element={<DigitalKi />} />
-            <Route path="digital/ki-symptomcheck" element={<KISymptomcheck />} />
             <Route path="digital/anamnesebogen" element={<Anamnesebogen />} />
             
             {/* Other Pages */}

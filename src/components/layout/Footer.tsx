@@ -1,9 +1,11 @@
 import { Link } from 'react-router';
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
 import Logo from '../common/Logo';
+import { getYearsOfExperience } from '../../data/companyInfo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const years = getYearsOfExperience();
 
   return (
     <footer className="bg-secondary text-white pt-20 pb-10">
@@ -15,7 +17,7 @@ export default function Footer() {
               <Logo className="h-12 w-auto" variant="white" />
             </Link>
             <p className="text-blue-tint/80 text-sm leading-relaxed max-w-xs">
-              Salutogenese – Hilfe zur Selbsthilfe. Deine innovative Physiotherapiepraxis mit 20+ Jahren Erfahrung in Freiburg und Rust.
+              Salutogenese – Hilfe zur Selbsthilfe. Deine innovative Physiotherapiepraxis mit {years}+ Jahren Erfahrung in Freiburg und Rust.
             </p>
             <div className="flex items-center gap-4 mt-2">
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-white">
@@ -74,6 +76,7 @@ export default function Footer() {
               <li><Link to="/leistungen/ruecken-therapie/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Rücken-Therapie</Link></li>
               <li><Link to="/leistungen/knie-schulter-therapie/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Knie- & Schulter</Link></li>
               <li><Link to="/leistungen/lymphdrainage/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Lymphdrainage</Link></li>
+              <li><Link to="/leistungen/betriebliche-gesundheitsfoerderung/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Betriebliche Gesundheitsförderung (BGF)</Link></li>
               <li><Link to="/leistungen/" className="text-primary hover:text-white transition-colors text-sm font-medium mt-2 inline-block">Alle Leistungen ansehen &rarr;</Link></li>
             </ul>
           </div>

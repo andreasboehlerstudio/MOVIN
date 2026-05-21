@@ -1,5 +1,6 @@
 {
   "name": "MOVIN Physiotherapie",
   "description": "Website Redesign für MOVIN Physiotherapie Freiburg & Europa-Park Rust",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

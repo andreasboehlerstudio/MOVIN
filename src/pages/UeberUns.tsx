@@ -2,15 +2,17 @@ import { Link } from 'react-router';
 import { Users, Target, Heart, ShieldCheck, Lightbulb, Award, Calendar, MapPin, Activity } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
+import { getYearsOfExperience } from '../data/companyInfo';
 
 export default function UeberUns() {
+  const years = getYearsOfExperience();
   const schema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     "mainEntity": {
       "@type": "Organization",
       "name": "MOVIN Physiotherapie",
-      "description": "Innovatives Therapiezentrum in Freiburg und Rust mit über 20 Jahren Erfahrung.",
+      "description": `Innovatives Therapiezentrum in Freiburg und Rust mit über ${years} Jahren Erfahrung.`,
       "url": "https://movin-freiburg.de/ueber-uns/"
     }
   };
@@ -35,19 +37,19 @@ export default function UeberUns() {
                 Über movin
               </h1>
               <p className="text-xl text-dark/80 leading-relaxed mb-8">
-                Seit über einem Jahrzehnt bewegen wir Menschen – innovativ, einfühlsam und mit höchstem therapeutischen Anspruch. An drei Standorten in der Region Freiburg vereinen wir modernste Behandlungsmethoden mit persönlicher Betreuung.
+                Seit über {years} Jahren bewegen wir Menschen – innovativ, einfühlsam und mit höchstem therapeutischen Anspruch. An drei Standorten in der Region Freiburg vereinen wir modernste Behandlungsmethoden mit persönlicher Betreuung.
               </p>
               <div className="flex flex-wrap gap-6 text-sm font-medium text-dark/70">
                 <div className="flex items-center gap-2"><Calendar className="w-5 h-5 text-primary" /> Seit 1998</div>
                 <div className="flex items-center gap-2"><MapPin className="w-5 h-5 text-primary" /> 3 Standorte</div>
-                <div className="flex items-center gap-2"><Users className="w-5 h-5 text-primary" /> 30+ Therapeut:innen</div>
+                <div className="flex items-center gap-2"><Users className="w-5 h-5 text-primary" /> 30+ Expert:innen</div>
               </div>
             </div>
             <div className="lg:w-1/2 w-full">
               <img 
-                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000" 
+                src="https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_RGB_gradient.png" 
                 alt="MOVIN Team" 
-                className="rounded-3xl shadow-2xl w-full object-cover h-[400px]"
+                className="rounded-3xl shadow-2xl w-full object-contain bg-white p-12 h-[400px]"
               />
             </div>
           </div>
@@ -169,17 +171,34 @@ export default function UeberUns() {
             <p className="text-lg text-dark/70">Erfahrene Therapeut:innen und Spezialist:innen für Ihre Gesundheit.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: 'Prof. Dr. Martin Klein', role: 'Gründer & Wissenschaftliche Leitung', spec: 'Physiotherapie, Sportwissenschaft', image: 'https://images.unsplash.com/photo-1559839734-2b71f1536783?auto=format&fit=crop&q=80&w=400&h=500' },
-              { name: 'Daniel Klein', role: 'Geschäftsführung', spec: 'Physiotherapie, Management', image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400&h=500' },
-              { name: 'Maik Forsbach', role: 'Physiotherapeut', spec: 'Manuelle Therapie, Sportphysiotherapie', image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400&h=500' },
-              { name: 'Mareike Klein', role: 'Physiotherapeutin', spec: 'Neurologie, Manuelle Lymphdrainage', image: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400&h=500' },
-              { name: 'Francisca Yanes Yanes', role: 'Physiotherapeutin', spec: 'Orthopädie, Rehabilitation', image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=400&h=500' },
-              { name: 'Jonas Wolfert', role: 'Physiotherapeut', spec: 'Sportphysiotherapie, Trainingstherapie', image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400&h=500' },
-              { name: 'Olga Schmidt', role: 'Physiotherapeutin', spec: 'Manuelle Therapie, CMD', image: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=400&h=500' },
-              { name: 'Sandra Kiefer-Weber', role: 'Büro & Organisation', spec: 'Patientenmanagement, Verwaltung', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=500' },
-              { name: 'Desiree Wiegel', role: 'Physiotherapeutin', spec: 'Pädiatrie, Orthopädie', image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=400&h=500' }
+              { name: 'Prof. Dr. Martin Klein', role: 'Gründer & Wissenschaftliche Leitung', spec: 'Physiotherapie, Sportwissenschaft', image: '/images/team/martin-klein.jpg' },
+              { name: 'Daniel Klein', role: 'Geschäftsführung', spec: 'Physiotherapie, Management', image: '/images/team/daniel-klein.jpg' },
+              { name: 'Maik Forsbach', role: 'Physiotherapeut', spec: 'Manuelle Therapie, Sportphysiotherapie', image: '/images/team/maik-forsbach.jpg' },
+              { name: 'Mareike Klein', role: 'Physiotherapeutin', spec: 'Neurologie, Manuelle Lymphdrainage', image: '/images/team/mareike-klein.jpg' },
+              { name: 'Francisca Yanes Yanes', role: 'Physiotherapeutin', spec: 'Orthopädie, Rehabilitation', image: '/images/team/francisca-yanes-yanes.jpg' },
+              { name: 'Desiree Wiegel', role: 'Physiotherapeutin', spec: 'Pädiatrie, Orthopädie', image: '/images/team/desiree-wiegel.jpg' },
+              { name: 'Jana Züge', role: 'Physiotherapeutin', spec: 'Manuelle Therapie, CMD', image: '/images/team/jana-zuege.jpg' },
+              { name: 'Claudia Andrich', role: 'Physiotherapeutin', spec: 'Orthopädie, Funktionelle Therapie', image: '/images/team/claudia-andrich.jpg' },
+              { name: 'Lina Haberstroh', role: 'Physiotherapeutin', spec: 'Neurologie, Rehabilitation', image: '/images/team/lina-haberstroh.jpg' },
+              { name: 'Mareike Strittmatter', role: 'Physiotherapeutin', spec: 'Manuelle Lymphdrainage, Wellness', image: '/images/team/mareike-strittmatter.jpg' },
+              { name: 'Jonas Wolfert', role: 'Physiotherapeut', spec: 'Sportphysiotherapie, Trainingstherapie', image: '/images/team/jonas-wolfert.jpg' },
+              { name: 'Olga Schmidt', role: 'Physiotherapeutin', spec: 'Manuelle Therapie, CMD', image: '/images/team/olga-schmidt.jpg' },
+              { name: 'Senka Dizdarevic', role: 'Physiotherapeutin', spec: 'Orthopädie, Manuelle Therapie', image: '/images/team/senka-dizdarevic.jpg' },
+              { name: 'Ellen Heilmann', role: 'Physiotherapeutin', spec: 'Neurologie, Bobath-Therapie', image: '/images/team/ellen-heilmann.jpg' },
+              { name: 'Maximilian Schmidt', role: 'Physiotherapeut', spec: 'Sportphysiotherapie, Athletiktraining', image: '/images/team/maximilian-schmidt.jpg' },
+              { name: 'Daniela Fichter', role: 'Büro & Organisation', spec: 'Patientenmanagement, Verwaltung', image: '/images/team/daniela-fichter.jpg' },
+              { name: 'Elina Kovacs', role: 'Büro & Organisation', spec: 'Verwaltung, Empfang', image: '/images/team/elina-kovacs.jpg' },
+              { name: 'Heidrun Brinkmann', role: 'Büro & Organisation', spec: 'Finanzen, Patientenmanagement', image: '/images/team/heidrun-brinkmann.jpg' },
+              { name: 'Max Stöhr', role: 'Dualer Student', spec: 'Physiotherapie, Training', image: '/images/team/max-stoehr.jpg' },
+              { name: 'Julius Leibold', role: 'Dualer Student', spec: 'Physiotherapie, Training', image: '/images/team/julius-leibold.jpg' },
+              { name: 'Marco Rebstock', role: 'Dualer Student', spec: 'Physiotherapie, Training', image: '/images/team/marco-rebstock.jpg' },
+              { name: 'Bianca Kohler', role: 'Physiotherapeutin', spec: 'Orthopädie, Rehabilitation', image: '/images/team/bianca-kohler.jpg' },
+              { name: 'Heather Mitgorden-Keller', role: 'Physiotherapeutin', spec: 'Sportphysiotherapie, Training', image: '/images/team/heather-mitgorden-keller.jpg' },
+              { name: 'Laura Walter', role: 'Physiotherapeutin', spec: 'Neurologie, Manuelle Therapie', image: '/images/team/laura-walter.jpg' },
+              { name: 'Lea Ruf', role: 'Physiotherapeutin', spec: 'Pädiatrie, Funktionelle Therapie', image: '/images/team/lea-ruf.jpg' },
+              { name: 'Mara Schöneck', role: 'Physiotherapeutin', spec: 'Sportphysiotherapie, Rehabilitation', image: '/images/team/mara-schoeneck.jpg' }
             ].map((member, i) => (
               <div key={i} className="card-base group">
                 <div className="relative h-80 overflow-hidden">

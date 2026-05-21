@@ -21,14 +21,6 @@ const digitalServices = [
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800'
   },
   {
-    title: 'KI Symptomcheck',
-    description: 'Erhalte eine erste Einschätzung deiner Beschwerden durch unsere intelligente KI-Analyse.',
-    path: '/digital/ki-symptomcheck',
-    icon: Activity,
-    color: 'bg-teal-500',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800'
-  },
-  {
     title: 'Digitaler Anamnesebogen',
     description: 'Bereite dich optimal auf deinen Termin vor. Fülle deinen Anamnesebogen bequem und sicher von zu Hause aus.',
     path: '/digital/anamnesebogen',
@@ -43,7 +35,7 @@ export default function DigitalHub() {
     <>
       <SEO 
         title="Digital Health | MOVIN Physiotherapie Freiburg"
-        description="Entdecke unsere digitalen Services: Von der MOVIN App über KI-gestützte Physiotherapie bis hin zum intelligenten Symptomcheck."
+        description="Entdecke unsere digitalen Services: Von der MOVIN App über KI-gestützte Physiotherapie bis hin zum digitalen Anamnesebogen."
       />
 
       {/* Hero Section */}

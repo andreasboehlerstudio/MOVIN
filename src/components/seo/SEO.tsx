@@ -1,4 +1,6 @@
+import React, { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router';
 
 interface SEOProps {
   title: string;
@@ -10,7 +12,18 @@ interface SEOProps {
 export default function SEO({ title, description, canonical, schema }: SEOProps) {
   const siteName = "MOVIN Physiotherapie Freiburg";
   const fullTitle = `${title} | ${siteName}`;
-  const currentUrl = canonical || (typeof window !== 'undefined' ? window.location.href : '');
+  const location = useLocation();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  const baseUrl = "https://movin-freiburg.de";
+  const currentUrl = useMemo(() => {
+    if (canonical) return canonical;
+    return `${baseUrl}${location.pathname}${location.search}`;
+  }, [canonical, location.pathname, location.search]);
 
   return (
     <Helmet>
