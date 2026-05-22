@@ -49,7 +49,14 @@ export default function UeberUns() {
               <img 
                 src="https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_RGB_gradient.png" 
                 alt="MOVIN Team" 
-                className="rounded-3xl shadow-2xl w-full object-contain bg-white p-12 h-[400px]"
+                className="rounded-3xl shadow-2xl w-full object-contain bg-white p-12 h-[400px] dark:hidden"
+                referrerPolicy="no-referrer"
+              />
+              <img 
+                src="https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_1C_pos.png" 
+                alt="MOVIN Team" 
+                className="rounded-3xl shadow-2xl w-full object-contain bg-white p-12 h-[400px] hidden dark:block"
+                referrerPolicy="no-referrer"
               />
             </div>
           </div>
@@ -173,32 +180,189 @@ export default function UeberUns() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: 'Prof. Dr. Martin Klein', role: 'Gründer & Wissenschaftliche Leitung', spec: 'Physiotherapie, Sportwissenschaft', image: '/images/team/martin-klein.jpg' },
-              { name: 'Daniel Klein', role: 'Geschäftsführung', spec: 'Physiotherapie, Management', image: '/images/team/daniel-klein.jpg' },
-              { name: 'Maik Forsbach', role: 'Physiotherapeut', spec: 'Manuelle Therapie, Sportphysiotherapie', image: '/images/team/maik-forsbach.jpg' },
-              { name: 'Mareike Klein', role: 'Physiotherapeutin', spec: 'Neurologie, Manuelle Lymphdrainage', image: '/images/team/mareike-klein.jpg' },
-              { name: 'Francisca Yanes Yanes', role: 'Physiotherapeutin', spec: 'Orthopädie, Rehabilitation', image: '/images/team/francisca-yanes-yanes.jpg' },
-              { name: 'Desiree Wiegel', role: 'Physiotherapeutin', spec: 'Pädiatrie, Orthopädie', image: '/images/team/desiree-wiegel.jpg' },
-              { name: 'Jana Züge', role: 'Physiotherapeutin', spec: 'Manuelle Therapie, CMD', image: '/images/team/jana-zuege.jpg' },
-              { name: 'Claudia Andrich', role: 'Physiotherapeutin', spec: 'Orthopädie, Funktionelle Therapie', image: '/images/team/claudia-andrich.jpg' },
-              { name: 'Lina Haberstroh', role: 'Physiotherapeutin', spec: 'Neurologie, Rehabilitation', image: '/images/team/lina-haberstroh.jpg' },
-              { name: 'Mareike Strittmatter', role: 'Physiotherapeutin', spec: 'Manuelle Lymphdrainage, Wellness', image: '/images/team/mareike-strittmatter.jpg' },
-              { name: 'Jonas Wolfert', role: 'Physiotherapeut', spec: 'Sportphysiotherapie, Trainingstherapie', image: '/images/team/jonas-wolfert.jpg' },
-              { name: 'Olga Schmidt', role: 'Physiotherapeutin', spec: 'Manuelle Therapie, CMD', image: '/images/team/olga-schmidt.jpg' },
-              { name: 'Senka Dizdarevic', role: 'Physiotherapeutin', spec: 'Orthopädie, Manuelle Therapie', image: '/images/team/senka-dizdarevic.jpg' },
-              { name: 'Ellen Heilmann', role: 'Physiotherapeutin', spec: 'Neurologie, Bobath-Therapie', image: '/images/team/ellen-heilmann.jpg' },
-              { name: 'Maximilian Schmidt', role: 'Physiotherapeut', spec: 'Sportphysiotherapie, Athletiktraining', image: '/images/team/maximilian-schmidt.jpg' },
-              { name: 'Daniela Fichter', role: 'Büro & Organisation', spec: 'Patientenmanagement, Verwaltung', image: '/images/team/daniela-fichter.jpg' },
-              { name: 'Elina Kovacs', role: 'Büro & Organisation', spec: 'Verwaltung, Empfang', image: '/images/team/elina-kovacs.jpg' },
-              { name: 'Heidrun Brinkmann', role: 'Büro & Organisation', spec: 'Finanzen, Patientenmanagement', image: '/images/team/heidrun-brinkmann.jpg' },
-              { name: 'Max Stöhr', role: 'Dualer Student', spec: 'Physiotherapie, Training', image: '/images/team/max-stoehr.jpg' },
-              { name: 'Julius Leibold', role: 'Dualer Student', spec: 'Physiotherapie, Training', image: '/images/team/julius-leibold.jpg' },
-              { name: 'Marco Rebstock', role: 'Dualer Student', spec: 'Physiotherapie, Training', image: '/images/team/marco-rebstock.jpg' },
-              { name: 'Bianca Kohler', role: 'Physiotherapeutin', spec: 'Orthopädie, Rehabilitation', image: '/images/team/bianca-kohler.jpg' },
-              { name: 'Heather Mitgorden-Keller', role: 'Physiotherapeutin', spec: 'Sportphysiotherapie, Training', image: '/images/team/heather-mitgorden-keller.jpg' },
-              { name: 'Laura Walter', role: 'Physiotherapeutin', spec: 'Neurologie, Manuelle Therapie', image: '/images/team/laura-walter.jpg' },
-              { name: 'Lea Ruf', role: 'Physiotherapeutin', spec: 'Pädiatrie, Funktionelle Therapie', image: '/images/team/lea-ruf.jpg' },
-              { name: 'Mara Schöneck', role: 'Physiotherapeutin', spec: 'Sportphysiotherapie, Rehabilitation', image: '/images/team/mara-schoeneck.jpg' }
+              { 
+                name: 'Prof. Dr. Martin Klein', 
+                category: 'Gründer & Wissenschaftliche Leitung', 
+                role: 'Facharzt für Orthopädie und Unfallchirurgie, Chirurgie, Sportmedizin, Rehabilitationswesen', 
+                spec: 'Beratung und Behandlung von Privatpatienten, Dozent, Studienleitung ISBA', 
+                image: '/images/team/martin-klein.jpg' 
+              },
+              { 
+                name: 'Daniel Klein', 
+                category: 'Geschäftsleitung', 
+                role: 'Physiotherapeut / Fachkraft betriebliches Gesundheitsmanagement', 
+                spec: 'Schulter / Knie / Kiefer', 
+                image: '/images/team/daniel-klein.jpg' 
+              },
+              { 
+                name: 'Maik Forsbach', 
+                category: 'Anmeldung / Verwaltung', 
+                role: 'Bürokaufmann / Wirtschaftsfachwirt (IHK)', 
+                spec: 'Verwaltung / Rezeption', 
+                image: '/images/team/maik-forsbach.jpg' 
+              },
+              { 
+                name: 'Mareike Klein', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin', 
+                spec: 'Knie / Sprunggelenk / Kiefer', 
+                image: '/images/team/mareike-klein.jpg' 
+              },
+              { 
+                name: 'Francisca Yanes Yanes', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin', 
+                spec: 'Wirbelsäule / Schulter / Hüfte', 
+                status: 'Mutterschutz', 
+                image: '/images/team/francisca-yanes-yanes.jpg' 
+              },
+              { 
+                name: 'Desiree Wiegel', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin B.A.', 
+                spec: 'Schulter / Fuß / Knie', 
+                image: '/images/team/desiree-wiegel.jpg' 
+              },
+              { 
+                name: 'Jana Züge', 
+                category: 'Anmeldung / Verwaltung', 
+                role: 'Hotelkauffrau', 
+                spec: 'Verwaltung / Anmeldung', 
+                image: '/images/team/jana-zuege.jpg' 
+              },
+              { 
+                name: 'Claudia Andrich', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin', 
+                spec: 'Kiefer / Rücken / Knie', 
+                image: '/images/team/claudia-andrich.jpg' 
+              },
+              { 
+                name: 'Lina Haberstroh', 
+                category: 'Anmeldung / Verwaltung', 
+                role: 'Rezeptionistin', 
+                spec: 'Anmeldung', 
+                image: '/images/team/lina-haberstroh.jpg' 
+              },
+              { 
+                name: 'Mareike Strittmatter', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin B.Sc.', 
+                spec: 'Hüfte / Rücken / Knie', 
+                image: '/images/team/mareike-strittmatter.jpg' 
+              },
+              { 
+                name: 'Jonas Wolfert', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeut', 
+                spec: 'Knie / Schulter / Hüfte', 
+                image: '/images/team/jonas-wolfert.jpg' 
+              },
+              { 
+                name: 'Olga Schmidt', 
+                category: 'Anmeldung / Verwaltung', 
+                role: 'Kauffrau', 
+                spec: 'Verwaltung / Anmeldung', 
+                image: '/images/team/olga-schmidt.jpg' 
+              },
+              { 
+                name: 'Senka Dizdarevic', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin', 
+                spec: 'Stationäre Versorgung', 
+                image: '/images/team/senka-dizdarevic.jpg' 
+              },
+              { 
+                name: 'Ellen Heilmann', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin', 
+                spec: 'Orthopädie / Station / Intensiv', 
+                image: '/images/team/ellen-heilmann.jpg' 
+              },
+              { 
+                name: 'Maximilian Schmidt', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeut', 
+                spec: 'Hand / Knie / Hüfte', 
+                image: '/images/team/maximilian-schmidt.jpg' 
+              },
+              { 
+                name: 'Daniela Fichter', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin', 
+                spec: 'Knie / Hüfte / Sprunggelenk', 
+                image: '/images/team/daniela-fichter.jpg' 
+              },
+              { 
+                name: 'Elina Kovacs', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin & Osteopathin', 
+                spec: 'Hws / Knie / Hüfte', 
+                image: '/images/team/elina-kovacs.jpg' 
+              },
+              { 
+                name: 'Heidrun Brinkmann', 
+                category: 'Anmeldung / Verwaltung', 
+                role: 'Bankkauffrau', 
+                spec: 'Verwaltung / Abrechnung / Terminierung', 
+                image: '/images/team/heidrun-brinkmann.jpg' 
+              },
+              { 
+                name: 'Max Stöhr', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeut', 
+                spec: 'Knie / Hüfte / Sprunggelenk', 
+                image: '/images/team/max-stoehr.jpg' 
+              },
+              { 
+                name: 'Julius Leibold', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeut', 
+                spec: 'Knie / Fuss / Schulter', 
+                image: '/images/team/julius-leibold.jpg' 
+              },
+              { 
+                name: 'Marco Rebstock', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeut', 
+                spec: 'Hüfte / Knie / Wirbelsäule', 
+                image: '/images/team/marco-rebstock.jpg' 
+              },
+              { 
+                name: 'Bianca Kohler', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin', 
+                spec: 'Hüfte / Schulter / Knie', 
+                image: '/images/team/bianca-kohler.jpg' 
+              },
+              { 
+                name: 'Heather Mitgorden-Keller', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin', 
+                spec: 'Station', 
+                image: '/images/team/heather-mitgorden-keller.jpg' 
+              },
+              { 
+                name: 'Laura Walter', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin', 
+                spec: 'Hüfte / Schulter / Knie', 
+                image: '/images/team/laura-walter.jpg' 
+              },
+              { 
+                name: 'Lea Ruf', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin', 
+                spec: 'Hüfte / Knie / HWS', 
+                image: '/images/team/lea-ruf.jpg' 
+              },
+              { 
+                name: 'Mara Schöneck', 
+                category: 'Physiotherapie', 
+                role: 'Physiotherapeutin', 
+                spec: 'Knie / Hüfte / Wirbelsäule', 
+                image: '/images/team/mara-schoeneck.jpg' 
+              }
             ].map((member, i) => (
               <div key={i} className="card-base group">
                 <div className="relative h-80 overflow-hidden">
@@ -208,13 +372,32 @@ export default function UeberUns() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <p className="text-white text-sm font-medium">{member.spec}</p>
+                  {/* Real Live-Website Overlay on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/85 to-secondary/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-left border-b-4 border-primary">
+                    <div className="space-y-3">
+                      <div>
+                        <span className="text-[10px] uppercase tracking-wider text-primary font-bold block mb-0.5">Berufsbezeichnung</span>
+                        <p className="text-white text-xs font-semibold leading-snug">{member.role}</p>
+                      </div>
+                      {member.spec && (
+                        <div>
+                          <span className="text-[10px] uppercase tracking-wider text-primary font-bold block mb-0.5">Fachgebiet</span>
+                          <p className="text-slate-200 text-xs leading-normal font-medium">{member.spec}</p>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
                 <div className="p-6">
                   <h4 className="font-bold text-secondary text-xl mb-1">{member.name}</h4>
-                  <p className="text-primary font-semibold text-sm">{member.role}</p>
+                  <div className="flex flex-col gap-1.5">
+                    <p className="text-primary font-semibold text-sm">{member.category}</p>
+                    {('status' in member) && (member as any).status && (
+                      <span className="inline-block self-start px-2.5 py-0.5 bg-amber-100 dark:bg-amber-950/40 text-amber-800 dark:text-amber-400 border border-amber-200 dark:border-amber-900/30 text-[11px] font-bold rounded-full uppercase tracking-wider">
+                        {(member as any).status}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

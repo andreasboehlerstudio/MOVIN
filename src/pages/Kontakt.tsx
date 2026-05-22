@@ -68,8 +68,8 @@ export default function Kontakt() {
                       <a href="tel:+497617073366" className="flex items-center gap-2 text-primary hover:underline mb-1">
                         <Phone className="w-4 h-4" /> +49 761 707 33 66
                       </a>
-                      <a href="mailto:lorettoberg@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
-                        <Mail className="w-4 h-4" /> lorettoberg@movin-freiburg.de
+                      <a href="mailto:kontakt@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
+                        <Mail className="w-4 h-4" /> kontakt@movin-freiburg.de
                       </a>
                     </div>
                   </div>
@@ -85,8 +85,8 @@ export default function Kontakt() {
                       <a href="tel:+497617073377" className="flex items-center gap-2 text-primary hover:underline mb-1">
                         <Phone className="w-4 h-4" /> +49 761 707 33 77
                       </a>
-                      <a href="mailto:mooswald@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
-                        <Mail className="w-4 h-4" /> mooswald@movin-freiburg.de
+                      <a href="mailto:physiotherapie.mooswald@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
+                        <Mail className="w-4 h-4" /> physiotherapie.mooswald@movin-freiburg.de
                       </a>
                     </div>
                   </div>
@@ -99,11 +99,11 @@ export default function Kontakt() {
                     <div>
                       <h4 className="font-bold text-secondary text-lg mb-1">Europa-Park (Rust)</h4>
                       <p className="text-dark/70 mb-2">Peter-Thumb-Str. 8, 77977 Rust</p>
-                      <a href="tel:+497617073377" className="flex items-center gap-2 text-primary hover:underline mb-1">
-                        <Phone className="w-4 h-4" /> +49 761 707 33 77
+                      <a href="tel:+497617073366" className="flex items-center gap-2 text-primary hover:underline mb-1">
+                        <Phone className="w-4 h-4" /> +49 761 707 33 66
                       </a>
-                      <a href="mailto:rust@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
-                        <Mail className="w-4 h-4" /> rust@movin-freiburg.de
+                      <a href="mailto:europapark.physio@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
+                        <Mail className="w-4 h-4" /> europapark.physio@movin-freiburg.de
                       </a>
                     </div>
                   </div>

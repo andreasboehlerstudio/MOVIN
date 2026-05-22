@@ -111,25 +111,6 @@ export default function StandortPage() {
                 </div>
               )}
 
-              {/* Gallery */}
-              {standort.gallery && (
-                <div>
-                  <h3 className="text-2xl font-bold text-secondary mb-8">Einblicke in unsere Praxis</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {standort.gallery.map((img, i) => (
-                      <div key={i} className={`relative overflow-hidden rounded-2xl shadow-lg ${i === 0 ? 'sm:col-span-2 h-80' : 'h-60'}`}>
-                        <img 
-                          src={img} 
-                          alt={`${standort.name} Impression ${i + 1}`} 
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                          referrerPolicy="no-referrer"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {/* Team Preview */}
               <div>
                 <h2 className="text-3xl font-bold text-secondary mb-8">Dein Team vor Ort</h2>
@@ -187,15 +168,35 @@ export default function StandortPage() {
                     <div className="w-10 h-10 rounded-full bg-mint flex items-center justify-center text-primary shrink-0">
                       <Clock className="w-5 h-5" />
                     </div>
-                    <div>
-                      <h4 className="font-bold text-secondary mb-1">Öffnungszeiten</h4>
-                      <table className="text-sm text-dark/70 w-full">
-                        <tbody>
-                          <tr><td className="py-1 pr-4">Mo - Fr</td><td className="py-1">08:00 - 19:00 Uhr</td></tr>
-                          <tr><td className="py-1 pr-4">Samstag</td><td className="py-1">Nach Vereinbarung</td></tr>
-                          <tr><td className="py-1 pr-4">Sonntag</td><td className="py-1">Geschlossen</td></tr>
-                        </tbody>
-                      </table>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-secondary mb-2">Öffnungszeiten</h4>
+                      {standort.openingHours ? (
+                        <div className="flex flex-col gap-4">
+                          {standort.openingHours.map((section, idx) => (
+                            <div key={idx}>
+                              <h5 className="font-semibold text-secondary text-sm mb-1">{section.title}</h5>
+                              <table className="text-sm text-dark/70 w-full">
+                                <tbody>
+                                  {section.hours.map((h, hIdx) => (
+                                    <tr key={hIdx}>
+                                      <td className="py-0.5 pr-4 align-top font-medium">{h.days}</td>
+                                      <td className="py-0.5 align-top">{h.range}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <table className="text-sm text-dark/70 w-full">
+                          <tbody>
+                            <tr><td className="py-1 pr-4">Mo - Fr</td><td className="py-1">08:00 - 19:00 Uhr</td></tr>
+                            <tr><td className="py-1 pr-4">Samstag</td><td className="py-1">Nach Vereinbarung</td></tr>
+                            <tr><td className="py-1 pr-4">Sonntag</td><td className="py-1">Geschlossen</td></tr>
+                          </tbody>
+                        </table>
+                      )}
                     </div>
                   </div>
                 </div>

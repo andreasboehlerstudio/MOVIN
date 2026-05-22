@@ -4,6 +4,7 @@
 @theme {
   --color-primary: #00c2cb;
   --color-primary-hover: #00a8af;
+  --color-primary-light: #3be3eb;
   --color-secondary: #0a0f4d;
   --color-dark: #101828;
   --color-light: #f9fafb;
@@ -16,15 +17,26 @@
   --font-heading: "Outfit", ui-sans-serif, system-ui, sans-serif;
 }
 
+@variant dark (&:where(.dark, .dark *));
+
+.dark {
+  --color-secondary: #050716;
+  --color-dark: #f1f5f9;
+  --color-light: #070913;
+  --color-mint: rgba(0, 194, 203, 0.15);
+  --color-blue-tint: #cbd5e1;
+  --color-border: #1e293b;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply font-sans text-slate-700 bg-white antialiased leading-relaxed;
+    @apply font-sans text-slate-700 dark:text-slate-200 bg-white dark:bg-[#070913] antialiased leading-relaxed transition-colors duration-200;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading text-secondary font-bold tracking-tight leading-tight;
+    @apply font-heading text-secondary dark:text-white font-bold tracking-tight leading-tight;
   }
   h1 {
     @apply text-4xl md:text-5xl lg:text-6xl font-extrabold;
@@ -48,16 +60,16 @@
     @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
   .card-base {
-    @apply bg-white border border-border rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden;
+    @apply bg-white dark:bg-[#0d122b] border border-border dark:border-[#1e293b] rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden;
   }
   .btn-primary {
     @apply inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-full text-white bg-primary hover:bg-primary-hover hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md;
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-full text-white bg-secondary hover:bg-[#0a0f4de6] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md;
+    @apply inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-full text-white bg-secondary hover:bg-[#0a0f4de6] dark:bg-white dark:text-secondary dark:hover:bg-slate-200 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 shadow-md;
   }
   .btn-outline {
-    @apply inline-flex items-center justify-center px-8 py-3.5 border-2 border-border text-base font-semibold rounded-full text-secondary bg-white hover:border-primary hover:text-primary hover:shadow-md hover:-translate-y-0.5 transition-all duration-300;
+    @apply inline-flex items-center justify-center px-8 py-3.5 border-2 border-border dark:border-[#1e293b] text-base font-semibold rounded-full text-secondary dark:text-slate-200 bg-white dark:bg-[#0d122b] hover:border-primary dark:hover:border-primary hover:text-primary dark:hover:text-primary hover:shadow-md hover:-translate-y-0.5 transition-all duration-300;
   }
   .text-gradient-teal-mint {
     @apply bg-gradient-to-r from-[#B4DFBB] to-[#00b2ba] bg-clip-text text-transparent;
@@ -66,3 +78,35 @@
     @apply bg-gradient-to-r from-[#B4DFBB] to-[#00b2ba];
   }
 }
+
+/* Force dark mode section adjustments for hardcoded light classes */
+.dark :not(.pdf-page):not(.pdf-page *) .bg-white {
+  background-color: #0d122b !important;
+}
+
+.dark :not(.pdf-page):not(.pdf-page *) .bg-light {
+  background-color: #070913 !important;
+}
+
+.dark .from-white {
+  --tw-gradient-from: #0d122b !important;
+}
+
+.dark .border-border, 
+.dark .border-gray-100, 
+.dark .border-gray-200 {
+  border-color: #1e293b !important;
+}
+
+.dark .text-dark\/70 {
+  color: rgba(241, 245, 249, 0.70) !important;
+}
+
+.dark .text-dark\/80 {
+  color: rgba(241, 245, 249, 0.80) !important;
+}
+
+.dark .text-secondary {
+  color: #f8fafc !important;
+}
+

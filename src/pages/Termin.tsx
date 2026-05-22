@@ -1,8 +1,15 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
-import { Calendar, Clock, MapPin, ArrowRight, ClipboardList } from 'lucide-react';
+import { Calendar, Clock, MapPin, ArrowRight, ClipboardList, Smartphone, Download, Upload, CalendarCheck, ChevronRight } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
 import SEO from '../components/seo/SEO';
 
 export default function Termin() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -27,7 +34,7 @@ export default function Termin() {
           </div>
           <h1 className="text-4xl md:text-6xl font-black mb-6 text-gradient-teal-mint">Buche deinen Termin</h1>
           <p className="text-xl text-dark/80 leading-relaxed">
-            Wähle deinen bevorzugten Standort und buche deinen Termin bequem online oder telefonisch.
+            Wähle den modernsten Buchungsweg über unsere App oder buche klassisch online bzw. telefonisch an einem unserer Standorte.
           </p>
         </div>
       </section>
@@ -35,9 +42,145 @@ export default function Termin() {
       {/* Booking Options */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          
+
+          {/* FIRST & PRINCIPLE OPTION: App Booking & 3-Step Guide */}
+          <div className="max-w-5xl mx-auto mb-20 bg-gradient-to-br from-[#0a0f4d] to-secondary rounded-[2.5rem] p-8 md:p-12 text-white shadow-xl relative overflow-hidden">
+            {/* Background decorative elements */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full translate-x-20 -translate-y-20 shrink-0 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-72 h-72 bg-[#00b2ba]/5 rounded-full -translate-x-20 translate-y-20 shrink-0 pointer-events-none" />
+
+            <div className="relative z-10">
+              <div className="flex flex-col lg:flex-row gap-10 items-center">
+                {/* Left text column */}
+                <div className="w-full lg:w-1/2">
+                  <span className="bg-primary/20 text-primary-light text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full inline-block mb-4">
+                    Empfohlen & am schnellsten
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4 text-gradient-teal-mint">
+                    Termine bequem per MOVIN App buchen
+                  </h2>
+                  <p className="text-blue-tint/90 text-sm leading-relaxed mb-6">
+                    Keine Warteschleifen mehr am Telefon und volle Kontrolle: Verwalte, buche, verschiebe oder storniere deine Physiotherapie-Termine rund um die Uhr direkt über dein Smartphone.
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    <Link to="/digital/movin-app" className="btn-primary flex items-center gap-2">
+                      <Smartphone className="w-4 h-4" />
+                      Alles über die MOVIN App
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Right app download badges & Scan */}
+                <div id="app-download-box" className="w-full lg:w-1/2 bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-sm flex flex-col sm:flex-row gap-6 items-center">
+                  <div id="qr-code-containers" className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 w-full justify-between items-center">
+                    
+                    {/* iOS Download Section */}
+                    <div id="ios-download" className="flex flex-col items-center bg-white/5 rounded-2xl p-4 border border-white/10 w-full sm:w-1/2 lg:w-full xl:w-1/2 transition-colors hover:bg-white/10">
+                      <div className="bg-[#ffffff] p-2 rounded-xl shadow-lg shrink-0 flex items-center justify-center mb-3">
+                        {isMounted ? (
+                          <QRCodeSVG 
+                            value="https://apps.apple.com/de/app/movin/id6503604248" 
+                            size={120} 
+                            level="H" 
+                            includeMargin={true}
+                            bgColor="#ffffff"
+                            fgColor="#0a0f4d"
+                          />
+                        ) : (
+                          <div className="w-[120px] h-[120px] bg-white/10 animate-pulse rounded-lg" />
+                        )}
+                      </div>
+                      <span className="text-[10px] font-bold text-primary-light uppercase tracking-wider mb-2">iOS / iPhone</span>
+                      <a 
+                        href="https://apps.apple.com/de/app/movin/id6503604248" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="w-full py-2 bg-primary hover:bg-primary-hover text-secondary font-heading font-extrabold rounded-xl text-[11px] uppercase tracking-wider text-center transition-all hover:scale-105"
+                      >
+                        App Store
+                      </a>
+                    </div>
+
+                    {/* Google Play Section */}
+                    <div id="android-download" className="flex flex-col items-center bg-white/5 rounded-2xl p-4 border border-white/10 w-full sm:w-1/2 lg:w-full xl:w-1/2 transition-colors hover:bg-white/10">
+                      <div className="bg-[#ffffff] p-2 rounded-xl shadow-lg shrink-0 flex items-center justify-center mb-3">
+                        {isMounted ? (
+                          <QRCodeSVG 
+                            value="https://play.google.com/store/apps/details?id=de.hybric.therapiezentrum_app" 
+                            size={120} 
+                            level="H" 
+                            includeMargin={true}
+                            bgColor="#ffffff"
+                            fgColor="#0a0f4d"
+                          />
+                        ) : (
+                          <div className="w-[120px] h-[120px] bg-white/10 animate-pulse rounded-lg" />
+                        )}
+                      </div>
+                      <span className="text-[10px] font-bold text-primary-light uppercase tracking-wider mb-2">Android / Google</span>
+                      <a 
+                        href="https://play.google.com/store/apps/details?id=de.hybric.therapiezentrum_app" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="w-full py-2 bg-primary hover:bg-primary-hover text-secondary font-heading font-extrabold rounded-xl text-[11px] uppercase tracking-wider text-center transition-all hover:scale-105"
+                      >
+                        Play Store
+                      </a>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              {/* 3 Steps Section */}
+              <div className="mt-12 border-t border-white/10 pt-10">
+                <h3 className="text-lg md:text-xl font-bold mb-8 text-center text-white">In 3 Schritten zu deinem Wunschtermin</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+                  
+                  {/* Verbindungslinie für Desktops */}
+                  <div className="hidden md:block absolute top-7 left-[15%] right-[15%] h-[1px] bg-white/15 z-0" />
+                  
+                  {[
+                    {
+                      step: '1',
+                      title: 'App herunterladen',
+                      desc: 'Installiere die kostenfreie MOVIN App auf deinem Smartphone aus dem Store.',
+                      icon: Download
+                    },
+                    {
+                      step: '2',
+                      title: 'Rezept hochladen',
+                      desc: 'Fotografiere deine Verordnung einfach per App ab oder lade das PDF direkt hoch.',
+                      icon: Upload
+                    },
+                    {
+                      step: '3',
+                      title: 'Termine erhalten',
+                      desc: 'Unser Service-Team schickt dir freie Terminoptionen, die du sofort bestätigen kannst.',
+                      icon: CalendarCheck
+                    }
+                  ].map((item, index) => {
+                    const StepIcon = item.icon;
+                    return (
+                      <div key={index} className="relative z-10 flex flex-col items-center">
+                        <div className="w-14 h-14 rounded-full bg-secondary-dark border border-primary shadow-inner flex items-center justify-center text-primary-light mb-4 transform hover:scale-110 transition-transform duration-300">
+                          <StepIcon className="w-5 h-5" />
+                        </div>
+                        <div className="bg-white/5 border border-white/5 p-5 rounded-2xl w-full text-center">
+                          <span className="text-[10px] font-black text-primary uppercase tracking-widest block mb-1">Schritt {item.step}</span>
+                          <h4 className="font-bold text-sm text-white mb-1">{item.title}</h4>
+                          <p className="text-xs text-blue-tint/75 leading-relaxed">{item.desc}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* 48h Guarantee Banner */}
-          <div className="max-w-4xl mx-auto bg-primary/10 border border-primary/20 rounded-2xl p-6 md:p-8 mb-8 flex flex-col md:flex-row items-center gap-6">
+          <div className="max-w-4xl mx-auto bg-primary/10 border border-primary/20 rounded-2xl p-6 md:p-8 mb-16 flex flex-col md:flex-row items-center gap-6">
             <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white shrink-0 shadow-lg">
               <Clock className="w-8 h-8" />
             </div>
@@ -52,23 +195,6 @@ export default function Termin() {
             </a>
           </div>
 
-          {/* App Booking Highlight */}
-          <div className="max-w-4xl mx-auto bg-mint/20 border border-mint/40 rounded-2xl p-6 md:p-8 mb-16 flex flex-col md:flex-row items-center gap-6">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-              <Calendar className="w-8 h-8" />
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold text-secondary mb-2">Termine bequem per App buchen</h3>
-              <p className="text-dark/80">
-                Keine Warteschleifen mehr am Telefon: Buche, verschiebe oder storniere deine Physiotherapie-Termine rund um die Uhr direkt über dein Smartphone in der MOVIN App.
-              </p>
-            </div>
-            <Link to="/digital/movin-app/" className="btn-primary shrink-0 md:ml-auto flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
-              Zur App
-            </Link>
-          </div>
-
           {/* Anamnesebogen Highlight */}
           <div className="max-w-4xl mx-auto bg-primary/5 border border-primary/10 rounded-2xl p-6 md:p-8 mb-16 flex flex-col md:flex-row items-center gap-6">
             <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center text-primary shrink-0 shadow-sm border border-primary/10">
@@ -80,12 +206,18 @@ export default function Termin() {
                 <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded-full">Jederzeit</span>
               </div>
               <p className="text-dark/80">
-                Sparen Sie Zeit bei Ihrem ersten Termin und füllen Sie unseren Anamnesebogen bereits vorab digital aus – ganz bequem von zu Hause und zu jeder Zeit.
+                Sparen Sie zeitliche Abstimmungen bei Ihrem ersten Termin und füllen Sie unseren Anamnesebogen bereits vorab digital aus – ganz bequem von zu Hause und zu jeder Zeit.
               </p>
             </div>
-            <Link to="/digital/anamnesebogen/" className="btn-primary shrink-0 md:ml-auto">
+            <Link to="/digital/anamnesebogen" className="btn-primary shrink-0 md:ml-auto">
               Bogen ausfüllen
             </Link>
+          </div>
+
+          {/* Standorte Grid */}
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl font-extrabold text-secondary">Klassische Terminvereinbarung</h2>
+            <p className="text-dark/70 text-sm mt-3">Du möchtest direkt online über Doctolib oder per Telefon einen Termin für einen bestimmten Standort vereinbaren?</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -137,8 +269,8 @@ export default function Termin() {
                 <a href="https://www.doctolib.de" target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center">
                   Online buchen
                 </a>
-                <a href="tel:+497617073377" className="btn-outline w-full justify-center">
-                  +49 761 707 33 77
+                <a href="tel:+497617073366" className="btn-outline w-full justify-center">
+                  +49 761 707 33 66
                 </a>
               </div>
             </div>
@@ -148,7 +280,7 @@ export default function Termin() {
             <p className="text-dark/70 mb-4">
               Du bist dir unsicher, welche Behandlung die richtige für dich ist?
             </p>
-            <Link to="/kontakt/" className="flex items-center justify-center gap-2 text-primary font-medium hover:underline">
+            <Link to="/kontakt" className="flex items-center justify-center gap-2 text-primary font-medium hover:underline">
               Schreib uns eine Nachricht <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

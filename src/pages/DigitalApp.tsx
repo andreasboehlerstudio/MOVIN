@@ -14,8 +14,8 @@ export default function DigitalApp() {
     setIsMounted(true);
   }, []);
 
-  const iosUrl = "https://apps.apple.com/app/movin-physiotherapie/id123456789";
-  const androidUrl = "https://play.google.com/store/apps/details?id=de.movin.app";
+  const iosUrl = "https://apps.apple.com/de/app/movin/id6503604248";
+  const androidUrl = "https://play.google.com/store/apps/details?id=de.hybric.therapiezentrum_app";
 
   const schema = {
     "@context": "https://schema.org",
@@ -126,16 +126,16 @@ export default function DigitalApp() {
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">So einfach geht's</h2>
-            <p className="text-lg text-dark/70">In drei Schritten zu deiner digitalen Therapie-Unterstützung.</p>
+            <p className="text-lg text-dark/70">In drei Schritten zu deinem Wunschtermin.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-primary/10 -translate-y-1/2 z-0" />
             
             {[
-              { step: "01", title: "App herunterladen", desc: "Lade die MOVIN App im App Store oder Google Play Store herunter." },
-              { step: "02", title: "Zugang erhalten", desc: "Deine persönlichen Zugangsdaten erhältst du bei deinem ersten Termin in unserer Praxis." },
-              { step: "03", title: "Therapie starten", desc: "Logge dich ein und starte mit deinem individuellen Trainingsplan direkt durch." }
+              { step: "01", title: "App herunterladen", desc: "Lade die kostenfreie MOVIN App im App Store oder Google Play Store herunter." },
+              { step: "02", title: "Rezepte hochladen", desc: "Fotografiere deine ärztliche Verordnung einfach per App ab oder lade das PDF direkt hoch." },
+              { step: "03", title: "Termine erhalten", desc: "Unser Service-Team sendet dir passende Optionen, die du direkt in der App bestätigen kannst." }
             ].map((item, i) => (
               <motion.div 
                 key={i}
@@ -213,10 +213,8 @@ export default function DigitalApp() {
                     <iframe
                       src={video.videoUrl}
                       className="w-full h-full border-0"
-                      allowTransparency={true}
                       allow="encrypted-media"
                       scrolling="no"
-                      frameBorder="0"
                     ></iframe>
                   </GdprEmbed>
                 </div>

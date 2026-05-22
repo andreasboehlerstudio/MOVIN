@@ -108,13 +108,13 @@ Assistant:`;
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[400px] h-[500px] max-h-[80vh] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[400px] h-[500px] max-h-[80vh] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-gray-100 dark:border-slate-800 flex flex-col overflow-hidden text-slate-850 dark:text-slate-100"
           >
             {/* Header */}
             <div className="bg-primary text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Bot className="w-6 h-6" />
-                <h3 className="font-bold">MOVIN KI-Assistent</h3>
+                <h3 className="font-bold text-white">MOVIN KI-Assistent</h3>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
@@ -125,7 +125,7 @@ Assistant:`;
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 dark:bg-slate-950">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -137,7 +137,7 @@ Assistant:`;
                     className={`max-w-[80%] p-3 rounded-2xl ${
                       msg.role === 'user'
                         ? 'bg-primary text-white rounded-tr-sm'
-                        : 'bg-white text-gray-800 shadow-sm border border-gray-100 rounded-tl-sm'
+                        : 'bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 shadow-sm border border-gray-100 dark:border-slate-700 rounded-tl-sm'
                     }`}
                   >
                     <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
@@ -146,9 +146,9 @@ Assistant:`;
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="bg-white text-gray-800 shadow-sm border border-gray-100 p-3 rounded-2xl rounded-tl-sm flex items-center gap-2">
+                  <div className="bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 shadow-sm border border-gray-100 dark:border-slate-700 p-3 rounded-2xl rounded-tl-sm flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin text-primary" />
-                    <span className="text-sm text-gray-500">Schreibt...</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">Schreibt...</span>
                   </div>
                 </div>
               )}
@@ -156,14 +156,14 @@ Assistant:`;
             </div>
 
             {/* Input */}
-            <div className="p-4 bg-white border-t border-gray-100">
+            <div className="p-4 bg-white dark:bg-slate-900 border-t border-gray-100 dark:border-slate-800">
               <div className="flex items-end gap-2">
                 <textarea
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   placeholder="Schreibe eine Nachricht..."
-                  className="flex-1 max-h-32 min-h-[44px] p-3 bg-gray-50 border border-gray-200 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm"
+                  className="flex-1 max-h-32 min-h-[44px] p-3 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm text-slate-800 dark:text-slate-100"
                   rows={1}
                 />
                 <button

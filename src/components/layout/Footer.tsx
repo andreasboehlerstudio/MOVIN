@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
+import { Facebook, Instagram, MapPin, Phone, Mail } from 'lucide-react';
 import Logo from '../common/Logo';
 import { getYearsOfExperience } from '../../data/companyInfo';
 
@@ -20,14 +20,42 @@ export default function Footer() {
               Salutogenese – Hilfe zur Selbsthilfe. Deine innovative Physiotherapiepraxis mit {years}+ Jahren Erfahrung in Freiburg und Rust.
             </p>
             <div className="flex items-center gap-4 mt-2">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-white">
+              <a 
+                href="https://www.instagram.com/movinfreiburg/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-white"
+                title="MOVIN Freiburg auf Instagram"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-white">
+              <a 
+                href="https://www.facebook.com/movinfreiburg/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-white"
+                title="MOVIN Freiburg auf Facebook"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-white">
-                <Linkedin className="w-5 h-5" />
+              <a 
+                href="https://www.tiktok.com/@movin.freiburg" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors text-white"
+                title="MOVIN Freiburg auf TikTok"
+              >
+                <svg 
+                  className="w-5 h-5" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                </svg>
               </a>
             </div>
           </div>
@@ -92,9 +120,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@movin-freiburg.de" className="flex items-center gap-3 text-blue-tint/80 hover:text-white transition-colors">
+                <a href="mailto:kontakt@movin-freiburg.de" className="flex items-center gap-3 text-blue-tint/80 hover:text-white transition-colors">
                   <Mail className="w-5 h-5 text-primary" />
-                  <span>info@movin-freiburg.de</span>
+                  <span>kontakt@movin-freiburg.de</span>
                 </a>
               </li>
             </ul>

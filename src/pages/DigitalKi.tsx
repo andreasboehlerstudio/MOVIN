@@ -86,7 +86,7 @@ export default function DigitalKi() {
                 <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary mb-6">
                   <HeartHandshake className="w-6 h-6" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Mensch + Technologie</h3>
+                <h3 className="text-2xl font-bold mb-4 text-white">Mensch + Technologie</h3>
                 <p className="text-blue-tint/80 text-sm leading-relaxed mb-6">
                   Technologischer Vorsprung wird bei uns mit menschlicher Zuwendung kombiniert. Jedes Ergebnis und jede Empfehlung wird von ausgebildeten Therapeut:innen überprüft und gemeinsam mit Ihnen umgesetzt.
                 </p>
@@ -285,7 +285,7 @@ export default function DigitalKi() {
                 <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center text-primary mb-6 shadow-inner">
                   <Lock className="w-8 h-8" />
                 </div>
-                <h2 className="text-3xl font-bold mb-4">Datenschutz & Verantwortung</h2>
+                <h2 className="text-3xl font-bold mb-4 text-white">Datenschutz & Verantwortung</h2>
                 <p className="text-blue-tint/80 text-sm leading-relaxed">
                   Gesundheitsdaten gehören zu den am stärksten schützenswerten Informationen. Es ist unsere absolute Verantwortung, diese im Einklang mit der DSGVO bestmöglich zu sichern.
                 </p>

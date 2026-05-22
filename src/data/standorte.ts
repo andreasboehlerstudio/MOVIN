@@ -2,6 +2,11 @@ import { getYearsOfExperience } from './companyInfo';
 
 const years = getYearsOfExperience();
 
+export interface OpeningHoursSection {
+  title: string;
+  hours: { days: string; range: string }[];
+}
+
 export interface Standort {
   name: string;
   seoTitle: string;
@@ -14,6 +19,7 @@ export interface Standort {
   mapUrl: string;
   description: string;
   highlights: string[];
+  openingHours?: OpeningHoursSection[];
 }
 
 export const standorteData: Record<string, Standort> = {
@@ -23,7 +29,7 @@ export const standorteData: Record<string, Standort> = {
     seoDesc: 'Ihre MOVIN Physiotherapiepraxis am Lorettoberg in Freiburg. Modernste Ausstattung, erfahrene Therapeuten und 48h Termingarantie.',
     address: 'Mercystrasse 14, 79100 Freiburg im Breisgau',
     phone: '+49 761 707 33 66',
-    email: 'lorettoberg@movin-freiburg.de',
+    email: 'kontakt@movin-freiburg.de',
     image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2000',
     gallery: [
       'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200',
@@ -38,6 +44,21 @@ export const standorteData: Record<string, Standort> = {
       'Enge Zusammenarbeit mit den Ärzten der Artemed',
       'Wunderschöner Blick vom Lorettoberg',
       'Schnelle Terminfindungsmöglichkeiten'
+    ],
+    openingHours: [
+      {
+        title: 'Öffnungszeiten der Anmeldung',
+        hours: [
+          { days: 'Mo - Fr', range: '08:00 – 16:00 Uhr' }
+        ]
+      },
+      {
+        title: 'Öffnungszeiten des Therapiebereichs',
+        hours: [
+          { days: 'Mo - Do', range: '07:30 – 20:00 Uhr' },
+          { days: 'Freitag', range: '07:30 – 16:00 Uhr' }
+        ]
+      }
     ]
   },
   'physiotherapie-freiburg-mooswald': {
@@ -46,7 +67,7 @@ export const standorteData: Record<string, Standort> = {
     seoDesc: 'MOVIN Physiotherapie in Freiburg Mooswald. Exklusive Boutique-Praxis, KI-gestützte Therapie und individuelle Betreuung. Jetzt Termin vereinbaren!',
     address: 'Wirthstraße 9, 79110 Freiburg',
     phone: '+49 761 707 33 77',
-    email: 'mooswald@movin-freiburg.de',
+    email: 'physiotherapie.mooswald@movin-freiburg.de',
     image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800',
     gallery: [
       'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200',
@@ -61,6 +82,22 @@ export const standorteData: Record<string, Standort> = {
       'Große, lichtdurchflutete Räume',
       'Gute Anbindung an den ÖPNV',
       'Klimatisierte Behandlungs- und Trainingsräume'
+    ],
+    openingHours: [
+      {
+        title: 'Öffnungszeiten der Anmeldung',
+        hours: [
+          { days: 'Mo & Do', range: '08:00 – 18:00 Uhr' },
+          { days: 'Di, Mi, Fr', range: '08:00 – 16:00 Uhr' }
+        ]
+      },
+      {
+        title: 'Öffnungszeiten des Therapiebereichs',
+        hours: [
+          { days: 'Mo - Do', range: '08:00 – 20:00 Uhr' },
+          { days: 'Freitag', range: '08:00 – 16:00 Uhr' }
+        ]
+      }
     ]
   },
   'physiotherapie-europa-park-rust': {
@@ -68,8 +105,8 @@ export const standorteData: Record<string, Standort> = {
     seoTitle: 'Physiotherapie Europa-Park Rust | MOVIN',
     seoDesc: 'MOVIN Physiotherapie direkt am Europa-Park in Rust. Schnelle Hilfe bei Schmerzen, Sportverletzungen und Prävention. 48h Termingarantie!',
     address: 'Peter-Thumb-Str. 8, 77977 Rust',
-    phone: '+49 761 707 33 77',
-    email: 'rust@movin-freiburg.de',
+    phone: '+49 761 707 33 66',
+    email: 'europapark.physio@movin-freiburg.de',
     image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=2000',
     gallery: [
       'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=1200',
@@ -84,6 +121,14 @@ export const standorteData: Record<string, Standort> = {
       'Kostenlose Parkplätze direkt vor der Tür',
       'Moderne Trainingsgeräte und Einrichtung',
       'Einfache und digitale Terminvergabe'
+    ],
+    openingHours: [
+      {
+        title: 'Öffnungszeiten der Anmeldung',
+        hours: [
+          { days: 'Mi - Fr', range: '08:00 – 16:00 Uhr' }
+        ]
+      }
     ]
   }
 };
