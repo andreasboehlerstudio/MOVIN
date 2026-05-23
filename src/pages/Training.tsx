@@ -309,8 +309,10 @@ export default function Training() {
             Ganz gleich, ob Sie auf Rezept (KGG), über die Rentenversicherung (T-RENA) oder im Rahmen von Firmenfitness trainieren möchten – wir haben das richtige Angebot für Sie.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/termin/" className="btn-primary text-base px-8 py-4 w-full sm:w-auto">
-              Beratungstermin vereinbaren
+            <Link to="/termin/" className="btn-cta-cheetah text-base px-8 py-4 w-full sm:w-auto rounded-full">
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                Beratungstermin vereinbaren
+              </span>
             </Link>
             <Link to="/leistungen" className="text-white/80 hover:text-white font-bold text-sm underline underline-offset-4 tracking-wide w-full sm:w-auto">
               Zur Leistungsübersicht

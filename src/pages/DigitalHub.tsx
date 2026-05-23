@@ -146,8 +146,10 @@ export default function DigitalHub() {
               <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
                 Unser Team berät dich gerne dazu, wie du die MOVIN App und unsere anderen digitalen Angebote optimal für deinen Therapieerfolg nutzen kannst.
               </p>
-              <Link to="/kontakt" className="btn-white text-primary px-10 py-4 text-lg">
-                Jetzt Kontakt aufnehmen
+              <Link to="/kontakt" className="btn-cta-cheetah px-10 py-4 text-lg rounded-full">
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Jetzt Kontakt aufnehmen
+                </span>
               </Link>
             </div>
           </div>

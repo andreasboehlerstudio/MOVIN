@@ -201,9 +201,11 @@ export default function StandortPage() {
                   </div>
                 </div>
 
-                <Link to="/termin/" className="btn-primary w-full justify-center text-lg py-4 shadow-lg shadow-primary/20">
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Termin online buchen
+                <Link to="/termin/" className="btn-cta-cheetah w-full justify-center text-lg py-4 rounded-full shadow-lg">
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    <Calendar className="w-5 h-5" />
+                    Termin online buchen
+                  </span>
                 </Link>
                 <p className="text-center text-sm text-dark/50 mt-4">48h Termingarantie für Neupatienten</p>
               </div>

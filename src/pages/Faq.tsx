@@ -305,7 +305,7 @@ export default function Faq() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl xl:max-w-7xl 2xl:max-w-[1440px] mx-auto items-start">
             
             {/* Left Sidebar Info Card */}
             <div className="lg:col-span-4 bg-light rounded-[2rem] p-8 border border-border/70 sticky top-24">

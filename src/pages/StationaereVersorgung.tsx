@@ -116,8 +116,10 @@ export default function StationaereVersorgung() {
           <p className="text-blue-tint/80 text-lg mb-10">
             Sichere dir frühzeitig deine Termine für die Zeit nach der Entlassung in unserer Praxis am Lorettoberg (direkt neben der Klinik).
           </p>
-          <Link to="/termin/" className="btn-primary text-lg px-8 py-4">
-            Termine vereinbaren
+          <Link to="/termin/" className="btn-cta-cheetah text-lg px-8 py-4 rounded-full">
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              Termine vereinbaren
+            </span>
           </Link>
         </div>
       </section>

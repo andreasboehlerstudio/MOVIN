@@ -539,7 +539,7 @@ startxref
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-6xl xl:max-w-7xl 2xl:max-w-[1440px] mx-auto">
             {/* Reel 1 Container */}
             <motion.div 
               initial={{ opacity: 0, x: -25 }}

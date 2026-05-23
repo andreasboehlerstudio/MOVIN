@@ -22,10 +22,12 @@ import Datenschutz from './pages/Datenschutz';
 import GenericPage from './pages/GenericPage';
 import { CookieProvider } from './components/gdpr/CookieContext';
 import { CookieConsent } from './components/gdpr/CookieConsent';
+import CtaTransition from './components/effects/CtaTransition';
 
 export default function App() {
   return (
     <>
+      <CtaTransition />
       <CookieConsent />
       <Routes>
         <Route path="/" element={<Layout />}>

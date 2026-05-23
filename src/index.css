@@ -57,7 +57,7 @@
     @apply py-16 md:py-24;
   }
   .container-custom {
-    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply w-full max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8;
   }
   .card-base {
     @apply bg-white dark:bg-[#0d122b] border border-border dark:border-[#1e293b] rounded-3xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden;
@@ -76,6 +76,38 @@
   }
   .bg-gradient-teal-mint {
     @apply bg-gradient-to-r from-[#B4DFBB] to-[#00b2ba];
+  }
+  .btn-cta-cheetah {
+    @apply inline-flex items-center justify-center border-0 text-white font-semibold overflow-hidden relative cursor-pointer select-none transition-all duration-300;
+    background: linear-gradient(135deg, #B4DFBB 0%, #00c2cb 50%, #00a8af 100%);
+    box-shadow: 0 4px 15px rgba(0, 194, 203, 0.3);
+    z-index: 1;
+  }
+  .btn-cta-cheetah::before {
+    content: "";
+    @apply absolute inset-0 bg-[#0a0f4d] dark:bg-[#070913] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)];
+    z-index: -1;
+    transform-origin: left;
+  }
+  .btn-cta-cheetah::after {
+    content: "";
+    @apply absolute inset-0 opacity-40 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)];
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    transform: translateX(-100%);
+    z-index: 10;
+  }
+  .btn-cta-cheetah:hover {
+    @apply -translate-y-0.5 shadow-lg;
+    box-shadow: 0 8px 25px rgba(0, 194, 203, 0.5);
+  }
+  .btn-cta-cheetah:hover::before {
+    transform: scaleX(0);
+  }
+  .btn-cta-cheetah:hover::after {
+    transform: translateX(100%);
+  }
+  .btn-cta-cheetah > * {
+    @apply relative z-20;
   }
 }
 

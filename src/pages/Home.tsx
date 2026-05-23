@@ -130,7 +130,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 1 }}
-        className="bg-white py-12 border-b border-border relative z-20 -mt-12 mx-4 md:mx-auto max-w-7xl rounded-2xl shadow-2xl"
+        className="bg-white py-12 border-b border-border relative z-20 -mt-12 mx-4 md:mx-auto max-w-7xl xl:max-w-[1440px] 2xl:max-w-[1600px] rounded-2xl shadow-2xl"
       >
         <div className="container-custom">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -522,9 +522,11 @@ export default function Home() {
             Nutze unsere 48h Termingarantie und starte deinen Weg zur Besserung noch diese Woche.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/termin/" className="btn-secondary text-lg px-8 py-4 bg-secondary text-white hover:bg-white hover:text-secondary">
-              <Calendar className="w-5 h-5 mr-2" />
-              Jetzt Termin buchen
+            <Link to="/termin/" className="btn-cta-cheetah text-lg px-8 py-4 rounded-full">
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                <Calendar className="w-5 h-5" />
+                Jetzt Termin buchen
+              </span>
             </Link>
           </div>
         </div>

@@ -336,8 +336,10 @@ export default function DigitalKi() {
             Nutzen Sie modernste Bewegungsanalysen und maßgeschneiderte Programme für Ihre dauerhafte Fitness und Schmerzfreiheit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/termin/" className="btn-primary text-base px-8 py-4 w-full sm:w-auto">
-              Termin online vereinbaren
+            <Link to="/termin/" className="btn-cta-cheetah text-base px-8 py-4 w-full sm:w-auto rounded-full">
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                Termin online vereinbaren
+              </span>
             </Link>
             <Link to="/kontakt" className="btn-outline text-base px-8 py-4 w-full sm:w-auto flex items-center justify-center gap-2">
               Frage zu KI stellen <ChevronRight className="w-4 h-4" />

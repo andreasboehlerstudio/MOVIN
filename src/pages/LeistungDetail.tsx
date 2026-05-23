@@ -85,19 +85,21 @@ export default function LeistungDetail() {
                 </p>
                 <Link 
                   to={leistung.isB2B ? "/kontakt/" : "/termin/"} 
-                  className="btn-primary w-full justify-center text-lg py-4 shadow-lg shadow-primary/20 mb-4"
+                  className="btn-cta-cheetah w-full justify-center text-lg py-4 rounded-full shadow-lg mb-4"
                 >
-                  {leistung.isB2B ? (
-                    <>
-                      <ArrowRight className="w-5 h-5 mr-2" />
-                      Angebot anfragen
-                    </>
-                  ) : (
-                    <>
-                      <Calendar className="w-5 h-5 mr-2" />
-                      Termin buchen
-                    </>
-                  )}
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    {leistung.isB2B ? (
+                      <>
+                        <ArrowRight className="w-5 h-5 mr-2" />
+                        Angebot anfragen
+                      </>
+                    ) : (
+                      <>
+                        <Calendar className="w-5 h-5 mr-2" />
+                        Termin buchen
+                      </>
+                    )}
+                  </span>
                 </Link>
                 <Link to="/leistungen/" className="flex items-center justify-center gap-2 text-primary font-medium hover:underline">
                   <ArrowRight className="w-4 h-4" /> Alle Leistungen ansehen

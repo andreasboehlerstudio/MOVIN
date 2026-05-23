@@ -419,8 +419,10 @@ export default function UeberUns() {
           <p className="text-lg text-dark/70 mb-10">Ob als Patient:in oder als Teil unseres Teams - wir freuen uns auf Sie.</p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/termin/" className="bg-primary text-white hover:bg-primary-hover transition-colors rounded-full text-base font-medium px-8 py-3 text-center shadow-sm">
-              Termin vereinbaren
+            <Link to="/termin/" className="btn-cta-cheetah text-base font-medium px-8 py-3 rounded-full">
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                Termin vereinbaren
+              </span>
             </Link>
             <Link to="/" className="bg-white text-secondary border border-border hover:border-dark/30 transition-colors rounded-full text-base font-medium px-8 py-3 text-center shadow-sm">
               Zurück zur Startseite

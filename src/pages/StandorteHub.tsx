@@ -134,8 +134,10 @@ export default function StandorteHub() {
               <p className="text-xl text-blue-tint/80 mb-10 max-w-2xl mx-auto">
                 Egal für welchen Standort du dich entscheidest: Bei MOVIN erwartet dich überall die gleiche hohe Qualität und modernste Therapie.
               </p>
-              <Link to="/kontakt/" className="btn-primary text-lg px-10 py-4">
-                Kontaktiere uns
+              <Link to="/kontakt/" className="btn-cta-cheetah text-lg px-10 py-4 rounded-full">
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  Kontaktiere uns
+                </span>
               </Link>
             </div>
           </div>

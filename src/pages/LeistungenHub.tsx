@@ -202,8 +202,10 @@ export default function LeistungenHub() {
           <p className="text-blue-tint/80 text-lg mb-10">
             Lass uns gemeinsam herausfinden, was dir am besten hilft. Vereinbare einen Ersttermin für eine ausführliche Anamnese.
           </p>
-          <Link to="/termin/" className="btn-primary text-lg px-8 py-4">
-            Ersttermin vereinbaren
+          <Link to="/termin/" className="btn-cta-cheetah text-lg px-8 py-4 rounded-full">
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              Ersttermin vereinbaren
+            </span>
           </Link>
         </div>
       </section>
