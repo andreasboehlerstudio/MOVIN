@@ -12,7 +12,11 @@ import {
   ArrowRight, 
   Phone, 
   Mail,
-  Slash
+  Slash,
+  Award,
+  MapPin,
+  Cpu,
+  CheckCircle2
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 
@@ -31,141 +35,171 @@ interface FAQCategory {
 export default function Faq() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [openIndex, setOpenIndex] = useState<string | null>('health-insurance-0');
+  const [openIndex, setOpenIndex] = useState<string | null>('why-movin-0');
 
   const faqCategories: FAQCategory[] = [
     {
-      id: 'health-insurance',
-      title: 'Rezepte & Krankenkasse',
-      icon: ShieldCheck,
+      id: 'why-movin',
+      title: 'Warum MOVIN?',
+      icon: Award,
       items: [
         {
-          question: "Brauche ich ein Rezept für eine physiotherapeutische Behandlung?",
-          answer: "Ja, für alle Behandlungen, die über gesetzliche oder private Krankenkassen abgerechnet werden sollen, ist eine ärztliche Verordnung (Rezept) gesetzlich vorgeschrieben. Als Selbstzahler oder Privatversicherter mit Heilpraktiker-Zusatzversicherung kannst du jedoch auch ohne ärztliches Rezept zu uns kommen. In diesem Fall erfolgt die Behandlung im Rahmen des „sektoralen Heilpraktikers für Physiotherapie“."
+          question: "Warum gilt MOVIN als eine der besten Adressen für Physiotherapie in Freiburg?",
+          answer: "Weil wir die perfekte Symbiose aus wissenschaftlich fundierter Hands-off-Therapie und zukunftsweisender Digitalisierung geschaffen haben. Bei uns bist du keine Nummer in einer sterilen Massenabfertigung. Unsere Therapeuten arbeiten evidenzbasiert und nutzen parallel in Gemeinschaft mit Dir unsere MOVIN App zur Analyse der Kontextfaktoren. Das macht uns zu einer der modernsten und innovativsten Praxen in der Region Freiburg."
         },
         {
-          question: "Wie lange ist ein physiotherapeutisches Rezept gültig?",
-          answer: "Rezepte der gesetzlichen Krankenkassen (GKV) müssen innerhalb von 28 Tagen nach dem Ausstellungsdatum begonnen werden. Trägt die Verordnung einen besonderen Vermerk wie „dringlicher Behandlungsbedarf“, verkürzt sich diese Frist in der Regel auf 14 Tage. Sollte es dir nicht möglich sein, innerhalb dieser Frist zu starten, kontaktiere uns bitte umgehend, damit wir mit deinem Arzt eine Rezeptänderung absprechen können."
+          question: "Was bedeutet „Hands-on“ und „Hands-off“ im Therapiekonzept von MOVIN?",
+          answer: "Ein perfekter Behandlungserfolg braucht beides:\n\nHands-on: Bedeutet manuelle Arbeit des Therapeuten (z. B. Manuelle Therapie, Schmerzlinderung, Anamnese, Mobilisation), um Schmerzen zu lindern und Blockaden zu lösen.\n\nHands-off: Sobald die Akutphase vorbei ist, bringen wir dich in die Eigenaktivität. Auf unseren modernen Trainingsflächen lernst du, deinen Körper langfristig selbst zu stabilisieren und zu stärken, damit die Schmerzen nicht wiederkehren."
         },
         {
-          question: "Muss ich eine gesetzliche Zuzahlung leisten?",
-          answer: "Gesetzlich Versicherte sind laut Gesetzgeber verpflichtet, eine Zuzahlung pro Rezept zu leisten, es sei denn, es liegt eine gültige Befreiungsbescheinigung der Krankenkasse vor. Die Zuzahlung setzt sich zusammen aus einer Pauschale von 10,00 € pro Verordnung plus 10 % des tatsächlichen Behandlungswertes. Diese Gebühr ziehen wir im Namen der Krankenkasse beim ersten Termin ein."
-        },
-        {
-          question: "Können Privatpatienten und Selbstzahler bei euch behandelt werden?",
-          answer: "Ganz klar: Ja! Wir heißen Privatversicherte, Beihilfeberechtigte und Selbstzahler an all unseren Standorten herzlich willkommen. Privatpatienten erhalten von uns nach Abschluss der Behandlungsserie eine detaillierte Rechnung basierend auf unserer Honorarvereinbarung (angelehnt an die Gebührenordnung für Therapeuten), die sie bei ihrer Versicherung oder Beihilfestelle zur Erstattung einreichen können."
-        },
-        {
-          question: "Was mache ich, wenn mein Rezept fehlerhaft ausgefüllt ist?",
-          answer: "Die Heilmittel-Richtlinien der Krankenkassen sind sehr streng. Kleinste Fehler (z.B. falsche Diagnose-Abkürzungen oder fehlende Kreuze) können dazu führen, dass die Kasse das Rezept ablehnt. Sollten wir bei der Prüfung einen Fehler feststellen, bereiten wir alle notwendigen Korrekturinfos für dich vor. Du musst das Rezept dann lediglich kurz von deiner Arztpraxis abstempeln und gegenzeichnen lassen."
+          question: "Wie digital und innovativ arbeitet MOVIN im Praxisalltag?",
+          answer: "Wir nutzen die Digitalisierung und KI, um dir den Aufenthalt so angenehm wie möglich zu machen. Das beginnt bei der papierlosen, digitalen Dokumentation und geht über unsere eigene MOVIN-App, mit der du deine Trainingspläne per Videoanleitung, Schmerztagebuch u.v.m. jederzeit auf dem Smartphone hast. Darüber hinaus setzen wir an unseren Standorten in Freiburg und Rust auf softwaregestützte Trainings- und Diagnosesysteme, die deine Fortschritte datenbasiert messbar machen."
         }
       ]
     },
     {
-      id: 'appointments',
-      title: 'Termine & Organisation',
-      icon: Calendar,
+      id: 'location',
+      title: 'Erreichbarkeit & Orte',
+      icon: MapPin,
       items: [
         {
-          question: "Was muss ich zu meinem ersten Termin bei MOVIN mitbringen?",
-          answer: "Bitte bringe deine ärztliche Verordnung (dein Rezept), deine Krankenversicherungskarte (bei gesetzlich Versicherten), ein großes Handtuch (Dusch- oder Saunahandtuch) sowie bequeme, sportliche Kleidung mit. Falls vorhanden, sind auch aktuelle Arztberichte, MRT- oder Röntgenbilder sowie OP-Berichte äußerst hilfreich für unsere Befundung."
+          question: "An welchen Standorten in Freiburg und Umgebung finde ich MOVIN?",
+          answer: "Wir sind strategisch so aufgestellt, dass du uns aus ganz Freiburg und der Region optimal erreichen kannst:\n\n- Freiburg-Wiehre (Lorettoberg): Unsere etablierte, traditionsreiche Praxis mit über 28 Jahren Erfahrung in einer der schönsten Ecken Freiburgs.\n- Freiburg-West (Mooswald): Das innovative Highlight – Deutschlands erste „Boutique Physiotherapie“ in modernem Ambiente.\n- Rust (am Europa-Park): Unsere Physiotherapie-Praxis mit Adrenalin, in Kooperation mit dem Europa-Park."
         },
         {
-          question: "Bis wann muss ich einen Termin absagen, wenn ich verhindert bin?",
-          answer: "Wir arbeiten nach einem reinen Bestellsystem, um dir lange Wartezeiten zu ersparen und volle Behandlungszeit zu garantieren. Solltest du einen Termin nicht wahrnehmen können, sage diesen bitte mindestens 24 Stunden vorher ab (telefonisch, per E-Mail oder ganz unkompliziert direkt im Chat unserer MOVIN App). Nicht oder zu spät abgesagte Termine müssen wir andernfalls leider privat als Ausfallgebühr in Rechnung stellen."
+          question: "Wie erreiche ich die MOVIN Praxen in Freiburg und gibt es Parkplätze?",
+          answer: "Standort Lorettoberg (Wiehre): Perfekt erreichbar zu Fuß, mit dem Fahrrad oder dem ÖPNV (Straßenbahnlinie 2, Haltestelle Lorettostraße). Parkplätze befinden sich in den umliegenden Straßen (Wohngebiet/Parkraumbewirtschaftung), oder als Garage.\n\nStandort Mooswald (Freiburg-West): Ideal für Autofahrer. Wir bieten dir kostenfreie, praxiseigene Kundenparkplätze direkt am Gebäude, sodass du völlig stressfrei ankommen kannst, sowie eine Garage mit kleinen Unkosten.\n\nStandort Rust: Optimal erreichbar über die Autobahn A5, mit separaten Parkmöglichkeiten direkt vor Ort am Bell-Rock Hotel."
         },
         {
-          question: "Wie genau funktioniert eure 48-Stunden-Termingarantie?",
-          answer: "Für akute Fälle (z.B. Hexenschuss, frische Sportverletzungen oder direkt nach einer Operation) haben wir an unseren Standortern spezielle Akut-Slots reserviert. Wenn du als Neupatient mit dringendem Bedarf zu uns kommst, garantieren wir dir einen Behandlungstermin innerhalb von 48 Stunden. Bitte melde dich dafür am besten telefonisch oder reiche dein Rezept direkt online mit dem Hinweis „Akutfall“ ein."
+          question: "Bietet MOVIN an den Freiburger Standorten Umkleiden und Duschmöglichkeiten?",
+          answer: "Ja, am Standort Lorettoberg und Mooswald stehen dir moderne, saubere Umkleidekabinen und gepflegte Duschmöglichkeiten kostenfrei zur Verfügung. Du kannst dein Training oder deine Therapie also problemlos vor der Arbeit, in der Mittagspause oder direkt vor einem privaten Termin in Freiburg in deinen Tag einbauen."
         },
         {
-          question: "Bietet MOVIN auch Hausbesuche an?",
-          answer: "Ja, wir führen auch qualifizierte Hausbesuche durch. Voraussetzung hierfür ist, dass der behandelnde Arzt auf dem Rezept das Feld „Hausbesuch“ angekreuzt hat und sich deine Adresse im logistischen Einzugsgebiet einer unserer Praxen in Freiburg bzw. Rust befindet. Da die Kapazitäten für Hausbesuche begrenzt sind, empfehlen wir hier eine besonders frühzeitige Anmeldung."
+          question: "Wo kann ich die MOVIN-App für mein Training und die Therapie herunterladen?",
+          answer: "Unsere App ist komplett kostenlos und steht im Apple App Store (für iOS) sowie im Google Play Store (für Android) unter dem Suchbegriff „Movin innovativ bewegt“ zum Download bereit. Sie verbindet dich direkt mit deinen Therapeut*innen und deinen persönlichen Trainingsdaten."
+        }
+      ]
+    },
+    {
+      id: 'billing',
+      title: 'Rezepte & Zuzahlung',
+      icon: ShieldCheck,
+      items: [
+        {
+          question: "Muss ich für meine Physiotherapie in Freiburg eine gesetzliche Zuzahlung leisten?",
+          answer: "Ja, der Gesetzgeber schreibt für gesetzlich versicherte Patienten eine Zuzahlung vor (sofern keine offizielle Befreiung vorliegt). Die Staffelung ist gesetzlich wie folgt geregelt:\n\n- Aktuell: Die Zuzahlung beträgt 10 % des reinen Rezeptwertes plus eine Pauschale von 10 Euro pro Verordnung.\n- Ab dem Jahr 2027: Aufgrund gesetzlicher Neuregelungen steigt diese gesetzliche Zuzahlung auf 20 % des Rezeptwertes plus 10 Euro pauschal pro Verordnung.\n\nHinweis: Wir ziehen diesen Betrag zu Beginn deiner Behandlungsserie in der Praxis ein. (Ausnahme Blankoverordnung)"
         },
         {
-          question: "Wie stimme ich am besten Folgetermine ab?",
-          answer: "Um therapeutische Kontinuität und somit den besten Heilungserfolg zu garantieren, vereinbaren wir bevorzugt schon beim ersten Termin die gesamte Behandlungsserie. Du kannst deine Termine direkt vor Ort am Empfang, digital über unsere App im Chat mit unserem Team oder – für klassische Standortbuchungen – auch über Doctolib bzw. per Telefon reservieren."
+          question: "Kann ich auch als Privatpatient oder Selbstzahler zu MOVIN kommen?",
+          answer: "Selbstverständlich. Wir behandeln Privatpatienten aller Kassen sowie Beihilfeversicherte. Wenn du als gesetzlich versicherter Patient ohne Rezept etwas für deine Gesundheit tun möchtest, kannst du unsere Leistungen auch als Selbstzahler in Anspruch nehmen."
+        },
+        {
+          question: "Brauche ich für die Physiotherapie zwingend ein ärztliches Rezept?",
+          answer: "Wenn die Behandlung über die gesetzliche oder private Krankenkasse abgerechnet werden soll, ist ein ärztliches Rezept (vom Hausarzt, Orthopäden, Zahnarzt etc.) zwingend erforderlich. Dieses sollte idealerweise nicht älter als 28 Tage sein."
+        },
+        {
+          question: "Was passiert, wenn ich ein Rezept von einem Freiburger Arzt habe – wie schnell bekomme ich einen Termin?",
+          answer: "Wir bemühen uns stets um eine zeitnahe Terminvergabe, besonders bei akuten Beschwerden oder nach Operationen. Da Rezepte innerhalb von 28 Tagen nach Ausstellung angetreten werden müssen, empfehlen wir dir, dich sofort nach dem Arztbesuch telefonisch, per E-Mail oder über unsere digitalen Kanäle bei uns zu melden. Wir haben für unsere Standorte in Freiburg eine 48 Stunden Termingarantie."
+        },
+        {
+          question: "Werden die Kosten für die Physiotherapie von den Krankenkassen voll übernommen?",
+          answer: "Bei gesetzlich Versicherten übernehmen die Kassen die Kosten bis auf die gesetzlich vorgeschriebene Zuzahlung. Bei Privatpatienten richtet sich die Erstattung nach deinem individuellen Versicherungstarif. Wir händigen dir vorab eine transparente Honorarvereinbarung aus, die du bei deiner Versicherung einreichen kannst."
         }
       ]
     },
     {
       id: 'training',
-      title: 'Training & Prävention',
+      title: 'Training & Firmenfitness',
       icon: Dumbbell,
       items: [
         {
-          question: "Was unterscheidet Krankengymnastik am Gerät (KGG) von normalem Fitnesstraining?",
-          answer: "Die KGG ist eine aktive Sporttherapie an medizinischen Trainingsgeräten, die von Ärzten verordnet werden kann. Das Training findet bei uns in sehr kleinen Gruppen (maximal 3 Patienten pro Therapeut) unter ständiger biomechanischer Überwachung statt. Wir analysieren deine Bewegungsachsen präzise und passen die Widerstände exakt an deine individuellen Gewebeheilungsprozesse an."
+          question: "Kann ich bei MOVIN in Freiburg auch ohne Rezept eigenständig trainieren?",
+          answer: "Ja, und genau das empfehlen wir unseren Patienten, um den Therapieerfolg langfristig zu sichern. Du kannst unsere medizinischen Trainingsflächen völlig unabhängig von Rezepten nutzen. Wir bieten dir dabei maximale Flexibilität ohne Knebelverträge: Du kannst wählen zwischen flexiblen Abokarten oder bequemen, monatlich kündbaren Monatsabonnements."
         },
         {
-          question: "Kann ich auch ohne ärztliches Rezept bei euch trainieren?",
-          answer: "Ja, sehr gerne! Nach deiner physiotherapeutischen Behandlung oder zur präventiven Gesundheitsförderung kannst du unsere hochmodernen Trainingsflächen nutzen. Wir bieten maßgeschneiderte Selbstzahler-Trainingskarten und monatliche Mitgliedschaften an. Zudem kooperieren wir mit führenden Firmenfitness-Netzwerken wie Hansefit, Wellhub (ehemals Gympass) und dem Urban Sports Club."
+          question: "Unterstützt MOVIN Firmenfitness-Anbieter wie Hansefit oder Urban Sports Club?",
+          answer: "Ja, absolut! Freiburg ist eine absolute Hansefit-Hochburg. Als Mitglied von Hansefit oder dem Urban Sports Club kannst du an unseren Standorten (Lorettoberg und Mooswald) unkompliziert per QR-Code einchecken und unsere erstklassigen Trainingsflächen für dein medizinisches Gerätetraining nutzen."
         },
         {
-          question: "Was ist das T-RENA Nachsorgeprogramm der Rentenversicherung?",
-          answer: "T-RENA steht für „Trainingstherapeutische Rehabilitationsnachsorge“. Es handelt sich um ein gerätegestütztes gesundheitliches Aufbautraining, das vollständig von der Deutschen Rentenversicherung (DRV) finanziert wird, wenn du zuvor eine stationäre oder ambulante Reha absolviert hast. Das Programm umfasst in der Regel 26 Einheiten und soll innerhalb von 4-6 Wochen nach Reha-Ende beginnen."
-        },
-        {
-          question: "Wie unterstützen mich Senso Pro und Skill Court im Training?",
-          answer: "Diese Trainingssysteme bringen Neuroathletik und Tiefenstabilität zusammen: Der Schweizer Senso Pro fordert deine Ganzkörperkoordination auf instabilen Standriemen unter kognitiver Video-Anleitung heraus – extrem gelenkschonend und stärkend. Der Skill Court kombiniert visuelle Reize auf einem Screen mit Sensor-Bodenplatten, um Reaktionszeiten, visuelle Wahrnehmung sowie Schnelligkeit für Kopf und Beine gleichermaßen zu schulen."
-        },
-        {
-          question: "Gibt es einen verpflichtenden Eingangscheckup beim Training?",
-          answer: "Ja, die Gesundheit steht bei uns an oberster Stelle. Bevor du das erste Mal selbstständig oder im Rahmen von Hansefit bei uns an die Geräte gehst, führen wir einen standardisierten physiotherapeutischen Eingangscheckup durch. Wir testen deine Beweglichkeit, dokumentieren Vorverletzungen und erstellen deinen maßgeschneiderten, digitalen Trainingsplan."
+          question: "Was kostet eine Mitgliedschaft oder eine Zehnerkarte bei MOVIN?",
+          answer: "Eine 10er-Karte liegt aktuell bei 100 Euro. Es gibt für jeden individuelle Möglichkeiten, komm einfach für ein unverbindliches Beratungsgespräch vorbei – wir finden den optimalen Tarif für deine Ziele."
         }
       ]
     },
     {
-      id: 'digital-app',
-      title: 'MOVIN App & Digitales',
-      icon: Smartphone,
+      id: 'general',
+      title: 'Allgemeine Fachfragen',
+      icon: HelpCircle,
       items: [
         {
-          question: "Wie lade ich mein Rezept in der MOVIN App hoch?",
-          answer: "Nachdem du die kostenfreie MOVIN App im Google Play Store oder Apple App Store heruntergeladen hast, navigierst du einfach zum Reiter „Rezepte“. Klicke auf „Rezept hochladen“, fotografiere deine ärztliche Verordnung mit der Smartphone-Kamera ab (achte auf gute Lesbarkeit) oder wähle ein digitales PDF aus. Unser Service-Team erhält das Dokument verschlüsselt und sicher."
+          question: "Was ist der Unterschied zwischen Physiotherapie und Krankengymnastik?",
+          answer: "Im heutigen Sprachgebrauch werden die Begriffe meist synonym verwendet. Historisch gesehen war die Krankengymnastik eher auf aktive Bewegungsübungen beschränkt. Die moderne Physiotherapie hingegen ist der Oberbegriff und umfasst das gesamte Spektrum: aktive Übungen (Krankengymnastik), passive Techniken (Manuelle Therapie, Massage, Lymphdrainage) sowie physikalische Therapien (Wärme, Kälte)."
         },
         {
-          question: "Wie läuft die Terminvergabe ab, wenn ich die App nutze?",
-          answer: "Nachdem du dein Rezept hochgeladen hast, gleicht unser Patientenservice deine Verordnung mit den Profilen passender Fachtherapeuten ab. Du erhältst innerhalb kurzer Zeit direkt in der App konkrete Terminvorschläge auf dein Smartphone gesendet. Diese kannst du mit einem einfachen Fingertippen bestätigen oder ablehnen, um alternative Zeiten anzufordern."
+          question: "Was ist Krankengymnastik am Gerät (KGG) und für wen ist sie geeignet?",
+          answer: "Krankengymnastik am Gerät ist eine verordnungsfähige, aktive Therapieform. Unter ständiger Anleitung unserer spezialisierten Therapeuten trainierst du an medizinischen Kraft- und Zugapparaten. Sie ist ideal bei Kraftdefiziten und Schmerzen, sowie zur Prävention geeignet. Das betrifft über 80 Prozent unserer Patient*innen."
         },
         {
-          question: "Warum ist es sinnvoll, den Anamnesebogen vorab digital auszufüllen?",
-          answer: "Durch das Ausfüllen unseres Anamnesebogens von zu Hause aus sparst du wertvolle Behandlungszeit vor Ort. Anstatt am ersten Tag Formulare im Wartezimmer auszufüllen, fließen deine Angaben (Symptome, Krankenhistorie, Schmerzzonen) direkt gesichert in unsere Praxissoftware ein. Dein Therapeut kann sich so bereits vor deiner Ankunft optimal auf dich vorbereiten."
+          question: "Was muss ich zu meinem ersten Physiotherapie-Termin bei MOVIN mitbringen?",
+          answer: "Bringe bitte deine ärztliche Verordnung (das Rezept), eventuell vorhandene ärztliche Befunde oder MRT-/Röntgenbilder (lade diese in unserer App hoch), ein großes Handtuch sowie bequeme Sportkleidung und saubere Sportschuhe mit. Denke an die Duschmöglichkeiten und Umkleiden."
         },
         {
-          question: "Welche Features bietet die MOVIN App zusätzlich zu Terminen?",
-          answer: "Unsere App ist dein tägliche Gesundheitsbegleiter. Sie enthält: 1) Individuelle, von deinem Therapeuten freigeschaltete Video-Übungspläne für zu Hause. 2) Ein digitales Schmerztagebuch, um deinen Heilungsverlauf objektiv zu tracken. 3) Einen geschützten Dokumentensafe für Befunde. 4) Eine Medikamenten-Übersicht sowie 5) Direct Chat mit unserer Praxis."
+          question: "Wie lange dauert eine Physiotherapie-Sitzung in der Regel?",
+          answer: "Die Regelbehandlungszeit für eine normale Krankengymnastik oder Manuelle Therapie ist von den Krankenkassen streng getaktet und liegt meist zwischen 15 und 20 Minuten (inklusive Dokumentation und Auskleiden). Bei der Krankengymnastik am Gerät (KGG) dauert eine Sitzung in der Regel 60 Minuten. Bei MOVIN nehmen wir uns jedoch immer die maximal mögliche Zeit für dich und kombinieren die Therapien bei Bedarf sinnvoll mit anschließenden Eigenübungen."
         },
         {
-          question: "Ist die Nutzung der MOVIN App mit Kosten verbunden?",
-          answer: "Nein, der Download und die vollumfängliche Nutzung der MOVIN App sind für alle Patientinnen und Patienten unserer Therapiezentren absolut kostenlos. Wir betrachten die App als integralen Servicebestandteil, um maximale Transparenz, reibungsfreie Kommunikation und eine wissenschaftlich optimale Trainingsbetreuung im Alltag zu sichern."
+          question: "Was passiert, wenn ich einen Termin absagen muss?",
+          answer: "Wir führen unsere Praxen nach einem strikten Bestellsystem, um Wartezeiten für dich zu vermeiden. Solltest du einen Termin einmal nicht wahrnehmen können, sage diesen bitte mindestens 24 Stunden vorher telefonisch oder per E-Mail aus. Nicht rechtzeitig abgesagte Termine müssen wir dir leider privat in Rechnung stellen, da wir den Zeitraum exklusiv für dich reserviert haben."
         }
       ]
     },
     {
-      id: 'therapy-methods',
-      title: 'Behandlungen & Methoden',
-      icon: Activity,
+      id: 'innovation',
+      title: 'Innovation & Tech',
+      icon: Cpu,
       items: [
         {
-          question: "Welche klassischen Heilmittel und Therapien bietet MOVIN an?",
-          answer: "Unser hochqualifiziertes Team deckt alle Facetten der modernen Physiotherapie ab. Dazu gehören: Krankengymnastik (KG), Manuelle Therapie (MT), Manuelle Lymphdrainage (MLD), Krankengymnastik am Gerät (KGG), CMD-Kiefergelenkstherapie, Sportphysiotherapie, neurologische Behandlungen (KG-ZNS, z. B. nach Bobath/PNF) sowie Physikalische Therapie (Wärme, Kälte, Elektrotherapie)."
+          question: "Was versteht man unter dem „Boutique Physiotherapie“-Konzept im MOVIN Mooswald?",
+          answer: "Unser Boutique-Konzept im Freiburger Westen ist einzigartig. Es bricht mit dem Image einer klassischen, sterilen Praxis. Im MOVIN Mooswald erwartet dich ein stylisches Wohlfühl-Ambiente mit modernem Charakter, extrem begrenzte Mitgliederzahlen auf den Trainingsflächen für maximale Privatsphäre, modernste Diagnostikverfahren und Therapeuten, die voll und ganz auf deine individuelle Betreuung fokussiert sind. Premium-Therapie ohne Hektik."
         },
         {
-          question: "Werde ich immer von derselben Therapeutin oder demselben Therapeuten behandelt?",
-          answer: "Ja, eine feste therapeutische Bezugsperson ist ein zentraler Eckpfeiler unseres Behandlungskonzepts. Auf diese Weise baut sich Vertrauen auf, und die therapeutischen Fortschritte können präzise fortlaufend beurteilt werden. Bei Urlauben, Fortbildungen oder krankheitsbedingten Ausfällen stimmen wir geplante Vertretungen immer im Vorfeld eng mit dir ab."
+          question: "Was ist der Skillcourt (Standort Mooswald) und wie hilft er mir?",
+          answer: "Der Skillcourt ist ein absolutes Highlight unserer technologiegestützten Therapie. Er kombiniert visuelle, kognitive und motorische Reize zu einem sogenannten vikomotorischen Training. Während du dich auf einer speziellen Sensormatte bewegst, musst du über einen großen Bildschirm Denk- und Reaktionsaufgaben lösen. Das kurbelt das Gehirn an, verbessert die Nerven-Muskel-Verbindung und ist die modernste Form der Therapie nach Sportverletzungen (z. B. Kreuzbandriss), zur Sturzprophylaxe im Alter oder zur Performance-Steigerung."
         },
         {
-          question: "Wie lange dauert eine physiotherapeutische Behandlungseinheit?",
-          answer: "Die Behandlungszeit hängt von dem Heilmittel ab, das dein Arzt verordnet hat. Die Regelfahrzeiten der gesetzlichen Kassen für klassische Krankengymnastik (KG) liegen meist zwischen 15 und 25 Minuten (bei MOVIN planen wir die Slots optimal, inklusive Dokumentation und Vorbereitung). Krankengymnastik am Gerät (KGG) dauert regulär volle 60 Minuten."
+          question: "Was ist der Senso Pro (Standort Lorettoberg) und welche Vorteile bietet er?",
+          answer: "Der Senso Pro ist das weltweit führende Trainingsgerät für Koordination und Gelenkstabilität. Auf zwei freischwingenden Standbändern stehst du unter einer funktionellen, aber extrem gelenkschonenden Belastung. Über einen Bildschirm werden dir Video-Übungen vorgegeben. Es schult deine Tiefenmuskulatur, dein Gleichgewicht und deine Reaktionsschnelligkeit – perfekt als Ergänzung zur klassischen Physiotherapie bei Rücken-, Knie- oder Hüftbeschwerden. Zudem können wir auf dem Senso Pro nun auch Kraft- und Koordinationstests durchführen und dich so optimal begleiten."
         },
         {
-          question: "Werden Präventionskurse von meiner gesetzlichen Krankenkasse bezuschusst?",
-          answer: "Ja! Wir bieten zertifizierte Präventionskurse an (z. B. Wirbelsäulengymnastik, Rückenschule, Functional Training), die nach § 20 SGB V von der Zentralen Prüfstelle Prävention (ZPP) zugelassen sind. Die gesetzlichen Krankenkassen erstatten nach erfolgreicher Kursteilnahme (mindestens 80 % Anwesenheit) zwischen 75 % und 100 % der Kursgebühren."
+          question: "Welche Beschwerdebilder werden bei MOVIN primär behandelt?",
+          answer: "Wir behandeln das gesamte Spektrum orthopädischer, traumatologischer und chirurgischer Beschwerden. Dazu gehören z.B. akute und chronische Rückenschmerzen (Bandscheibenvorfälle, Hexenschuss), Sportverletzungen (Kreuzbandrisse, Muskelverletzungen), Arthrose in Hüfte und Knie, Haltungsschäden sowie die Rehabilitation nach dem Einsatz von künstlichen Gelenken (TEP). Die gesamte Breite also der therapeutischen Versorgung."
         },
         {
-          question: "Was unterscheidet das MOVIN-Konzept von anderen Praxen?",
-          answer: "Wir brechen mit dem veralteten Klischee staubiger Massagepraxen. Bei uns trifft exzellente orthopädische Hands-on-Therapie auf modernste sportwissenschaftliche Trainingsgeräte, sensorische 3D-Gelenk- und Bewegungsanalysen sowie modernste KI-gestützte Behandlungsbegleitung. Wir arbeiten evidenzbasiert, digital optimiert und immer hochgradig persönlich."
+          question: "Bietet MOVIN auch präventive Leistungen und Kurse an?",
+          answer: "Ja! Unser Ziel ist es, dass du erst gar keine Schmerzen bekommst oder nach einer erfolgreichen Therapie langfristig stabil bleibst. Neben dem freien Training über Abos oder Hansefit bieten wir regelmäßige, gezielte Präventionsberatungen und technologiegestützte Screenings an, um Schwachstellen in deinem Bewegungsapparat aufzudecken, bevor sie Probleme verursachen."
+        }
+      ]
+    },
+    {
+      id: 'prescription-match',
+      title: 'Direkt-Match Rezepte',
+      icon: CheckCircle2,
+      items: [
+        {
+          question: "Ich habe ein Rezept für Manuelle Therapie (MT), Krankengymnastik (KG) oder Gerätegestützte Krankengymnastik (KGG) – bin ich bei MOVIN in Freiburg richtig?",
+          answer: "Ja, absolut. MOVIN deckt das gesamte Spektrum der klassischen und erweiterten physiotherapeutischen Kassenleistungen ab. Unsere Therapeuten besitzen alle notwendigen Zusatzqualifikationen und staatlich anerkannten Zertifikate. Du kannst jedes dieser Rezepte an unseren Standorten in Freiburg (Wiehre & Mooswald) sowie in Rust einlösen."
+        },
+        {
+          question: "Wo in Freiburg can ich ein Rezept für Manuelle Lymphdrainage (MLD) einlösen?",
+          answer: "Wenn dir dein Arzt eine Manuelle Lymphdrainage (z. B. nach einer Operation, Sportverletzung oder bei primären/sekundären Lymphödemen) verordnet hat, bist du bei MOVIN in besten Händen. Unsere zertifizierten Therapeuten beherrschen die präzisen Grifftechniken zur Entstauung des Gewebes."
+        },
+        {
+          question: "Welcher MOVIN Standort in Freiburg eignet sich am besten für Krankengymnastik am Gerät (KGG)?",
+          answer: "An allen drei Standorten bist du bei uns bestens versorgt und kannst mit vielen Trainingsmöglichkeiten arbeiten und auch deine Reha von Tag 1 bis zum letzten Tag (Return To) optimal verbringen."
+        },
+        {
+          question: "Setzt MOVIN Freiburg bereits die neue „Blankoverordnung“ um?",
+          answer: "Ja! Als moderne und zukunftsorientierte Physiotherapie-Praxis sind wir bestens auf das System der Blankoverordnung vorbereitet. Bei einer Blankoverordnung stellt dir dein Arzt zwar das Rezept aus, überlässt uns als Experten jedoch die Entscheidung, welche Heilmittel, wie viele Termine und welche Frequenz für deinen maximalen Heilungserfolg am sinnvollsten sind. Wir übernehmen hierbei die komplette Steuerung deiner Therapie, immer im Bereich der Plausibilität."
         }
       ]
     }
@@ -311,21 +345,21 @@ export default function Faq() {
             <div className="lg:col-span-4 bg-light rounded-[2rem] p-8 border border-border/70 sticky top-24">
               <h3 className="text-xl font-bold text-secondary mb-4">Häufige Themen</h3>
               <p className="text-xs text-dark/75 leading-relaxed mb-6">
-                Wir möchten deinen Besuch bei uns so unkompliziert wie möglich gestalten. Wähle eine Kategorie, um die 5 am häufigsten gestellten Fragen und ausführliche Antworten anzuzeigen.
+                Wir möchten deinen Besuch bei uns so unkompliziert wie möglich gestalten. Wähle eine Kategorie, um die häufigsten Fragen und ausführliche Antworten anzuzeigen.
               </p>
 
               <div className="space-y-4 border-t border-border pt-6 mb-6">
                 <div className="flex items-center gap-3 text-xs text-dark/65 font-medium">
                   <span className="w-2 h-2 rounded-full bg-primary" />
-                  <span>25 Meticulous Answers</span>
+                  <span>29 praxisrelevante Antworten</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs text-dark/65 font-medium">
                   <span className="w-2 h-2 rounded-full bg-primary" />
-                  <span>5 Dedicated Categories</span>
+                  <span>7 thematische Kategorien</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs text-dark/65 font-medium">
                   <span className="w-2 h-2 rounded-full bg-primary" />
-                  <span>Search across all questions</span>
+                  <span>Präzise Volltextsuche</span>
                 </div>
               </div>
 

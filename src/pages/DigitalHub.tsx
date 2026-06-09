@@ -34,7 +34,7 @@ export default function DigitalHub() {
   return (
     <>
       <SEO 
-        title="Digital Health | MOVIN Physiotherapie Freiburg"
+        title="Digital | MOVIN Physiotherapie Freiburg"
         description="Entdecke unsere digitalen Services: Von der MOVIN App über KI-gestützte Physiotherapie bis hin zum digitalen Anamnesebogen."
       />
 
@@ -43,7 +43,7 @@ export default function DigitalHub() {
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=2000" 
-            alt="Digital Health" 
+            alt="Digital" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/80 to-transparent" />
@@ -59,7 +59,7 @@ export default function DigitalHub() {
               Zukunft der Bewegung
             </span>
             <h1 className="text-5xl md:text-7xl font-black mb-6 text-gradient-teal-mint">
-              Digital Health
+              Digital
             </h1>
             <p className="text-xl text-blue-tint/90 leading-relaxed">
               Wir verbinden erstklassige Physiotherapie mit modernster Technologie. Entdecke unsere digitalen Lösungen für einen schnelleren und nachhaltigen Therapieerfolg.

@@ -7,6 +7,19 @@ export interface OpeningHoursSection {
   hours: { days: string; range: string }[];
 }
 
+export interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+  spec?: string;
+}
+
+export interface StandortBadge {
+  image: string;
+  title: string;
+  description: string;
+}
+
 export interface Standort {
   name: string;
   seoTitle: string;
@@ -20,6 +33,8 @@ export interface Standort {
   description: string;
   highlights: string[];
   openingHours?: OpeningHoursSection[];
+  team: TeamMember[];
+  badges?: StandortBadge[];
 }
 
 export const standorteData: Record<string, Standort> = {
@@ -30,11 +45,11 @@ export const standorteData: Record<string, Standort> = {
     address: 'Mercystrasse 14, 79100 Freiburg im Breisgau',
     phone: '+49 761 707 33 66',
     email: 'kontakt@movin-freiburg.de',
-    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2000',
+    image: '/images/standorte/lorettoberg/lorettoberg-main.png',
     gallery: [
-      'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200'
+      '/images/standorte/lorettoberg/lorettoberg-gallery-1.png',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-2.png',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-3.png'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2669.839841838618!2d7.838411315648831!3d47.98144997921199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911b6c00000000%3A0x0!2sMercystra%C3%9Fe%2014%2C%2079100%20Freiburg%20im%20Breisgau!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: `Seit über ${years} Jahren betreiben wir hier unseren Hauptstandort für Physiotherapie auf höchstem Niveau. Durch unsere Kooperation mit der Artemed Klinik stellen wir zudem die stationäre Versorgung sicher. Auf über 600 Quadratmetern bieten wir Ihnen modernste Therapie- und Trainingsmöglichkeiten.`,
@@ -59,6 +74,50 @@ export const standorteData: Record<string, Standort> = {
           { days: 'Freitag', range: '07:30 – 16:00 Uhr' }
         ]
       }
+    ],
+    team: [
+      {
+        name: 'Daniel Klein',
+        role: 'Physiotherapeut / Fachkraft BGM',
+        image: '/images/team/daniel-klein.jpg',
+        spec: 'Schulter / Knie / Kiefer'
+      },
+      {
+        name: 'Prof. Dr. Martin Klein',
+        role: 'Facharzt für Orthopädie',
+        image: '/images/team/martin-klein.jpg',
+        spec: 'Privatpatienten'
+      },
+      {
+        name: 'Senka Dizdarevic',
+        role: 'Physiotherapeutin',
+        image: '/images/team/senka-dizdarevic.jpg',
+        spec: 'Stationäre Versorgung'
+      },
+      {
+        name: 'Ellen Heilmann',
+        role: 'Physiotherapeutin',
+        image: '/images/team/ellen-heilmann.jpg',
+        spec: 'Orthopädie / Station'
+      },
+      {
+        name: 'Mareike Klein',
+        role: 'Physiotherapeutin',
+        image: '/images/team/mareike-klein.jpg',
+        spec: 'Knie / Sprunggelenk'
+      }
+    ],
+    badges: [
+      {
+        image: '/images/partner-logos/zertifikate/badge_lorettoberg.png',
+        title: 'Ausgezeichnete Patientenzufriedenheit',
+        description: 'Zertifiziert durch "Quality Proofed by Consumers" für exzellente Kundenbewertungen und Behandlungsqualität.'
+      },
+      {
+        image: '/images/partner-logos/zertifikate/ppcertificate.png',
+        title: 'Zertifizierter Praxis-Standard',
+        description: 'Zertifizierte Dokumentation & Datenerhebung für lückenlose Therapieerfassung und höchste Qualitätsmaßstäbe.'
+      }
     ]
   },
   'physiotherapie-freiburg-mooswald': {
@@ -68,11 +127,11 @@ export const standorteData: Record<string, Standort> = {
     address: 'Wirthstraße 9, 79110 Freiburg',
     phone: '+49 761 707 33 77',
     email: 'physiotherapie.mooswald@movin-freiburg.de',
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800',
+    image: '/images/standorte/mooswald/mooswald-main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1200'
+      '/images/standorte/mooswald/mooswald-gallery-1.jpg',
+      '/images/standorte/mooswald/mooswald-gallery-2.jpg',
+      '/images/standorte/mooswald/mooswald-gallery-3.jpg'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2668.5!2d7.8!3d48.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sWirthstra%C3%9Fe%209%2C%2079110%20Freiburg!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: 'Willkommen in unserer hochmodernen Boutique-Praxis im Stadtteil Mooswald – der ersten Boutique-Praxis Deutschlands. Hier trifft exklusives Ambiente auf hochmoderne und qualitativ hochwertige Physiotherapie. In unserer Lounge und der entspannten Atmosphäre verbindet sich Wohlfühlatmosphäre mit modernster Physiotherapie.',
@@ -98,20 +157,64 @@ export const standorteData: Record<string, Standort> = {
           { days: 'Freitag', range: '08:00 – 16:00 Uhr' }
         ]
       }
+    ],
+    team: [
+      {
+        name: 'Daniel Klein',
+        role: 'Physiotherapeut / Fachkraft BGM',
+        image: '/images/team/daniel-klein.jpg',
+        spec: 'Schulter / Knie / Kiefer'
+      },
+      {
+        name: 'Desiree Wiegel',
+        role: 'Physiotherapeutin B.A.',
+        image: '/images/team/desiree-wiegel.jpg',
+        spec: 'Schulter / Fuß / Knie'
+      },
+      {
+        name: 'Jonas Wolfert',
+        role: 'Physiotherapeut',
+        image: '/images/team/jonas-wolfert.jpg',
+        spec: 'Knie / Schulter / Hüfte'
+      },
+      {
+        name: 'Mareike Strittmatter',
+        role: 'Physiotherapeutin B.Sc.',
+        image: '/images/team/mareike-strittmatter.jpg',
+        spec: 'Hüfte / Rücken / Knie'
+      },
+      {
+        name: 'Max Stöhr',
+        role: 'Physiotherapeut',
+        image: '/images/team/max-stoehr.jpg',
+        spec: 'Knie / Hüfte / Sprunggelenk'
+      }
+    ],
+    badges: [
+      {
+        image: '/images/partner-logos/zertifikate/badge_mooswald.png',
+        title: 'Ausgezeichnete Patientenzufriedenheit',
+        description: 'Zertifiziert durch "Quality Proofed by Consumers" für exzellente Kundenbewertungen und Behandlungsqualität.'
+      },
+      {
+        image: '/images/partner-logos/zertifikate/ppcertificate.png',
+        title: 'Zertifizierter Praxis-Standard',
+        description: 'Zertifizierte Dokumentation & Datenerhebung für lückenlose Therapieerfassung und höchste Qualitätsmaßstäbe.'
+      }
     ]
   },
   'physiotherapie-europa-park-rust': {
     name: 'Europa-Park Rust',
     seoTitle: 'Physiotherapie Europa-Park Rust | MOVIN',
-    seoDesc: 'MOVIN Physiotherapie direkt am Europa-Park in Rust. Schnelle Hilfe bei Schmerzen, Sportverletzungen und Prävention. 48h Termingarantie!',
+    seoDesc: 'MOVIN Physiotherapie direkt am Europa-Park in Rust. Schnelle Hilfe bei Schmerzen, Sportverletzungen und Prävention.',
     address: 'Peter-Thumb-Str. 8, 77977 Rust',
     phone: '+49 761 707 33 66',
     email: 'europapark.physio@movin-freiburg.de',
-    image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=2000',
+    image: '/images/standorte/rust/rust-main.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200',
-      'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200'
+      '/images/standorte/rust/rust-gallery-1.jpg',
+      '/images/standorte/rust/rust-gallery-2.jpg',
+      '/images/standorte/rust/rust-gallery-3.jpg'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.0!2d7.7!3d48.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPeter-Thumb-Str.%208%2C%2077977%20Rust!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: 'Unser Standort in Rust bietet erstklassige physiotherapeutische Versorgung direkt am Europa-Park und dem Hotel Bell Rock. In enger Zusammenarbeit mit dem Feelgood Center und dem Europa-Park betreuen wir dort die Mitarbeiterinnen und Mitarbeiter des Europa-Parks.',
@@ -124,10 +227,52 @@ export const standorteData: Record<string, Standort> = {
     ],
     openingHours: [
       {
-        title: 'Öffnungszeiten der Anmeldung',
+        title: 'Öffnungszeiten',
         hours: [
-          { days: 'Mi - Fr', range: '08:00 – 16:00 Uhr' }
+          { days: 'Dienstag', range: 'nach Rücksprache' },
+          { days: 'Mittwoch', range: '08:00 – 16:30 Uhr' },
+          { days: 'Donnerstag', range: '10:00 – 18:30 Uhr' },
+          { days: 'Freitag', range: '08:00 – 16:00 Uhr' }
         ]
+      }
+    ],
+    team: [
+      {
+        name: 'Daniel Klein',
+        role: 'Physiotherapeut / Fachkraft BGM',
+        image: '/images/team/daniel-klein.jpg',
+        spec: 'Schulter / Knie / Kiefer'
+      },
+      {
+        name: 'Claudia Andrich',
+        role: 'Physiotherapeutin',
+        image: '/images/team/claudia-andrich.jpg',
+        spec: 'Kiefer / Rücken / Knie'
+      },
+      {
+        name: 'Marco Rebstock',
+        role: 'Physiotherapeut',
+        image: '/images/team/marco-rebstock.jpg',
+        spec: 'Hüfte / Knie / Wirbelsäule'
+      },
+      {
+        name: 'Bianca Kohler',
+        role: 'Physiotherapeutin',
+        image: '/images/team/bianca-kohler.jpg',
+        spec: 'Hüfte / Schulter / Knie'
+      },
+      {
+        name: 'Laura Walter',
+        role: 'Physiotherapeutin',
+        image: '/images/team/laura-walter.jpg',
+        spec: 'Hüfte / Schulter / Knie'
+      }
+    ],
+    badges: [
+      {
+        image: '/images/partner-logos/zertifikate/ppcertificate.png',
+        title: 'Zertifizierter Praxis-Standard',
+        description: 'Zertifizierte Dokumentation & Datenerhebung für lückenlose Therapieerfassung und höchste Qualitätsmaßstäbe.'
       }
     ]
   }

@@ -13,6 +13,45 @@ async function startServer() {
 
   app.use(express.json({ limit: '50mb' }));
 
+  // Helper to find video files recursively
+  async function findVideosInDir(dir: string, baseDir: string): Promise<string[]> {
+    const result: string[] = [];
+    try {
+      const list = await fs.readdir(dir, { withFileTypes: true });
+      for (const item of list) {
+        const fullPath = path.join(dir, item.name);
+        if (item.isDirectory()) {
+          const sub = await findVideosInDir(fullPath, baseDir);
+          result.push(...sub);
+        } else {
+          const ext = path.extname(item.name).toLowerCase();
+          if ([".mp4", ".mov", ".webm", ".m4v"].includes(ext)) {
+            // Convert absolute path to a URL relative to public directory
+            let relative = path.relative(baseDir, fullPath);
+            // Make sure it starts with a slash and uses positive slashes
+            relative = "/" + relative.replace(/\\/g, "/");
+            result.push(relative);
+          }
+        }
+      }
+    } catch (error) {
+      console.error(`Error reading dir ${dir}:`, error);
+    }
+    return result;
+  }
+
+  // API Route to detect uploaded video files in /public folder
+  app.get("/api/list-videos", async (req, res) => {
+    try {
+      const publicPath = path.join(process.cwd(), "public");
+      const videos = await findVideosInDir(publicPath, publicPath);
+      res.json({ videos });
+    } catch (error: any) {
+      console.error("Error listing videos:", error);
+      res.status(500).json({ error: "Failed to list videos" });
+    }
+  });
+
   // API Route to send the PDF
   app.post("/api/send-anamnese", async (req, res) => {
     const { pdfBase64, name, email } = req.body;
@@ -66,12 +105,14 @@ async function startServer() {
 
   let vite: any;
   if (process.env.NODE_ENV !== "production") {
+    app.use(express.static(path.join(process.cwd(), 'public')));
     vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "custom",
     });
     app.use(vite.middlewares);
   } else {
+    app.use(express.static(path.join(process.cwd(), 'public')));
     app.use(express.static(path.join(process.cwd(), 'dist'), { index: false }));
   }
 

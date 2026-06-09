@@ -1,6 +1,21 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router';
-import { Activity, ArrowRight, CheckCircle2, Filter } from 'lucide-react';
+import { 
+  Activity, 
+  ArrowRight, 
+  CheckCircle2, 
+  Filter,
+  Hand,
+  Dumbbell,
+  Droplet,
+  Briefcase,
+  Trophy,
+  UserCheck,
+  HeartPulse,
+  Brain,
+  Target,
+  ShieldCheck
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
@@ -16,77 +31,88 @@ export default function LeistungenHub() {
       desc: 'Aktive und passive Behandlungsform zur Wiederherstellung der Beweglichkeit und Kraft.', 
       path: '/leistungen/krankengymnastik/',
       category: 'Physiotherapie',
-      area: 'Ganzkörper'
+      area: 'Ganzkörper',
+      icon: Activity
     },
     { 
       title: 'Manuelle Therapie', 
       desc: 'Spezialisierter Ansatz zur Behandlung von Funktionsstörungen des Bewegungssystems.', 
       path: '/leistungen/manuelle-therapie/',
       category: 'Physiotherapie',
-      area: 'Gelenke'
+      area: 'Gelenke',
+      icon: Hand
     },
     { 
       title: 'Krankengymnastik am Gerät', 
       desc: 'Medizinische Trainingsgeräte zur Verbesserung von Kraft, Ausdauer und Koordination.', 
       path: '/leistungen/krankengymnastik-am-geraet/',
       category: 'Physiotherapie',
-      area: 'Ganzkörper'
+      area: 'Ganzkörper',
+      icon: Dumbbell
     },
     { 
       title: 'Manuelle Lymphdrainage', 
       desc: 'Sanfte Entstauungstherapie zur Förderung des Abtransports von Gewebeflüssigkeit.', 
       path: '/leistungen/lymphdrainage/',
       category: 'Physiotherapie',
-      area: 'Gewebe'
+      area: 'Gewebe',
+      icon: Droplet
     },
     { 
       title: 'Betriebliche Gesundheitsförderung', 
       desc: 'Maßgeschneiderte Gesundheitslösungen für Ihr Unternehmen und Ihre Mitarbeiter.', 
       path: '/leistungen/betriebliche-gesundheitsfoerderung/',
       category: 'Betriebe',
-      area: 'B2B'
+      area: 'B2B',
+      icon: Briefcase
     },
     { 
       title: 'Sportphysiotherapie', 
       desc: 'Spezialisierung auf Sportverletzungen und Leistungsoptimierung für Athleten.', 
       path: '/leistungen/sportphysiotherapie/',
       category: 'Spezialisierung',
-      area: 'Sport'
+      area: 'Sport',
+      icon: Trophy
     },
     { 
       title: 'Personal Training', 
       desc: 'Hochqualifiziertes Training auf Selbstzahlerbasis für eine nachhaltige Gesundheit.', 
       path: '/leistungen/personal-training/',
       category: 'Prävention',
-      area: 'Fitness'
+      area: 'Fitness',
+      icon: UserCheck
     },
     { 
       title: 'Medizinisches Training (MTT)', 
       desc: 'Zielgerichtetes, gerätegestütztes Training zur Rehabilitation und zum Aufbau.', 
       path: '/leistungen/mtt-training/',
       category: 'Prävention',
-      area: 'Training'
+      area: 'Training',
+      icon: HeartPulse
     },
     { 
       title: 'Skillcourt Training', 
       desc: 'Innovatives videomotorisches Training, das Kognition mit Bewegung verknüpft.', 
       path: '/leistungen/skillcourt/',
       category: 'Prävention',
-      area: 'Kognition'
+      area: 'Kognition',
+      icon: Brain
     },
     { 
       title: 'SensoPro Training', 
       desc: 'Koordinationskonzept zur Stabilisierung und zum Training der Tiefenmuskulatur.', 
       path: '/leistungen/sensopro/',
       category: 'Prävention',
-      area: 'Koordination'
+      area: 'Koordination',
+      icon: Target
     },
     { 
       title: 'EAP - Physiotherapie (Privat)', 
       desc: 'Erweiterte Ambulante Physiotherapie als intensivierte Form der Rehabilitation.', 
       path: '/leistungen/eap-privat/',
       category: 'Spezialisierung',
-      area: 'Intensiv'
+      area: 'Intensiv',
+      icon: ShieldCheck
     },
   ];
 
@@ -116,7 +142,7 @@ export default function LeistungenHub() {
         <div className="container-custom text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-black mb-6 text-gradient-teal-mint">Unsere Leistungen</h1>
           <p className="text-xl text-dark/80 leading-relaxed">
-            Wir bieten ein breites Spektrum an evidenzbasierten Therapieformen. Unser Ziel ist es, nicht nur Symptome zu behandeln, sondern die Ursache zu finden und deine Gesundheit nachhaltig zu fördern.
+            Wir bieten ein breites Spektrum an physiotherapeutischen Therapieformen.
           </p>
         </div>
       </section>
@@ -165,7 +191,7 @@ export default function LeistungenHub() {
                     <div className="p-8 flex-grow flex flex-col">
                       <div className="flex justify-between items-start mb-6">
                         <div className="w-14 h-14 rounded-xl bg-mint flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                          <Activity className="w-7 h-7" />
+                          <leistung.icon className="w-7 h-7" />
                         </div>
                         <span className="text-xs font-heading font-bold uppercase tracking-wider text-primary bg-mint px-3 py-1 rounded-full">
                           {leistung.category}

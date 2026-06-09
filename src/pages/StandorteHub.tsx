@@ -65,6 +65,7 @@ export default function StandorteHub() {
                       src={standort.image} 
                       alt={`MOVIN Praxis ${standort.name}`} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-secondary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
                       <span className="text-white font-bold flex items-center gap-2">
@@ -97,6 +98,25 @@ export default function StandorteHub() {
                       ))}
                     </div>
                   </div>
+
+                  {standort.badges && standort.badges.length > 0 && (
+                    <div className="flex flex-col gap-4 mb-8">
+                      {standort.badges.map((badge, idx) => (
+                        <div key={idx} className="p-4 rounded-2xl bg-white/60 border border-border/40 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow max-w-lg">
+                          <img 
+                            src={badge.image} 
+                            alt={badge.title} 
+                            className="w-14 h-14 object-contain shrink-0"
+                            referrerPolicy="no-referrer"
+                          />
+                          <div>
+                            <h4 className="text-sm font-bold text-secondary">{badge.title}</h4>
+                            <p className="text-xs text-dark/70 mt-1 leading-snug">{badge.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
                   <div className="flex flex-wrap gap-4">
                     <Link to={`/standorte/${standort.slug}/`} className="btn-primary">

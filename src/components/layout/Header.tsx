@@ -60,6 +60,7 @@ export default function Header() {
     },
     { name: 'Training', path: '/training' },
     { name: 'Über uns', path: '/ueber-uns' },
+    { name: 'Karriere', path: '/karriere' },
   ];
 
   return (

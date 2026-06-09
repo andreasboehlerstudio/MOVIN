@@ -52,7 +52,8 @@ export default function StandortPage() {
           <img 
             src={standort.image} 
             alt={`Praxis ${standort.name}`} 
-            className="w-full h-full object-cover opacity-30 mix-blend-overlay"
+            className="w-full h-full object-cover opacity-40"
+            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-secondary to-transparent" />
         </div>
@@ -92,6 +93,29 @@ export default function StandortPage() {
                 </ul>
               </div>
 
+              {/* Certificate & Trust Badges */}
+              {standort.badges && standort.badges.length > 0 && (
+                <div className="grid grid-cols-1 gap-6">
+                  {standort.badges.map((badge, idx) => (
+                    <div key={idx} className="bg-light/60 border border-border/50 p-6 rounded-3xl flex flex-col sm:flex-row items-center gap-6 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="relative shrink-0 w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center p-3 bg-white rounded-2xl shadow-sm border border-border/30">
+                        <img 
+                          src={badge.image} 
+                          alt={badge.title} 
+                          className="max-h-full max-w-full object-contain"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                      <div className="text-center sm:text-left">
+                        <span className="text-xs font-mono font-bold uppercase tracking-widest text-primary">Prüfung &amp; Auszeichnung</span>
+                        <h4 className="text-xl font-bold text-secondary mt-1">{badge.title}</h4>
+                        <p className="text-dark/70 mt-2 text-sm leading-relaxed text-sm">{badge.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Gallery */}
               {standort.gallery && (
                 <div>
@@ -112,20 +136,32 @@ export default function StandortPage() {
               )}
 
               {/* Team Preview */}
-              <div>
-                <h2 className="text-3xl font-bold text-secondary mb-8">Dein Team vor Ort</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-                  {[1,2,3].map((i) => (
-                    <div key={i} className="flex flex-col items-center text-center">
-                      <div className="w-24 h-24 rounded-full bg-light overflow-hidden mb-4 border-2 border-primary/20">
-                        <img src={`https://i.pravatar.cc/150?img=${i+20}`} alt="Therapeut" className="w-full h-full object-cover" />
+              {standort.team && standort.team.length > 0 && (
+                <div>
+                  <h2 className="text-3xl font-bold text-secondary mb-8">Dein Team vor Ort</h2>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                    {standort.team.map((member, i) => (
+                      <div key={i} className="flex flex-col items-center text-center p-4 rounded-2xl bg-light border border-border/50 hover:border-primary/20 transition-all duration-300">
+                        <div className="w-24 h-24 rounded-full bg-border overflow-hidden mb-4 border-2 border-primary/20 shadow-sm relative shrink-0">
+                          <img 
+                            src={member.image} 
+                            alt={member.name} 
+                            className="w-full h-full object-cover"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                        <h4 className="font-bold text-secondary text-base leading-snug">{member.name}</h4>
+                        <p className="text-xs font-semibold text-primary mt-1">{member.role}</p>
+                        {member.spec && (
+                          <span className="text-[10px] font-mono leading-none text-dark/50 mt-1.5 px-2 py-1 bg-white border border-border/40 rounded-full">
+                            {member.spec}
+                          </span>
+                        )}
                       </div>
-                      <h4 className="font-bold text-secondary">Therapeut {i}</h4>
-                      <p className="text-sm text-dark/60">Physiotherapeut</p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Right Col: Contact Card */}
@@ -207,7 +243,9 @@ export default function StandortPage() {
                     Termin online buchen
                   </span>
                 </Link>
-                <p className="text-center text-sm text-dark/50 mt-4">48h Termingarantie für Neupatienten</p>
+                {slug !== 'physiotherapie-europa-park-rust' && (
+                  <p className="text-center text-sm text-dark/50 mt-4">48 Stunden Termingarantie</p>
+                )}
               </div>
             </div>
 

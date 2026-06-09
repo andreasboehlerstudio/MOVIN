@@ -8,6 +8,7 @@ import InstagramFeed from '../components/social/InstagramFeed';
 import { SpotifyEmbeds } from '../components/social/SpotifyEmbeds';
 import { GdprEmbed } from '../components/gdpr/GdprEmbed';
 import { getYearsOfExperience } from '../data/companyInfo';
+import PartnerLogos from '../components/common/PartnerLogos';
 
 export default function Home() {
   const years = getYearsOfExperience();
@@ -38,17 +39,17 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[600px] flex items-center overflow-hidden">
+      <section className="relative h-[85vh] lg:h-screen min-h-[550px] lg:min-h-[650px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video 
             autoPlay 
             loop 
             muted 
             playsInline 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
             poster="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2000"
           >
-            <source src="/images/MOVIN_Header_Home_V3.mp4.mp4" type="video/mp4" />
+            <source src="/images/MOVIN_Header_Home_V3.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f4d]/90 via-[#0a0f4d]/80 to-[#00b2ba]/80" />
@@ -62,7 +63,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-sm md:text-base text-white/90 font-heading font-medium tracking-[0.15em] uppercase mb-4"
             >
-              Physiotherapie in Freiburg
+              Physiotherapie in Freiburg und Rust
             </motion.div>
             
             <motion.h1 
@@ -72,7 +73,7 @@ export default function Home() {
               className="text-5xl md:text-[5rem] font-bold mb-6 leading-[1.1] text-white tracking-tight uppercase"
             >
               Evidenzbasierte<br />
-              <span className="text-gradient-teal-mint">(Physio)Therapie</span><br />
+              <span className="text-gradient-teal-mint">Physiotherapie</span><br />
               für nachhaltige Erfolge.
             </motion.h1>
             
@@ -80,10 +81,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl font-light leading-relaxed"
+              className="text-lg md:text-xl text-white/90 mb-10 max-w-3xl font-light leading-relaxed"
             >
-              Innovativ · Bewegt · Auf Basis aktueller Evidenz durch unser spezialisiertes<br />
-              Hands-Off Konzept an drei Standorten von Freiburg bis Rust.
+              Innovativ · Bewegt · Auf Basis aktueller Evidenz durch unser spezialisiertes<br className="hidden md:inline" /> Hands-Off Konzept an drei Standorten von Freiburg bis Rust.
             </motion.p>
             
             <motion.div 
@@ -181,15 +181,65 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: 'Lorettoberg', address: 'Mercystrasse 14, 79100 Freiburg', img: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800', path: '/standorte/physiotherapie-freiburg-lorettoberg/' },
-              { name: 'Mooswald', address: 'Wirthstraße 9, 79110 Freiburg', img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800', path: '/standorte/physiotherapie-freiburg-mooswald/' },
-              { name: 'Europa-Park', address: 'Peter-Thumb-Str. 8, 77977 Rust', img: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=800', path: '/standorte/physiotherapie-europa-park-rust/' },
+              { 
+                name: 'Lorettoberg', 
+                address: 'Mercystrasse 14, 79100 Freiburg', 
+                img: '/images/standorte/lorettoberg/lorettoberg-main.png', 
+                path: '/standorte/physiotherapie-freiburg-lorettoberg/',
+                badges: [
+                  { img: '/images/partner-logos/zertifikate/badge_lorettoberg.png', title: 'Ausgezeichnete Patientenzufriedenheit' },
+                  { img: '/images/partner-logos/zertifikate/ppcertificate.png', title: 'Zertifizierter Praxis-Standard' }
+                ]
+              },
+              { 
+                name: 'Mooswald', 
+                address: 'Wirthstraße 9, 79110 Freiburg', 
+                img: '/images/standorte/mooswald/mooswald-main.jpg', 
+                path: '/standorte/physiotherapie-freiburg-mooswald/',
+                badges: [
+                  { img: '/images/partner-logos/zertifikate/badge_mooswald.png', title: 'Ausgezeichnete Patientenzufriedenheit' },
+                  { img: '/images/partner-logos/zertifikate/ppcertificate.png', title: 'Zertifizierter Praxis-Standard' }
+                ]
+              },
+              { 
+                name: 'Europa-Park', 
+                address: 'Peter-Thumb-Str. 8, 77977 Rust', 
+                img: '/images/standorte/rust/rust-main.jpg', 
+                path: '/standorte/physiotherapie-europa-park-rust/',
+                badges: [
+                  { img: '/images/partner-logos/zertifikate/ppcertificate.png', title: 'Zertifizierter Praxis-Standard' }
+                ]
+              },
             ].map((standort) => (
               <Link to={standort.path} key={standort.name} className="card-base group hover:shadow-xl transition-all duration-300 flex flex-col">
                 <div className="relative h-64 overflow-hidden">
-                  <img src={standort.img} alt={`MOVIN Praxis ${standort.name}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                  <img 
+                    src={standort.img} 
+                    alt={`MOVIN Praxis ${standort.name}`} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent" />
                   <h3 className="absolute bottom-6 left-6 text-2xl font-bold text-white">{standort.name}</h3>
+                  {standort.badges && (
+                    <div className="absolute top-4 right-4 flex gap-2 z-10">
+                      {standort.badges.map((b, idx) => (
+                        <div 
+                          key={idx} 
+                          className="bg-white/95 backdrop-blur-sm p-1.5 rounded-xl shadow-lg border border-white/20 hover:scale-110 hover:rotate-3 transition-all duration-300 w-11 h-11 flex items-center justify-center" 
+                          title={b.title}
+                        >
+                          <img 
+                            src={b.img} 
+                            alt={b.title} 
+                            className="max-w-full max-h-full object-contain"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <p className="text-dark/70 mb-6 flex items-start gap-2">
@@ -248,7 +298,7 @@ export default function Home() {
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="lg:w-1/2">
-              <span className="text-gradient-teal-mint font-heading font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Digital Health</span>
+              <span className="text-gradient-teal-mint font-heading font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Digital</span>
               <h2 className="text-4xl md:text-5xl mb-6 text-white tracking-tight">
                 Die <span className="text-gradient-teal-mint">MOVIN App</span>:<br/> Deine Therapie für die Hosentasche
               </h2>
@@ -265,7 +315,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Link to="/digital/" className="btn-primary">Digital Health entdecken</Link>
+              <Link to="/digital/" className="btn-primary">Die App entdecken</Link>
             </div>
             <div className="lg:w-1/2 relative">
               <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
@@ -274,6 +324,7 @@ export default function Home() {
                 alt="MOVIN App auf Smartphone" 
                 className="relative z-10 rounded-3xl shadow-2xl border-4 border-white/10 transform rotate-3 hover:rotate-0 transition-transform duration-500"
                 loading="lazy"
+                referrerPolicy="no-referrer"
               />
             </div>
           </div>
@@ -375,37 +426,7 @@ export default function Home() {
       <section className="py-16 bg-white border-y border-border">
         <div className="container-custom">
           <p className="text-center text-sm font-heading font-bold text-dark/50 uppercase tracking-widest mb-12">Unsere starken Partner</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="flex flex-col items-center text-center">
-              <h4 className="text-xs font-heading font-bold text-primary uppercase tracking-[0.2em] mb-6">Sport</h4>
-              <div className="flex flex-wrap justify-center gap-6 opacity-60">
-                <a href="https://www.ehcf.de/" target="_blank" rel="noopener noreferrer" className="text-xl font-heading font-black text-secondary hover:text-primary transition-colors">EHC</a>
-                <a href="https://red-sparrows-freiburg.de/" target="_blank" rel="noopener noreferrer" className="text-xl font-heading font-black text-secondary hover:text-primary transition-colors">Red Sparrows</a>
-                <a href="https://www.sacristans.de/" target="_blank" rel="noopener noreferrer" className="text-xl font-heading font-black text-secondary hover:text-primary transition-colors">Sacristans</a>
-              </div>
-            </div>
-            
-            <div className="flex flex-col items-center text-center">
-              <h4 className="text-xs font-heading font-bold text-primary uppercase tracking-[0.2em] mb-6">Training</h4>
-              <div className="flex flex-wrap justify-center gap-6 opacity-60">
-                <a href="https://egym-wellpass.com/" target="_blank" rel="noopener noreferrer" className="text-xl font-heading font-black text-secondary hover:text-primary transition-colors">Wellpass</a>
-                <a href="https://hansefit.de/" target="_blank" rel="noopener noreferrer" className="text-xl font-heading font-black text-secondary hover:text-primary transition-colors">Hansefit</a>
-                <a href="https://urbansportsclub.com/" target="_blank" rel="noopener noreferrer" className="text-xl font-heading font-black text-secondary hover:text-primary transition-colors">Urban Sports Club</a>
-              </div>
-            </div>
-            
-            <div className="flex flex-col items-center text-center">
-              <h4 className="text-xs font-heading font-bold text-primary uppercase tracking-[0.2em] mb-6">Physiotherapie</h4>
-              <div className="flex flex-wrap justify-center gap-6 opacity-60">
-                <div className="flex items-center gap-2">
-                  <a href="https://www.artemed-freiburg.de/" target="_blank" rel="noopener noreferrer" className="text-xl font-heading font-black text-secondary hover:text-primary transition-colors">Artemed</a>
-                  <span className="text-xl font-heading font-black text-secondary">+</span>
-                  <a href="https://www.motherson.com/" target="_blank" rel="noopener noreferrer" className="text-xl font-heading font-black text-secondary hover:text-primary transition-colors">Motherson</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <PartnerLogos />
         </div>
       </section>
 
@@ -516,7 +537,7 @@ export default function Home() {
             <Logo className="h-12 w-auto" variant="white" />
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
-            Bereit für <span className="bg-gradient-to-r from-secondary to-mint bg-clip-text text-transparent">schmerzfreie</span> Bewegung?
+            Bereit für <span className="bg-gradient-to-r from-secondary to-mint bg-clip-text text-transparent">kraftvolle und schmerzfreie</span> Bewegung?
           </h2>
           <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
             Nutze unsere 48h Termingarantie und starte deinen Weg zur Besserung noch diese Woche.
