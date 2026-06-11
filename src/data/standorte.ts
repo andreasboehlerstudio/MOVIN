@@ -210,11 +210,15 @@ export const standorteData: Record<string, Standort> = {
     address: 'Peter-Thumb-Str. 8, 77977 Rust',
     phone: '+49 761 707 33 66',
     email: 'europapark.physio@movin-freiburg.de',
-    image: '/images/standorte/rust/rust-main.jpg',
+    image: '/images/standorte/rust/rust-2.jpg',
     gallery: [
-      '/images/standorte/rust/rust-gallery-1.jpg',
-      '/images/standorte/rust/rust-gallery-2.jpg',
-      '/images/standorte/rust/rust-gallery-3.jpg'
+      '/images/standorte/rust/rust-1.jpg',
+      '/images/standorte/rust/rust-3.jpg',
+      '/images/standorte/rust/rust-4.jpg',
+      '/images/standorte/rust/rust-5.jpg',
+      '/images/standorte/rust/rust-6.jpg',
+      '/images/standorte/rust/rust-7.jpg',
+      '/images/standorte/rust/rust-8.jpg'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.0!2d7.7!3d48.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPeter-Thumb-Str.%208%2C%2077977%20Rust!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: 'Unser Standort in Rust bietet erstklassige physiotherapeutische Versorgung direkt am Europa-Park und dem Hotel Bell Rock. In enger Zusammenarbeit mit dem Feelgood Center und dem Europa-Park betreuen wir dort die Mitarbeiterinnen und Mitarbeiter des Europa-Parks.',

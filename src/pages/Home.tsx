@@ -204,7 +204,7 @@ export default function Home() {
               { 
                 name: 'Europa-Park', 
                 address: 'Peter-Thumb-Str. 8, 77977 Rust', 
-                img: '/images/standorte/rust/rust-main.jpg', 
+                img: '/images/standorte/rust/rust-2.jpg', 
                 path: '/standorte/physiotherapie-europa-park-rust/',
                 badges: [
                   { img: '/images/partner-logos/zertifikate/ppcertificate.png', title: 'Zertifizierter Praxis-Standard' }
