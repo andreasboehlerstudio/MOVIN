@@ -32,7 +32,8 @@ interface AppFeature {
   subtitle: string;
   desc: string;
   icon: React.ComponentType<any>;
-  videoUrl: string;
+  videoUrl?: string;
+  videoKeywords?: string[];
   poster: string;
   tag: string;
 }
@@ -45,7 +46,8 @@ const appFeatures: AppFeature[] = [
     desc: "Um Ihnen die Kontaktaufnahme und Terminfindung zu erleichtern, können Sie hier Ihr Rezept hochladen und Ihre Terminwünsche eintragen. Beides wird von uns bearbeitet und Sie erhalten alle Infos und Zeiten digital zurück. Zudem können Zuzahlungen zum Rezept direkt mit PayPal beglichen werden. Mögliche Fehler im Rezept werden mit Änderungswunsch hinzugefügt.",
     icon: FileText,
     videoUrl: "/videos/app/rezepte.mp4",
-    poster: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600",
+    videoKeywords: ["rezepte"],
+    poster: "/images/movin-app/menu.png",
     tag: "#rezepte"
   },
   {
@@ -55,7 +57,8 @@ const appFeatures: AppFeature[] = [
     desc: "Keine Übung gerät jemals mehr in Vergessenheit und kein Plan geht mehr verloren. Unsere Trainingsgeräte finden Sie hier als digitale Version. Zudem erstellen wir mit Ihnen auf Basis der Physiotherapie Ihre individuellen Übungen per Video. Dies auch im Bereich „Hausaufgaben“, mit der Möglichkeit, an die Übungszeit erinnert zu werden.",
     icon: Activity,
     videoUrl: "/videos/app/Video Meine Physiotherapie.mp4",
-    poster: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600",
+    videoKeywords: ["meine physiotherapie", "physiotherapie"],
+    poster: "/images/movin-app/Mockup_movin_app.png",
     tag: "#coaching"
   },
   {
@@ -64,8 +67,8 @@ const appFeatures: AppFeature[] = [
     subtitle: "Therapiebegleitende Klärungen",
     desc: "Wichtige Fragen können schnell vergessen werden oder im Alltag untergehen. Mit dieser Funktion kann dies nicht mehr passieren. Wir formulieren hier Fragen für Sie an die Ärztinnen, die diese direkt beantworten können. So gehen therapie-relevante Fragen nicht mehr verloren.",
     icon: MessageCircle,
-    videoUrl: "/videos/app/fragen_arzt.mp4",
-    poster: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=600",
+    videoKeywords: ["fragen", "arzt"],
+    poster: "/images/movin-app/movin-menu.png",
     tag: "#arzt"
   },
   {
@@ -75,7 +78,8 @@ const appFeatures: AppFeature[] = [
     desc: "Wir freuen uns, Ihnen Informationen über unsere Praxen und spannende Einblicke in die Welt der Physiotherapie zu bieten. Entdecken Sie hier mehr oder werfen Sie einen Blick über den Tellerrand der klassischen Therapie.",
     icon: Brain,
     videoUrl: "/videos/app/Video Wissenswertes.mp4",
-    poster: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600",
+    videoKeywords: ["wissenswertes", "wissen"],
+    poster: "/images/movin-app/menu.png",
     tag: "#wissen"
   },
   {
@@ -84,8 +88,9 @@ const appFeatures: AppFeature[] = [
     subtitle: "Hilfsmittel & Abokarten",
     desc: "Benötigen Sie ein Hilfsmittel für Ihre Therapie? Dann können Sie aus unserem Angebot das passende Produkt reservieren oder bestellen. Auch unsere Abokarten für das Training stehen Ihnen zur Verfügung. Die Bezahlung erfolgt bequem per PayPal!",
     icon: QrCode,
-    videoUrl: "/videos/app/Video App Shop.mp4",
-    poster: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=600",
+    videoUrl: "/videos/app/_Video App Shop.mp4",
+    videoKeywords: ["_video app shop", "app shop", "shop"],
+    poster: "/images/movin-app/Mockup_2_Phones.png",
     tag: "#shop"
   },
   {
@@ -94,8 +99,8 @@ const appFeatures: AppFeature[] = [
     subtitle: "Sichere Video-Therapie",
     desc: "Die Krankenkassen ermöglichen es Ihnen und uns, die Therapie per Telemedizin durchzuführen. Nutzen Sie dafür unsere App, die DSGVO-konform, verschlüsselt und absolut sicher is.",
     icon: Video,
-    videoUrl: "/videos/app/telemedizin.mp4",
-    poster: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=600",
+    videoKeywords: ["telemedizin"],
+    poster: "/images/movin-app/h-main-parallax-2.png",
     tag: "#telemedizin"
   },
   {
@@ -105,7 +110,8 @@ const appFeatures: AppFeature[] = [
     desc: "Bitte teilen Sie uns wichtige Informationen über Ihre Schmerzen und Befinden mit. Je mehr wir über Ihre Beschwerden und deren Verlauf wissen, desto besser können wir Sie in der Therapie unterstützen.",
     icon: ClipboardList,
     videoUrl: "/videos/app/Video Schmerztagebuch.mp4",
-    poster: "https://images.unsplash.com/photo-1504813184591-015578fc7c65?auto=format&fit=crop&q=80&w=600",
+    videoKeywords: ["schmerztagebuch", "schmerz"],
+    poster: "/images/movin-app/menu.png",
     tag: "#tracking"
   },
   {
@@ -115,7 +121,8 @@ const appFeatures: AppFeature[] = [
     desc: "Um uns optimal auf Ihren ersten Termin vorzubereiten, benötigen wir einige Informationen über Ihre Beschwerden. Dafür haben wir einen Anamnesebogen auf ICF-Basis erstellt. Am Ende Ihrer Therapie möchten wir diese Informationen mit dem Beginn vergleichen. Passend dazu finden Sie einen Outcomes-Bogen.",
     icon: CheckCircle2,
     videoUrl: "/videos/app/Video Anamnesebogen.mp4",
-    poster: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=600",
+    videoKeywords: ["anamnesebogen", "ergebnis"],
+    poster: "/images/movin-app/h-main-parallax-2.png",
     tag: "#anamnese"
   },
   {
@@ -125,7 +132,8 @@ const appFeatures: AppFeature[] = [
     desc: "Bitte laden Sie hier alle wichtigen Unterlagen zu Ihrer Therapie hoch. Dies können Arztberichte, MRT-Berichte oder auch Nachbehandlungsschemata sein. Von uns bereitgestellt werden der Behandlungsvertrag und unsere DSGVO, die Sie unterscheiben oder akzeptieren können.",
     icon: FileText,
     videoUrl: "/videos/app/Video Dokumente.mp4",
-    poster: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&q=80&w=600",
+    videoKeywords: ["dokumente"],
+    poster: "/images/movin-app/movin-menu.png",
     tag: "#dokumente"
   },
   {
@@ -135,21 +143,27 @@ const appFeatures: AppFeature[] = [
     desc: "Keine zusätzliche App für Ihre aktuellen Medikamente nötig! Pflegen Sie Ihre Medikation einfach in unserer App ein. Das kann auch für uns therapierelevant sein und sichert Sie perfekt ab.",
     icon: Pill,
     videoUrl: "/videos/app/Video Medikamente.mp4",
-    poster: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?auto=format&fit=crop&q=80&w=600",
+    videoKeywords: ["medikamente"],
+    poster: "/images/movin-app/menu.png",
     tag: "#medikamente"
   }
 ];
 
 const getFeatureVideoSrc = (feature: AppFeature, index: number, detected: string[] = []) => {
-  // 1. Try to find any detected video whose filename contains the feature id (e.g., "rezepte", "physiotherapie" etc.)
+  if (feature.videoUrl) return feature.videoUrl;
+
+  const keywords = [
+    ...(feature.videoKeywords || []),
+    feature.id,
+    feature.id.replace('-', '_')
+  ].map(keyword => keyword.toLowerCase());
+
   const exactMatch = detected.find(v => {
     const filename = v.toLowerCase();
-    return filename.includes(feature.id.toLowerCase().replace('-', '_')) || 
-           filename.includes(feature.id.toLowerCase());
+    return keywords.some(keyword => filename.includes(keyword));
   });
   if (exactMatch) return exactMatch;
 
-  // 2. Try to find sequential video files starting with "video" and a digit matching the index + 1 (e.g. video1.mp4 for index 0, video2.mp4 for index 1 etc.)
   const sequentialMatch = detected.find(v => {
     const filename = v.toLowerCase();
     const basename = filename.split('/').pop() || '';
@@ -163,24 +177,7 @@ const getFeatureVideoSrc = (feature: AppFeature, index: number, detected: string
   });
   if (sequentialMatch) return sequentialMatch;
 
-  // 3. Try to find any video containing similar terms to map intuitively
-  const wordMatch = detected.find(v => {
-    const filename = v.toLowerCase();
-    if (feature.id === "fragen-arzt") {
-      return filename.includes("arzt") || filename.includes("fragen");
-    }
-    if (feature.id === "wissenswertes") {
-      return filename.includes("wissen") || filename.includes("wertes");
-    }
-    if (feature.id === "physiotherapie") {
-      return filename.includes("physio") || filename.includes("coaching") || filename.includes("uebung");
-    }
-    return false;
-  });
-  if (wordMatch) return wordMatch;
-
-  // 4. Default to feature.videoUrl
-  return feature.videoUrl;
+  return "";
 };
 
 export default function DigitalApp() {
@@ -229,12 +226,11 @@ export default function DigitalApp() {
       <section className="relative h-[55vh] min-h-[480px] flex items-center bg-secondary overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=2000" 
-            alt="MOVIN App auf Smartphone" 
-            className="w-full h-full object-cover opacity-30 mix-blend-overlay"
-            referrerPolicy="no-referrer"
+            src="/images/movin-app/h-main-parallax-2.png" 
+            alt="MOVIN App Screens und Funktionen" 
+            className="w-full h-full object-cover opacity-35 mix-blend-overlay"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/80 to-secondary/40" />
         </div>
         
         <div className="container-custom relative z-10 text-white text-center max-w-4xl mx-auto px-4 mt-6">
@@ -279,13 +275,9 @@ export default function DigitalApp() {
               >
                 <div className="absolute inset-0 bg-primary/10 rounded-[3rem] transform -translate-x-4 translate-y-4" />
                 <img 
-                  src="https://movin-freiburg.de/wp-content/uploads/2024/01/Movin-App-Screenshots.png" 
-                  alt="MOVIN App Screenshots" 
-                  className="relative z-10 rounded-[3rem] shadow-2xl w-full h-auto"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?auto=format&fit=crop&q=80&w=800";
-                  }}
+                  src="/images/movin-app/GIF_Main_auf_einenblick_2_iteration_3.gif" 
+                  alt="MOVIN App Hauptmenü im Überblick" 
+                  className="relative z-10 rounded-[2.5rem] shadow-2xl w-full max-w-[300px] mx-auto h-auto bg-white"
                 />
               </motion.div>
             </div>
@@ -564,6 +556,7 @@ interface AppVideoPlayerProps {
 function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppVideoPlayerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [currentPlaylistIndex, setCurrentPlaylistIndex] = useState(0);
+  const [videoFailed, setVideoFailed] = useState(false);
 
   const isStaticImage = feature.id === 'telemedizin';
 
@@ -572,21 +565,22 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
     if (feature.id === 'anamnese') {
       const match1 = detectedVideos.find(v => v.toLowerCase().includes('anamnesebogen')) || resolvedVideoUrl;
       const match2 = detectedVideos.find(v => v.toLowerCase().includes('ergebnisb') || v.toLowerCase().includes('ergebnisbögen')) || '/videos/app/Video Ergebnisbögen.mp4';
-      return [match1, match2];
+      return [match1, match2].filter(Boolean);
     }
-    return [resolvedVideoUrl];
+    return resolvedVideoUrl ? [resolvedVideoUrl] : [];
   }, [feature.id, resolvedVideoUrl, detectedVideos]);
 
   // Reset playlist selection index whenever the playlist changes
   useEffect(() => {
     setCurrentPlaylistIndex(0);
+    setVideoFailed(false);
   }, [playlist]);
 
-  const currentVideoSrc = playlist[currentPlaylistIndex] || resolvedVideoUrl;
+  const currentVideoSrc = playlist[currentPlaylistIndex] || "";
 
   // React strictly to current source updates
   useEffect(() => {
-    if (!isStaticImage && videoRef.current) {
+    if (!isStaticImage && currentVideoSrc && videoRef.current) {
       videoRef.current.load();
       videoRef.current.play().catch(() => {});
     }
@@ -599,12 +593,8 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
   };
 
   const handleVideoError = () => {
-    console.log(`Video fail on ${currentVideoSrc}, loading MOVIN standard fallback video.`);
-    if (videoRef.current) {
-      videoRef.current.src = "/images/MOVIN_Header_Home_V3.mp4";
-      videoRef.current.load();
-      videoRef.current.play().catch(() => {});
-    }
+    console.log(`Video fail on ${currentVideoSrc}.`);
+    setVideoFailed(true);
   };
 
   const shouldLoop = playlist.length <= 1;
@@ -622,8 +612,26 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
     );
   }
 
+  if (!currentVideoSrc || videoFailed) {
+    return (
+      <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] aspect-[9/16] select-none overflow-hidden rounded-[2.5rem] bg-secondary shadow-sm">
+        <img
+          src={feature.poster}
+          alt={feature.title}
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          referrerPolicy="no-referrer"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-secondary/20" />
+        <div className="absolute inset-x-6 bottom-8 text-center">
+          <p className="text-white text-lg font-bold mb-2">{feature.title}</p>
+          <p className="text-blue-tint/80 text-sm">Video folgt</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] select-none">
+    <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] md:max-w-[440px] select-none">
       <video
         ref={videoRef}
         src={encodeURI(currentVideoSrc)}
@@ -633,7 +641,7 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
         muted
         playsInline
         onError={handleVideoError}
-        className="w-full h-auto rounded-[2.5rem] bg-transparent z-0 block"
+        className="w-full h-auto bg-transparent z-0 block"
       />
       {playlist.length > 1 && (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full z-10">

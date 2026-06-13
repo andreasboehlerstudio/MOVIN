@@ -19,108 +19,128 @@ export default function Training() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
-    "name": "Medizinisches Training und Prävention bei MOVIN",
-    "description": "Erleben Sie die Vielfalt unseres Trainingsangebots in Freiburg: Medizinische Trainingstherapie (MTT), Senso Pro, Skill Court, Return to Sport Analysen und T-RENA Nachsorge.",
+    "name": "Training, Bewegung und Nachhaltigkeit bei MOVIN",
+    "description": "Medizinische Trainingstherapie, Senso Pro, Skill Court, Return to Work, Sport und Competition sowie T-RENA Nachsorge bei MOVIN Freiburg.",
     "url": "https://movin-freiburg.de/training/"
   };
 
   const advantages = [
     {
-      title: 'Therapeutische Betreuung',
-      desc: 'Alle Trainingsprogramme werden von ausgebildeten Physiotherapeut:innen begleitet und optimiert.'
+      title: 'Medizinische Trainingsqualität',
+      desc: 'Training bei MOVIN ist kein klassisches Fitnessstudio-Angebot, sondern therapeutisch geplant, medizinisch eingeordnet und sauber eingeführt.'
     },
     {
-      title: 'Modernste Geräte & Technologie',
-      desc: 'Wir setzen auf innovative Systeme wie den Skill Court und Senso Pro, um Ihr Training auf das nächste Level zu bringen.'
+      title: 'Selbstständig trainieren, Betreuung buchen',
+      desc: 'Nach einer Einweisung können Sie eigenständig trainieren. Zusätzliche Betreuung oder Re-Checks lassen sich flexibel dazu buchen.'
     },
     {
       title: 'Nachhaltigkeit im Fokus',
-      desc: 'Wir helfen Ihnen, von der passiven Schmerzlinderung in die aktive, langfristige Schmerzfreiheit überzugehen.'
+      desc: 'Wir helfen Ihnen, von kurzfristiger Beschwerdelinderung in langfristige Belastbarkeit, Eigenverantwortung und Bewegungssicherheit zu kommen.'
     },
     {
-      title: 'Zertifizierter Gesundheitspartner',
-      desc: 'Zulassung für Krankengymnastik am Gerät (KGG), T-RENA (Deutsche Rentenversicherung) sowie diverse Betriebliche Gesundheitsförderungen.'
+      title: 'Rezept, Selbstzahler oder Kostenerstattung',
+      desc: 'Je nach Angebot trainieren Sie auf Rezept, als Selbstzahler, über Firmenfitness, nach DRV-Vorgaben oder über zertifizierte Präventionskurse.'
     }
   ];
 
   const offerings = [
     {
       id: 'mtt-kgg',
-      title: 'Medizinische Trainingstherapie (MTT) & KGG',
-      tag: 'Klassische Sporttherapie',
+      title: 'Medizinische Trainingstherapie',
+      tag: 'MTT, KGG & Selbstzahlertraining',
       icon: Dumbbell,
-      desc: 'Die Krankengymnastik am Gerät (KGG) ist eine aktive Trainingstherapie, die von Ärzt:innen auf Rezept verschrieben werden kann. In Kleingruppen unter therapeutischer Anleitung verbessern wir gezielt Kraft, Ausdauer, Beweglichkeit und Koordination.',
+      desc: 'Trainieren Sie mit medizinisch zugelassenen Geräten und der Vielfalt eines funktionellen Trainingsbereichs. Neben klassischem Kraftaufbau an Geräten arbeiten wir mit Eigenkörpertraining, TRX, Speed Track, Cubewand, Langhanteln, Kettlebells, Kletterwand, Jumps, Plyobox, Balance-Elementen und BlazePod-Training.',
       highlights: [
-        'Auf Kassen- & Privatrezept abrechenbar',
-        'Kleinstgruppen mit maximal 3 Personen pro Therapeut',
-        'Gezielter Muskelaufbau nach Verletzungen & OPs',
-        'Individuell angepasste gerätegestützte Übungen'
+        'Als KGG auf Rezept oder als Selbstzahlerbereich nutzbar',
+        'Abgrenzung zum Fitnessstudio durch medizinisch-therapeutische Trainingsqualität',
+        'Einstieg mit Einweisung, danach selbstständiges Training möglich',
+        'Betreuung, Anpassung und Re-Checks flexibel buchbar'
       ],
-      color: 'border-primary/20 bg-primary/2'
+      image: '/images/standorte/mooswald/mooswald-gallery-3.jpg',
+      imageAlt: 'Medizinische Trainingstherapie an Geräten bei MOVIN',
+      infoTitle: 'Der Einstieg',
+      info: 'Wir starten mit einer Einweisung, prüfen Belastbarkeit und Trainingsziele und geben Ihnen danach einen klaren Plan für das eigenständige Training.',
+      badge: 'Medizinisch statt beliebig'
     },
     {
       id: 'senso-pro',
       title: 'Senso Pro Training',
-      tag: 'Koordinations-Sensation',
+      tag: 'Koordination, Reha & Alltagssicherheit',
       icon: Activity,
-      desc: 'Das innovative Koordinations- und Gleichgewichtstraining aus der Schweiz. Senso Pro kombiniert Stabilisierungsübungen auf federnden Riemen mit kognitiven Video-Vorgaben und elastischen Seilzügen. Perfekt für Sturzprophylaxe, Rehabilitation und Profisportler:innen.',
+      desc: 'Die SensoPro Luna ist ein vielseitiges Koordinationstraining für Fitness, Physiotherapie, Reha und Spitzensport. Videobasierte Übungen in verschiedenen Levels verbinden Gleichgewicht, Stabilität, aktive Regeneration und alltagsrelevante Belastbarkeit.',
       highlights: [
-        'Erhöht die neuronale Steuerung und Gelenkstabilität',
-        'Spielerisches und hocheffizientes Ganzkörpertraining',
-        'Schonend für Gelenke, intensiv für die tiefe Muskulatur',
-        'Eigene Trainingskurse für jedes Alter und Leistungslevel'
+        'Als Selbstzahlertraining möglich',
+        'Einstieg mit Einweisung, danach selbstständiges Training möglich',
+        'Für Jung und Alt, von Reha bis Spitzensport',
+        'Ganzheitliches, wissenschaftlich fundiertes Koordinationstraining'
       ],
-      color: 'border-[#00b2ba]/20 bg-[#00b2ba]/2'
+      image: '/images/standorte/mooswald/mooswald-gallery-2.jpg',
+      imageAlt: 'Trainingsbereich bei MOVIN Freiburg Mooswald',
+      infoTitle: 'SensoPro passt sich an',
+      info: 'Ob Warm-up, Hauptteil, Cool-down, hochintensives Training oder aktive Regeneration: Die Intensität wird über Levels und Übungsauswahl gesteuert.',
+      badge: 'Videobasiert & levelbasiert'
     },
     {
       id: 'skill-court',
       title: 'Skill Court Training',
-      tag: 'Gehirn- & Schnelligkeitstraining',
+      tag: 'Kopf, Reaktion & Beweglichkeit',
       icon: Brain,
-      desc: 'Der Skill Court vereint körperliches Training mit visuell-kognitiven Aufgaben. Durch sensorische Laufplatten und einen interaktiven Screen trainiert man Schnelligkeit, Reaktion und visuelle Wahrnehmung. Ideal zur Prävention von Demenz, nach Schlaganfällen oder zur kognitiven Leistungssteigerung im Sport.',
+      desc: 'Auf dem Skill Court trainieren Sie Wahrnehmung, Reaktion, Handlungsschnelligkeit, Beschleunigen, Abbremsen und Richtungswechsel. Aktuell stehen zahlreiche Tests und Übungen in verschiedenen Levels zur Verfügung; das System erstellt daraus individuelle Trainingsprofile.',
       highlights: [
-        'Schnelligkeitstraining für Kopf und Beine zeitgleich',
-        'Wissenschaftlich fundiertes Neuroathletik-Konzept',
-        'Verbessert Reaktionszeiten und die Raumwahrnehmung',
-        'Beliebt im Profifußball und zur neurologischen Rehabilitation'
+        'Als Selbstzahlertraining möglich',
+        'Schnelligkeit beginnt im Kopf: kognitive und motorische Reize kombiniert',
+        '§20-Präventionskurs online kaufen und 8 Wochen absolvieren',
+        '80-100 % Kostenerstattung durch die Krankenkasse, danach 3 Monate kostenlos weiter trainieren'
       ],
-      color: 'border-blue-default/20 bg-blue-default/2'
+      image: '/images/standorte/mooswald/mooswald-gallery-5.jpg',
+      imageAlt: 'Therapeutische Einweisung und Trainingsplanung bei MOVIN',
+      infoTitle: 'Besonderheit §20',
+      info: 'Der Präventionsweg ist besonders attraktiv: Kurs buchen, acht Wochen Training absolvieren, Erstattung bei der Krankenkasse einreichen und anschließend drei Monate kostenlos weiter trainieren.',
+      badge: '§20 möglich'
     },
     {
       id: 'return-to-sport',
-      title: 'Return to Sport (RTS) Analysen',
-      tag: 'Sicher zurück in den Sport',
+      title: 'Return to Work / Sport / Competition',
+      tag: 'Sichere Rückführung nach Belastungspause',
       icon: Target,
-      desc: 'Nach orthopädischen Eingriffen (z.B. Kreuzbandriss, Meniskusnaht, Sprunggelenksverletzungen) entscheiden klinische Tests über die Freigabe zur sportlichen Belastung. Unsere zertifizierten RTS-Analyserezepte und Testbatterien geben Ihnen und Ihren Ärzt:innen absolute Sicherheit beim Wiedereinstieg.',
+      desc: 'Mit individuellen Testungen sichern wir die Rückkehr in Arbeit, Sport oder Wettkampf ab. Beweglichkeit, Muskelkraft, Reaktionskraft, Sprungkraft und Ausdauer werden strukturiert geprüft und verständlich ausgewertet.',
       highlights: [
-        'Standardisierte, wissenschaftlich evaluierte Testbatterien',
-        'Kraft-, Stabilitäts- und Sprunganalyse im Seitenvergleich',
-        'Zertifikaterstellung und detaillierter Ergebnisbericht',
-        'Minimiert das Risiko von Wiederverletzungen signifikant'
+        'Return to Work: alltags- und berufsspezifische Belastbarkeit prüfen',
+        'Return to Sport: sportliche Leistungsfähigkeit nach Verletzung oder Pause absichern',
+        'Return to Competition: umfangreichere Testung für hohe sportliche Anforderungen',
+        'Zertifikat und Auswertung als Entscheidungshilfe für den nächsten Schritt'
       ],
-      color: 'border-secondary/20 bg-secondary/2'
+      image: '/images/standorte/mooswald/mooswald-gallery-6.jpg',
+      imageAlt: 'Therapeutisch begleitetes Training bei MOVIN',
+      infoTitle: 'Drei Stufen, passender Aufwand',
+      info: 'Je nach Ziel unterscheiden sich Testumfang und Zeitaufwand. Return to Sport orientiert sich an der bestehenden Analyse von ca. 75 Minuten; Work und Competition werden passend zum Belastungsprofil geplant.',
+      badge: 'Work, Sport, Competition'
     },
     {
       id: 't-rena',
-      title: 'T-RENA (Deutsche Rentenversicherung)',
-      tag: 'Geförderte Reha-Nachsorge',
+      title: 'Deutsche Rentenversicherung',
+      tag: 'T-RENA Reha-Nachsorge',
       icon: Award,
-      desc: 'Die Trainingstherapeutische Rehabilitationsnachsorge (T-RENA) ist ein gerätegestütztes Nachsorgeprogramm der Rentenversicherung. Nach einer medizinischen Rehabilitation hilft es Ihnen, die erzielten Behandlungserfolge nachhaltig in den Alltag zu überführen – und das vollkommen kostenfrei für Sie.',
+      desc: 'Die trainingstherapeutische Nachsorge ermöglicht Ihnen, nach dem Fachkonzept der Deutschen Rentenversicherung bei MOVIN weiter zu trainieren. Wir übertragen unsere therapeutische Qualität auf die gesetzlichen Vorgaben und begleiten Sie positiv auf Ihrem Genesungsweg.',
       highlights: [
-        'Komplette Kostenübernahme durch die DRV',
-        '26 Trainingseinheiten (meist verlängerbar auf 52)',
-        'Einstieg innerhalb von 4 bis maximal 6 Wochen nach Entlassung',
-        'Inhaltsstarkes, gerätegestütztes Ausdauer- und Krafttraining'
+        'Training auf Basis gesetzlicher DRV-Vorgaben',
+        '1 Einweisung plus 39 Trainingseinheiten über das gesamte Jahr',
+        'Individueller Trainingsplan auf Basis Ihres Reha-Ziels',
+        'Betreuung in Präsenzzeiten durch unser physiotherapeutisches Team'
       ],
-      color: 'border-[#0a0f4d]/20 bg-[#0a0f4d]/2'
+      image: '/images/standorte/mooswald/mooswald-gallery-4.jpg',
+      imageAlt: 'Beratung und Einweisung für Training bei MOVIN',
+      infoTitle: 'Nachsorge mit Struktur',
+      info: 'Wir entwickeln mit Ihnen den Trainingsplan und begleiten die Umsetzung im Rahmen des DRV-Konzepts.',
+      badge: '1 + 39 Einheiten'
     }
   ];
 
   return (
     <>
       <SEO 
-        title="Training & Prävention Freiburg | Senso Pro, Skill Court, T-RENA | MOVIN"
-        description="Medizinisches Kraft- und Koordinationstraining in Freiburg. Entdecken Sie unser exklusives Angebot: MTT, KGG, Senso Pro, Skill Court, RTS-Diagnostik und T-RENA."
+        title="Training & Bewegung Freiburg | MTT, Senso Pro, Skill Court | MOVIN"
+        description="Medizinisches Training in Freiburg: MTT, Senso Pro, Skill Court, Return to Work/Sport/Competition und T-RENA Nachsorge mit therapeutischer Qualität."
         schema={schema}
       />
 
@@ -143,7 +163,7 @@ export default function Training() {
             Bewegung & Nachhaltigkeit
           </h1>
           <p className="text-xl md:text-2xl text-blue-tint/90 max-w-3xl mx-auto font-light leading-relaxed">
-            Wir bieten Ihnen an beiden Standorten in Freiburg eine große Vielfältigkeit an Trainingsmöglichkeiten. Damit setzen wir uns räumlich und qualitativ von konventionellen Fitnessstudios ab.
+            Wir bieten Ihnen in Freiburg eine große Vielfalt medizinischer Trainingsmöglichkeiten. Damit setzen wir uns nicht nur räumlich, sondern vor allem qualitativ von konventionellen Fitnessstudios ab.
           </p>
         </div>
       </section>
@@ -158,10 +178,10 @@ export default function Training() {
                 Warum Training bei MOVIN Freiburg?
               </h2>
               <p className="text-dark/80 text-base leading-relaxed mb-6">
-                Der Ursprung des heutigen „Functional Training“ liegt in den Bereichen der Physiotherapie. Mit unserem ganzheitlichen Ansatz verbinden wir orthopädisch fundiertes medizinisches Training mit innovativer Spitzensport-Technologie. 
+                Der Ursprung des heutigen Functional Trainings liegt in der Physiotherapie. Bei MOVIN verbinden wir orthopädisch fundiertes medizinisches Training mit moderner Trainingsfläche, digitaler Analyse und Technologien aus Reha und Spitzensport. 
               </p>
               <p className="text-dark/70 text-sm leading-relaxed mb-8">
-                „Gesundheit ist kein Geschenk – sondern eine lebenslange Aufgabe.“ Dieses Kneipp-Zitat leitet uns. Wir begleiten Sie mit Herz und Verstand auf Ihrem Trainingspfad.
+                „Gesundheit ist kein Geschenk – sondern eine lebenslange Aufgabe.“ Dieses Kneipp-Zitat leitet uns. Wir begleiten Sie mit Herz, Fachwissen und einem Trainingsweg, der zu Ihrer Belastbarkeit passt.
               </p>
               
               <div className="border border-border rounded-3xl p-6 bg-light text-center">
@@ -196,14 +216,13 @@ export default function Training() {
             <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Moderne Vielfalt</span>
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">Unser vielseitiges Trainingsangebot</h2>
             <p className="text-lg text-dark/85">
-              Ob auf Rezept, vollgefördert durch den Staat oder als Selbstzahlerleistung – wir stimmen Ihr Training exakt auf Ihren Bewegungsapparat ab.
+              Ob auf Rezept, als Selbstzahlerleistung, über Präventionskurs, Firmenfitness oder Deutsche Rentenversicherung: Wir stimmen Ihr Training auf Ziel, Belastbarkeit und Alltag ab.
             </p>
           </div>
 
           <div className="space-y-12">
             {offerings.map((offering, index) => {
               const IconComp = offering.icon;
-              const isEven = index % 2 === 0;
 
               return (
                 <div 
@@ -213,8 +232,8 @@ export default function Training() {
                 >
                   <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center`}>
                     
-                    {/* Visual & Highlights */}
-                    <div className={`lg:col-span-5 order-2 lg:order-1 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                    {/* Content & Highlights */}
+                    <div className="lg:col-span-5">
                       <span className="text-xs font-bold text-primary tracking-widest uppercase block mb-1">{offering.tag}</span>
                       <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-4 flex items-center gap-2.5">
                         <IconComp className="w-7 h-7 text-primary" /> {offering.title}
@@ -234,28 +253,36 @@ export default function Training() {
                       </div>
                     </div>
 
-                    {/* Descriptive Image Spacer / Quick Info Card */}
-                    <div className={`lg:col-span-7 order-1 lg:order-2 ${isEven ? 'lg:order-2' : 'lg:order-1'} bg-light rounded-[2rem] p-8 border border-border/60 relative overflow-hidden h-full flex flex-col justify-between`}>
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full translate-x-12 -translate-y-12 shrink-0 pointer-events-none" />
-                      
-                      <div>
-                        <div className="inline-flex items-center gap-1.5 bg-secondary text-white text-xs px-3 py-1 rounded-full font-bold mb-6">
-                          <ShieldCheck className="w-3.5 h-3.5" /> Geprüfte Qualität
+                    {/* Visual & Quick Info */}
+                    <div className="lg:col-span-7">
+                      <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-secondary min-h-[360px]">
+                        <img
+                          src={offering.image}
+                          alt={offering.imageAlt}
+                          className="absolute inset-0 w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/15 to-transparent" />
+                        <div className="absolute left-6 top-6 inline-flex items-center gap-1.5 bg-white/95 text-secondary text-xs px-3 py-1 rounded-full font-bold shadow-sm">
+                          <ShieldCheck className="w-3.5 h-3.5 text-primary" /> {offering.badge}
                         </div>
-                        <h4 className="text-xl font-bold text-secondary mb-3">Wie startet Ihr Einstieg bei uns?</h4>
-                        <p className="text-xs text-dark/70 leading-relaxed mb-6">
-                          Jeder Trainingsweg beginnt mit einem eingehenden Eingangscheckup. Wir prüfen Ihre Gelenkstellungen, Schmerzpunkte und Vorerkrankungen und stellen so sicher, dass Sie absolut schmerzlindernd und zielorientiert trainieren können.
-                        </p>
-                      </div>
-
-                      <div className="flex flex-wrap gap-4 items-center justify-between border-t border-border/60 pt-6">
-                        <span className="text-xs text-secondary/65 font-medium">Behandlung an beiden Praxisstandorten möglich.</span>
-                        <Link 
-                          to="/termin/" 
-                          className="text-xs font-bold text-primary flex items-center gap-1 group-hover:text-primary-dark transition-colors"
-                        >
-                          Einstieg buchen <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                        </Link>
+                        <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+                          <div className="max-w-xl bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-white/70">
+                            <h4 className="text-lg font-bold text-secondary mb-2">{offering.infoTitle}</h4>
+                            <p className="text-xs text-dark/75 leading-relaxed mb-4">
+                              {offering.info}
+                            </p>
+                            <div className="flex flex-wrap gap-4 items-center justify-between border-t border-border/70 pt-4">
+                              <span className="text-xs text-secondary/65 font-medium">Training bei MOVIN Freiburg.</span>
+                              <Link 
+                                to="/termin/" 
+                                className="text-xs font-bold text-primary flex items-center gap-1 transition-colors hover:text-primary-dark"
+                              >
+                                Einstieg buchen <ChevronRight className="w-4 h-4" />
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
 

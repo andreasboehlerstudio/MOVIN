@@ -45,11 +45,19 @@ export const standorteData: Record<string, Standort> = {
     address: 'Mercystrasse 14, 79100 Freiburg im Breisgau',
     phone: '+49 761 707 33 66',
     email: 'kontakt@movin-freiburg.de',
-    image: '/images/standorte/lorettoberg/lorettoberg-main.png',
+    image: '/images/standorte/lorettoberg/lorettoberg-main.jpg',
     gallery: [
-      '/images/standorte/lorettoberg/lorettoberg-gallery-1.png',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-2.png',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-3.png'
+      '/images/standorte/lorettoberg/lorettoberg-gallery-1.jpg',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-2.jpg',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-3.jpg',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-4.jpg',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-5.jpg',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-6.jpg',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-7.jpg',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-8.jpg',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-9.jpg',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-10.jpg',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-11.jpg'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2669.839841838618!2d7.838411315648831!3d47.98144997921199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911b6c00000000%3A0x0!2sMercystra%C3%9Fe%2014%2C%2079100%20Freiburg%20im%20Breisgau!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: `Seit über ${years} Jahren betreiben wir hier unseren Hauptstandort für Physiotherapie auf höchstem Niveau. Durch unsere Kooperation mit der Artemed Klinik stellen wir zudem die stationäre Versorgung sicher. Auf über 600 Quadratmetern bieten wir Ihnen modernste Therapie- und Trainingsmöglichkeiten.`,
@@ -131,7 +139,10 @@ export const standorteData: Record<string, Standort> = {
     gallery: [
       '/images/standorte/mooswald/mooswald-gallery-1.jpg',
       '/images/standorte/mooswald/mooswald-gallery-2.jpg',
-      '/images/standorte/mooswald/mooswald-gallery-3.jpg'
+      '/images/standorte/mooswald/mooswald-gallery-3.jpg',
+      '/images/standorte/mooswald/mooswald-gallery-4.jpg',
+      '/images/standorte/mooswald/mooswald-gallery-5.jpg',
+      '/images/standorte/mooswald/mooswald-gallery-6.jpg'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2668.5!2d7.8!3d48.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sWirthstra%C3%9Fe%209%2C%2079110%20Freiburg!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: 'Willkommen in unserer hochmodernen Boutique-Praxis im Stadtteil Mooswald – der ersten Boutique-Praxis Deutschlands. Hier trifft exklusives Ambiente auf hochmoderne und qualitativ hochwertige Physiotherapie. In unserer Lounge und der entspannten Atmosphäre verbindet sich Wohlfühlatmosphäre mit modernster Physiotherapie.',
@@ -214,7 +225,12 @@ export const standorteData: Record<string, Standort> = {
     gallery: [
       '/images/standorte/rust/rust-gallery-1.jpg',
       '/images/standorte/rust/rust-gallery-2.jpg',
-      '/images/standorte/rust/rust-gallery-3.jpg'
+      '/images/standorte/rust/rust-gallery-3.jpg',
+      '/images/standorte/rust/rust-gallery-4.jpg',
+      '/images/standorte/rust/rust-gallery-5.jpg',
+      '/images/standorte/rust/rust-gallery-6.jpg',
+      '/images/standorte/rust/rust-gallery-7.jpg',
+      '/images/standorte/rust/rust-gallery-8.jpg'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.0!2d7.7!3d48.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPeter-Thumb-Str.%208%2C%2077977%20Rust!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: 'Unser Standort in Rust bietet erstklassige physiotherapeutische Versorgung direkt am Europa-Park und dem Hotel Bell Rock. In enger Zusammenarbeit mit dem Feelgood Center und dem Europa-Park betreuen wir dort die Mitarbeiterinnen und Mitarbeiter des Europa-Parks.',

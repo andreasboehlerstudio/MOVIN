@@ -35,10 +35,11 @@ interface Job {
   description: string;
   requirements: string[];
   tasks: string[];
+  pdfUrl?: string;
 }
 
 export default function Karriere() {
-  const [selectedJob, setSelectedJob] = useState<string>('physio-freiburg');
+  const [selectedJob, setSelectedJob] = useState<string>('aushilfe-wochenende');
   const [formData, setFormData] = useState({
     anrede: 'Frau',
     name: '',
@@ -59,66 +60,68 @@ export default function Karriere() {
 
   const jobs: Job[] = [
     {
-      id: 'physio-freiburg',
-      title: 'Physiotherapeut (m/w/d)',
-      type: 'Vollzeit / Teilzeit',
-      location: 'Freiburg (Lorettoberg / Mooswald)',
-      department: 'Physiotherapie',
-      salary: 'Ab 3.800 € bis 4.600 € (je nach Qualifikation)',
-      description: 'Verstärke unser Team an den Standorten Freiburg. Du behandelst ein breites Spektrum an orthopädischen und neurologischen Patienten in einer modernen, digitalgestützten Praxis.',
+      id: 'aushilfe-wochenende',
+      title: 'Schüler-/Studenten-Aushilfe (m/w/d)',
+      type: 'Wochenenddienst',
+      location: 'Freiburg',
+      department: 'Service & Praxisorganisation',
+      salary: 'Aushilfstätigkeit',
+      description: 'Unterstütze unser Team am Wochenende im Praxisalltag. Ideal für Schüler*innen oder Student*innen, die Einblick in ein modernes Therapie- und Trainingszentrum bekommen möchten.',
       requirements: [
-        'Abgeschlossene Ausbildung oder Studium der Physiotherapie',
-        'Zertifikat in Manueller Lymphdrainage (MLD) von Vorteil',
-        'Interesse an fortschrittlicher Therapie und digitaler Befundung',
-        'Teamgeist, Zuverlässigkeit und empathischer Umgang mit Menschen'
+        'Du bist Schüler*in oder Student*in und suchst eine sinnvolle Nebentätigkeit',
+        'Zuverlässigkeit, Freundlichkeit und ein aufmerksamer Umgang mit Menschen',
+        'Interesse an Gesundheit, Therapie, Training oder Praxisorganisation',
+        'Bereitschaft, am Wochenende Verantwortung im kleinen Rahmen zu übernehmen'
       ],
       tasks: [
-        'Durchführung von physiotherapeutischen Befunden und Therapien',
-        'Betreuung von Patienten an modernsten Trainingsgeräten',
-        'Dokumentation und Behandlungsplanung über die MOVIN App/Software',
-        'Interdisziplinärer Austausch im motivierten Therapeutenteam'
-      ]
+        'Unterstützung beim Dienst am Wochenende',
+        'Ansprechperson für Patient*innen und Kund*innen vor Ort',
+        'Hilfe bei organisatorischen Abläufen im Trainings- und Praxisbereich',
+        'Sicherstellen einer freundlichen und verlässlichen Atmosphäre'
+      ],
+      pdfUrl: '/docs/karriere/stellenangebot-aushilfe-wochenende.pdf'
     },
     {
-      id: 'sportphysio-rust',
-      title: 'Sportphysiotherapeut (m/w/d)',
-      type: 'Vollzeit',
-      location: 'Europa-Park Rust & Freiburg',
-      department: 'Sportphysiotherapie',
-      salary: 'Kompetitives Gehalt + Europa-Park-Zusatzleistungen',
-      description: 'In Rust betreuen wir exklusiv die Mitarbeiter und Darsteller des weltberühmten Europa-Parks sowie ambulante Privatpatienten. Ein abwechslungsreiches Sport- und Akutbehandlungsumfeld erwartet dich.',
+      id: 'ausbildung-gesundheitswesen',
+      title: 'Ausbildung Kauffrau/-mann im Gesundheitswesen (m/w/d)',
+      type: 'Ausbildung',
+      location: 'Freiburg',
+      department: 'Verwaltung & Terminierung',
+      salary: 'Ausbildungsplatz',
+      description: 'Starte deine Ausbildung in einem modernen Gesundheitsunternehmen. Du lernst Organisation, Terminierung, Kommunikation mit Patient*innen und digitale Abläufe im Praxisalltag kennen.',
       requirements: [
-        'Abgeschlossene Ausbildung als Physiotherapeut/in',
-        'Zusatzqualifikation / Zertifikat in Sportphysiotherapie',
-        'Erfahrung in der Akutversorgung und Trainingslehre wünschenswert',
-        'Kommunikationsstärke und Flexibilität'
+        'Interesse an Gesundheitswesen, Organisation und Kommunikation',
+        'Freundliches Auftreten und Freude am Kontakt mit Menschen',
+        'Sorgfalt, Verlässlichkeit und Lust auf digitale Arbeitsprozesse',
+        'Motivation, dich in einem jungen und qualitätsorientierten Team zu entwickeln'
       ],
       tasks: [
-        'Akutbehandlung und Rehabilitation von Sportbegeisterten und Artisten',
-        'Medizinische Trainingsbehandlung und Prävention',
-        'Entwicklung zielgerichteter Return-to-Sport-Programme',
-        'Präsenz bei spannenden Shows und artistischen Meisterleistungen'
-      ]
+        'Terminierung, Empfang und organisatorische Praxisabläufe kennenlernen',
+        'Kommunikation mit Patient*innen, Therapeut*innen und externen Partnern',
+        'Digitale Dokumente, Verwaltung und interne Prozesse unterstützen',
+        'Einblick in Therapie, Training und Gesundheitsförderung bei MOVIN erhalten'
+      ],
+      pdfUrl: '/docs/karriere/stellenangebot-ausbildung-gesundheitswesen.pdf'
     },
     {
-      id: 'masseur-freiburg',
-      title: 'Masseur & Med. Bademeister (m/w/d)',
-      type: 'Teilzeit (15-25 Std./Woche)',
-      location: 'Freiburg (Lorettoberg / Mooswald)',
-      department: 'Massage & Physikalische Therapie',
-      salary: 'Attraktiver Stundenlohn + betriebliche Zusatzleistungen',
-      description: 'Bringe Wohlbefinden und gezielte myofasziale Entspannung zu unseren Patienten. Du arbeitest eng mit unseren Physiotherapeuten zusammen, um Behandlungen ideal zu flankieren.',
+      id: 'initiativ',
+      title: 'Initiativbewerbung (m/w/d)',
+      type: 'Nach Vereinbarung',
+      location: 'Freiburg / Rust',
+      department: 'Alle Bereiche',
+      salary: 'Individuell',
+      description: 'Aktuell sind nicht alle Möglichkeiten als konkrete Stelle ausgeschrieben. Wenn du zu MOVIN passt, deine Ideen einbringen möchtest oder dich in einem unserer Tätigkeitsfelder siehst, freuen wir uns über deine Initiativbewerbung.',
       requirements: [
-        'Staatliche Anerkennung als Masseur/in und medizinische/r Bademeister/in',
-        'Erfahrung in klassischer Massage, Bindegewebsmassage und Wellnessanwendungen',
-        'Freundliches und zuvorkommendes Auftreten',
-        'Eigenständige, strukturierte Arbeitsweise'
+        'Du möchtest Physiotherapie, Training oder Gesundheitsorganisation weiterdenken',
+        'Du bringst eigene Stärken, Ideen oder besondere Qualifikationen mit',
+        'Du hast Freude an Teamarbeit, Entwicklung und einem modernen Arbeitsumfeld',
+        'Du möchtest dich in einem qualitätsorientierten Unternehmen einbringen'
       ],
       tasks: [
-        'Klassische Massagetherapie, Lymphdrainage und Entspannungsverfahren',
-        'Durchführung von physikalischen Therapien (Wärme, Kälte etc.)',
-        'Beratung von Patienten zu Wohlbefinden und Regeneration',
-        'Koordination von Behandlungsterminen im Team'
+        'Einsatz je nach Profil in Therapie, Training, Verwaltung oder Gesundheitsförderung',
+        'Mitgestaltung von Abläufen, digitalen Prozessen und interner Weiterentwicklung',
+        'Zusammenarbeit mit einem jungen, motivierten und fachlich starken Team',
+        'Entwicklung in internen und externen Fortbildungen'
       ]
     }
   ];
@@ -389,12 +392,12 @@ startxref
   const schema = {
     "@context": "https://schema.org",
     "@type": "JobPosting",
-    "title": "Physiotherapeut (m/w/d)",
-    "description": "Wir suchen engagierte Physiotherapeuten für unsere Standorte in Freiburg und Rust. Werde Teil eines innovativen Teams!",
+    "title": "Karriere bei MOVIN",
+    "description": "Aktuelle Stellenangebote bei MOVIN: Wochenend-Aushilfe, Ausbildung im Gesundheitswesen und Initiativbewerbung.",
     "identifier": {
       "@type": "PropertyValue",
       "name": "MOVIN",
-      "value": "physio-2026"
+      "value": "karriere-2026"
     },
     "datePosted": "2026-03-01",
     "validThrough": "2026-12-31",
@@ -420,8 +423,8 @@ startxref
   return (
     <>
       <SEO 
-        title="Physiotherapeut Jobs Freiburg | Karriere bei MOVIN"
-        description="Werde Teil des MOVIN Teams in Freiburg oder Rust. Wir bieten Top-Gehalt, modernste Ausstattung (KI-Therapie) und ein tolles Arbeitsklima. Jetzt bewerben!"
+        title="Karriere bei MOVIN Freiburg | Stellenangebote & Ausbildung"
+        description="Karriere bei MOVIN: Wochenend-Aushilfe, Ausbildung Kauffrau/-mann im Gesundheitswesen und Initiativbewerbung. Jetzt informieren und bewerben."
         schema={schema}
       />
 
@@ -443,7 +446,7 @@ startxref
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
           >
-            <Briefcase className="w-3.5 h-3.5" /> DEINE REISE STARTET HIER
+            <Briefcase className="w-3.5 h-3.5" /> Karriere bei MOVIN
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -451,7 +454,7 @@ startxref
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl md:text-7xl font-black mb-6 tracking-tight leading-none text-gradient-teal-mint"
           >
-            Zukunft gestalten.<br/>Menschen bewegen.
+            Physiotherapie weiterdenken.<br/>Menschen bewegen.
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -459,7 +462,7 @@ startxref
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-lg md:text-2xl text-blue-tint/90 font-medium max-w-3xl mx-auto mb-10 leading-relaxed"
           >
-            Physiotherapie von morgen braucht Teamgeister von heute. Arbeite in einem hochmodernen, digitalen Umfeld mit Raum für deine Entfaltung.
+            Wir möchten Physiotherapie auf ein neues Level bringen und schaffen dafür einen Arbeitsplatz, an dem Mitarbeiter*innen ihre Stärken entwickeln und aktiv einbringen können.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -474,12 +477,75 @@ startxref
               Offene Stellen ansehen
             </a>
             <button 
-              onClick={() => scrollToFormAndSelect('physio-freiburg')}
+              onClick={() => scrollToFormAndSelect('aushilfe-wochenende')}
               className="btn-outline border-white/30 text-white hover:bg-white/10 w-full sm:w-auto px-8 py-4 text-base font-bold text-center"
             >
               Direkt bewerben
             </button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Ziel & Vision */}
+      <section className="section-padding bg-white border-b border-border/50">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5">
+              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Unser Ziel</span>
+              <h2 className="text-3xl md:text-4xl font-black text-secondary tracking-tight mb-6">
+                Ein Arbeitsplatz, der Entwicklung möglich macht
+              </h2>
+              <p className="text-dark/75 leading-relaxed mb-5">
+                Unser Anspruch ist nicht „so war es schon immer“. Wir analysieren den Status quo, hinterfragen Routinen und bleiben offen für neue Wege in einer zukunftsorientierten Physiotherapie.
+              </p>
+              <p className="text-dark/75 leading-relaxed">
+                Unsere Leitlinie ist ein qualitätsorientierter und innovativer Arbeitsplatz, in dem Mitarbeiter*innen aktiv eingebunden werden und ihre individuellen Stärken einbringen können.
+              </p>
+            </div>
+
+            <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  title: 'Unsere Vision',
+                  desc: 'Begleite Patient*innen vom Start einer Operation bis zur Rückkehr in Beruf oder Sport und entwickle dich mit einem jungen, motivierten Team weiter.'
+                },
+                {
+                  title: 'Ärztenetzwerk & Lernen',
+                  desc: 'Kommuniziere mit einem ausgezeichneten Ärztenetzwerk und profitiere von internen sowie externen Fortbildungen.'
+                },
+                {
+                  title: 'Digital & evidenzbasiert',
+                  desc: 'Arbeite mit der MOVIN App, digitaler Organisation und einer evidenz- sowie leitlinienorientierten Therapiephilosophie.'
+                },
+                {
+                  title: 'Gemeinsam eins',
+                  desc: 'Bring deine Ideen ein. Bei MOVIN entsteht Qualität aus vielen einzelnen Stärken, die zusammen ein Team ergeben.'
+                }
+              ].map((item, index) => (
+                <div key={index} className="bg-light border border-border/70 rounded-2xl p-6">
+                  <h3 className="text-lg font-bold text-secondary mb-3">{item.title}</h3>
+                  <p className="text-sm text-dark/70 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 bg-secondary rounded-[2rem] p-8 md:p-10 text-white">
+            <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Tätigkeitsfelder: High Five</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {[
+                'Ambulante Versorgung',
+                'Functional Training',
+                'Stationäre Versorgung',
+                'Verwaltung / Terminierung',
+                'Betriebliche Gesundheitsförderung'
+              ].map((field) => (
+                <div key={field} className="bg-white/5 border border-white/10 rounded-xl p-4 text-sm font-bold text-blue-tint">
+                  {field}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -599,10 +665,10 @@ startxref
         
         <div className="container-custom relative z-10-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">BEST-OF MOVIN FLATRATE</span>
-            <h2 className="text-3xl md:text-5xl font-black text-gradient-teal-mint mb-6">Deine unschlagbaren Vorteile bei uns</h2>
+            <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Unser Plus</span>
+            <h2 className="text-3xl md:text-5xl font-black text-gradient-teal-mint mb-6">Was MOVIN als Arbeitgeber bietet</h2>
             <p className="text-lg text-blue-tint/80 max-w-2xl mx-auto">
-              Wir versprechen nicht nur - wir liefern das beste Gesamtpaket, damit du dich entfalten, gesund bleiben und sorgenfrei arbeiten kannst.
+              Neben fachlicher Entwicklung zählt für uns auch der Alltag im Team: verlässliche Leistungen, gemeinsame Zeit und moderne digitale Werkzeuge.
             </p>
           </div>
 
@@ -611,38 +677,38 @@ startxref
               { 
                 num: '01',
                 icon: <Euro className="w-8 h-8 text-primary" />,
-                title: 'Top-Vergütung & Boni', 
-                desc: 'Hervorragendes Grundgehalt (bis zu 4.600 €) mit lohnenden Qualifikations-Zulagen, betrieblicher Altersvorsorge und bezahlter Überstunden-Regelung.' 
+                title: 'Absicherung & Zuschüsse', 
+                desc: 'Betriebliche Altersvorsorge, betriebliche Krankenversicherung, Gutscheine als steuerfreier Sachbezug und flexible Vereinbarungen.' 
               },
               { 
                 num: '02',
                 icon: <Cpu className="w-8 h-8 text-primary" />,
-                title: 'Zukunftsweisende KI & Digitalisierung', 
-                desc: 'Arbeite mit der intuitiven MOVIN App, digitaler Befundung und modernsten KI-gestützten Trainingssystemen zur maximalen Entlastung deiner Administrationszeit.' 
+                title: 'Digitale Arbeitsweise', 
+                desc: 'Eigene Mitarbeiter*innen-App, eigene Patient*innen-App und digitale Abläufe, die Kommunikation und Organisation im Praxisalltag erleichtern.' 
               },
               { 
                 num: '03',
                 icon: <GraduationCap className="w-8 h-8 text-primary" />,
-                title: 'Fortbildungs-Budgetflatrate', 
-                desc: 'Erhalte ein unbegrenztes Fortbildungsbudget für anerkannte zusätzliche Berufsbezeichnungen sowie voll bezahlte, freigestellte Lerntage pro Jahr.' 
+                title: 'Fortbildung & Entwicklung', 
+                desc: 'Fortbildungszuschüsse, flexible Vereinbarungen, interne Weiterbildungen und therapeutische To-do-Zeiten für fachliche Qualität.' 
               },
               { 
                 num: '04',
                 icon: <Heart className="w-8 h-8 text-primary" />,
-                title: 'Fitness & Vitality Benefits', 
-                desc: 'Kostenlose Premium Urban Sports Club Partnerschaft, attraktives JobRad-Fahrradleasing und Behandlungen im eigenen Team als Priorität.' 
+                title: 'Mobilität', 
+                desc: 'JobRad, Regiokarte und kostenfreies internes Carsharing unterstützen dich auch außerhalb der Behandlungsräume.' 
               },
               { 
                 num: '05',
                 icon: <Calendar className="w-8 h-8 text-primary" />,
-                title: 'Flexibel gestaltetes Leben', 
-                desc: 'Wähle deinen Dienstplan mit echten flexiblen Arbeitszeiten (Vollzeit, Teilzeit, 4-Tage-Woche möglich) und profitiere von einer fairen Urlaubsplanung.' 
+                title: 'Teamleben', 
+                desc: 'Stammtische, Sommerveranstaltung und Weihnachtsfeier schaffen Raum für Begegnung abseits des normalen Praxisalltags.' 
               },
               { 
                 num: '06',
                 icon: <Users className="w-8 h-8 text-primary" />,
-                title: 'Einzigartige Teampower', 
-                desc: 'Legendäre Team-Events im Schwarzwald, regelmäßige Intervision auf Augenhöhe und ein kollegiales Umfeld ohne steife Hierarchien.' 
+                title: 'Mitgestaltung', 
+                desc: 'Ideen, individuelle Stärken und eigene Kompetenzen sollen aktiv in unser Unternehmen einfließen können.' 
               },
             ].map((benefit, i) => (
               <motion.div 
@@ -677,7 +743,7 @@ startxref
             <h2 className="text-3xl md:text-5xl font-black text-secondary tracking-tight mb-4">Wähle deinen Karriereweg</h2>
             <div className="h-1.5 w-20 bg-primary mx-auto mb-6 rounded-full" />
             <p className="text-lg text-dark/70 leading-relaxed">
-              Finde die perfekte Stelle, die zu deinen Kompetenzen und Lebensvorstellungen passt. Lade dir detaillierte Stellenangebote direkt als PDF herunter oder bewirb dich online.
+              Hier findest du die aktuell ausgeschriebenen Möglichkeiten. Die vorhandenen Stellenangebote kannst du direkt als PDF öffnen oder dich online bewerben.
             </p>
           </div>
 
@@ -706,12 +772,22 @@ startxref
                   </div>
                   
                   <div className="flex flex-col sm:flex-row md:flex-col gap-2 shrink-0 w-full sm:w-auto">
-                    <button 
-                      onClick={() => generateJobPDF(job)}
-                      className="btn-outline flex items-center justify-center gap-2 border-border text-secondary hover:bg-light w-full py-2.5 px-4 text-xs font-bold tracking-wider"
-                    >
-                      <Download className="w-4 h-4" /> PDF herunterladen
-                    </button>
+                    {job.pdfUrl ? (
+                      <a
+                        href={job.pdfUrl}
+                        download
+                        className="btn-outline flex items-center justify-center gap-2 border-border text-secondary hover:bg-light w-full py-2.5 px-4 text-xs font-bold tracking-wider"
+                      >
+                        <Download className="w-4 h-4" /> PDF herunterladen
+                      </a>
+                    ) : (
+                      <button 
+                        onClick={() => scrollToFormAndSelect(job.id)}
+                        className="btn-outline flex items-center justify-center gap-2 border-border text-secondary hover:bg-light w-full py-2.5 px-4 text-xs font-bold tracking-wider"
+                      >
+                        <Mail className="w-4 h-4" /> Kontakt aufnehmen
+                      </button>
+                    )}
                     <button 
                       onClick={() => scrollToFormAndSelect(job.id)}
                       className="btn-primary w-full py-2.5 px-5 text-xs font-bold tracking-wider text-center"
@@ -751,6 +827,30 @@ startxref
                     </ul>
                   </div>
                 </div>
+
+                {job.pdfUrl && (
+                  <div className="border border-border/70 rounded-2xl overflow-hidden bg-light">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 border-b border-border/70">
+                      <div>
+                        <p className="text-xs font-bold text-primary uppercase tracking-widest">Original-PDF</p>
+                        <p className="text-sm font-bold text-secondary">{job.title}</p>
+                      </div>
+                      <a
+                        href={job.pdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-outline flex items-center justify-center gap-2 border-border text-secondary hover:bg-white py-2 px-4 text-xs font-bold tracking-wider"
+                      >
+                        <ExternalLink className="w-4 h-4" /> PDF öffnen
+                      </a>
+                    </div>
+                    <iframe
+                      src={job.pdfUrl}
+                      title={`PDF ${job.title}`}
+                      className="hidden md:block w-full h-[420px] bg-white"
+                    />
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
@@ -758,7 +858,7 @@ startxref
           <div className="mt-16 text-center max-w-3xl mx-auto bg-light p-8 rounded-3xl border border-border/80 shadow-md">
             <h3 className="text-xl font-bold text-secondary mb-3">Keine passende Rolle gefunden?</h3>
             <p className="text-dark/70 text-sm mb-6 max-w-xl mx-auto">
-              Du hast eigene Ideen, brings außergewöhnliche Stärken ein oder suchst ein duales Studium im Bereich Physiotherapie? Sende uns gerne deine Initiativbewerbung!
+              Du hast eigene Ideen, bringst außergewöhnliche Stärken ein oder suchst einen anderen Einstieg bei MOVIN? Sende uns gerne deine Initiativbewerbung.
             </p>
             <button 
               onClick={() => scrollToFormAndSelect('initiativ')}
@@ -898,7 +998,6 @@ startxref
                       {jobs.map(j => (
                         <option key={j.id} value={j.id}>{j.title} ({j.type})</option>
                       ))}
-                      <option value="initiativ">Initiativbewerbung (m/w/d)</option>
                     </select>
                   </div>
 

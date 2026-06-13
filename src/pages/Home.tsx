@@ -184,7 +184,7 @@ export default function Home() {
               { 
                 name: 'Lorettoberg', 
                 address: 'Mercystrasse 14, 79100 Freiburg', 
-                img: '/images/standorte/lorettoberg/lorettoberg-main.png', 
+                img: '/images/standorte/lorettoberg/lorettoberg-main.jpg', 
                 path: '/standorte/physiotherapie-freiburg-lorettoberg/',
                 badges: [
                   { img: '/images/partner-logos/zertifikate/badge_lorettoberg.png', title: 'Ausgezeichnete Patientenzufriedenheit' },
