@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router';
-import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import LeistungenHub from './pages/LeistungenHub';
@@ -20,7 +19,6 @@ import StationaereVersorgung from './pages/StationaereVersorgung';
 import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
 import GenericPage from './pages/GenericPage';
-import { CookieProvider } from './components/gdpr/CookieContext';
 import { CookieConsent } from './components/gdpr/CookieConsent';
 import CtaTransition from './components/effects/CtaTransition';
 
@@ -31,42 +29,33 @@ export default function App() {
       <CookieConsent />
       <Routes>
         <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            
-            {/* Leistungen */}
-            <Route path="leistungen" element={<LeistungenHub />} />
-            <Route path="leistungen/:slug" element={<LeistungDetail />} />
-            
-            {/* Standorte */}
-            <Route path="standorte" element={<StandorteHub />} />
-            <Route path="standorte/:slug" element={<StandortPage />} />
-            
-            {/* Digital */}
-            <Route path="digital" element={<DigitalHub />} />
-            <Route path="digital/movin-app" element={<DigitalApp />} />
-            <Route path="digital/ki-physiotherapie" element={<DigitalKi />} />
-            <Route path="digital/anamnesebogen" element={<Anamnesebogen />} />
-            
-            {/* Other Pages */}
-            <Route path="training" element={<Training />} />
-            <Route path="stationaere-versorgung" element={<StationaereVersorgung />} />
-            <Route path="ueber-uns" element={<UeberUns />} />
-            <Route path="karriere" element={<Karriere />} />
-            <Route path="faq" element={<Faq />} />
-            <Route path="kontakt" element={<Kontakt />} />
-            <Route path="termin" element={<Termin />} />
-            
-            {/* Legal */}
-            <Route path="impressum" element={<Impressum />} />
-            <Route path="datenschutz" element={<Datenschutz />} />
-            
-            {/* Catch all */}
-            <Route path="*" element={<GenericPage />} />
-          </Route>
-        </Routes>
+          <Route index element={<Home />} />
+
+          <Route path="leistungen" element={<LeistungenHub />} />
+          <Route path="leistungen/:slug" element={<LeistungDetail />} />
+
+          <Route path="standorte" element={<StandorteHub />} />
+          <Route path="standorte/:slug" element={<StandortPage />} />
+
+          <Route path="digital" element={<DigitalHub />} />
+          <Route path="digital/movin-app" element={<DigitalApp />} />
+          <Route path="digital/ki-physiotherapie" element={<DigitalKi />} />
+          <Route path="digital/anamnesebogen" element={<Anamnesebogen />} />
+
+          <Route path="training" element={<Training />} />
+          <Route path="stationaere-versorgung" element={<StationaereVersorgung />} />
+          <Route path="ueber-uns" element={<UeberUns />} />
+          <Route path="karriere" element={<Karriere />} />
+          <Route path="faq" element={<Faq />} />
+          <Route path="kontakt" element={<Kontakt />} />
+          <Route path="termin" element={<Termin />} />
+
+          <Route path="impressum" element={<Impressum />} />
+          <Route path="datenschutz" element={<Datenschutz />} />
+
+          <Route path="*" element={<GenericPage />} />
+        </Route>
+      </Routes>
     </>
   );
 }
-
-
-

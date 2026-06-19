@@ -11,20 +11,79 @@ export default function LeistungDetail() {
   }
 
   const leistung = leistungenData[slug as keyof typeof leistungenData] as any;
+  const baseUrl = 'https://movin-freiburg.de';
+  const canonicalUrl = `${baseUrl}/leistungen/${slug}/`;
+  const absoluteUrl = (url: string) => url.startsWith('http') ? url : `${baseUrl}${url}`;
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": leistung.title,
-    "description": leistung.seoDesc,
-    "url": `https://movin-freiburg.de/leistungen/${slug}/`
-  };
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "@id": `${canonicalUrl}#service`,
+      "name": leistung.title,
+      "serviceType": leistung.title,
+      "description": leistung.seoDesc,
+      "url": canonicalUrl,
+      "image": absoluteUrl(leistung.heroImage),
+      "provider": {
+        "@type": "MedicalBusiness",
+        "name": "MOVIN Physiotherapie",
+        "url": baseUrl,
+        "telephone": "+49 761 707 33 66",
+        "medicalSpecialty": "Physiotherapie",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Mercystrasse 14",
+          "postalCode": "79100",
+          "addressLocality": "Freiburg im Breisgau",
+          "addressRegion": "Baden-Württemberg",
+          "addressCountry": "DE"
+        }
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Freiburg im Breisgau" },
+        { "@type": "City", "name": "Rust" },
+        { "@type": "AdministrativeArea", "name": "Breisgau-Hochschwarzwald" },
+        { "@type": "AdministrativeArea", "name": "Ortenaukreis" }
+      ],
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": canonicalUrl,
+        "servicePhone": "+49 761 707 33 66"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": `${baseUrl}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Leistungen",
+          "item": `${baseUrl}/leistungen/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": leistung.title,
+          "item": canonicalUrl
+        }
+      ]
+    }
+  ];
 
   return (
     <>
       <SEO 
         title={leistung.seoTitle.split(' | ')[0]}
         description={leistung.seoDesc}
+        canonical={canonicalUrl}
         schema={schema}
       />
 
@@ -34,10 +93,16 @@ export default function LeistungDetail() {
           <img 
             src={leistung.heroImage} 
             alt={leistung.title} 
-            className="w-full h-full object-cover opacity-30 mix-blend-overlay"
+            className="w-full h-full object-cover opacity-[0.48]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/75 to-secondary/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/35 to-transparent" />
         </div>
+        {leistung.heroImageCaption && (
+          <div className="absolute right-4 bottom-4 z-10 rounded-full bg-secondary/60 px-3 py-1 text-[11px] font-medium text-white/70 backdrop-blur-sm border border-white/10">
+            {leistung.heroImageCaption}
+          </div>
+        )}
         
         <div className="container-custom relative z-10 text-white mt-16">
           <div className="flex items-center gap-2 text-primary font-semibold uppercase tracking-wider text-sm mb-4">
@@ -60,7 +125,7 @@ export default function LeistungDetail() {
                   {leistung.description}
                 </p>
                 
-                <h3 className="text-2xl font-bold text-secondary mb-6">Deine Vorteile bei MOVIN</h3>
+                <h3 className="text-2xl font-bold text-secondary mb-6">Ihre Vorteile bei MOVIN</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   {leistung.benefits.map((benefit, i) => (
                     <li key={i} className="flex items-start gap-3 text-dark/80 bg-light p-4 rounded-xl">
@@ -81,7 +146,7 @@ export default function LeistungDetail() {
                 <p className="text-dark/70 mb-8">
                   {leistung.isB2B 
                     ? 'Investieren Sie in die Gesundheit Ihrer Mitarbeiter. Kontaktieren Sie uns für ein unverbindliches Erstgespräch.'
-                    : `Lass uns gemeinsam an deiner Gesundheit arbeiten. Buche jetzt deinen Termin für ${leistung.title} bei MOVIN.`}
+                    : `Lassen Sie uns gemeinsam an Ihrer Gesundheit arbeiten. Buchen Sie jetzt Ihren Termin für ${leistung.title} bei MOVIN.`}
                 </p>
                 <Link 
                   to={leistung.isB2B ? "/kontakt/" : "/termin/"} 

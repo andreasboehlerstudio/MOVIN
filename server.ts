@@ -9,9 +9,47 @@ dotenv.config();
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = parseInt(process.env.PORT || "3000", 10);
 
   app.use(express.json({ limit: '50mb' }));
+
+  const mailRecipients = {
+    contact: process.env.CONTACT_RECEIVER_EMAIL || "kontakt@movin-freiburg.de",
+    career: process.env.CAREER_RECEIVER_EMAIL || "daniel.klein@movin-freiburg.de",
+    anamnese: process.env.ANAMNESE_RECEIVER_EMAIL || "anamnesebogen@movin-freiburg.de",
+  };
+
+  const createTransporter = () => nodemailer.createTransport({
+    host: process.env.SMTP_HOST || "smtp.example.com",
+    port: parseInt(process.env.SMTP_PORT || "587"),
+    secure: process.env.SMTP_SECURE === "true",
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+
+  const sendMail = async (mailOptions: Record<string, any>) => {
+    if (process.env.SMTP_USER && process.env.SMTP_PASS) {
+      const transporter = createTransporter();
+      await transporter.sendMail(mailOptions);
+      return { sent: true };
+    }
+
+    console.log("SMTP credentials not set. Email simulated without logging personal form content.", {
+      to: mailOptions.to,
+      subject: mailOptions.subject,
+      hasAttachments: Boolean(mailOptions.attachments),
+    });
+    return { sent: false, simulated: true };
+  };
+
+  const extractBase64Content = (dataUri: string) => {
+    const marker = "base64,";
+    return dataUri.includes(marker) ? dataUri.split(marker)[1] : dataUri;
+  };
+
+  const safeFileName = (name: string) => name.replace(/[^\w.\-äöüÄÖÜß ]/g, "_").replace(/\s+/g, "_");
 
   // Helper to find video files recursively
   async function findVideosInDir(dir: string, baseDir: string): Promise<string[]> {
@@ -52,6 +90,99 @@ async function startServer() {
     }
   });
 
+  app.post("/api/send-contact", async (req, res) => {
+    const { name, email, phone, message, standort } = req.body;
+
+    if (!name || !email || !phone || !message) {
+      return res.status(400).json({ error: "Required fields are missing" });
+    }
+
+    const standortLabels: Record<string, string> = {
+      lorettoberg: "Freiburg - Lorettoberg",
+      mooswald: "Freiburg - Mooswald",
+      rust: "Europa-Park - Rust",
+      egal: "Egal / Keine Präferenz",
+    };
+
+    try {
+      const result = await sendMail({
+        from: process.env.SMTP_FROM || '"MOVIN Website" <noreply@movin-freiburg.de>',
+        to: mailRecipients.contact,
+        replyTo: email,
+        subject: `Neue Kontaktanfrage: ${name}`,
+        text: [
+          "Über das Kontaktformular wurde eine neue Anfrage eingereicht.",
+          "",
+          `Name: ${name}`,
+          `E-Mail: ${email}`,
+          `Telefon: ${phone}`,
+          `Gewünschter Standort: ${standortLabels[standort] || standort || "Nicht angegeben"}`,
+          "",
+          "Nachricht:",
+          message,
+        ].join("\n"),
+      });
+
+      res.json({ message: "Contact request processed", ...result });
+    } catch (error) {
+      console.error("Error sending contact request:", error);
+      res.status(500).json({ error: "Failed to send contact request" });
+    }
+  });
+
+  app.post("/api/send-bewerbung", async (req, res) => {
+    const {
+      anrede,
+      name,
+      email,
+      phone,
+      message,
+      einstieg,
+      selectedJobTitle,
+      selectedJobId,
+      fileName,
+      fileBase64,
+    } = req.body;
+
+    if (!name || !email || !phone || !fileBase64 || !fileName) {
+      return res.status(400).json({ error: "Required fields are missing" });
+    }
+
+    try {
+      const result = await sendMail({
+        from: process.env.SMTP_FROM || '"MOVIN Karriere" <noreply@movin-freiburg.de>',
+        to: mailRecipients.career,
+        replyTo: email,
+        subject: `Neue Bewerbung: ${name}`,
+        text: [
+          "Über das Karriereformular wurde eine neue Bewerbung eingereicht.",
+          "",
+          `Anrede: ${anrede || "Nicht angegeben"}`,
+          `Name: ${name}`,
+          `E-Mail: ${email}`,
+          `Telefon: ${phone}`,
+          `Gewünschte Stelle: ${selectedJobTitle || selectedJobId || "Nicht angegeben"}`,
+          `Frühestmöglicher Einstieg: ${einstieg || "Nicht angegeben"}`,
+          "",
+          "Nachricht / Begleittext:",
+          message || "Keine Nachricht angegeben.",
+        ].join("\n"),
+        attachments: [
+          {
+            filename: safeFileName(fileName),
+            content: extractBase64Content(fileBase64),
+            encoding: "base64",
+          },
+        ],
+      });
+
+      res.json({ message: "Application processed", ...result });
+    } catch (error) {
+      console.error("Error sending application:", error);
+      res.status(500).json({ error: "Failed to send application" });
+    }
+  });
+
   // API Route to send the PDF
   app.post("/api/send-anamnese", async (req, res) => {
     const { pdfBase64, name, email } = req.body;
@@ -61,42 +192,22 @@ async function startServer() {
     }
 
     try {
-      // Configure transporter (using environment variables)
-      // For demo purposes, we'll use a mock or a real one if configured
-      const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST || "smtp.example.com",
-        port: parseInt(process.env.SMTP_PORT || "587"),
-        secure: process.env.SMTP_SECURE === "true",
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
-        },
-      });
-
-      const mailOptions = {
+      const result = await sendMail({
         from: process.env.SMTP_FROM || '"MOVIN Physiotherapie" <noreply@movin-freiburg.de>',
-        to: process.env.RECEIVER_EMAIL || "andreasboehler86@gmail.com",
+        to: mailRecipients.anamnese,
+        replyTo: email,
         subject: `Neuer Anamnesebogen: ${name}`,
         text: `Ein neuer Anamnesebogen wurde von ${name} (${email}) eingereicht. Sie finden das Dokument im Anhang.`,
         attachments: [
           {
-            filename: `Anamnesebogen_${name.replace(/\s+/g, '_')}.pdf`,
-            content: pdfBase64.split("base64,")[1],
+            filename: safeFileName(`Anamnesebogen_${name}.pdf`),
+            content: extractBase64Content(pdfBase64),
             encoding: "base64",
           },
         ],
-      };
+      });
 
-      // In a real scenario, you'd send the email. 
-      // For this environment, we'll log it and return success if credentials aren't set.
-      if (process.env.SMTP_USER && process.env.SMTP_PASS) {
-        await transporter.sendMail(mailOptions);
-        res.json({ message: "Email sent successfully" });
-      } else {
-        console.log("SMTP credentials not set. Email content logged to console.");
-        console.log("Mail Options:", { ...mailOptions, attachments: "[PDF ATTACHMENT]" });
-        res.json({ message: "Email simulation successful (credentials missing)" });
-      }
+      res.json({ message: "Anamnese processed", ...result });
     } catch (error) {
       console.error("Error sending email:", error);
       res.status(500).json({ error: "Failed to send email" });

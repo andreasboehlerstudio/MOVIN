@@ -14,7 +14,7 @@ export default function Termin() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "Termin buchen | MOVIN Physiotherapie",
-    "description": "Buche jetzt deinen Termin bei MOVIN Physiotherapie in Freiburg oder Rust. 48h Termingarantie für Neupatienten mit akuten Schmerzen.",
+    "description": "Buchen Sie jetzt Ihren Termin bei MOVIN Physiotherapie in Freiburg oder Rust. 48h Termingarantie für Neupatienten mit akuten Schmerzen.",
     "url": "https://movin-freiburg.de/termin/"
   };
 
@@ -22,7 +22,7 @@ export default function Termin() {
     <>
       <SEO 
         title="Termin buchen | MOVIN Physiotherapie Freiburg & Rust"
-        description="Buche jetzt deinen Termin bei MOVIN Physiotherapie in Freiburg oder Rust. Nutze unsere 48h Termingarantie für Neupatienten mit akuten Schmerzen."
+        description="Buchen Sie jetzt Ihren Termin bei MOVIN Physiotherapie in Freiburg oder Rust. Nutzen Sie unsere 48h Termingarantie für Neupatienten mit akuten Schmerzen."
         schema={schema}
       />
 
@@ -32,9 +32,9 @@ export default function Termin() {
           <div className="flex items-center justify-center gap-2 text-primary font-semibold uppercase tracking-wider text-sm mb-4">
             <Calendar className="w-4 h-4" /> Terminvereinbarung
           </div>
-          <h1 className="text-4xl md:text-6xl font-black mb-6 text-gradient-teal-mint">Buche deinen Termin</h1>
+          <h1 className="text-4xl md:text-6xl font-black mb-6 text-gradient-teal-mint">Buchen Sie Ihren Termin</h1>
           <p className="text-xl text-dark/80 leading-relaxed">
-            Wähle den modernsten Buchungsweg über unsere App oder buche klassisch online bzw. telefonisch an einem unserer Standorte.
+            Wählen Sie den modernsten Buchungsweg über unsere App oder buchen Sie klassisch online bzw. telefonisch an einem unserer Standorte.
           </p>
         </div>
       </section>
@@ -60,7 +60,7 @@ export default function Termin() {
                     Termine bequem per MOVIN App buchen
                   </h2>
                   <p className="text-blue-tint/90 text-sm leading-relaxed mb-6">
-                    Keine Warteschleifen mehr am Telefon und volle Kontrolle: Verwalte, buche, verschiebe oder storniere deine Physiotherapie-Termine rund um die Uhr direkt über dein Smartphone.
+                    Keine Warteschleifen mehr am Telefon und volle Kontrolle: Verwalten, buchen, verschieben oder stornieren Sie Ihre Physiotherapie-Termine rund um die Uhr direkt über Ihr Smartphone.
                   </p>
                   <div className="flex flex-wrap gap-4">
                     <Link to="/digital/movin-app" className="btn-primary flex items-center gap-2">
@@ -134,7 +134,7 @@ export default function Termin() {
 
               {/* 3 Steps Section */}
               <div className="mt-12 border-t border-white/10 pt-10">
-                <h3 className="text-lg md:text-xl font-bold mb-8 text-center text-white">In 3 Schritten zu deinem Wunschtermin</h3>
+                <h3 className="text-lg md:text-xl font-bold mb-8 text-center text-white">In 3 Schritten zu Ihrem Wunschtermin</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
                   
                   {/* Verbindungslinie für Desktops */}
@@ -144,19 +144,19 @@ export default function Termin() {
                     {
                       step: '1',
                       title: 'App herunterladen',
-                      desc: 'Installiere die kostenfreie MOVIN App auf deinem Smartphone aus dem Store.',
+                      desc: 'Installieren Sie die kostenfreie MOVIN App auf Ihrem Smartphone aus dem Store.',
                       icon: Download
                     },
                     {
                       step: '2',
                       title: 'Rezept hochladen',
-                      desc: 'Fotografiere deine Verordnung einfach per App ab oder lade das PDF direkt hoch.',
+                      desc: 'Fotografieren Sie Ihre Verordnung einfach per App ab oder laden Sie das PDF direkt hoch.',
                       icon: Upload
                     },
                     {
                       step: '3',
                       title: 'Termine erhalten',
-                      desc: 'Unser Service-Team schickt dir freie Terminoptionen, die du sofort bestätigen kannst.',
+                      desc: 'Unser Service-Team schickt Ihnen freie Terminoptionen, die Sie sofort bestätigen können, sowie die Informationen zur gesetzlichen Zuzahlung.',
                       icon: CalendarCheck
                     }
                   ].map((item, index) => {
@@ -187,7 +187,7 @@ export default function Termin() {
             <div>
               <h3 className="text-2xl font-bold text-secondary mb-2">48h Termingarantie</h3>
               <p className="text-dark/80">
-                Du hast akute Schmerzen? Wir garantieren Neupatienten einen Ersttermin innerhalb von 48 Stunden an einem unserer drei Standorte. Bitte rufe uns hierfür direkt an!
+                Sie haben akute Schmerzen? Wir garantieren Neupatienten einen Ersttermin innerhalb von 48 Stunden an einem unserer drei Standorte. Bitte rufe uns hierfür direkt an!
               </p>
             </div>
             <a href="tel:+497617073366" className="btn-primary shrink-0 md:ml-auto">
@@ -206,18 +206,18 @@ export default function Termin() {
                 <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded-full">Jederzeit</span>
               </div>
               <p className="text-dark/80">
-                Sparen Sie zeitliche Abstimmungen bei Ihrem ersten Termin und füllen Sie unseren Anamnesebogen bereits vorab digital aus – ganz bequem von zu Hause und zu jeder Zeit.
+                Wenn Sie unsere App nicht nutzen, können Sie den Anamnesebogen auch hier online ausfüllen und uns die wichtigsten Informationen vor Ihrem Termin übermitteln.
               </p>
             </div>
             <Link to="/digital/anamnesebogen" className="btn-primary shrink-0 md:ml-auto">
-              Bogen ausfüllen
+              Anamnesebogen öffnen
             </Link>
           </div>
 
           {/* Standorte Grid */}
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl font-extrabold text-secondary">Klassische Terminvereinbarung</h2>
-            <p className="text-dark/70 text-sm mt-3">Du möchtest direkt online über Doctolib oder per Telefon einen Termin für einen bestimmten Standort vereinbaren?</p>
+            <p className="text-dark/70 text-sm mt-3">Sie möchten direkt online über Doctolib oder per Telefon einen Termin für einen bestimmten Standort vereinbaren?</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -278,10 +278,10 @@ export default function Termin() {
 
           <div className="mt-16 text-center">
             <p className="text-dark/70 mb-4">
-              Du bist dir unsicher, welche Behandlung die richtige für dich ist?
+              Sind Sie unsicher, welche Behandlung die richtige für Sie ist?
             </p>
             <Link to="/kontakt" className="flex items-center justify-center gap-2 text-primary font-medium hover:underline">
-              Schreib uns eine Nachricht <ArrowRight className="w-4 h-4" />
+              Schreiben Sie uns eine Nachricht <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

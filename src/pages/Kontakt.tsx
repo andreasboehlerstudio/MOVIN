@@ -12,17 +12,33 @@ export default function Kontakt() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmitError('');
+
+    try {
+      const response = await fetch('/api/send-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Kontaktanfrage konnte nicht gesendet werden.');
+      }
+
       setIsSuccess(true);
       setFormData({ name: '', email: '', phone: '', message: '', standort: 'lorettoberg' });
       setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+    } catch (error) {
+      console.error(error);
+      setSubmitError('Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie direkt an kontakt@movin-freiburg.de.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -33,7 +49,7 @@ export default function Kontakt() {
     <>
       <SEO 
         title="Kontakt | MOVIN Physiotherapie Freiburg & Rust"
-        description="Kontaktiere MOVIN Physiotherapie in Freiburg oder Rust. Nutze unser Formular, ruf an oder schreibe eine E-Mail. Wir melden uns schnellstmöglich!"
+        description="Kontaktieren Sie MOVIN Physiotherapie in Freiburg oder Rust. Nutzen Sie unser Formular, rufen Sie an oder schreiben Sie eine E-Mail. Wir melden uns schnellstmöglich!"
       />
 
       {/* Hero */}
@@ -41,7 +57,7 @@ export default function Kontakt() {
         <div className="container-custom text-center max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-black mb-6 text-gradient-teal-mint">Kontakt</h1>
           <p className="text-xl text-dark/80 leading-relaxed">
-            Hast du Fragen zu unseren Therapien, möchtest einen Termin vereinbaren oder benötigst Hilfe? Wir sind für dich da.
+            Haben Sie Fragen zu unseren Therapien, möchten Sie einen Termin vereinbaren oder benötigen Sie Hilfe? Wir sind für Sie da.
           </p>
         </div>
       </section>
@@ -123,7 +139,7 @@ export default function Kontakt() {
             {/* Right Col: Form */}
             <div className="lg:col-span-7">
               <div className="card-base p-8 md:p-10 shadow-xl">
-                <h3 className="text-2xl font-bold text-secondary mb-6">Schreib uns eine Nachricht</h3>
+                <h3 className="text-2xl font-bold text-secondary mb-6">Schreiben Sie uns eine Nachricht</h3>
                 
                 {isSuccess ? (
                   <div className="bg-mint text-primary p-6 rounded-xl flex flex-col items-center text-center gap-4">
@@ -131,7 +147,7 @@ export default function Kontakt() {
                       <Send className="w-8 h-8" />
                     </div>
                     <h4 className="text-xl font-bold">Vielen Dank!</h4>
-                    <p>Deine Nachricht wurde erfolgreich gesendet. Wir melden uns in Kürze bei dir.</p>
+                    <p>Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns in Kürze bei Ihnen.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-6">
@@ -195,7 +211,7 @@ export default function Kontakt() {
                     </div>
 
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="message" className="text-sm font-semibold text-secondary">Deine Nachricht *</label>
+                      <label htmlFor="message" className="text-sm font-semibold text-secondary">Ihre Nachricht *</label>
                       <textarea 
                         id="message" 
                         name="message" 
@@ -204,16 +220,22 @@ export default function Kontakt() {
                         value={formData.message}
                         onChange={handleChange}
                         className="px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light resize-none"
-                        placeholder="Wie können wir dir helfen?"
+                        placeholder="Wie können wir Ihnen helfen?"
                       ></textarea>
                     </div>
 
                     <div className="flex items-start gap-3 mt-2">
                       <input type="checkbox" id="privacy" required className="mt-1" />
                       <label htmlFor="privacy" className="text-sm text-dark/70">
-                        Ich stimme zu, dass meine Angaben aus dem Kontaktformular zur Beantwortung meiner Anfrage erhoben und verarbeitet werden. Detaillierte Informationen findest du in unserer <a href="/datenschutz/" className="text-primary hover:underline">Datenschutzerklärung</a>.
+                        Ich willige ein, dass meine Angaben aus dem Kontaktformular zur Bearbeitung meiner Anfrage an kontakt@movin-freiburg.de übermittelt und verarbeitet werden. Hinweise zu Zweck, Empfängern, Speicherdauer, Widerruf und Löschung finden Sie in unserer <a href="/datenschutz/" className="text-primary hover:underline">Datenschutzerklärung</a>.
                       </label>
                     </div>
+
+                    {submitError && (
+                      <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+                        {submitError}
+                      </div>
+                    )}
 
                     <button 
                       type="submit" 

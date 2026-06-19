@@ -21,7 +21,7 @@ export default function UeberUns() {
     <>
       <SEO 
         title="Über uns | Das Team von MOVIN Physiotherapie Freiburg"
-        description="Erfahre mehr über die Philosophie, das Team und die Geschichte von MOVIN. Dein innovatives Therapiezentrum in Freiburg und am Europa-Park."
+        description="Erfahren Sie mehr über die Philosophie, das Team und die Geschichte von MOVIN. Ihr innovatives Therapiezentrum in Freiburg und am Europa-Park."
         schema={schema}
       />
 
@@ -74,7 +74,7 @@ export default function UeberUns() {
             {[
               { icon: Heart, title: 'Leidenschaft', desc: 'Wir lieben, was wir tun - und das spüren unsere Patient:innen.' },
               { icon: Lightbulb, title: 'Innovation', desc: 'Moderne Therapiekonzepte und digitale Lösungen für bestmögliche Ergebnisse.' },
-              { icon: Users, title: 'Teamgeist', desc: 'Interdisziplinäre Zusammenarbeit für ganzheitliche Behandlung.' },
+              { icon: Users, title: 'Teamgeist', desc: 'Unser Teamgeist ist das Fundament für Erfolg und Spaß bei der Arbeit.' },
               { icon: Award, title: 'Qualität', desc: 'Kontinuierliche Fortbildung und höchste therapeutische Standards.' }
             ].map((wert, i) => (
               <div key={i} className="bg-light rounded-2xl p-8 text-center hover:shadow-lg transition-shadow border border-transparent hover:border-primary/10">
@@ -96,10 +96,10 @@ export default function UeberUns() {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">Unsere Philosophie: Salutogenese</h2>
               <p className="text-lg text-dark/80 leading-relaxed mb-6">
-                Wir behandeln nicht nur Symptome, wir suchen nach der Ursache. Unser Leitbild "Salutogenese – Hilfe zur Selbsthilfe" bedeutet für uns, dass wir dich aktiv in den Heilungsprozess einbinden.
+                Wir behandeln nicht nur Symptome, wir suchen nach der Ursache. Unser Leitbild "Salutogenese – Hilfe zur Selbsthilfe" bedeutet für uns, dass wir Sie aktiv in den Heilungsprozess einbinden.
               </p>
               <p className="text-lg text-dark/80 leading-relaxed mb-8">
-                Mit modernster Diagnostik, KI-gestützter Therapie und unserer hauseigenen MOVIN App geben wir dir die Werkzeuge an die Hand, um langfristig gesund und schmerzfrei zu bleiben.
+                Mit modernster Diagnostik, KI-gestützter Therapie und unserer hauseigenen MOVIN App geben wir Ihnen die Werkzeuge an die Hand, um langfristig gesund und schmerzfrei zu bleiben.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -107,7 +107,7 @@ export default function UeberUns() {
                   <Target className="w-6 h-6 text-primary shrink-0" />
                   <div>
                     <h4 className="font-bold text-secondary mb-1">Ganzheitlich</h4>
-                    <p className="text-sm text-dark/70">Körper und Geist im Einklang.</p>
+                    <p className="text-sm text-dark/70">Bio-psycho-sozial denken und behandeln.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -123,8 +123,8 @@ export default function UeberUns() {
             <div className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl transform translate-x-4 translate-y-4" />
               <img 
-                src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800" 
-                alt="Physiotherapeut bei der Arbeit" 
+                src="/images/ueber-uns/salutogenese-movin.jpg" 
+                alt="Aktive therapeutische Begleitung im Sinne der Salutogenese" 
                 className="relative z-10 rounded-3xl shadow-xl object-cover h-[400px] w-full"
               />
             </div>
@@ -152,7 +152,7 @@ export default function UeberUns() {
                 { year: '2019', title: 'Movin am Mooswald', desc: 'Eröffnung des Standorts Movin am Mooswald im Westen Freiburgs.', align: 'left' },
                 { year: '2024', title: 'Europa-Park Standort', desc: 'Eröffnung des Standorts am Europa-Park in Rust für spezialisierte Sportphysiotherapie.', align: 'right' },
                 { year: '2025', title: 'MOVIN Digital', desc: 'Launch von MOVIN Digital und der neuen MOVIN App für eine hybride Patientenversorgung.', align: 'left' },
-                { year: '2026', title: 'Zukunft', desc: 'Umfassende Modernisierung und Rebranding für die Physiotherapie von morgen.', align: 'right' }
+                { year: '2026', title: 'Zukunft', desc: 'Umfassende Modernisierung und Rebranding. Weiterentwicklung für die Physiotherapie von morgen.', align: 'right' }
               ].map((item, i) => (
                 <div key={i} className={`relative flex flex-col md:flex-row items-start md:items-center ${item.align === 'left' ? 'md:flex-row-reverse' : ''}`}>
                   <div className="absolute left-[20px] md:left-1/2 w-3 h-3 bg-primary rounded-full transform -translate-x-1/2 mt-2 md:mt-0 border-4 border-white box-content z-10"></div>
@@ -406,6 +406,7 @@ export default function UeberUns() {
           <div className="mt-16 text-center">
             <p className="text-dark/60 italic text-lg">...und viele weitere engagierte Kolleg:innen an unseren Standorten.</p>
           </div>
+
         </div>
       </section>
 

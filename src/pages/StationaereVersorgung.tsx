@@ -53,7 +53,7 @@ export default function StationaereVersorgung() {
                 Die MOVIN (Therapiezentrum Lorettoberg GmbH) ist stolzer Partner des Artemed / Loretto Krankenhauses in Freiburg. Unser spezialisiertes Team übernimmt die physiotherapeutische Versorgung der stationären Patienten.
               </p>
               <p className="text-lg text-dark/80 leading-relaxed mb-8">
-                Der große Vorteil für dich: Wenn du nach einem operativen Eingriff entlassen wirst, kannst du deine ambulante Rehabilitation nahtlos bei uns in der Praxis am Lorettoberg fortsetzen. Deine Therapeuten kennen deine Vorgeschichte bereits.
+                Der große Vorteil für Sie: Wenn Sie nach einem operativen Eingriff entlassen wirst, können Sie Ihre ambulante Rehabilitation nahtlos bei uns in der Praxis am Lorettoberg fortsetzen. Ihre Therapeuten kennen Ihre Vorgeschichte bereits.
               </p>
               
               <h3 className="text-2xl font-bold text-secondary mb-4">Unsere Schwerpunkte in der Klinik:</h3>
@@ -114,7 +114,7 @@ export default function StationaereVersorgung() {
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ambulante Reha nach dem Klinikaufenthalt?</h2>
           <p className="text-blue-tint/80 text-lg mb-10">
-            Sichere dir frühzeitig deine Termine für die Zeit nach der Entlassung in unserer Praxis am Lorettoberg (direkt neben der Klinik).
+            Sichern Sie sich frühzeitig Ihre Termine für die Zeit nach der Entlassung in unserer Praxis am Lorettoberg (direkt neben der Klinik).
           </p>
           <Link to="/termin/" className="btn-cta-cheetah text-lg px-8 py-4 rounded-full">
             <span className="relative z-10 flex items-center justify-center gap-2">

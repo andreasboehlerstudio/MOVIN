@@ -2,86 +2,182 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://movin-freiburg.de/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/leistungen/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/leistungen/krankengymnastik/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/leistungen/manuelle-therapie/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/leistungen/krankengymnastik-am-geraet/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/leistungen/sportphysiotherapie/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://movin-freiburg.de/leistungen/ruecken-therapie/</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://movin-freiburg.de/leistungen/knie-schulter-therapie/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/leistungen/lymphdrainage/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/leistungen/mtt-training/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/leistungen/personal-training/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/leistungen/skillcourt/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/leistungen/sensopro/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/leistungen/eap-privat/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/leistungen/knie-schulter-therapie/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/leistungen/praevention-gesundheitsfoerderung/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/leistungen/betriebliche-gesundheitsfoerderung/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/standorte/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/standorte/physiotherapie-freiburg-lorettoberg/</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/standorte/physiotherapie-freiburg-mooswald/</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/standorte/physiotherapie-europa-park-rust/</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/digital/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/digital/movin-app/</loc>
-    <priority>0.6</priority>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/digital/ki-physiotherapie/</loc>
-    <priority>0.6</priority>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/digital/anamnesebogen/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/training/</loc>
-    <priority>0.6</priority>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/stationaere-versorgung/</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://movin-freiburg.de/karriere/</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://movin-freiburg.de/ueber-uns/</loc>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://movin-freiburg.de/faq/</loc>
-    <priority>0.6</priority>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/termin/</loc>
-    <priority>0.6</priority>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://movin-freiburg.de/kontakt/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/ueber-uns/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/karriere/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://movin-freiburg.de/faq/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 </urlset>

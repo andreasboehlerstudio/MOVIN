@@ -1,29 +1,35 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useMemo } from 'react';
+import * as HelmetAsync from 'react-helmet-async';
 import { useLocation } from 'react-router';
+
+const helmetModule = HelmetAsync as any;
+const helmetFallback = helmetModule["default"] || helmetModule["module.exports"];
+const Helmet = helmetModule.Helmet || helmetFallback?.Helmet;
 
 interface SEOProps {
   title: string;
   description: string;
   canonical?: string;
   schema?: any;
+  preloadImage?: string;
 }
 
-export default function SEO({ title, description, canonical, schema }: SEOProps) {
+export default function SEO({ title, description, canonical, schema, preloadImage }: SEOProps) {
   const siteName = "MOVIN Physiotherapie Freiburg";
   const fullTitle = `${title} | ${siteName}`;
   const location = useLocation();
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   const baseUrl = "https://movin-freiburg.de";
+  const normalizePath = (path: string) => {
+    if (!path || path === "/") return "/";
+    const cleanPath = path.split("?")[0].split("#")[0];
+    return cleanPath.endsWith("/") ? cleanPath : `${cleanPath}/`;
+  };
+
   const currentUrl = useMemo(() => {
     if (canonical) return canonical;
-    return `${baseUrl}${location.pathname}${location.search}`;
-  }, [canonical, location.pathname, location.search]);
+    return `${baseUrl}${normalizePath(location.pathname)}`;
+  }, [canonical, location.pathname]);
 
   return (
     <Helmet>
@@ -39,6 +45,7 @@ export default function SEO({ title, description, canonical, schema }: SEOProps)
       
       {/* Canonical */}
       <link rel="canonical" href={currentUrl} />
+      {preloadImage && <link rel="preload" as="image" href={preloadImage} />}
 
       {/* Schema.org */}
       {schema && (

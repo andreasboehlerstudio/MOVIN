@@ -37,11 +37,13 @@ export default function DigitalKi() {
       <section className="relative h-[60vh] min-h-[500px] flex items-center bg-secondary overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000" 
-            alt="KI-gestützte Physiotherapie und Bewegungsanalyse" 
-            className="w-full h-full object-cover opacity-25 mix-blend-overlay"
+            src="/images/ki/ki-physiotherapie-hero-movin.jpg" 
+            alt="Therapeutische Bewegungseinheit bei MOVIN mit digitaler Unterstützung" 
+            className="w-full h-full object-cover opacity-[0.48]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/75 to-secondary/35" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_45%,rgba(0,178,186,0.26),transparent_34%)]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/35 to-transparent" />
         </div>
         
         <div className="container-custom relative z-10 text-white mt-16 text-center max-w-4xl mx-auto">
@@ -157,7 +159,7 @@ export default function DigitalKi() {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Praktischer Nutzen</span>
+            <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Einsatz</span>
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">Wie KI bei MOViN eingesetzt wird</h2>
             <p className="text-lg text-dark/70">
               Der Einsatz von KI unterstützt Information, Therapie sowie Verwaltung und Prozessoptimierung im Praxisalltag.
@@ -176,7 +178,7 @@ export default function DigitalKi() {
                   <h3 className="text-2xl font-bold text-secondary">Information</h3>
                 </div>
                 <p className="text-dark/80 text-sm leading-relaxed mb-6">
-                  KI analysiert die in unserer App zur Verfügung gestellten Daten und fasst diese Treiberorientiert, im Sinne des Bio-psycho-sozialen (Ganzheitlich) Ansatz zusammen.
+                  KI analysiert die in unserer App zur Verfügung gestellten Daten und fasst diese treiberorientiert im Sinne des bio-psycho-sozialen Ansatzes zusammen.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-3.5 text-xs text-dark/75">
@@ -185,7 +187,7 @@ export default function DigitalKi() {
                   </li>
                   <li className="flex items-start gap-3.5 text-xs text-dark/75">
                     <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    Treiberorientierte Einordnung von Beschwerden
+                    Treiberorientierte Einordnung von Beschwerden und Red Flags
                   </li>
                   <li className="flex items-start gap-3.5 text-xs text-dark/75">
                     <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -194,17 +196,17 @@ export default function DigitalKi() {
                 </ul>
               </div>
               <div className="border-t border-border pt-6 mt-auto">
-                <span className="text-xs text-dark/50 italic">Informationen sinnvoll bündeln</span>
+                <span className="text-xs text-dark/50 italic">Beschwerdetreiber und Red Flags sichtbar machen</span>
               </div>
             </div>
 
             {/* 2. Therapie */}
             <div className="card-base p-8 relative flex flex-col justify-between border-2 border-primary/40 bg-gradient-to-b from-white to-primary/5 shadow-md">
-              <div className="absolute -top-3.5 left-8 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-sm">
+              <div className="absolute top-5 right-6 sm:right-8 bg-primary text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-sm">
                 Therapie-Vorteil
               </div>
               <div>
-                <span className="text-xs font-bold text-primary/70 tracking-widest uppercase mb-1 block mt-2">Bereich 2</span>
+                <span className="text-xs font-bold text-primary/70 tracking-widest uppercase mb-1 block">Bereich 2</span>
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                     <Activity className="w-5 h-5 animate-pulse" />
@@ -212,16 +214,16 @@ export default function DigitalKi() {
                   <h3 className="text-2xl font-bold text-secondary">Therapie</h3>
                 </div>
                 <p className="text-dark/80 text-sm leading-relaxed mb-6">
-                  Unsere KI hilft dabei, Erstgespräche und Befundungen und Tagesdokumentationen zusammenzufassen. Somit können wir den Fokus, ohne störendes mitschreiben, auf Sie als Patient*innen legen.
+                  Unsere KI hilft dabei, Erstgespräch, Befundung und Tagesdokumentation zusammenzufassen. So können wir den Fokus ohne störendes Mitschreiben auf Sie als Patient*innen legen.
                 </p>
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-3.5 text-xs text-dark/75">
                     <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    Erstgespräche übersichtlich zusammenfassen
+                    Erstgespräch übersichtlich zusammenfassen
                   </li>
                   <li className="flex items-start gap-3.5 text-xs text-dark/75">
                     <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    Befundungen und Tagesdokumentationen unterstützen
+                    Befundung und Tagesdokumentation unterstützen
                   </li>
                   <li className="flex items-start gap-3.5 text-xs text-dark/75">
                     <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
@@ -265,7 +267,42 @@ export default function DigitalKi() {
                 </ul>
               </div>
               <div className="border-t border-border pt-6 mt-auto">
-                <span className="text-xs text-dark/50 italic">Weniger Administration, mehr Therapie</span>
+                <span className="text-xs text-dark/50 italic">Prozesse entlasten, Therapiezeit sichern</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-light rounded-[2rem] p-5 md:p-8 border border-border/80">
+            <div className="lg:col-span-7">
+              <figure>
+                <img
+                  src="/images/ki/ki-physiotherapie-symbolbild-nano-banana-2.webp"
+                  alt="KI-generiertes Symbolbild für therapeutische Begleitung mit digitaler Analyse"
+                  className="w-full aspect-video object-cover rounded-[1.5rem] shadow-lg"
+                />
+                <figcaption className="mt-3 text-xs text-dark/50 italic">
+                  KI-generiertes Symbolbild.
+                </figcaption>
+              </figure>
+            </div>
+
+            <div className="lg:col-span-5">
+              <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Mensch und Technologie</span>
+              <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-4">
+                KI begleitet leise im Hintergrund.
+              </h3>
+              <p className="text-dark/75 text-sm md:text-base leading-relaxed mb-6">
+                Das Motiv greift die zentralen Gedanken der bisherigen KI-Seite neu auf: Zukunft, Fokus Mensch und Datenschutz. Die therapeutische Entscheidung bleibt persönlich, während digitale Analyse Informationen strukturiert und Abläufe entlastet.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="flex items-start gap-3 text-sm text-dark/75">
+                  <HeartHandshake className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span>Therapeutische Beziehung bleibt sichtbar</span>
+                </div>
+                <div className="flex items-start gap-3 text-sm text-dark/75">
+                  <ShieldCheck className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span>Daten werden geschützt und transparent genutzt</span>
+                </div>
               </div>
             </div>
           </div>
@@ -297,11 +334,14 @@ export default function DigitalKi() {
             <div className="lg:col-span-7">
               <div className="rounded-[2rem] overflow-hidden bg-secondary shadow-xl border border-border/70">
                 <video
-                  src="/videos/ki/fokus-mensch.mp4"
-                  controls
+                  src="/videos/ki/fokus-mensch-optimized.mp4"
+                  autoPlay
+                  loop
+                  muted
                   playsInline
                   preload="metadata"
                   className="w-full aspect-video object-cover block"
+                  aria-label="MOVIN KI-Physiotherapie Video"
                 >
                   Ihr Browser unterstützt das Video-Element nicht.
                 </video>
@@ -328,9 +368,9 @@ export default function DigitalKi() {
               </div>
 
               <div className="w-full md:w-2/3 bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-sm">
-                <h3 className="text-xl font-bold mb-4 text-primary-light">DSGVO Vertrag</h3>
+                <h3 className="text-xl font-bold mb-4 text-primary-light">DSGVO & Patientendaten</h3>
                 <p className="text-sm text-blue-tint/90 leading-relaxed mb-6">
-                  Datenschutz hat bei MOViN oberste Priorität. Alle Daten werden ausschließlich auf Servern in Deutschland oder der EU verarbeitet und unterliegen den strengen Anforderungen der DSGVO. Jeglicher Einsatz von KI erfolgt transparent und nur mit dem Einverständnis unserer Patient*innen.
+                  Datenschutz hat bei MOViN oberste Priorität. Personenbezogene Gesundheitsdaten werden nur zweckgebunden, transparent und mit Einwilligung verarbeitet. KI unterstützt unsere Dokumentation und Auswertung, trifft aber keine automatisierten Therapieentscheidungen. Die Verarbeitung erfolgt nach DSGVO, mit geeigneten technischen und organisatorischen Schutzmaßnahmen und ausschließlich über Anbieter mit Serverstandorten in Deutschland oder der EU.
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -344,21 +384,31 @@ export default function DigitalKi() {
                   </div>
                   <div className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/5">
                     <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                    <span className="text-xs text-white/95">Nur mit Einverständnis unserer Patient*innen</span>
+                    <span className="text-xs text-white/95">Nur zweckgebunden und mit Einwilligung</span>
                   </div>
                   <div className="flex items-center gap-3 bg-white/5 p-4 rounded-xl border border-white/5">
                     <Lock className="w-5 h-5 text-primary shrink-0" />
-                    <span className="text-xs text-white/95">Transparent und gesetzeskonform</span>
+                    <span className="text-xs text-white/95">Keine automatisierten Therapieentscheidungen</span>
                   </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Link to="/datenschutz/" className="btn-outline border-white/30 text-white hover:bg-white hover:text-secondary text-sm px-5 py-3 justify-center">
+                  <a
+                    href="/docs/ki/einwilligung-in-den-datenschutz.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline border-white/30 text-white hover:bg-white hover:text-secondary text-sm px-5 py-3 justify-center"
+                  >
                     Datenschutzerklärung
-                  </Link>
-                  <Link to="/kontakt/" className="btn-outline border-white/30 text-white hover:bg-white hover:text-secondary text-sm px-5 py-3 justify-center">
+                  </a>
+                  <a
+                    href="/docs/ki/aushang-patienteninformation-zum-datenschutz.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline border-white/30 text-white hover:bg-white hover:text-secondary text-sm px-5 py-3 justify-center"
+                  >
                     Patienteninformation anfragen
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

@@ -38,6 +38,13 @@ interface Job {
   pdfUrl?: string;
 }
 
+const fileToBase64 = (file: File) => new Promise<string>((resolve, reject) => {
+  const reader = new FileReader();
+  reader.onload = () => resolve(reader.result as string);
+  reader.onerror = () => reject(reader.error);
+  reader.readAsDataURL(file);
+});
+
 export default function Karriere() {
   const [selectedJob, setSelectedJob] = useState<string>('aushilfe-wochenende');
   const [formData, setFormData] = useState({
@@ -54,6 +61,7 @@ export default function Karriere() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStep, setSubmitStep] = useState(0);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   
   const fileInputRef = useRef<HTMLInputElement>(null);
   const formSectionRef = useRef<HTMLDivElement>(null);
@@ -68,7 +76,7 @@ export default function Karriere() {
       salary: 'Aushilfstätigkeit',
       description: 'Unterstütze unser Team am Wochenende im Praxisalltag. Ideal für Schüler*innen oder Student*innen, die Einblick in ein modernes Therapie- und Trainingszentrum bekommen möchten.',
       requirements: [
-        'Du bist Schüler*in oder Student*in und suchst eine sinnvolle Nebentätigkeit',
+        'Sie sind Schüler*in oder Student*in und suchen eine sinnvolle Nebentätigkeit',
         'Zuverlässigkeit, Freundlichkeit und ein aufmerksamer Umgang mit Menschen',
         'Interesse an Gesundheit, Therapie, Training oder Praxisorganisation',
         'Bereitschaft, am Wochenende Verantwortung im kleinen Rahmen zu übernehmen'
@@ -88,12 +96,12 @@ export default function Karriere() {
       location: 'Freiburg',
       department: 'Verwaltung & Terminierung',
       salary: 'Ausbildungsplatz',
-      description: 'Starte deine Ausbildung in einem modernen Gesundheitsunternehmen. Du lernst Organisation, Terminierung, Kommunikation mit Patient*innen und digitale Abläufe im Praxisalltag kennen.',
+      description: 'Starten Sie Ihre Ausbildung in einem modernen Gesundheitsunternehmen. Sie lernen Organisation, Terminierung, Kommunikation mit Patient*innen und digitale Abläufe im Praxisalltag kennen.',
       requirements: [
         'Interesse an Gesundheitswesen, Organisation und Kommunikation',
         'Freundliches Auftreten und Freude am Kontakt mit Menschen',
         'Sorgfalt, Verlässlichkeit und Lust auf digitale Arbeitsprozesse',
-        'Motivation, dich in einem jungen und qualitätsorientierten Team zu entwickeln'
+        'Motivation, sich in einem jungen und qualitätsorientierten Team zu entwickeln'
       ],
       tasks: [
         'Terminierung, Empfang und organisatorische Praxisabläufe kennenlernen',
@@ -110,12 +118,12 @@ export default function Karriere() {
       location: 'Freiburg / Rust',
       department: 'Alle Bereiche',
       salary: 'Individuell',
-      description: 'Aktuell sind nicht alle Möglichkeiten als konkrete Stelle ausgeschrieben. Wenn du zu MOVIN passt, deine Ideen einbringen möchtest oder dich in einem unserer Tätigkeitsfelder siehst, freuen wir uns über deine Initiativbewerbung.',
+      description: 'Aktuell sind nicht alle Möglichkeiten als konkrete Stelle ausgeschrieben. Wenn Sie zu MOVIN passen, Ihre Ideen einbringen möchten oder sich in einem unserer Tätigkeitsfelder sehen, freuen wir uns über Ihre Initiativbewerbung.',
       requirements: [
-        'Du möchtest Physiotherapie, Training oder Gesundheitsorganisation weiterdenken',
-        'Du bringst eigene Stärken, Ideen oder besondere Qualifikationen mit',
-        'Du hast Freude an Teamarbeit, Entwicklung und einem modernen Arbeitsumfeld',
-        'Du möchtest dich in einem qualitätsorientierten Unternehmen einbringen'
+        'Sie möchten Physiotherapie, Training oder Gesundheitsorganisation weiterdenken',
+        'Sie bringen eigene Stärken, Ideen oder besondere Qualifikationen mit',
+        'Sie haben Freude an Teamarbeit, Entwicklung und einem modernen Arbeitsumfeld',
+        'Sie möchten sich in einem qualitätsorientierten Unternehmen einbringen'
       ],
       tasks: [
         'Einsatz je nach Profil in Therapie, Training, Verwaltung oder Gesundheitsförderung',
@@ -227,27 +235,27 @@ ET
 BT
 /F1 9.5 Tf
 50 325 Td
-(- Flexible Work-Life-Balance und Mitgestaltung deines Dienstplans) Tj
+(- Flexible Work-Life-Balance und Mitgestaltung Ihres Dienstplans) Tj
 ET
 BT
 /F1 11 Tf
 50 280 Td
-(So einfach bewirbst du dich:) Tj
+(So einfach bewerben Sie sich:) Tj
 ET
 BT
 /F1 10 Tf
 50 260 Td
-(Nutze unser eigens eingerichtetes Express-Bewerbungsportal direkt auf:) Tj
+(Nutzen Sie unser eigens eingerichtetes Express-Bewerbungsportal direkt auf:) Tj
 ET
 BT
 /F1 10 Tf
 50 248 Td
-(https://movin-freiburg.de/karriere/ oder sende deine PDF-Bewerbung an:) Tj
+(https://movin-freiburg.de/karriere/ oder senden Sie Ihre PDF-Bewerbung an:) Tj
 ET
 BT
 /F1 10 Tf
 50 236 Td
-(bewerbung@movin-freiburg.de) Tj
+(daniel.klein@movin-freiburg.de) Tj
 ET
 endstream
 endobj
@@ -303,7 +311,7 @@ startxref
       if (file.type === "application/pdf") {
         setUploadedFile(file);
       } else {
-        alert("Bitte lade nur PDF-Dateien hoch.");
+        alert("Bitte laden Sie nur PDF-Dateien hoch.");
       }
     }
   };
@@ -314,7 +322,7 @@ startxref
       if (file.type === "application/pdf") {
         setUploadedFile(file);
       } else {
-        alert("Bitte lade nur PDF-Dateien hoch.");
+        alert("Bitte laden Sie nur PDF-Dateien hoch.");
       }
     }
   };
@@ -339,40 +347,57 @@ startxref
     }
   };
 
-  // Simulated multi-step secure submission
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.phone) {
-      alert("Bitte fülle alle Pflichtfelder (*) aus.");
+      alert("Bitte füllen Sie alle Pflichtfelder (*) aus.");
       return;
     }
     if (!uploadedFile) {
-      alert("Bitte lade deinen Lebenslauf (PDF) hoch.");
+      alert("Bitte laden Sie Ihren Lebenslauf (PDF) hoch.");
       return;
     }
     if (!formData.agree) {
-      alert("Bitte bestätige die Datenschutzerklärung.");
+      alert("Bitte bestätigen Sie den Datenschutzhinweis.");
       return;
     }
 
     setIsSubmitting(true);
     setSubmitStep(1);
+    setSubmitError('');
 
-    // Multi-step submitting animation sequence
-    setTimeout(() => {
+    try {
+      const selectedJobData = jobs.find(j => j.id === selectedJob);
+      const fileBase64 = await fileToBase64(uploadedFile);
       setSubmitStep(2);
-      setTimeout(() => {
-        setSubmitStep(3);
-        setTimeout(() => {
-          setIsSubmitting(false);
-          setIsSuccess(true);
-          // Auto scroll to success
-          if (formSectionRef.current) {
-            formSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-        }, 1200);
-      }, 1200);
-    }, 1000);
+
+      const response = await fetch('/api/send-bewerbung', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          selectedJobId: selectedJob,
+          selectedJobTitle: selectedJobData?.title || 'Initiativbewerbung',
+          fileName: uploadedFile.name,
+          fileBase64,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Bewerbung konnte nicht gesendet werden.');
+      }
+
+      setSubmitStep(3);
+      setIsSuccess(true);
+      if (formSectionRef.current) {
+        formSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    } catch (error) {
+      console.error(error);
+      setSubmitError('Die Bewerbung konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut oder senden Sie die Unterlagen direkt an daniel.klein@movin-freiburg.de.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const resetForm = () => {
@@ -387,6 +412,7 @@ startxref
     });
     setUploadedFile(null);
     setIsSuccess(false);
+    setSubmitError('');
   };
 
   const schema = {
@@ -432,8 +458,9 @@ startxref
       <section className="relative h-[65vh] min-h-[500px] flex items-center bg-secondary overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2000" 
-            alt="MOVIN Modern Rehabilitation Culture" 
+            src="/images/standorte/lorettoberg/lorettoberg-main.webp" 
+            alt="MOVIN Praxisumfeld am Lorettoberg" 
+            decoding="async"
             className="w-full h-full object-cover opacity-25 mix-blend-overlay"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-secondary/35" />
@@ -452,7 +479,7 @@ startxref
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl md:text-7xl font-black mb-6 tracking-tight leading-none text-gradient-teal-mint"
+            className="text-4xl md:text-7xl font-black mb-6 tracking-tight leading-[1.08] md:leading-[1.05] pb-2 text-gradient-teal-mint"
           >
             Physiotherapie weiterdenken.<br/>Menschen bewegen.
           </motion.h1>
@@ -480,7 +507,7 @@ startxref
               onClick={() => scrollToFormAndSelect('aushilfe-wochenende')}
               className="btn-outline border-white/30 text-white hover:bg-white/10 w-full sm:w-auto px-8 py-4 text-base font-bold text-center"
             >
-              Direkt bewerben
+              direkt bewerben
             </button>
           </motion.div>
         </div>
@@ -491,23 +518,29 @@ startxref
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
-              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Unser Ziel</span>
+              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Unsere Vision</span>
               <h2 className="text-3xl md:text-4xl font-black text-secondary tracking-tight mb-6">
-                Ein Arbeitsplatz, der Entwicklung möglich macht
+                Think Different. Sei MOVIN.
               </h2>
               <p className="text-dark/75 leading-relaxed mb-5">
-                Unser Anspruch ist nicht „so war es schon immer“. Wir analysieren den Status quo, hinterfragen Routinen und bleiben offen für neue Wege in einer zukunftsorientierten Physiotherapie.
+                Hinterfragen Sie kritisch und wissenschaftlich. Wir stärken mit Ihnen den Blick auf Kontextfaktoren – für unsere Patient*innen, das Gesundheitssystem und Ihre persönliche Entwicklung.
               </p>
-              <p className="text-dark/75 leading-relaxed">
-                Unsere Leitlinie ist ein qualitätsorientierter und innovativer Arbeitsplatz, in dem Mitarbeiter*innen aktiv eingebunden werden und ihre individuellen Stärken einbringen können.
+              <p className="text-dark/75 leading-relaxed mb-6">
+                Gemeinsam eins: Bringen Sie Ihre Ideen ein, denken Sie mit und treten Sie selbstbewusst auf. Bei MOVIN entsteht Fortschritt, wenn Menschen Verantwortung übernehmen und Physiotherapie weiterentwickeln.
               </p>
+              <div className="bg-light border border-border/80 rounded-2xl p-5">
+                <p className="text-xs font-bold text-primary uppercase tracking-widest mb-2">Verweis Hands-Off-Konzept</p>
+                <p className="text-sm text-dark/70 leading-relaxed">
+                  Unsere Vision knüpft an das Hands-Off-Konzept an: Patient*innen sollen nicht nur behandelt, sondern aktiv in Selbstwirksamkeit, Bewegungskompetenz und nachhaltige Gesundheit begleitet werden.
+                </p>
+              </div>
             </div>
 
             <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
                   title: 'Unsere Vision',
-                  desc: 'Begleite Patient*innen vom Start einer Operation bis zur Rückkehr in Beruf oder Sport und entwickle dich mit einem jungen, motivierten Team weiter.'
+                  desc: 'Think Different. Sei MOVIN. Entwickle mit uns ein Hands-Off-Konzept weiter, das Patient*innen stärkt und Physiotherapie neu denkt.'
                 },
                 {
                   title: 'Ärztenetzwerk & Lernen',
@@ -519,7 +552,7 @@ startxref
                 },
                 {
                   title: 'Gemeinsam eins',
-                  desc: 'Bring deine Ideen ein. Bei MOVIN entsteht Qualität aus vielen einzelnen Stärken, die zusammen ein Team ergeben.'
+                  desc: 'Bringen Sie Ihre Ideen ein. Bei MOVIN entsteht Qualität aus vielen einzelnen Stärken, die zusammen ein Team ergeben.'
                 }
               ].map((item, index) => (
                 <div key={index} className="bg-light border border-border/70 rounded-2xl p-6">
@@ -535,7 +568,7 @@ startxref
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {[
                 'Ambulante Versorgung',
-                'Functional Training',
+                'Funktional- und Gerätetraining',
                 'Stationäre Versorgung',
                 'Verwaltung / Terminierung',
                 'Betriebliche Gesundheitsförderung'
@@ -554,10 +587,10 @@ startxref
         <div className="container-custom max-w-5xl mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-primary font-bold uppercase tracking-widest text-xs sm:text-sm mb-3 block">UNSER IMAGEFILM</span>
-            <h2 className="text-3xl md:text-5xl font-black text-secondary tracking-tight mb-4">Lerne uns im Video kennen</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-secondary tracking-tight mb-4">Lernen Sie uns im Video kennen</h2>
             <div className="h-1 bg-primary w-16 mx-auto rounded-full mb-6" />
             <p className="text-dark/70 text-sm md:text-base leading-relaxed">
-              Arbeiten bei MOVIN bedeutet: Modernste Ansätze, erstklassige Förderung und ein Team, das zusammenhält. Klicke auf Play und erhalte einen echten Einblick in unsere Philosophie!
+              Arbeiten bei MOVIN bedeutet: Modernste Ansätze, erstklassige Förderung und ein Team, das zusammenhält. Klicken Sie auf Play und erhalten Sie einen echten Einblick in unsere Philosophie!
             </p>
           </div>
 
@@ -598,10 +631,10 @@ startxref
       <section className="section-padding bg-light relative overflow-hidden">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-secondary tracking-tight mb-4">Erlebe den MOVIN-Vibe</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-secondary tracking-tight mb-4">Erleben Sie den MOVIN-Vibe</h2>
             <div className="h-1.5 w-20 bg-primary mx-auto mb-6 rounded-full" />
             <p className="text-lg text-dark/70 leading-relaxed">
-              Bei uns herrscht kein anonymer Praxisalltag, sondern ein echtes, herzliches Miteinander auf Augenhöhe. Schau dir unsere Live-Insights direkt von Instagram an und lerne uns kennen!
+              Bei uns herrscht kein anonymer Praxisalltag, sondern ein echtes, herzliches Miteinander auf Augenhöhe. Schauen Sie sich unsere Live-Insights direkt von Instagram an und lernen Sie uns kennen!
             </p>
           </div>
 
@@ -678,7 +711,7 @@ startxref
                 num: '01',
                 icon: <Euro className="w-8 h-8 text-primary" />,
                 title: 'Absicherung & Zuschüsse', 
-                desc: 'Betriebliche Altersvorsorge, betriebliche Krankenversicherung, Gutscheine als steuerfreier Sachbezug und flexible Vereinbarungen.' 
+                desc: 'Betriebliche Altersvorsorge, Gutscheine durch die Krankenkasse, steuerfreie Sachbezüge und flexible Vereinbarungen.' 
               },
               { 
                 num: '02',
@@ -696,7 +729,7 @@ startxref
                 num: '04',
                 icon: <Heart className="w-8 h-8 text-primary" />,
                 title: 'Mobilität', 
-                desc: 'JobRad, Regiokarte und kostenfreies internes Carsharing unterstützen dich auch außerhalb der Behandlungsräume.' 
+                desc: 'JobRad, Regiokarte, Deutschlandticket und kostenfreies internes Carsharing unterstützen Sie auch außerhalb der Behandlungsräume.' 
               },
               { 
                 num: '05',
@@ -709,6 +742,12 @@ startxref
                 icon: <Users className="w-8 h-8 text-primary" />,
                 title: 'Mitgestaltung', 
                 desc: 'Ideen, individuelle Stärken und eigene Kompetenzen sollen aktiv in unser Unternehmen einfließen können.' 
+              },
+              { 
+                num: '07',
+                icon: <Users className="w-8 h-8 text-primary" />,
+                title: 'Sportverein-Betreuung', 
+                desc: 'Je nach Einsatzprofil können Sie Erfahrungen in der Betreuung von Sportvereinen und Teams einbringen oder weiter ausbauen.' 
               },
             ].map((benefit, i) => (
               <motion.div 
@@ -740,10 +779,10 @@ startxref
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">AKTUELLE VAKANZEN</span>
-            <h2 className="text-3xl md:text-5xl font-black text-secondary tracking-tight mb-4">Wähle deinen Karriereweg</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-secondary tracking-tight mb-4">Wählen Sie Ihren Karriereweg</h2>
             <div className="h-1.5 w-20 bg-primary mx-auto mb-6 rounded-full" />
             <p className="text-lg text-dark/70 leading-relaxed">
-              Hier findest du die aktuell ausgeschriebenen Möglichkeiten. Die vorhandenen Stellenangebote kannst du direkt als PDF öffnen oder dich online bewerben.
+              Hier finden Sie die aktuell ausgeschriebenen Möglichkeiten. Die vorhandenen Stellenangebote können Sie direkt als PDF öffnen oder sich online bewerben.
             </p>
           </div>
 
@@ -801,7 +840,7 @@ startxref
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
                   <div>
                     <h4 className="font-bold text-secondary text-base mb-3 flex items-center gap-2">
-                      <span className="w-1.5 h-4 bg-primary rounded-full block" /> Was dich auszeichnet
+                      <span className="w-1.5 h-4 bg-primary rounded-full block" /> Was Sie auszeichnet
                     </h4>
                     <ul className="space-y-2.5">
                       {job.requirements.map((req, index) => (
@@ -815,7 +854,7 @@ startxref
 
                   <div>
                     <h4 className="font-bold text-secondary text-base mb-3 flex items-center gap-2">
-                      <span className="w-1.5 h-4 bg-primary rounded-full block" /> Deine Hauptaufgaben
+                      <span className="w-1.5 h-4 bg-primary rounded-full block" /> Ihre Hauptaufgaben
                     </h4>
                     <ul className="space-y-2.5">
                       {job.tasks.map((task, index) => (
@@ -858,7 +897,7 @@ startxref
           <div className="mt-16 text-center max-w-3xl mx-auto bg-light p-8 rounded-3xl border border-border/80 shadow-md">
             <h3 className="text-xl font-bold text-secondary mb-3">Keine passende Rolle gefunden?</h3>
             <p className="text-dark/70 text-sm mb-6 max-w-xl mx-auto">
-              Du hast eigene Ideen, bringst außergewöhnliche Stärken ein oder suchst einen anderen Einstieg bei MOVIN? Sende uns gerne deine Initiativbewerbung.
+              Sie haben eigene Ideen, bringen außergewöhnliche Stärken ein oder suchen einen anderen Einstieg bei MOVIN? Senden Sie uns gerne Ihre Initiativbewerbung.
             </p>
             <button 
               onClick={() => scrollToFormAndSelect('initiativ')}
@@ -877,7 +916,7 @@ startxref
             <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block">SECURE EXPRESS PORTAL</span>
             <h2 className="text-3xl md:text-5xl font-black text-secondary tracking-tight mb-4">Hier direkt bewerben</h2>
             <p className="text-dark/70 text-sm max-w-xl mx-auto">
-              Deine Schnellbewerbung nimmt weniger als 2 Minuten in Anspruch. Lebenslauf hochladen (PDF), Pflichtfelder ausfüllen und abschicken.
+              Ihre Schnellbewerbung nimmt weniger als 2 Minuten in Anspruch. Lebenslauf hochladen (PDF), Pflichtfelder ausfüllen und abschicken.
             </p>
           </div>
 
@@ -895,7 +934,7 @@ startxref
                 </div>
                 <h3 className="text-3xl font-black text-secondary mb-4">Bewerbung eingegangen!</h3>
                 <p className="text-dark/70 max-w-lg mx-auto mb-8 font-medium">
-                  Vielen Dank für dein Vertrauen in MOVIN! Deine Unterlagen wurden erfolgreich hochgeladen und an unser Karriere-Auswahlkomitee übermittelt.
+                  Vielen Dank für Ihr Vertrauen in MOVIN! Ihre Unterlagen wurden erfolgreich hochgeladen und an unser Karriere-Auswahlkomitee übermittelt.
                 </p>
 
                 {/* Simulated PDF / Job Confirmation receipt details */}
@@ -907,12 +946,12 @@ startxref
                     <p><strong>Angestrebte Stelle:</strong> {jobs.find(j => j.id === selectedJob)?.title || 'Initiativbewerbung'}</p>
                     <p><strong>Übertragene Datei:</strong> {uploadedFile?.name} ({Math.round((uploadedFile?.size || 0) / 1024)} KB)</p>
                     <p><strong>Verschlüsselungs-ID:</strong> MOV-{Math.floor(100000 + Math.random() * 900000)}</p>
-                    <p><strong>Empfänger:</strong> bewerbung@movin-freiburg.de</p>
+                    <p><strong>Empfänger:</strong> daniel.klein@movin-freiburg.de</p>
                   </div>
                 </div>
 
                 <p className="text-xs text-dark/50 mb-6">
-                  Wir prüfen deine Unterlagen schnellstmöglich und rufen dich in der Regel innerhalb von 48 Stunden zurück.
+                  Wir prüfen Ihre Unterlagen schnellstmöglich und rufen Sie in der Regel innerhalb von 48 Stunden zurück.
                 </p>
 
                 <button 
@@ -953,7 +992,7 @@ startxref
                       className="space-y-2"
                     >
                       <h4 className="text-xl font-bold text-secondary">Bewerberprofil wird generiert...</h4>
-                      <p className="text-dark/50 text-sm">Abgleich für bewerbung@movin-freiburg.de</p>
+                      <p className="text-dark/50 text-sm">Abgleich für daniel.klein@movin-freiburg.de</p>
                     </motion.div>
                   )}
                   {submitStep === 3 && (
@@ -1097,7 +1136,7 @@ startxref
 
                 {/* Message / Motivation */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="message" className="text-sm font-bold text-secondary">Deine Nachricht oder Begleittext (optional)</label>
+                  <label htmlFor="message" className="text-sm font-bold text-secondary">Ihre Nachricht oder Begleittext (optional)</label>
                   <textarea 
                     id="message" 
                     name="message" 
@@ -1105,7 +1144,7 @@ startxref
                     value={formData.message}
                     onChange={handleInputChange}
                     className="w-full p-4 rounded-xl border border-border focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary bg-light text-sm font-semibold"
-                    placeholder="Erzähle uns kurz von dir oder füge Notizen hinzu..."
+                    placeholder="Erzählen Sie uns kurz von sich oder fügen Sie Notizen hinzu..."
                   />
                 </div>
 
@@ -1159,7 +1198,7 @@ startxref
                           <Upload className="w-6 h-6" />
                         </div>
                         <div className="text-center">
-                          <p className="text-sm font-bold text-secondary">Klicke zum Auswählen oder ziehe die PDF hierher</p>
+                          <p className="text-sm font-bold text-secondary">Klicken Sie zum Auswählen oder ziehen Sie die PDF hierher</p>
                           <p className="text-xs text-dark/40 font-semibold mt-1">Nur PDF-Dateien bis maximal 12 MB erlaubt</p>
                         </div>
                       </>
@@ -1179,14 +1218,21 @@ startxref
                     className="w-4 h-4 rounded text-primary focus:ring-primary border-border cursor-pointer mt-0.5"
                   />
                   <label htmlFor="agree" className="text-xs text-dark/70 font-medium leading-relaxed cursor-pointer select-none">
-                    Ich stimme zu, dass meine hochgeladenen Bewerbungsunterlagen und eingegebenen Daten gesichert verarbeitet und zwecks Personalentscheidungen durch die Praxen der MOVIN-Gruppe gespeichert werden dürfen. Diese Einwilligung kann ich jederzeit bezüglich <Link to="/datenschutz/" className="text-primary hover:underline">Datenschutz</Link> widerrufen. *
+                    Ich willige ein, dass meine Angaben und der hochgeladene PDF-Lebenslauf zur Bearbeitung meiner Bewerbung an daniel.klein@movin-freiburg.de übermittelt und verarbeitet werden. Hinweise zu Upload-Verarbeitung, Empfängern, Speicherdauer, Widerruf und Löschung finden Sie in der <Link to="/datenschutz/" className="text-primary hover:underline">Datenschutzerklärung</Link>. *
                   </label>
                 </div>
+
+                {submitError && (
+                  <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+                    {submitError}
+                  </div>
+                )}
 
                 {/* Submit button */}
                 <button
                   type="submit"
-                  className="btn-primary w-full py-4 text-base font-bold flex items-center justify-center gap-3 shadow-lg shadow-primary/20 hover:shadow-xl mt-4"
+                  disabled={isSubmitting}
+                  className="btn-primary w-full py-4 text-base font-bold flex items-center justify-center gap-3 shadow-lg shadow-primary/20 hover:shadow-xl mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   <Briefcase className="w-5 h-5" /> Bewerbungsunterlagen sicher abschicken
                 </button>

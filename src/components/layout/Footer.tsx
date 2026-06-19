@@ -17,7 +17,7 @@ export default function Footer() {
               <Logo className="h-12 w-auto" variant="white" />
             </Link>
             <p className="text-blue-tint/80 text-sm leading-relaxed max-w-xs">
-              Salutogenese – Hilfe zur Selbsthilfe. Deine innovative Physiotherapiepraxis mit {years}+ Jahren Erfahrung in Freiburg und Rust.
+              Salutogenese – Hilfe zur Selbsthilfe. Ihre innovative Physiotherapiepraxis mit {years}+ Jahren Erfahrung in Freiburg und Rust.
             </p>
             <div className="flex items-center gap-4 mt-2">
               <a 
@@ -101,7 +101,6 @@ export default function Footer() {
               <li><Link to="/leistungen/krankengymnastik/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Krankengymnastik</Link></li>
               <li><Link to="/leistungen/manuelle-therapie/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Manuelle Therapie</Link></li>
               <li><Link to="/leistungen/sportphysiotherapie/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Sportphysiotherapie</Link></li>
-              <li><Link to="/leistungen/ruecken-therapie/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Rücken-Therapie</Link></li>
               <li><Link to="/leistungen/knie-schulter-therapie/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Knie- & Schulter</Link></li>
               <li><Link to="/leistungen/lymphdrainage/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Lymphdrainage</Link></li>
               <li><Link to="/leistungen/betriebliche-gesundheitsfoerderung/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Betriebliche Gesundheitsförderung (BGF)</Link></li>

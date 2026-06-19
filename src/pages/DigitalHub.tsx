@@ -6,7 +6,7 @@ import SEO from '../components/seo/SEO';
 const digitalServices = [
   {
     title: 'MOVIN App',
-    description: 'Deine Therapie für die Hosentasche. Trainingspläne, Fortschritts-Tracking und direkter Chat mit deinem Therapeuten.',
+    description: 'Ihre Therapie für die Hosentasche. Trainingspläne, Fortschritts-Tracking und direkter Chat mit Ihrem Therapeuten.',
     path: '/digital/movin-app',
     icon: Smartphone,
     color: 'bg-blue-500',
@@ -14,7 +14,7 @@ const digitalServices = [
   },
   {
     title: 'KI Physiotherapie',
-    description: 'Erlebe die Zukunft der Bewegung. Intelligente Analyse und KI-gestützte Therapieansätze für maximale Effizienz.',
+    description: 'Erleben Sie die Zukunft der Bewegung. Intelligente Analyse und KI-gestützte Therapieansätze für maximale Effizienz.',
     path: '/digital/ki-physiotherapie',
     icon: Brain,
     color: 'bg-purple-500',
@@ -22,7 +22,7 @@ const digitalServices = [
   },
   {
     title: 'Digitaler Anamnesebogen',
-    description: 'Bereite dich optimal auf deinen Termin vor. Fülle deinen Anamnesebogen bequem und sicher von zu Hause aus.',
+    description: 'Bereite Sie optimal auf Ihren Termin vor. Fülle Ihren Anamnesebogen bequem und sicher von zu Hause aus.',
     path: '/digital/anamnesebogen',
     icon: FileText,
     color: 'bg-orange-500',
@@ -35,7 +35,7 @@ export default function DigitalHub() {
     <>
       <SEO 
         title="Digital | MOVIN Physiotherapie Freiburg"
-        description="Entdecke unsere digitalen Services: Von der MOVIN App über KI-gestützte Physiotherapie bis hin zum digitalen Anamnesebogen."
+        description="Entdecken Sie unsere digitalen Services: Von der MOVIN App über KI-gestützte Physiotherapie bis hin zum digitalen Anamnesebogen."
       />
 
       {/* Hero Section */}
@@ -62,7 +62,7 @@ export default function DigitalHub() {
               Digital
             </h1>
             <p className="text-xl text-blue-tint/90 leading-relaxed">
-              Wir verbinden erstklassige Physiotherapie mit modernster Technologie. Entdecke unsere digitalen Lösungen für einen schnelleren und nachhaltigen Therapieerfolg.
+              Wir verbinden erstklassige Physiotherapie mit modernster Technologie. Entdecken Sie unsere digitalen Lösungen für einen schnelleren und nachhaltigen Therapieerfolg.
             </p>
           </motion.div>
         </div>
@@ -126,7 +126,7 @@ export default function DigitalHub() {
               </svg>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-secondary leading-tight italic relative z-10">
-              "Die Digitalisierung ist für uns kein Selbstzweck, sondern ein Werkzeug, um die Qualität deiner Therapie messbar zu steigern und dich noch individueller zu begleiten."
+              "Die Digitalisierung ist für uns kein Selbstzweck, sondern ein Werkzeug, um die Qualität Ihrer Therapie messbar zu steigern und Sie noch individueller zu begleiten."
             </h2>
             <div className="mt-8 flex flex-col items-center">
               <div className="w-16 h-1 bg-primary mb-4" />
@@ -142,9 +142,9 @@ export default function DigitalHub() {
           <div className="bg-gradient-to-br from-primary to-teal-600 rounded-[3rem] p-12 md:p-20 text-white text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
             <div className="relative z-10">
-              <h2 className="text-3xl md:text-5xl font-black mb-6">Hast du Fragen zu unseren digitalen Services?</h2>
+              <h2 className="text-3xl md:text-5xl font-black mb-6">Haben Sie Fragen zu unseren digitalen Services?</h2>
               <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-                Unser Team berät dich gerne dazu, wie du die MOVIN App und unsere anderen digitalen Angebote optimal für deinen Therapieerfolg nutzen kannst.
+                Unser Team berät Sie gerne dazu, wie Sie die MOVIN App und unsere anderen digitalen Angebote optimal für Ihren Therapieerfolg nutzen können.
               </p>
               <Link to="/kontakt" className="btn-cta-cheetah px-10 py-4 text-lg rounded-full">
                 <span className="relative z-10 flex items-center justify-center gap-2">

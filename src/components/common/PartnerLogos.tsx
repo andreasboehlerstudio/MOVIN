@@ -184,6 +184,26 @@ export default function PartnerLogos() {
             <span className="mt-2 text-xs font-semibold text-dark/50 group-hover:text-[#ea580c] tracking-widest uppercase transition-colors duration-300">Motherson</span>
           </a>
 
+          {/* Europa-Park */}
+          <a 
+            href="https://www.europapark.de/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group flex flex-col items-center transition-all duration-300 transform hover:scale-105"
+            aria-label="Europa-Park Website"
+          >
+            <div className="w-24 h-16 flex items-center justify-center">
+              <img 
+                src="/images/partner-logos/logo-europa-park.jpg" 
+                alt="Europa-Park" 
+                className="max-h-12 max-w-full object-contain filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                loading="lazy"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+            <span className="mt-2 text-xs font-semibold text-dark/50 group-hover:text-primary tracking-widest uppercase transition-colors duration-300">Europa-Park</span>
+          </a>
+
         </div>
       </div>
     </div>

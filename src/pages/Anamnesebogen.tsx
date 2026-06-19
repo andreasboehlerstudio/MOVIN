@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   User, 
@@ -187,6 +188,7 @@ export default function Anamnesebogen() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const pdfRef = useRef<HTMLDivElement>(null);
 
   const totalSteps = 6;
@@ -297,6 +299,10 @@ export default function Anamnesebogen() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!privacyAccepted) {
+      setError("Bitte bestätigen Sie den Datenschutzhinweis, bevor Sie den Anamnesebogen absenden.");
+      return;
+    }
     setIsSubmitting(true);
     setError(null);
 
@@ -321,7 +327,7 @@ export default function Anamnesebogen() {
       setIsSuccess(true);
     } catch (err) {
       console.error(err);
-      setError("Es gab ein Problem beim Senden des Formulars. Bitte versuche es später erneut oder lade das PDF manuell herunter.");
+      setError("Es gab ein Problem beim Senden des Formulars. Bitte versuchen Sie es später erneut oder laden Sie das PDF manuell herunter.");
     } finally {
       setIsSubmitting(false);
     }
@@ -794,6 +800,24 @@ export default function Anamnesebogen() {
                 </div>
               )}
 
+              {step === totalSteps && (
+                <div className="mt-8 rounded-2xl border border-border bg-light p-4">
+                  <label htmlFor="anamnese-privacy" className="flex items-start gap-3 text-sm text-dark/70 leading-relaxed cursor-pointer">
+                    <input
+                      id="anamnese-privacy"
+                      type="checkbox"
+                      required
+                      checked={privacyAccepted}
+                      onChange={(event) => setPrivacyAccepted(event.target.checked)}
+                      className="mt-1 h-4 w-4 rounded border-border text-primary focus:ring-primary"
+                    />
+                    <span>
+                      Ich willige ein, dass meine Angaben aus dem digitalen Anamnesebogen, einschließlich Gesundheitsdaten und generiertem PDF, zur Vorbereitung und Durchführung meiner Behandlung verarbeitet und an anamnesebogen@movin-freiburg.de übermittelt werden. Hinweise zu Zweck, Empfängern, Speicherdauer, Widerruf und Löschung finden Sie in der <Link to="/datenschutz/" className="text-primary hover:underline">Datenschutzerklärung</Link>.
+                    </span>
+                  </label>
+                </div>
+              )}
+
               <div className="mt-12 flex items-center justify-between">
                 <button 
                   type="button" 
@@ -843,7 +867,7 @@ export default function Anamnesebogen() {
               </p>
               <div className="pt-8">
                 <button 
-                  onClick={() => { setIsSuccess(false); setStep(1); setFormData(initialData); }}
+                  onClick={() => { setIsSuccess(false); setStep(1); setFormData(initialData); setPrivacyAccepted(false); setError(null); }}
                   className="btn-outline"
                 >
                   Neues Formular ausfüllen

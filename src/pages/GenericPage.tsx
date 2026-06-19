@@ -30,7 +30,7 @@ export default function GenericPage() {
       <section className="section-padding bg-white min-h-[40vh]">
         <div className="container-custom text-center">
           <p className="text-dark/60">
-            Wir arbeiten daran, dir hier bald ausführliche Informationen zu <strong>{formattedName}</strong> zur Verfügung zu stellen.
+            Wir arbeiten daran, Ihnen hier bald ausführliche Informationen zu <strong>{formattedName}</strong> zur Verfügung zu stellen.
           </p>
         </div>
       </section>

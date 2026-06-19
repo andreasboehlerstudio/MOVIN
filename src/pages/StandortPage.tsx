@@ -12,37 +12,91 @@ export default function StandortPage() {
   }
 
   const standort: Standort = standorteData[slug];
+  const baseUrl = 'https://movin-freiburg.de';
+  const canonicalUrl = `${baseUrl}/standorte/${slug}/`;
+  const absoluteUrl = (url: string) => url.startsWith('http') ? url : `${baseUrl}${url}`;
+  const [streetAddress, localityPart = ''] = standort.address.split(',').map(part => part.trim());
+  const [postalCode = '', ...localityParts] = localityPart.split(/\s+/);
+  const addressLocality = localityParts.join(' ') || localityPart;
+  const openingHours = standort.openingHours?.flatMap(section =>
+    section.hours.map(item => `${item.days}: ${item.range}`)
+  );
+  const getInitials = (name: string) => name
+    .replace(/\([^)]*\)/g, '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase();
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": `MOVIN Physiotherapie ${standort.name}`,
-    "image": standort.image,
-    "@id": `https://movin-freiburg.de/standorte/${slug}/`,
-    "url": `https://movin-freiburg.de/standorte/${slug}/`,
-    "telephone": standort.phone,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": standort.address.split(',')[0],
-      "addressLocality": standort.address.split(',')[1].trim().split(' ')[1],
-      "postalCode": standort.address.split(',')[1].trim().split(' ')[0],
-      "addressCountry": "DE"
-    },
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:00",
-        "closes": "19:00"
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": ["MedicalBusiness", "LocalBusiness"],
+      "@id": `${canonicalUrl}#location`,
+      "name": `MOVIN Physiotherapie ${standort.name}`,
+      "description": standort.seoDesc,
+      "url": canonicalUrl,
+      "image": [absoluteUrl(standort.image), ...(standort.gallery || []).map(absoluteUrl)],
+      "telephone": standort.phone,
+      "email": standort.email,
+      "priceRange": "€€",
+      "medicalSpecialty": "Physiotherapie",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": streetAddress,
+        "postalCode": postalCode,
+        "addressLocality": addressLocality,
+        "addressRegion": "Baden-Württemberg",
+        "addressCountry": "DE"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Freiburg im Breisgau" },
+        { "@type": "City", "name": "Rust" },
+        { "@type": "AdministrativeArea", "name": "Breisgau-Hochschwarzwald" },
+        { "@type": "AdministrativeArea", "name": "Ortenaukreis" }
+      ],
+      "openingHours": openingHours,
+      "hasMap": standort.mapUrl,
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "MOVIN Physiotherapie",
+        "url": baseUrl
       }
-    ]
-  };
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": `${baseUrl}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Standorte",
+          "item": `${baseUrl}/standorte/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": standort.name,
+          "item": canonicalUrl
+        }
+      ]
+    }
+  ];
 
   return (
     <>
       <SEO 
         title={standort.seoTitle.split(' | ')[0]}
         description={standort.seoDesc}
+        canonical={canonicalUrl}
         schema={schema}
       />
 
@@ -82,7 +136,7 @@ export default function StandortPage() {
                   {standort.description}
                 </p>
                 
-                <h3 className="text-xl font-bold text-secondary mb-4">Was dich erwartet:</h3>
+                <h3 className="text-xl font-bold text-secondary mb-4">Was Sie erwartet:</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {standort.highlights.map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-dark/70">
@@ -92,6 +146,15 @@ export default function StandortPage() {
                   ))}
                 </ul>
               </div>
+
+              {standort.localSeoText && (
+                <div className="bg-light border border-border/70 rounded-3xl p-6 md:p-8">
+                  <h3 className="text-2xl font-bold text-secondary mb-4">Physiotherapie vor Ort</h3>
+                  <p className="text-dark/75 leading-relaxed">
+                    {standort.localSeoText}
+                  </p>
+                </div>
+              )}
 
               {/* Certificate & Trust Badges */}
               {standort.badges && standort.badges.length > 0 && (
@@ -138,17 +201,23 @@ export default function StandortPage() {
               {/* Team Preview */}
               {standort.team && standort.team.length > 0 && (
                 <div>
-                  <h2 className="text-3xl font-bold text-secondary mb-8">Dein Team vor Ort</h2>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                  <h2 className="text-3xl font-bold text-secondary mb-8">Ihr Team vor Ort</h2>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6">
                     {standort.team.map((member, i) => (
                       <div key={i} className="flex flex-col items-center text-center p-4 rounded-2xl bg-light border border-border/50 hover:border-primary/20 transition-all duration-300">
                         <div className="w-24 h-24 rounded-full bg-border overflow-hidden mb-4 border-2 border-primary/20 shadow-sm relative shrink-0">
-                          <img 
-                            src={member.image} 
-                            alt={member.name} 
-                            className="w-full h-full object-cover"
-                            referrerPolicy="no-referrer"
-                          />
+                          {member.image ? (
+                            <img 
+                              src={member.image} 
+                              alt={member.name} 
+                              className="w-full h-full object-cover"
+                              referrerPolicy="no-referrer"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-mint text-primary flex items-center justify-center text-xl font-black">
+                              {getInitials(member.name)}
+                            </div>
+                          )}
                         </div>
                         <h4 className="font-bold text-secondary text-base leading-snug">{member.name}</h4>
                         <p className="text-xs font-semibold text-primary mt-1">{member.role}</p>

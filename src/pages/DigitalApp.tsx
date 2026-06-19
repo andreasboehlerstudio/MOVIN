@@ -45,21 +45,43 @@ const appFeatures: AppFeature[] = [
     subtitle: "Schneller Rezept-Upload",
     desc: "Um Ihnen die Kontaktaufnahme und Terminfindung zu erleichtern, können Sie hier Ihr Rezept hochladen und Ihre Terminwünsche eintragen. Beides wird von uns bearbeitet und Sie erhalten alle Infos und Zeiten digital zurück. Zudem können Zuzahlungen zum Rezept direkt mit PayPal beglichen werden. Mögliche Fehler im Rezept werden mit Änderungswunsch hinzugefügt.",
     icon: FileText,
-    videoUrl: "/videos/app/rezepte.mp4",
+    videoUrl: "/videos/app/rezepte-optimized.mp4",
     videoKeywords: ["rezepte"],
     poster: "/images/movin-app/menu.png",
     tag: "#rezepte"
   },
   {
     id: "physiotherapie",
-    title: "Meine Physiotherapie",
+    title: "Meine Trainingspläne",
     subtitle: "Detaillierte Übungsvideos",
     desc: "Keine Übung gerät jemals mehr in Vergessenheit und kein Plan geht mehr verloren. Unsere Trainingsgeräte finden Sie hier als digitale Version. Zudem erstellen wir mit Ihnen auf Basis der Physiotherapie Ihre individuellen Übungen per Video. Dies auch im Bereich „Hausaufgaben“, mit der Möglichkeit, an die Übungszeit erinnert zu werden.",
     icon: Activity,
-    videoUrl: "/videos/app/Video Meine Physiotherapie.mp4",
+    videoUrl: "/videos/app/Video Meine Physiotherapie-optimized.mp4",
     videoKeywords: ["meine physiotherapie", "physiotherapie"],
     poster: "/images/movin-app/Mockup_movin_app.png",
     tag: "#coaching"
+  },
+  {
+    id: "schmerztagebuch",
+    title: "Schmerztagebuch",
+    subtitle: "Verlauf & Symptome tracken",
+    desc: "Bitte teilen Sie uns wichtige Informationen über Ihre Schmerzen und Befinden mit. Je mehr wir über Ihre Beschwerden und deren Verlauf wissen, desto besser können wir Sie in der Therapie unterstützen.",
+    icon: ClipboardList,
+    videoUrl: "/videos/app/Video Schmerztagebuch-optimized.mp4",
+    videoKeywords: ["schmerztagebuch", "schmerz"],
+    poster: "/images/movin-app/menu.png",
+    tag: "#tracking"
+  },
+  {
+    id: "anamnese",
+    title: "Anamnesebogen & Ergebnisbogen",
+    subtitle: "Optimale Erstvorbereitung",
+    desc: "Um uns optimal auf Ihren ersten Termin vorzubereiten, benötigen wir einige Informationen über Ihre Beschwerden. Dafür haben wir einen Anamnesebogen auf ICF-Basis erstellt. Am Ende Ihrer Therapie möchten wir diese Informationen mit dem Beginn vergleichen. Passend dazu finden Sie einen Outcomes-Bogen.",
+    icon: CheckCircle2,
+    videoUrl: "/videos/app/Video Anamnesebogen-optimized.mp4",
+    videoKeywords: ["anamnesebogen", "ergebnis"],
+    poster: "/images/movin-app/h-main-parallax-2.png",
+    tag: "#anamnese"
   },
   {
     id: "fragen-arzt",
@@ -77,7 +99,7 @@ const appFeatures: AppFeature[] = [
     subtitle: "Praxis-Infos & Gesundheitstipps",
     desc: "Wir freuen uns, Ihnen Informationen über unsere Praxen und spannende Einblicke in die Welt der Physiotherapie zu bieten. Entdecken Sie hier mehr oder werfen Sie einen Blick über den Tellerrand der klassischen Therapie.",
     icon: Brain,
-    videoUrl: "/videos/app/Video Wissenswertes.mp4",
+    videoUrl: "/videos/app/Video Wissenswertes-optimized.mp4",
     videoKeywords: ["wissenswertes", "wissen"],
     poster: "/images/movin-app/menu.png",
     tag: "#wissen"
@@ -88,7 +110,7 @@ const appFeatures: AppFeature[] = [
     subtitle: "Hilfsmittel & Abokarten",
     desc: "Benötigen Sie ein Hilfsmittel für Ihre Therapie? Dann können Sie aus unserem Angebot das passende Produkt reservieren oder bestellen. Auch unsere Abokarten für das Training stehen Ihnen zur Verfügung. Die Bezahlung erfolgt bequem per PayPal!",
     icon: QrCode,
-    videoUrl: "/videos/app/_Video App Shop.mp4",
+    videoUrl: "/videos/app/_Video App Shop-optimized.mp4",
     videoKeywords: ["_video app shop", "app shop", "shop"],
     poster: "/images/movin-app/Mockup_2_Phones.png",
     tag: "#shop"
@@ -97,33 +119,11 @@ const appFeatures: AppFeature[] = [
     id: "telemedizin",
     title: "Telemedizin (Coming Soon)",
     subtitle: "Sichere Video-Therapie",
-    desc: "Die Krankenkassen ermöglichen es Ihnen und uns, die Therapie per Telemedizin durchzuführen. Nutzen Sie dafür unsere App, die DSGVO-konform, verschlüsselt und absolut sicher is.",
+    desc: "Die Krankenkassen ermöglichen es Ihnen und uns, die Therapie per Telemedizin durchzuführen. Nutzen Sie dafür unsere App, die DSGVO-konform, verschlüsselt und absolut sicher ist.",
     icon: Video,
     videoKeywords: ["telemedizin"],
     poster: "/images/movin-app/h-main-parallax-2.png",
     tag: "#telemedizin"
-  },
-  {
-    id: "schmerztagebuch",
-    title: "Schmerztagebuch",
-    subtitle: "Verlauf & Symptome tracken",
-    desc: "Bitte teilen Sie uns wichtige Informationen über Ihre Schmerzen und Befinden mit. Je mehr wir über Ihre Beschwerden und deren Verlauf wissen, desto besser können wir Sie in der Therapie unterstützen.",
-    icon: ClipboardList,
-    videoUrl: "/videos/app/Video Schmerztagebuch.mp4",
-    videoKeywords: ["schmerztagebuch", "schmerz"],
-    poster: "/images/movin-app/menu.png",
-    tag: "#tracking"
-  },
-  {
-    id: "anamnese",
-    title: "Anamnesebogen & Ergebnisbogen",
-    subtitle: "Optimale Erstvorbereitung",
-    desc: "Um uns optimal auf Ihren ersten Termin vorzubereiten, benötigen wir einige Informationen über Ihre Beschwerden. Dafür haben wir einen Anamnesebogen auf ICF-Basis erstellt. Am Ende Ihrer Therapie möchten wir diese Informationen mit dem Beginn vergleichen. Passend dazu finden Sie einen Outcomes-Bogen.",
-    icon: CheckCircle2,
-    videoUrl: "/videos/app/Video Anamnesebogen.mp4",
-    videoKeywords: ["anamnesebogen", "ergebnis"],
-    poster: "/images/movin-app/h-main-parallax-2.png",
-    tag: "#anamnese"
   },
   {
     id: "dokumente",
@@ -131,7 +131,7 @@ const appFeatures: AppFeature[] = [
     subtitle: "Befunde & Berichte hochladen",
     desc: "Bitte laden Sie hier alle wichtigen Unterlagen zu Ihrer Therapie hoch. Dies können Arztberichte, MRT-Berichte oder auch Nachbehandlungsschemata sein. Von uns bereitgestellt werden der Behandlungsvertrag und unsere DSGVO, die Sie unterscheiben oder akzeptieren können.",
     icon: FileText,
-    videoUrl: "/videos/app/Video Dokumente.mp4",
+    videoUrl: "/videos/app/Video Dokumente-optimized.mp4",
     videoKeywords: ["dokumente"],
     poster: "/images/movin-app/movin-menu.png",
     tag: "#dokumente"
@@ -142,7 +142,7 @@ const appFeatures: AppFeature[] = [
     subtitle: "Integrierte Medikationsliste",
     desc: "Keine zusätzliche App für Ihre aktuellen Medikamente nötig! Pflegen Sie Ihre Medikation einfach in unserer App ein. Das kann auch für uns therapierelevant sein und sichert Sie perfekt ab.",
     icon: Pill,
-    videoUrl: "/videos/app/Video Medikamente.mp4",
+    videoUrl: "/videos/app/Video Medikamente-optimized.mp4",
     videoKeywords: ["medikamente"],
     poster: "/images/movin-app/menu.png",
     tag: "#medikamente"
@@ -208,7 +208,7 @@ export default function DigitalApp() {
     "name": "MOVIN App",
     "operatingSystem": "iOS, Android",
     "applicationCategory": "HealthAndFitnessApplication",
-    "description": "Die MOVIN App begleitet dich durch deine Physiotherapie. Trainingspläne, Fortschritts-Tracking und direkter Chat mit deinem Therapeuten.",
+    "description": "Die MOVIN App begleitet Sie durch Ihre Physiotherapie. Trainingspläne, Fortschritts-Tracking und direkter Chat mit Ihrem Therapeuten.",
     "url": "https://movin-freiburg.de/digital/movin-app/"
   };
 
@@ -217,8 +217,8 @@ export default function DigitalApp() {
   return (
     <>
       <SEO 
-        title="MOVIN App | Deine Physiotherapie für die Hosentasche"
-        description="Mit der MOVIN App begleiten wir dich auch außerhalb der Praxis. Personalisierte Übungsvideos, Fortschritts-Tracking und direkter Chat mit deinem Therapeuten."
+        title="MOVIN App | Ihre Physiotherapie für die Hosentasche"
+        description="Mit der MOVIN App begleiten wir Sie auch außerhalb der Praxis. Personalisierte Übungsvideos, Fortschritts-Tracking und direkter Chat mit Ihrem Therapeuten."
         schema={schema}
       />
 
@@ -256,7 +256,7 @@ export default function DigitalApp() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg md:text-xl text-blue-tint/90 max-w-2xl mx-auto leading-relaxed"
           >
-            Deine Physiotherapie für die Hosentasche. Wir begleiten dich auch außerhalb unserer Behandlungsräume optimal auf deinem Weg zur Genesung.
+            Ihre Physiotherapie für die Hosentasche. Wir begleiten Sie auch außerhalb unserer Behandlungsräume optimal auf Ihrem Weg zur Genesung.
           </motion.p>
         </div>
       </section>
@@ -286,9 +286,9 @@ export default function DigitalApp() {
               <span className="px-3 py-1 bg-mint text-primary text-xs font-bold rounded-full uppercase tracking-wider mb-4 inline-block">
                 Fortschrittlich & Intuitiv
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 leading-tight">Deine Therapie, digital begleitet</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 leading-tight">Ihre Therapie, digital begleitet</h2>
               <p className="text-lg text-dark/80 leading-relaxed mb-8">
-                Mit der MOVIN App heben wir deine Physiotherapie auf das nächste Level. Sie vereinfacht nicht nur viele administrative Prozesse, sondern schafft auch eine spürbare Qualitätsverbesserung für deinen persönlichen Therapieerfolg.
+                Mit der MOVIN App heben wir Ihre Physiotherapie auf das nächste Level. Sie vereinfacht nicht nur viele administrative Prozesse, sondern schafft auch eine spürbare Qualitätsverbesserung für Ihren persönlichen Therapieerfolg.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -297,7 +297,7 @@ export default function DigitalApp() {
                   { icon: ClipboardList, title: 'Anamnesebögen', desc: 'Fragebögen bequem und stressfrei vorab erledigen.' },
                   { icon: Activity, title: 'Schmerztagebuch', desc: 'Lückenloses Tracking von Training & Schmerzverlauf.' },
                   { icon: Brain, title: 'KI mit Pia', desc: 'Intelligente Symptomanalyse & sofortige Beratung.' },
-                  { icon: CheckCircle2, title: 'Praxisbegleiter', desc: 'Dein treuer und aktiver Begleiter durch die Therapie.' },
+                  { icon: CheckCircle2, title: 'Praxisbegleiter', desc: 'Ihr verlässlicher und aktiver Begleiter durch die Therapie.' },
                   { icon: Calendar, title: 'Termine', desc: 'Sämtliche Termine rund um die Uhr digital im Blick.' },
                 ].map((feature, i) => (
                   <motion.div 
@@ -337,10 +337,10 @@ export default function DigitalApp() {
               Die App in Aktion
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-secondary mb-6 tracking-tight">
-              Erlebe alle Features im Einsatz
+              Erleben Sie alle Features im Einsatz
             </h2>
             <p className="text-lg md:text-xl text-dark/70 leading-relaxed">
-              Wähle ein Feature aus der Liste, um zu sehen, wie einfach und effektiv dich die MOVIN App durch deinen Alltag begleitet.
+              Wählen Sie ein Feature aus der Liste, um zu sehen, wie einfach und effektiv die MOVIN App Sie durch Ihren Alltag begleitet.
             </p>
           </div>
 
@@ -438,16 +438,16 @@ export default function DigitalApp() {
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">So einfach geht's</h2>
-            <p className="text-lg text-dark/70">In nur drei Schritten startest du mit der App durch.</p>
+            <p className="text-lg text-dark/70">In nur drei Schritten starten Sie mit der App durch.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-primary/10 -translate-y-1/2 z-0" />
             
             {[
-              { step: "01", title: "App herunterladen", desc: "Lade die kostenfreie MOVIN App im App Store oder Google Play Store herunter." },
-              { step: "02", title: "Rezepte hochladen", desc: "Fotografiere deine ärztliche Verordnung einfach per App ab oder lade das PDF direkt hoch." },
-              { step: "03", title: "Termine erhalten", desc: "Unser Service-Team sendet dir passende Optionen, die du direkt in der App bestätigen kannst." }
+              { step: "01", title: "App herunterladen", desc: "Laden Sie die kostenfreie MOVIN App im App Store oder Google Play Store herunter." },
+              { step: "02", title: "Rezepte hochladen", desc: "Fotografieren Sie Ihre ärztliche Verordnung einfach per App ab oder laden Sie das PDF direkt hoch." },
+              { step: "03", title: "Termine erhalten", desc: "Unser Service-Team sendet Ihnen passende Optionen, die Sie direkt in der App bestätigen können, sowie die Informationen zur gesetzlichen Zuzahlung." }
             ].map((item, i) => (
               <motion.div 
                 key={i}
@@ -483,7 +483,7 @@ export default function DigitalApp() {
               </div>
               <h3 className="text-3xl font-bold text-white mb-4">Telemedizin – Coming soon</h3>
               <p className="text-blue-tint/80 leading-relaxed text-base">
-                Bald kannst du deine Therapieberatungen und Feedback-Gespräche auch bequem per verschlüsseltem Video-Call führen. Flexibel, ortsunabhängig und in gewohnter erstklassiger MOVIN Qualität.
+                Bald können Sie Ihre Therapieberatungen und Feedback-Gespräche auch bequem per verschlüsseltem Video-Call führen. Flexibel, ortsunabhängig und in gewohnter erstklassiger MOVIN Qualität.
               </p>
             </div>
             <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center text-primary shrink-0 self-center md:self-auto shadow-inner">
@@ -502,7 +502,7 @@ export default function DigitalApp() {
           </div>
           <h2 className="text-3xl md:text-5xl font-black mb-6 text-white tracking-tight">Bereit für die Physiotherapie von morgen?</h2>
           <p className="text-blue-tint/80 text-lg mb-10 max-w-2xl mx-auto">
-            Lade dir die MOVIN App kostenlos im App Store oder bei Google Play herunter. Die Zugangsdaten erhältst du ganz bequem bei deinem ersten Termin in einer unserer Praxen.
+            Laden Sie die MOVIN App kostenlos im App Store oder bei Google Play herunter. Die Zugangsdaten erhalten Sie ganz bequem bei Ihrem ersten Termin in einer unserer Praxen.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12">
@@ -563,8 +563,12 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
   // Derive custom playlist for specific multi-part features
   const playlist = React.useMemo(() => {
     if (feature.id === 'anamnese') {
-      const match1 = detectedVideos.find(v => v.toLowerCase().includes('anamnesebogen')) || resolvedVideoUrl;
-      const match2 = detectedVideos.find(v => v.toLowerCase().includes('ergebnisb') || v.toLowerCase().includes('ergebnisbögen')) || '/videos/app/Video Ergebnisbögen.mp4';
+      const preferOptimized = (matches: string[]) =>
+        matches.find(v => v.toLowerCase().includes('optimized')) || matches[0];
+      const anamnesisMatches = detectedVideos.filter(v => v.toLowerCase().includes('anamnesebogen'));
+      const resultMatches = detectedVideos.filter(v => v.toLowerCase().includes('ergebnisb') || v.toLowerCase().includes('ergebnisbögen'));
+      const match1 = preferOptimized(anamnesisMatches) || resolvedVideoUrl;
+      const match2 = preferOptimized(resultMatches) || '/videos/app/Video Ergebnisbögen-optimized.mp4';
       return [match1, match2].filter(Boolean);
     }
     return resolvedVideoUrl ? [resolvedVideoUrl] : [];
@@ -640,6 +644,7 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
         onEnded={handleEnded}
         muted
         playsInline
+        preload="metadata"
         onError={handleVideoError}
         className="w-full h-auto bg-transparent z-0 block"
       />

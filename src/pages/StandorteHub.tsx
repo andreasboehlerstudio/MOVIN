@@ -9,12 +9,53 @@ export default function StandorteHub() {
     slug,
     ...data
   }));
+  const baseUrl = 'https://movin-freiburg.de';
+  const canonicalUrl = `${baseUrl}/standorte/`;
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": `${canonicalUrl}#standorte`,
+      "name": "MOVIN Physiotherapie Standorte",
+      "description": "MOVIN Physiotherapie an den Standorten Freiburg Lorettoberg, Freiburg Mooswald und Europa-Park Rust.",
+      "url": canonicalUrl,
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": standorte.map((standort, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": `MOVIN Physiotherapie ${standort.name}`,
+          "url": `${baseUrl}/standorte/${standort.slug}/`
+        }))
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": `${baseUrl}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Standorte",
+          "item": canonicalUrl
+        }
+      ]
+    }
+  ];
 
   return (
     <>
       <SEO 
         title="Unsere Standorte | MOVIN Physiotherapie Freiburg & Rust"
-        description="Finde die MOVIN Physiotherapie Praxis in deiner Nähe. Wir sind an drei Standorten in Freiburg (Lorettoberg, Mooswald) und Rust (Europa-Park) für dich da."
+        canonical={canonicalUrl}
+        schema={schema}
+        description="Finden Sie die MOVIN Physiotherapie Praxis in Ihrer Nähe. Wir sind an drei Standorten in Freiburg (Lorettoberg, Mooswald) und Rust (Europa-Park) für Sie da."
       />
 
       {/* Hero Section */}
@@ -40,7 +81,7 @@ export default function StandorteHub() {
             transition={{ delay: 0.1 }}
             className="text-xl text-blue-tint/90 max-w-3xl mx-auto"
           >
-            Boutique Physiotherapie in Wohlfühlatmosphäre. Entdecke unsere drei modernen Praxen in Freiburg und Rust.
+            Boutique Physiotherapie in Wohlfühlatmosphäre. Entdecken Sie unsere drei modernen Praxen in Freiburg und Rust.
           </motion.p>
         </div>
       </section>
@@ -88,7 +129,7 @@ export default function StandorteHub() {
                   </p>
                   
                   <div className="mb-10">
-                    <h3 className="text-sm font-heading font-bold text-secondary uppercase tracking-wider mb-4">Was dich erwartet:</h3>
+                    <h3 className="text-sm font-heading font-bold text-secondary uppercase tracking-wider mb-4">Was Sie erwartet:</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {standort.highlights.slice(0, 6).map((highlight, i) => (
                         <div key={i} className="flex items-center gap-3 text-dark/70">
@@ -152,11 +193,11 @@ export default function StandorteHub() {
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-black mb-6 text-white">Noch unsicher, welcher Standort der richtige ist?</h2>
               <p className="text-xl text-blue-tint/80 mb-10 max-w-2xl mx-auto">
-                Egal für welchen Standort du dich entscheidest: Bei MOVIN erwartet dich überall die gleiche hohe Qualität und modernste Therapie.
+                Egal für welchen Standort Sie sich entscheiden: Bei MOVIN erwartet Sie überall die gleiche hohe Qualität und modernste Therapie.
               </p>
               <Link to="/kontakt/" className="btn-cta-cheetah text-lg px-10 py-4 rounded-full">
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  Kontaktiere uns
+                  Kontaktieren Sie uns
                 </span>
               </Link>
             </div>

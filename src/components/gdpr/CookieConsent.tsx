@@ -40,8 +40,8 @@ export const CookieConsent: React.FC = () => {
                   <h2 className="text-xl font-bold text-secondary mb-2">Datenschutz-Einstellungen</h2>
                   <p className="text-dark/70 text-sm leading-relaxed">
                     Wir nutzen Cookies und ähnliche Technologien, um unsere Webseite optimal zu gestalten und fortlaufend zu verbessern. 
-                    Einige sind technisch notwendig, andere helfen uns, dein Nutzererlebnis zu verbessern (z.B. Spotify-Embeds, Instagram-Feeds). 
-                    Du kannst entscheiden, welche Kategorien du zulassen möchtest.
+                    Einige sind technisch notwendig, andere helfen uns, Ihr Nutzererlebnis zu verbessern (z.B. Spotify-Embeds, Instagram-Feeds). 
+                    Sie können entscheiden, welche Kategorien Sie zulassen möchten.
                   </p>
                 </div>
               </div>

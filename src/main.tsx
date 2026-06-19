@@ -1,14 +1,18 @@
 import { StrictMode } from 'react';
-import { hydrateRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router';
-import { HelmetProvider } from 'react-helmet-async';
+import * as HelmetAsync from 'react-helmet-async';
 import { CookieProvider } from './components/gdpr/CookieContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import App from './App.tsx';
 import './index.css';
 
-hydrateRoot(
-  document.getElementById('root')!,
+const helmetModule = HelmetAsync as any;
+const helmetFallback = helmetModule["default"] || helmetModule["module.exports"];
+const HelmetProvider = helmetModule.HelmetProvider || helmetFallback?.HelmetProvider;
+
+const root = document.getElementById('root')!;
+const app = (
   <StrictMode>
     <HelmetProvider>
       <ThemeProvider>
@@ -21,3 +25,9 @@ hydrateRoot(
     </HelmetProvider>
   </StrictMode>
 );
+
+if (root.childElementCount > 0) {
+  hydrateRoot(root, app);
+} else {
+  createRoot(root).render(app);
+}

@@ -68,7 +68,7 @@ export default function LeistungenHub() {
     },
     { 
       title: 'Sportphysiotherapie', 
-      desc: 'Spezialisierung auf Sportverletzungen und Leistungsoptimierung für Athleten.', 
+      desc: 'Zielgerichtete Betreuung von Sportler*innen zur Leistungsoptimierung, Verletzungsprävention und spezifischen Rehabilitation.', 
       path: '/leistungen/sportphysiotherapie/',
       category: 'Spezialisierung',
       area: 'Sport',
@@ -84,7 +84,7 @@ export default function LeistungenHub() {
     },
     { 
       title: 'Medizinisches Training (MTT)', 
-      desc: 'Zielgerichtetes, gerätegestütztes Training zur Rehabilitation und zum Aufbau.', 
+      desc: 'Zielgerichtetes, gerätegestütztes Training zur Rehabilitation und Prävention.', 
       path: '/leistungen/mtt-training/',
       category: 'Prävention',
       area: 'Training',
@@ -121,19 +121,52 @@ export default function LeistungenHub() {
     return leistungen.filter(l => l.category === selectedCategory);
   }, [selectedCategory]);
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "name": "Leistungen | MOVIN Physiotherapie Freiburg",
-    "description": "Umfassende physiotherapeutische Leistungen in Freiburg und Rust. Krankengymnastik, Manuelle Therapie, Sportphysio und mehr.",
-    "url": "https://movin-freiburg.de/leistungen/"
-  };
+  const baseUrl = 'https://movin-freiburg.de';
+  const canonicalUrl = `${baseUrl}/leistungen/`;
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": `${canonicalUrl}#leistungen`,
+      "name": "Physiotherapeutische Leistungen bei MOVIN",
+      "description": "Umfassende physiotherapeutische Leistungen in Freiburg und Rust. Krankengymnastik, Manuelle Therapie, Sportphysiotherapie, medizinisches Training und Prävention.",
+      "url": canonicalUrl,
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": leistungen.map((leistung, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": leistung.title,
+          "url": `${baseUrl}${leistung.path}`
+        }))
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": `${baseUrl}/`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Leistungen",
+          "item": canonicalUrl
+        }
+      ]
+    }
+  ];
 
   return (
     <>
       <SEO 
         title="Physiotherapeutische Leistungen Freiburg"
-        description="Von Krankengymnastik bis Sportphysiotherapie: Entdecke das umfassende Leistungsangebot der MOVIN Physiotherapie in Freiburg und Rust."
+        description="Von Krankengymnastik bis Sportphysiotherapie: Entdecken Sie das umfassende Leistungsangebot der MOVIN Physiotherapie in Freiburg und Rust."
+        canonical={canonicalUrl}
         schema={schema}
       />
 
@@ -226,7 +259,7 @@ export default function LeistungenHub() {
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Unsicher, welche Therapie die richtige ist?</h2>
           <p className="text-blue-tint/80 text-lg mb-10">
-            Lass uns gemeinsam herausfinden, was dir am besten hilft. Vereinbare einen Ersttermin für eine ausführliche Anamnese.
+            Lassen Sie uns gemeinsam herausfinden, was Ihnen am besten hilft. Vereinbaren Sie einen Ersttermin für eine ausführliche Anamnese.
           </p>
           <Link to="/termin/" className="btn-cta-cheetah text-lg px-8 py-4 rounded-full">
             <span className="relative z-10 flex items-center justify-center gap-2">

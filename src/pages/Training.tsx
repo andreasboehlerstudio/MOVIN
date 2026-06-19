@@ -10,10 +10,15 @@ import {
   ChevronRight, 
   Zap, 
   Milestone, 
-  Heart 
+  Heart,
+  PlayCircle,
+  Monitor,
+  Eye,
+  Repeat2
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
+import { GdprEmbed } from '../components/gdpr/GdprEmbed';
 
 export default function Training() {
   const schema = {
@@ -56,7 +61,7 @@ export default function Training() {
         'Einstieg mit Einweisung, danach selbstständiges Training möglich',
         'Betreuung, Anpassung und Re-Checks flexibel buchbar'
       ],
-      image: '/images/standorte/mooswald/mooswald-gallery-3.jpg',
+      image: '/images/standorte/mooswald/mooswald-gallery-3.webp',
       imageAlt: 'Medizinische Trainingstherapie an Geräten bei MOVIN',
       infoTitle: 'Der Einstieg',
       info: 'Wir starten mit einer Einweisung, prüfen Belastbarkeit und Trainingsziele und geben Ihnen danach einen klaren Plan für das eigenständige Training.',
@@ -74,8 +79,8 @@ export default function Training() {
         'Für Jung und Alt, von Reha bis Spitzensport',
         'Ganzheitliches, wissenschaftlich fundiertes Koordinationstraining'
       ],
-      image: '/images/standorte/mooswald/mooswald-gallery-2.jpg',
-      imageAlt: 'Trainingsbereich bei MOVIN Freiburg Mooswald',
+      image: '/images/training/sensopro-training.webp',
+      imageAlt: 'Senso Pro Koordinationstraining mit freischwingender Standfläche',
       infoTitle: 'SensoPro passt sich an',
       info: 'Ob Warm-up, Hauptteil, Cool-down, hochintensives Training oder aktive Regeneration: Die Intensität wird über Levels und Übungsauswahl gesteuert.',
       badge: 'Videobasiert & levelbasiert'
@@ -92,8 +97,8 @@ export default function Training() {
         '§20-Präventionskurs online kaufen und 8 Wochen absolvieren',
         '80-100 % Kostenerstattung durch die Krankenkasse, danach 3 Monate kostenlos weiter trainieren'
       ],
-      image: '/images/standorte/mooswald/mooswald-gallery-5.jpg',
-      imageAlt: 'Therapeutische Einweisung und Trainingsplanung bei MOVIN',
+      image: '/images/training/skillcourt-training-optimized.webp',
+      imageAlt: 'Skillcourt Dual-Task Training mit Bodenraster und Bildschirm',
       infoTitle: 'Besonderheit §20',
       info: 'Der Präventionsweg ist besonders attraktiv: Kurs buchen, acht Wochen Training absolvieren, Erstattung bei der Krankenkasse einreichen und anschließend drei Monate kostenlos weiter trainieren.',
       badge: '§20 möglich'
@@ -110,7 +115,7 @@ export default function Training() {
         'Return to Competition: umfangreichere Testung für hohe sportliche Anforderungen',
         'Zertifikat und Auswertung als Entscheidungshilfe für den nächsten Schritt'
       ],
-      image: '/images/standorte/mooswald/mooswald-gallery-6.jpg',
+      image: '/images/standorte/mooswald/mooswald-gallery-6.webp',
       imageAlt: 'Therapeutisch begleitetes Training bei MOVIN',
       infoTitle: 'Drei Stufen, passender Aufwand',
       info: 'Je nach Ziel unterscheiden sich Testumfang und Zeitaufwand. Return to Sport orientiert sich an der bestehenden Analyse von ca. 75 Minuten; Work und Competition werden passend zum Belastungsprofil geplant.',
@@ -128,11 +133,70 @@ export default function Training() {
         'Individueller Trainingsplan auf Basis Ihres Reha-Ziels',
         'Betreuung in Präsenzzeiten durch unser physiotherapeutisches Team'
       ],
-      image: '/images/standorte/mooswald/mooswald-gallery-4.jpg',
-      imageAlt: 'Beratung und Einweisung für Training bei MOVIN',
+      image: '/images/training/t-rena-ki-symbolbild.webp',
+      imageAlt: 'Ältere Person beim therapeutisch begleiteten Reha-Nachsorge-Training',
+      imageCaption: 'KI-generiertes Symbolbild',
       infoTitle: 'Nachsorge mit Struktur',
       info: 'Wir entwickeln mit Ihnen den Trainingsplan und begleiten die Umsetzung im Rahmen des DRV-Konzepts.',
-      badge: '1 + 39 Einheiten'
+      badge: '1 + 39 Einheiten',
+      logoOverlay: 'drv'
+    }
+  ];
+
+  const priceNotes = [
+    {
+      icon: Milestone,
+      title: 'Flexible Abokarten',
+      desc: 'Für selbstständiges Training stehen Abokarten und flexible Modelle ohne langfristige Bindung zur Verfügung.'
+    },
+    {
+      icon: Zap,
+      title: 'Shop in der MOVIN App',
+      desc: 'Abokarten und ausgewählte Trainingsangebote können über den App-Shop reserviert oder bezahlt werden.'
+    },
+    {
+      icon: Heart,
+      title: 'Passender Einstieg',
+      desc: 'Vor dem ersten Training planen wir Einweisung, Zielsetzung und Tarif passend zu Rezept, Selbstzahlertraining oder Firmenfitness.'
+    }
+  ];
+
+  const skillcourtVideoUrl = 'https://www.youtube.com/embed/Uq0wtadfhiY?rel=0';
+  const skillcourtFlow = [
+    {
+      icon: Monitor,
+      title: 'Reiz sehen',
+      desc: 'Aufgaben und Lichtsignale geben den Impuls.',
+      color: 'bg-primary text-white',
+      ring: 'border-primary/25'
+    },
+    {
+      icon: Eye,
+      title: 'Wahrnehmen',
+      desc: 'Augen und Aufmerksamkeit erfassen die Situation.',
+      color: 'bg-mint text-secondary',
+      ring: 'border-primary/15'
+    },
+    {
+      icon: Brain,
+      title: 'Verarbeiten',
+      desc: 'Das Gehirn verknüpft Reiz, Entscheidung und Bewegung.',
+      color: 'bg-secondary text-white',
+      ring: 'border-secondary/20'
+    },
+    {
+      icon: Activity,
+      title: 'Reagieren',
+      desc: 'Der Körper setzt die passende Bewegung direkt um.',
+      color: 'bg-primary text-white',
+      ring: 'border-primary/25'
+    },
+    {
+      icon: Repeat2,
+      title: 'Feedback',
+      desc: 'Tests und Trainingsprofile machen Fortschritt sichtbar.',
+      color: 'bg-mint text-secondary',
+      ring: 'border-primary/15'
     }
   ];
 
@@ -148,21 +212,23 @@ export default function Training() {
       <section className="relative h-[65vh] min-h-[500px] flex items-center bg-secondary overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=2000" 
-            alt="Patienten beim medizinischen Training an Hightech-Geraeten" 
-            className="w-full h-full object-cover opacity-25 mix-blend-overlay"
+            src="/images/training/sensopro-training.webp" 
+            alt="Patienten beim medizinischen Training an Hightech-Geräten" 
+            decoding="async"
+            className="w-full h-full object-cover opacity-35"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/60 to-transparent" />
+          <div className="absolute inset-0 bg-secondary/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/80 to-secondary/50" />
         </div>
         
         <div className="container-custom relative z-10 text-white mt-16 text-center max-w-4xl mx-auto">
-          <div className="flex items-center justify-center gap-2 text-primary font-semibold uppercase tracking-wider text-sm mb-4">
+          <div className="flex items-center justify-center gap-2 text-primary-light font-semibold uppercase tracking-wider text-sm mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]">
             <Dumbbell className="w-5 h-5" /> Training bei MOVIN
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-gradient-teal-mint tracking-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-gradient-teal-mint tracking-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)]">
             Bewegung & Nachhaltigkeit
           </h1>
-          <p className="text-xl md:text-2xl text-blue-tint/90 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/95 max-w-3xl mx-auto font-light leading-relaxed drop-shadow-[0_3px_14px_rgba(0,0,0,0.45)]">
             Wir bieten Ihnen in Freiburg eine große Vielfalt medizinischer Trainingsmöglichkeiten. Damit setzen wir uns nicht nur räumlich, sondern vor allem qualitativ von konventionellen Fitnessstudios ab.
           </p>
         </div>
@@ -255,32 +321,54 @@ export default function Training() {
 
                     {/* Visual & Quick Info */}
                     <div className="lg:col-span-7">
-                      <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-secondary min-h-[360px]">
-                        <img
-                          src={offering.image}
-                          alt={offering.imageAlt}
-                          className="absolute inset-0 w-full h-full object-cover"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/15 to-transparent" />
-                        <div className="absolute left-6 top-6 inline-flex items-center gap-1.5 bg-white/95 text-secondary text-xs px-3 py-1 rounded-full font-bold shadow-sm">
-                          <ShieldCheck className="w-3.5 h-3.5 text-primary" /> {offering.badge}
-                        </div>
-                        <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                          <div className="max-w-xl bg-white/95 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-white/70">
-                            <h4 className="text-lg font-bold text-secondary mb-2">{offering.infoTitle}</h4>
-                            <p className="text-xs text-dark/75 leading-relaxed mb-4">
-                              {offering.info}
-                            </p>
-                            <div className="flex flex-wrap gap-4 items-center justify-between border-t border-border/70 pt-4">
-                              <span className="text-xs text-secondary/65 font-medium">Training bei MOVIN Freiburg.</span>
-                              <Link 
-                                to="/termin/" 
-                                className="text-xs font-bold text-primary flex items-center gap-1 transition-colors hover:text-primary-dark"
-                              >
-                                Einstieg buchen <ChevronRight className="w-4 h-4" />
-                              </Link>
+                      <div className="space-y-4">
+                        <div className="relative overflow-hidden rounded-[2rem] border border-border/70 bg-secondary aspect-[16/10] min-h-[300px]">
+                          <img
+                            src={offering.image}
+                            alt={offering.imageAlt}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-secondary/30 via-transparent to-transparent pointer-events-none" />
+                          <div className="absolute left-5 top-5 inline-flex items-center gap-1.5 bg-white text-secondary text-xs px-3 py-1.5 rounded-full font-bold shadow-md ring-1 ring-secondary/10">
+                            <ShieldCheck className="w-3.5 h-3.5 text-primary" /> {offering.badge}
+                          </div>
+                          {offering.logoOverlay === 'drv' && (
+                            <div className="absolute left-5 bottom-5 max-w-[calc(100%-2.5rem)] rounded-2xl bg-white/95 px-4 py-3 shadow-lg border border-white/80">
+                              <div className="flex flex-col gap-2">
+                                <img
+                                  src="/images/logos/deutsche-rentenversicherung-logo.svg"
+                                  alt="Deutsche Rentenversicherung"
+                                  className="h-8 w-auto max-w-[220px]"
+                                  loading="lazy"
+                                />
+                                <p className="text-[11px] font-semibold text-dark/60">
+                                  T-RENA Reha-Nachsorge
+                                </p>
+                              </div>
                             </div>
+                          )}
+                        </div>
+                        {'imageCaption' in offering && offering.imageCaption && (
+                          <p className="text-[11px] text-dark/45 italic text-right -mt-1">
+                            {offering.imageCaption}
+                          </p>
+                        )}
+
+                        <div className="rounded-2xl border border-border/80 bg-light p-5 md:p-6">
+                          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+                            <div className="flex-1">
+                              <h4 className="text-lg font-bold text-secondary mb-2">{offering.infoTitle}</h4>
+                              <p className="text-xs text-dark/75 leading-relaxed">
+                                {offering.info}
+                              </p>
+                            </div>
+                            <Link
+                              to="/termin/"
+                              className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-5 py-3 text-xs font-bold text-white transition-colors hover:bg-primary shrink-0"
+                            >
+                              Einstieg buchen <ChevronRight className="w-4 h-4" />
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -294,8 +382,110 @@ export default function Training() {
         </div>
       </section>
 
+      {/* Skillcourt Video & Funktionsgrafik */}
+      <section className="section-padding bg-white border-t border-border">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-5">
+              <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 flex items-center gap-2">
+                <PlayCircle className="w-4 h-4" /> Skillcourt im Detail
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">
+                Mehr als Geh(h)irn-Training
+              </h2>
+              <p className="text-dark/75 text-sm leading-relaxed mb-6">
+                Das Skillcourt-Training verbindet Bewegung mit visuellen und kognitiven Aufgaben. So werden Wahrnehmung, Reaktion, Handlungsschnelligkeit und Richtungswechsel nicht isoliert, sondern in realistischen Belastungssituationen trainiert.
+              </p>
+              <div className="relative">
+                <div className="absolute left-7 top-10 bottom-10 w-px bg-gradient-to-b from-primary via-secondary/25 to-primary/40" />
+                <div className="space-y-4">
+                  {skillcourtFlow.map((step) => {
+                    const StepIcon = step.icon;
+
+                    return (
+                      <div key={step.title} className="relative flex gap-4">
+                        <div className={`relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl shadow-sm ${step.color}`}>
+                          <StepIcon className="w-6 h-6" />
+                        </div>
+                        <div className={`flex-1 rounded-2xl border ${step.ring} bg-white px-5 py-4 shadow-sm`}>
+                          <h3 className="text-base font-bold text-secondary mb-1">{step.title}</h3>
+                          <p className="text-xs leading-relaxed text-dark/70">{step.desc}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-secondary shadow-xl">
+                <GdprEmbed category="marketing" provider="YouTube">
+                  <iframe
+                    src={skillcourtVideoUrl}
+                    title="Skillcourt Training Video"
+                    className="w-full aspect-video border-0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </GdprEmbed>
+              </div>
+              <div className="mt-5 flex justify-start sm:justify-end">
+                <a
+                  href="https://www.youtube.com/watch?v=Uq0wtadfhiY"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-5 py-3 text-xs font-bold text-white transition-colors hover:bg-primary"
+                >
+                  Auf YouTube ansehen <ChevronRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Preise & Abokarten */}
+      <section className="section-padding bg-white border-t border-border">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <div className="lg:col-span-4">
+              <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Preise & Abokarten</span>
+              <h2 className="text-3xl font-bold text-secondary mb-4">Training flexibel weiterführen</h2>
+              <p className="text-sm text-dark/75 leading-relaxed">
+                Wer nach der Therapie oder unabhängig vom Rezept weiter trainieren möchte, kann bei MOVIN flexible Abokarten und Monatsmodelle nutzen. Die konkrete Auswahl stimmen wir beim Einstieg auf Ziel, Belastbarkeit und Standort ab.
+              </p>
+              <a
+                href="/docs/training/preisliste-juni-2025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-5 py-3 text-xs font-bold text-white transition-colors hover:bg-primary"
+              >
+                Preisliste Juni 2025 öffnen <ChevronRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+              {priceNotes.map((item) => {
+                const IconComp = item.icon;
+
+                return (
+                  <div key={item.title} className="rounded-2xl border border-border/80 bg-light p-6">
+                    <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4">
+                      <IconComp className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-base font-bold text-secondary mb-2">{item.title}</h3>
+                    <p className="text-xs text-dark/75 leading-relaxed">{item.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Partner & Firmennetzwerk */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-light border-t border-border">
         <div className="container-custom text-center">
           <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Firmenfitness & Kooperationen</span>
           <h2 className="text-3xl font-bold text-secondary mb-6">Trainieren über Ihren Arbeitgeber</h2>
@@ -331,7 +521,7 @@ export default function Training() {
           <div className="flex justify-center mb-8">
             <Logo className="h-12 w-auto" variant="white" />
           </div>
-          <h2 className="text-3xl md:text-5xl font-black mb-6">Machen Sie Ihre Gesundheit zur Priorität</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-6 text-white drop-shadow-[0_3px_18px_rgba(0,0,0,0.35)]">Machen Sie Ihre Gesundheit zur Priorität</h2>
           <p className="text-blue-tint/90 text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
             Ganz gleich, ob Sie auf Rezept (KGG), über die Rentenversicherung (T-RENA) oder im Rahmen von Firmenfitness trainieren möchten – wir haben das richtige Angebot für Sie.
           </p>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
-import { Activity, MapPin, Brain, Clock, ArrowRight, Star, Smartphone, PlayCircle, Calendar, ArrowDown, ClipboardList, HelpCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { Activity, MapPin, Brain, Clock, ArrowRight, Star, Smartphone, PlayCircle, Calendar, ArrowDown, ClipboardList, HelpCircle, ChevronDown, ChevronUp, HeartPulse, Hand, Trophy, Dumbbell, ShieldCheck } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
 import InstagramFeed from '../components/social/InstagramFeed';
@@ -17,7 +17,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "name": "MOVIN Physiotherapie Freiburg",
-    "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80",
+    "image": "https://movin-freiburg.de/images/standorte/lorettoberg/lorettoberg-main.webp",
     "@id": "https://movin-freiburg.de",
     "url": "https://movin-freiburg.de",
     "telephone": "+497617073366",
@@ -36,27 +36,37 @@ export default function Home() {
         title="Physiotherapie Freiburg – Innovativ. Bewegt. Wirksam."
         description={`MOVIN Physiotherapie in Freiburg & Europa-Park Rust. ${years} Jahre Erfahrung, KI-gestützte Therapie, 48h Termingarantie. Jetzt Termin buchen!`}
         schema={schema}
+        preloadImage="/images/MOVIN_Header_Home_V3-poster.webp"
       />
 
       {/* Hero Section */}
       <section className="relative h-[85vh] lg:h-screen min-h-[550px] lg:min-h-[650px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
+          <img
+            src="/images/MOVIN_Header_Home_V3-poster.webp"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
           <video 
             autoPlay 
             loop 
             muted 
             playsInline 
-            className="w-full h-full object-cover object-center"
-            poster="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2000"
+            preload="metadata"
+            className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
+            poster="/images/MOVIN_Header_Home_V3-poster.webp"
           >
-            <source src="/images/MOVIN_Header_Home_V3.mp4" type="video/mp4" />
+            <source src="/images/MOVIN_Header_Home_V3-optimized.mp4" type="video/mp4" media="(min-width: 768px)" />
             Your browser does not support the video tag.
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f4d]/90 via-[#0a0f4d]/80 to-[#00b2ba]/80" />
         </div>
         
         <div className="container-custom relative z-10 text-white w-full">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl -ml-2 sm:ml-0">
             <motion.div 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -152,7 +162,7 @@ export default function Home() {
               <div className="w-16 h-16 rounded-full bg-mint flex items-center justify-center text-primary">
                 <Brain className="w-8 h-8" />
               </div>
-              <h3 className="font-bold text-secondary">KI-Therapie</h3>
+              <h3 className="font-bold text-secondary">KI-Integration Next Level</h3>
               <p className="text-sm text-dark/70">Modernste Diagnostik</p>
             </div>
             <div className="flex flex-col items-center text-center gap-3">
@@ -174,7 +184,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl mb-6 tracking-tight">
                 Unsere <span className="text-gradient-teal-mint">Standorte</span>
               </h2>
-              <p className="text-lg text-dark/80">Individueller Charme trifft auf gewohnte Qualität. Erlebe an jedem Standort unser volles großes Leistungsangebot mit der Kompetenz unseres gesamten Teams.</p>
+              <p className="text-lg text-dark/80">Individueller Charme trifft auf gewohnte Qualität. Erleben Sie an jedem Standort unser volles großes Leistungsangebot mit der Kompetenz unseres gesamten Teams.</p>
             </div>
             <Link to="/standorte/" className="btn-outline shrink-0">Alle Standorte</Link>
           </div>
@@ -184,7 +194,7 @@ export default function Home() {
               { 
                 name: 'Lorettoberg', 
                 address: 'Mercystrasse 14, 79100 Freiburg', 
-                img: '/images/standorte/lorettoberg/lorettoberg-main.jpg', 
+                img: '/images/standorte/lorettoberg/lorettoberg-gallery-1.webp', 
                 path: '/standorte/physiotherapie-freiburg-lorettoberg/',
                 badges: [
                   { img: '/images/partner-logos/zertifikate/badge_lorettoberg.png', title: 'Ausgezeichnete Patientenzufriedenheit' },
@@ -194,7 +204,7 @@ export default function Home() {
               { 
                 name: 'Mooswald', 
                 address: 'Wirthstraße 9, 79110 Freiburg', 
-                img: '/images/standorte/mooswald/mooswald-main.jpg', 
+                img: '/images/standorte/mooswald/mooswald-main.webp', 
                 path: '/standorte/physiotherapie-freiburg-mooswald/',
                 badges: [
                   { img: '/images/partner-logos/zertifikate/badge_mooswald.png', title: 'Ausgezeichnete Patientenzufriedenheit' },
@@ -204,7 +214,7 @@ export default function Home() {
               { 
                 name: 'Europa-Park', 
                 address: 'Peter-Thumb-Str. 8, 77977 Rust', 
-                img: '/images/standorte/rust/rust-main.jpg', 
+                img: '/images/standorte/rust/rust-main.webp', 
                 path: '/standorte/physiotherapie-europa-park-rust/',
                 badges: [
                   { img: '/images/partner-logos/zertifikate/ppcertificate.png', title: 'Zertifizierter Praxis-Standard' }
@@ -264,23 +274,23 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl mb-6 tracking-tight">
                 Unsere <span className="text-gradient-teal-mint">Leistungen</span>
               </h2>
-              <p className="text-lg text-dark/80">Von klassischer Krankengymnastik bis zur innovativen Sportphysiotherapie – wir bieten ein umfassendes Spektrum für deine Gesundheit.</p>
+              <p className="text-lg text-dark/80">Von klassischer Krankengymnastik bis zur innovativen Sportphysiotherapie – wir bieten ein umfassendes Spektrum für Ihre Gesundheit.</p>
             </div>
             <Link to="/leistungen/" className="btn-outline shrink-0">Alle Leistungen</Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: 'Krankengymnastik', desc: 'Individuelle Bewegungstherapie zur Wiederherstellung der Mobilität.', path: '/leistungen/krankengymnastik/' },
-              { title: 'Manuelle Therapie', desc: 'Spezielle Handgrifftechniken zur Schmerzlinderung und Mobilisation.', path: '/leistungen/manuelle-therapie/' },
-              { title: 'Sportphysiotherapie', desc: 'Betreuung von Athleten für optimale Leistung und schnelle Reha.', path: '/leistungen/sportphysiotherapie/' },
-              { title: 'MTT Training', desc: 'Zielgerichtetes, gerätegestütztes Training zur Rehabilitation.', path: '/leistungen/mtt-training/' },
-              { title: 'Skillcourt', desc: 'Kognitives und motorisches Training zur Gehirnleistung.', path: '/leistungen/skillcourt/' },
-              { title: 'EAP Physiotherapie', desc: 'Intensive Komplexleistung für Privatversicherte.', path: '/leistungen/eap-privat/' },
+              { title: 'Krankengymnastik', desc: 'Individuelle Bewegungstherapie zur Wiederherstellung der Mobilität.', path: '/leistungen/krankengymnastik/', icon: HeartPulse },
+              { title: 'Manuelle Therapie', desc: 'Spezielle Handgrifftechniken zur Schmerzlinderung und Mobilisation.', path: '/leistungen/manuelle-therapie/', icon: Hand },
+              { title: 'Sportphysiotherapie', desc: 'Zielgerichtete Betreuung von Sportler*innen zur Leistungsoptimierung, Verletzungsprävention und spezifischen Rehabilitation.', path: '/leistungen/sportphysiotherapie/', icon: Trophy },
+              { title: 'MTT Training', desc: 'Zielgerichtetes, gerätegestütztes Training zur Rehabilitation und Prävention.', path: '/leistungen/mtt-training/', icon: Dumbbell },
+              { title: 'Skillcourt', desc: 'Kognitives und motorisches Training zur Gehirnleistung.', path: '/leistungen/skillcourt/', icon: Brain },
+              { title: 'EAP Physiotherapie', desc: 'Intensive Komplexleistung für Privatversicherte.', path: '/leistungen/eap-privat/', icon: ShieldCheck },
             ].map((leistung) => (
               <Link to={leistung.path} key={leistung.title} className="p-8 rounded-2xl bg-light border border-transparent hover:border-primary/20 hover:bg-white hover:shadow-lg transition-all duration-300 group">
                 <div className="w-12 h-12 rounded-lg bg-white shadow-sm flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
-                  <Activity className="w-6 h-6" />
+                  <leistung.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-secondary">{leistung.title}</h3>
                 <p className="text-dark/70 mb-6">{leistung.desc}</p>
@@ -300,10 +310,10 @@ export default function Home() {
             <div className="lg:w-1/2">
               <span className="text-gradient-teal-mint font-heading font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Digital</span>
               <h2 className="text-4xl md:text-5xl mb-6 text-white tracking-tight">
-                Die <span className="text-gradient-teal-mint">MOVIN App</span>:<br/> Deine Therapie für die Hosentasche
+                Die <span className="text-gradient-teal-mint">MOVIN App</span>:<br/> Ihre Therapie für die Hosentasche
               </h2>
               <p className="text-blue-tint/80 text-lg mb-8">
-                Mit unserer hauseigenen App begleiten wir dich auch außerhalb der Praxis. Greife auf individuelle Trainingspläne zu, verfolge deinen Fortschritt und bleibe in Kontakt mit deinem Therapeuten.
+                Mit unserer hauseigenen App begleiten wir Sie auch außerhalb der Praxis. Greifen Sie auf individuelle Trainingspläne zu, verfolgen Sie Ihren Fortschritt und bleiben Sie in Kontakt mit Ihrem Therapeuten.
               </p>
               <ul className="flex flex-col gap-4 mb-10">
                 {['Personalisierte Übungsvideos', 'Anamnesebögen', 'Schmerztagebuch', 'KI mit Pia', 'Aktiver Praxisbegleiter'].map((item, i) => (
@@ -320,11 +330,11 @@ export default function Home() {
             <div className="lg:w-1/2 relative">
               <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
               <img 
-                src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=800" 
+                src="/images/movin-app/Mockup_2_Phones.webp" 
                 alt="MOVIN App auf Smartphone" 
                 className="relative z-10 rounded-3xl shadow-2xl border-4 border-white/10 transform rotate-3 hover:rotate-0 transition-transform duration-500"
                 loading="lazy"
-                referrerPolicy="no-referrer"
+                decoding="async"
               />
             </div>
           </div>
@@ -344,7 +354,7 @@ export default function Home() {
                   Termine bequem per App buchen
                 </h3>
                 <p className="text-dark/70 text-lg max-w-2xl">
-                  Keine Warteschleifen mehr am Telefon: Buche, verschiebe oder storniere deine Physiotherapie-Termine rund um die Uhr direkt über dein Smartphone in der MOVIN App.
+                  Keine Warteschleifen mehr am Telefon: Buchen, verschieben oder stornieren Sie Ihre Physiotherapie-Termine rund um die Uhr direkt über Ihr Smartphone in der MOVIN App.
                 </p>
               </div>
             </div>
@@ -374,14 +384,14 @@ export default function Home() {
                   <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold uppercase rounded-full">Jederzeit</span>
                 </div>
                 <p className="text-dark/70 text-lg max-w-2xl">
-                  Sparen Sie Zeit bei Ihrem ersten Termin und füllen Sie unseren Anamnesebogen bereits vorab digital aus – ganz bequem von zu Hause und zu jeder Zeit.
+                  Wenn Sie unsere App nicht nutzen, können Sie den Anamnesebogen auch hier online ausfüllen und uns die wichtigsten Informationen vor Ihrem Termin übermitteln.
                 </p>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full md:w-auto">
               <Link to="/digital/anamnesebogen/" className="btn-primary flex items-center justify-center gap-2 whitespace-nowrap">
                 <ClipboardList className="w-5 h-5" />
-                Bogen ausfüllen
+                Anamnesebogen öffnen
               </Link>
             </div>
           </div>
@@ -463,7 +473,7 @@ export default function Home() {
               Häufig gestellte <span className="text-gradient-teal-mint">Fragen</span>
             </h2>
             <p className="text-lg text-dark/70">
-              Die wichtigsten Antworten rund um deinen Besuch bei MOVIN kurz und verständlich auf den Punkt gebracht.
+              Die wichtigsten Antworten rund um Ihren Besuch bei MOVIN kurz und verständlich auf den Punkt gebracht.
             </p>
           </div>
 
@@ -471,7 +481,7 @@ export default function Home() {
             {[
               {
                 question: "Brauche ich ein Rezept für die Behandlung?",
-                answer: "Ja, für physiotherapeutische Behandlungen, die über die Krankenkasse abgerechnet werden sollen, benötigst du eine ärztliche Verordnung (Rezept). Als Selbstzahler oder Privatpatient kannst du auch ohne Rezept im Rahmen des sektoralen Heilpraktikers zu uns kommen."
+                answer: "Für physiotherapeutische Behandlungen, die über die Krankenkasse abgerechnet werden sollen, benötigen Sie eine ärztliche Verordnung (Rezept)."
               },
               {
                 question: "Wie lange ist mein Rezept gültig?",
@@ -479,7 +489,7 @@ export default function Home() {
               },
               {
                 question: "Was muss ich zum ersten Termin mitbringen?",
-                answer: "Bitte bringe dein Rezept, deine Versichertenkarte, ein großes Handtuch, bequeme (sportliche) Kleidung sowie eventuell vorhandene Arztberichte oder Röntgen-/MRT-Bilder mit."
+                answer: "Bitte bringen Sie Ihr Rezept, Ihre Versichertenkarte, ein großes Handtuch, bequeme (sportliche) Kleidung sowie eventuell vorhandene Arztberichte oder Röntgen-/MRT-Bilder mit."
               },
               {
                 question: "Wie funktioniert die 48h Termingarantie?",
@@ -537,10 +547,10 @@ export default function Home() {
             <Logo className="h-12 w-auto" variant="white" />
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">
-            Bereit für <span className="bg-gradient-to-r from-secondary to-mint bg-clip-text text-transparent">kraftvolle und schmerzfreie</span> Bewegung?
+            Bereit für <span className="bg-gradient-to-r from-secondary via-[#25366f] to-[#008895] bg-clip-text text-transparent drop-shadow-[0_1px_0_rgba(255,255,255,0.16)]">kraftvolle und schmerzfreie</span> Bewegung?
           </h2>
           <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-            Nutze unsere 48h Termingarantie und starte deinen Weg zur Besserung noch diese Woche.
+            Nutzen Sie unsere 48h Termingarantie und starten Sie Ihren Weg zur Besserung noch diese Woche.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/termin/" className="btn-cta-cheetah text-lg px-8 py-4 rounded-full">

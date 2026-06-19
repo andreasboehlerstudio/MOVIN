@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Instagram, Loader2 } from 'lucide-react';
 
 interface InstagramPost {
@@ -9,54 +9,90 @@ interface InstagramPost {
   caption?: string;
 }
 
+const fallbackPosts: InstagramPost[] = [
+  {
+    id: 'fallback-lorettoberg',
+    mediaUrl: '/images/standorte/lorettoberg/lorettoberg-gallery-1.webp',
+    permalink: 'https://www.instagram.com/movinfreiburg/',
+    caption: 'Einblicke in unsere Praxis am Lorettoberg.'
+  },
+  {
+    id: 'fallback-mooswald',
+    mediaUrl: '/images/standorte/mooswald/mooswald-main.webp',
+    permalink: 'https://www.instagram.com/movinfreiburg/',
+    caption: 'Moderne Therapie- und Trainingsflächen in Freiburg.'
+  },
+  {
+    id: 'fallback-training',
+    mediaUrl: '/images/standorte/mooswald/mooswald-gallery-3.webp',
+    permalink: 'https://www.instagram.com/movinfreiburg/',
+    caption: 'Aktives Training für nachhaltige Belastbarkeit.'
+  },
+  {
+    id: 'fallback-sensopro',
+    mediaUrl: '/images/training/sensopro-training.webp',
+    permalink: 'https://www.instagram.com/movinfreiburg/',
+    caption: 'Koordination, Stabilität und Bewegungssicherheit.'
+  },
+  {
+    id: 'fallback-team',
+    mediaUrl: '/images/standorte/lorettoberg/lorettoberg-gallery-6.webp',
+    permalink: 'https://www.instagram.com/movinfreiburg/',
+    caption: 'Therapie, Training und Teamarbeit bei MOVIN.'
+  },
+  {
+    id: 'fallback-ki',
+    mediaUrl: '/images/ki/ki-physiotherapie-symbolbild-nano-banana-2.webp',
+    permalink: 'https://www.instagram.com/movinfreiburg/',
+    caption: 'Digitale Begleitung mit Fokus Mensch.'
+  }
+];
+
 export default function InstagramFeed() {
   const [posts, setPosts] = useState<InstagramPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [usesFallback, setUsesFallback] = useState(false);
 
-  // Der Feed-URL von deinem Behold.so Account
-  const feedUrl = "https://feeds.behold.so/tVYCxTWzZ2N4U6ruECao";
+  const feedUrl = useMemo(() => {
+    const configuredUrl = import.meta.env.VITE_INSTAGRAM_FEED_URL;
+    return configuredUrl || 'https://feeds.behold.so/tVYCxTWzZ2N4U6ruECao';
+  }, []);
 
   useEffect(() => {
     async function fetchInstagramPosts() {
-      // Check if feedUrl is valid and not a placeholder
-      const isValidUrl = feedUrl && 
-                        feedUrl.startsWith('http') && 
-                        !feedUrl.includes('YOUR_') && 
-                        !feedUrl.includes('TODO');
+      const isValidUrl =
+        typeof feedUrl === 'string' &&
+        feedUrl.startsWith('http') &&
+        !feedUrl.includes('YOUR_') &&
+        !feedUrl.includes('TODO');
 
       if (!isValidUrl) {
+        setUsesFallback(true);
         setLoading(false);
         return;
       }
 
       try {
         const response = await fetch(feedUrl, {
-          headers: {
-            'Accept': 'application/json'
-          }
+          headers: { Accept: 'application/json' }
         });
-        
+
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`HTTP error: ${response.status}`);
         }
-        
+
         const data = await response.json();
-        
-        // Behold.so liefert ein Array von Posts direkt oder in einem 'posts' Feld
         const fetchedPosts = Array.isArray(data) ? data : data.posts || [];
-        
+
         if (fetchedPosts.length > 0) {
           setPosts(fetchedPosts.slice(0, 6));
-          setError(false);
+          setUsesFallback(false);
         } else {
-          // If no posts found, use fallback but don't show error
-          setError(false);
+          setUsesFallback(true);
         }
-      } catch (err) {
-        // Silent fail for network/CORS errors in dev, just use fallback
-        console.warn('Instagram feed could not be loaded, using fallback posts.', err);
-        setError(false); // Don't show red error message for network failures
+      } catch (error) {
+        console.warn('Instagram feed could not be loaded, using local MOVIN fallback posts.', error);
+        setUsesFallback(true);
       } finally {
         setLoading(false);
       }
@@ -64,16 +100,6 @@ export default function InstagramFeed() {
 
     fetchInstagramPosts();
   }, [feedUrl]);
-
-  // Fallback-Daten, falls kein API-Key vorhanden ist oder ein Fehler auftritt
-  const fallbackPosts: InstagramPost[] = [
-    { id: '1', mediaUrl: 'https://images.unsplash.com/photo-1597452485669-2c7bb5fef90d?auto=format&fit=crop&q=80&w=400', permalink: 'https://www.instagram.com/movinfreiburg/', caption: 'Moderne Physiotherapie für Höchstleister.' },
-    { id: '2', mediaUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=400', permalink: 'https://www.instagram.com/movinfreiburg/', caption: 'Unser Team in Freiburg freut sich auf euch!' },
-    { id: '3', mediaUrl: 'https://images.unsplash.com/photo-1591258739299-5b65d5cbb235?auto=format&fit=crop&q=80&w=400', permalink: 'https://www.instagram.com/movinfreiburg/', caption: 'Individuelle Rehabilitation und Training.' },
-    { id: '4', mediaUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=400', permalink: 'https://www.instagram.com/movinfreiburg/', caption: 'Aktives Training für nachhaltige Erfolge.' },
-    { id: '5', mediaUrl: 'https://images.unsplash.com/photo-1600880210819-35b6c64446b1?auto=format&fit=crop&q=80&w=400', permalink: 'https://www.instagram.com/movinfreiburg/', caption: 'Neuigkeiten aus unseren Praxen.' },
-    { id: '6', mediaUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=400', permalink: 'https://www.instagram.com/movinfreiburg/', caption: 'Gesundheit und Bewegung im Fokus.' },
-  ];
 
   const displayPosts = posts.length > 0 ? posts : fallbackPosts;
 
@@ -83,9 +109,9 @@ export default function InstagramFeed() {
         <h2 className="text-3xl md:text-4xl tracking-tight">
           Aktuelles aus der <span className="text-gradient-teal-mint">Praxis</span>
         </h2>
-        <a 
-          href="https://www.instagram.com/movinfreiburg/" 
-          target="_blank" 
+        <a
+          href="https://www.instagram.com/movinfreiburg/"
+          target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors"
         >
@@ -102,16 +128,18 @@ export default function InstagramFeed() {
         <>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             {displayPosts.map((post) => (
-              <a 
+              <a
                 key={post.id}
                 href={post.permalink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative aspect-square overflow-hidden rounded-xl bg-light"
               >
-                <img 
-                  src={post.thumbnailUrl || post.mediaUrl} 
-                  alt={post.caption || "Instagram Post"} 
+                <img
+                  src={post.thumbnailUrl || post.mediaUrl}
+                  alt={post.caption || 'MOVIN Instagram Einblick'}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
@@ -127,13 +155,10 @@ export default function InstagramFeed() {
             ))}
           </div>
           <p className="mt-6 text-sm text-dark/60 italic">
-            Folge uns auf Instagram für tägliche Einblicke in unseren Praxisalltag, Übungstipps und Neuigkeiten.
+            {usesFallback
+              ? 'Aktuelle Einblicke finden Sie direkt auf unserem Instagram-Kanal.'
+              : 'Folgen Sie uns auf Instagram für tägliche Einblicke in unseren Praxisalltag, Übungstipps und Neuigkeiten.'}
           </p>
-          {error && (
-            <p className="mt-2 text-xs text-red-500">
-              Hinweis: Der Live-Feed konnte nicht geladen werden. Es werden Beispielbilder angezeigt.
-            </p>
-          )}
         </>
       )}
     </div>

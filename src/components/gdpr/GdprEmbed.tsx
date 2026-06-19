@@ -40,7 +40,7 @@ export const GdprEmbed: React.FC<GdprEmbedProps> = ({ category, children, provid
         </h3>
         
         <p className="text-dark/70 text-sm mb-8 leading-relaxed">
-          Um diesen Inhalt zu sehen, musst du die Kategorie <strong>"{category === 'marketing' ? 'Externe Medien' : category}"</strong> in den Cookie-Einstellungen aktivieren.
+          Um diesen Inhalt zu sehen, müssen Sie die Kategorie <strong>"{category === 'marketing' ? 'Externe Medien' : category}"</strong> in den Cookie-Einstellungen aktivieren.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-3 justify-center">

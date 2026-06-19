@@ -10,7 +10,7 @@ export interface OpeningHoursSection {
 export interface TeamMember {
   name: string;
   role: string;
-  image: string;
+  image?: string;
   spec?: string;
 }
 
@@ -31,6 +31,7 @@ export interface Standort {
   gallery?: string[];
   mapUrl: string;
   description: string;
+  localSeoText?: string;
   highlights: string[];
   openingHours?: OpeningHoursSection[];
   team: TeamMember[];
@@ -45,22 +46,18 @@ export const standorteData: Record<string, Standort> = {
     address: 'Mercystrasse 14, 79100 Freiburg im Breisgau',
     phone: '+49 761 707 33 66',
     email: 'kontakt@movin-freiburg.de',
-    image: '/images/standorte/lorettoberg/lorettoberg-main.jpg',
+    image: '/images/standorte/lorettoberg/lorettoberg-gallery-1.webp',
     gallery: [
-      '/images/standorte/lorettoberg/lorettoberg-gallery-1.jpg',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-2.jpg',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-3.jpg',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-4.jpg',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-5.jpg',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-6.jpg',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-7.jpg',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-8.jpg',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-9.jpg',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-10.jpg',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-11.jpg'
+      '/images/standorte/lorettoberg/lorettoberg-gallery-1.webp',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-2.webp',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-6.webp',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-7.webp',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-8.webp',
+      '/images/standorte/lorettoberg/lorettoberg-gallery-9.webp'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2669.839841838618!2d7.838411315648831!3d47.98144997921199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911b6c00000000%3A0x0!2sMercystra%C3%9Fe%2014%2C%2079100%20Freiburg%20im%20Breisgau!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: `Seit über ${years} Jahren betreiben wir hier unseren Hauptstandort für Physiotherapie auf höchstem Niveau. Durch unsere Kooperation mit der Artemed Klinik stellen wir zudem die stationäre Versorgung sicher. Auf über 600 Quadratmetern bieten wir Ihnen modernste Therapie- und Trainingsmöglichkeiten.`,
+    localSeoText: 'MOVIN am Lorettoberg ist besonders für Patientinnen und Patienten aus Freiburg-Wiehre, Günterstal, Vauban und der Freiburger Innenstadt gut erreichbar. Durch die Nähe zur Klinik am Lorettoberg eignet sich der Standort für ambulante Physiotherapie, Nachbehandlung nach Operationen, medizinisches Training und eine nahtlose Fortführung der Therapie nach stationären Aufenthalten.',
     highlights: [
       'Im Herzen von Freiburg gelegen',
       'Große und vielfältige Trainingsbereiche',
@@ -85,16 +82,64 @@ export const standorteData: Record<string, Standort> = {
     ],
     team: [
       {
+        name: 'Prof. Dr. Martin Klein',
+        role: 'Facharzt für Orthopädie',
+        image: '/images/team/martin-klein.jpg',
+        spec: 'Privatpatienten'
+      },
+      {
         name: 'Daniel Klein',
         role: 'Physiotherapeut / Fachkraft BGM',
         image: '/images/team/daniel-klein.jpg',
         spec: 'Schulter / Knie / Kiefer'
       },
       {
-        name: 'Prof. Dr. Martin Klein',
-        role: 'Facharzt für Orthopädie',
-        image: '/images/team/martin-klein.jpg',
-        spec: 'Privatpatienten'
+        name: 'Maik Forsbach',
+        role: 'Bürokaufmann / Wirtschaftsfachwirt (IHK)',
+        image: '/images/team/maik-forsbach.jpg',
+        spec: 'Verwaltung / Rezeption'
+      },
+      {
+        name: 'Mareike Klein',
+        role: 'Physiotherapeutin',
+        image: '/images/team/mareike-klein.jpg',
+        spec: 'Knie / Sprunggelenk'
+      },
+      {
+        name: 'Jana Züge',
+        role: 'Hotelkauffrau',
+        image: '/images/team/jana-zuege.jpg',
+        spec: 'Mutterschutz / Anmeldung'
+      },
+      {
+        name: 'Claudia Andrich',
+        role: 'Physiotherapeutin',
+        image: '/images/team/claudia-andrich.jpg',
+        spec: 'Kiefer / Rücken / Knie'
+      },
+      {
+        name: 'Lina Haberstroh',
+        role: 'Rezeptionistin',
+        image: '/images/team/lina-haberstroh.jpg',
+        spec: 'Anmeldung'
+      },
+      {
+        name: 'Mareike Strittmatter',
+        role: 'Physiotherapeutin B.Sc.',
+        image: '/images/team/mareike-strittmatter.jpg',
+        spec: 'Leitung / Hüfte / Rücken / Knie'
+      },
+      {
+        name: 'Jonas Wolfert',
+        role: 'Physiotherapeut',
+        image: '/images/team/jonas-wolfert.jpg',
+        spec: 'Stellv. Leitung / Knie / Schulter / Hüfte'
+      },
+      {
+        name: 'Olga Schmidt',
+        role: 'Kauffrau',
+        image: '/images/team/olga-schmidt.jpg',
+        spec: 'Verwaltung / Anmeldung'
       },
       {
         name: 'Senka Dizdarevic',
@@ -109,10 +154,62 @@ export const standorteData: Record<string, Standort> = {
         spec: 'Orthopädie / Station'
       },
       {
-        name: 'Mareike Klein',
+        name: 'Maximilian Schmidt',
+        role: 'Physiotherapeut',
+        image: '/images/team/maximilian-schmidt.jpg',
+        spec: 'Hand / Knie / Hüfte'
+      },
+      {
+        name: 'Heidrun Brinkmann',
+        role: 'Bankkauffrau',
+        image: '/images/team/heidrun-brinkmann.jpg',
+        spec: 'Verwaltung / Abrechnung'
+      },
+      {
+        name: 'Marco Rebstock',
+        role: 'Physiotherapeut',
+        image: '/images/team/marco-rebstock.jpg',
+        spec: 'Hüfte / Knie / Wirbelsäule'
+      },
+      {
+        name: 'Bianca Kohler',
         role: 'Physiotherapeutin',
-        image: '/images/team/mareike-klein.jpg',
-        spec: 'Knie / Sprunggelenk'
+        image: '/images/team/bianca-kohler.jpg',
+        spec: 'Hüfte / Schulter / Knie'
+      },
+      {
+        name: 'Heather Mitgorden-Keller',
+        role: 'Physiotherapeutin',
+        image: '/images/team/heather-mitgorden-keller.jpg',
+        spec: 'Station'
+      },
+      {
+        name: 'Laura Walter',
+        role: 'Physiotherapeutin',
+        image: '/images/team/laura-walter.jpg',
+        spec: 'Hüfte / Schulter / Knie'
+      },
+      {
+        name: 'Lea Ruf',
+        role: 'Physiotherapeutin',
+        image: '/images/team/lea-ruf.jpg',
+        spec: 'Hüfte / Knie / HWS'
+      },
+      {
+        name: 'Mara Schöneck',
+        role: 'Physiotherapeutin',
+        image: '/images/team/mara-schoeneck.jpg',
+        spec: 'Knie / Hüfte / Wirbelsäule'
+      },
+      {
+        name: 'Theuerkauf',
+        role: 'Teammitglied',
+        spec: 'Lorettoberg'
+      },
+      {
+        name: 'Aushilfen',
+        role: 'Aushilfe',
+        spec: 'Wechselnd'
       }
     ],
     badges: [
@@ -135,17 +232,18 @@ export const standorteData: Record<string, Standort> = {
     address: 'Wirthstraße 9, 79110 Freiburg',
     phone: '+49 761 707 33 77',
     email: 'physiotherapie.mooswald@movin-freiburg.de',
-    image: '/images/standorte/mooswald/mooswald-main.jpg',
+    image: '/images/standorte/mooswald/mooswald-main.webp',
     gallery: [
-      '/images/standorte/mooswald/mooswald-gallery-1.jpg',
-      '/images/standorte/mooswald/mooswald-gallery-2.jpg',
-      '/images/standorte/mooswald/mooswald-gallery-3.jpg',
-      '/images/standorte/mooswald/mooswald-gallery-4.jpg',
-      '/images/standorte/mooswald/mooswald-gallery-5.jpg',
-      '/images/standorte/mooswald/mooswald-gallery-6.jpg'
+      '/images/standorte/mooswald/mooswald-gallery-1.webp',
+      '/images/standorte/mooswald/mooswald-gallery-2.webp',
+      '/images/standorte/mooswald/mooswald-gallery-3.webp',
+      '/images/standorte/mooswald/mooswald-gallery-4.webp',
+      '/images/standorte/mooswald/mooswald-gallery-5.webp',
+      '/images/standorte/mooswald/mooswald-gallery-6.webp'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2668.5!2d7.8!3d48.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sWirthstra%C3%9Fe%209%2C%2079110%20Freiburg!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
-    description: 'Willkommen in unserer hochmodernen Boutique-Praxis im Stadtteil Mooswald – der ersten Boutique-Praxis Deutschlands. Hier trifft exklusives Ambiente auf hochmoderne und qualitativ hochwertige Physiotherapie. In unserer Lounge und der entspannten Atmosphäre verbindet sich Wohlfühlatmosphäre mit modernster Physiotherapie.',
+    description: 'Willkommen in unserer hochmodernen Boutique-Praxis im Stadtteil Mooswald – der ersten Boutique-Praxis Deutschlands. Hier trifft exklusives Ambiente auf hochmoderne und qualitativ hochwertige Physiotherapie. In unserer Lounge und der entspannten Atmosphäre verbindet sich Wohlfühlatmosphäre mit modernster Therapie.',
+    localSeoText: 'Der Standort MOVIN Mooswald richtet sich an Patientinnen und Patienten aus Freiburg-West, Mooswald, Landwasser, Betzenhausen und Lehen. Die moderne Boutique-Praxis verbindet Physiotherapie, medizinisches Training und digitale Trainingssysteme wie Skillcourt in einer ruhigen, hochwertigen Praxisumgebung.',
     highlights: [
       'Skillcourt Training',
       'Großer Trainingsbereich & Lounge',
@@ -177,28 +275,95 @@ export const standorteData: Record<string, Standort> = {
         spec: 'Schulter / Knie / Kiefer'
       },
       {
-        name: 'Desiree Wiegel',
-        role: 'Physiotherapeutin B.A.',
-        image: '/images/team/desiree-wiegel.jpg',
-        spec: 'Schulter / Fuß / Knie'
+        name: 'Maik Forsbach',
+        role: 'Bürokaufmann / Wirtschaftsfachwirt (IHK)',
+        image: '/images/team/maik-forsbach.jpg',
+        spec: 'Verwaltung / Rezeption'
       },
       {
-        name: 'Jonas Wolfert',
-        role: 'Physiotherapeut',
-        image: '/images/team/jonas-wolfert.jpg',
-        spec: 'Knie / Schulter / Hüfte'
+        name: 'Mareike Klein',
+        role: 'Physiotherapeutin',
+        image: '/images/team/mareike-klein.jpg',
+        spec: 'Stellv. Leitung / Knie / Sprunggelenk'
       },
       {
-        name: 'Mareike Strittmatter',
-        role: 'Physiotherapeutin B.Sc.',
-        image: '/images/team/mareike-strittmatter.jpg',
-        spec: 'Hüfte / Rücken / Knie'
+        name: 'Francisca Yanes Yanes',
+        role: 'Physiotherapeutin',
+        image: '/images/team/francisca-yanes-yanes.jpg',
+        spec: 'Leitung / Wirbelsäule / Schulter / Hüfte'
       },
       {
-        name: 'Max Stöhr',
-        role: 'Physiotherapeut',
-        image: '/images/team/max-stoehr.jpg',
+        name: 'Jana Züge',
+        role: 'Hotelkauffrau',
+        image: '/images/team/jana-zuege.jpg',
+        spec: 'Mutterschutz / Anmeldung'
+      },
+      {
+        name: 'Lina Haberstroh',
+        role: 'Rezeptionistin',
+        image: '/images/team/lina-haberstroh.jpg',
+        spec: 'Anmeldung'
+      },
+      {
+        name: 'Olga Schmidt',
+        role: 'Kauffrau',
+        image: '/images/team/olga-schmidt.jpg',
+        spec: 'Verwaltung / Anmeldung'
+      },
+      {
+        name: 'Daniela Fichter',
+        role: 'Physiotherapeutin',
+        image: '/images/team/daniela-fichter.jpg',
         spec: 'Knie / Hüfte / Sprunggelenk'
+      },
+      {
+        name: 'Elina Kovacs',
+        role: 'Physiotherapeutin & Osteopathin',
+        image: '/images/team/elina-kovacs.jpg',
+        spec: 'HWS / Knie / Hüfte'
+      },
+      {
+        name: 'Heidrun Brinkmann',
+        role: 'Bankkauffrau',
+        image: '/images/team/heidrun-brinkmann.jpg',
+        spec: 'Verwaltung / Abrechnung'
+      },
+      {
+        name: 'Julius Leibold',
+        role: 'Physiotherapeut',
+        image: '/images/team/julius-leibold.jpg',
+        spec: 'Knie / Fuß / Schulter'
+      },
+      {
+        name: 'Lea Ruf',
+        role: 'Physiotherapeutin',
+        image: '/images/team/lea-ruf.jpg',
+        spec: 'Hüfte / Knie / HWS'
+      },
+      {
+        name: 'Prell',
+        role: 'Teammitglied',
+        spec: 'Neu'
+      },
+      {
+        name: 'Nochemann',
+        role: 'Teammitglied',
+        spec: 'Neu'
+      },
+      {
+        name: 'Theresa Maier',
+        role: 'Teammitglied',
+        spec: 'Neu'
+      },
+      {
+        name: 'Lara',
+        role: 'Kasse',
+        spec: 'Mooswald'
+      },
+      {
+        name: 'Miriam Ferne',
+        role: 'Teammitglied',
+        spec: 'Mooswald'
       }
     ],
     badges: [
@@ -221,19 +386,17 @@ export const standorteData: Record<string, Standort> = {
     address: 'Peter-Thumb-Str. 8, 77977 Rust',
     phone: '+49 761 707 33 66',
     email: 'europapark.physio@movin-freiburg.de',
-    image: '/images/standorte/rust/rust-main.jpg',
+    image: '/images/standorte/rust/rust-main.webp',
     gallery: [
       '/images/standorte/rust/rust-gallery-1.jpg',
-      '/images/standorte/rust/rust-gallery-2.jpg',
-      '/images/standorte/rust/rust-gallery-3.jpg',
       '/images/standorte/rust/rust-gallery-4.jpg',
       '/images/standorte/rust/rust-gallery-5.jpg',
       '/images/standorte/rust/rust-gallery-6.jpg',
-      '/images/standorte/rust/rust-gallery-7.jpg',
-      '/images/standorte/rust/rust-gallery-8.jpg'
+      '/images/standorte/rust/rust-gallery-7.jpg'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.0!2d7.7!3d48.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPeter-Thumb-Str.%208%2C%2077977%20Rust!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: 'Unser Standort in Rust bietet erstklassige physiotherapeutische Versorgung direkt am Europa-Park und dem Hotel Bell Rock. In enger Zusammenarbeit mit dem Feelgood Center und dem Europa-Park betreuen wir dort die Mitarbeiterinnen und Mitarbeiter des Europa-Parks.',
+    localSeoText: 'MOVIN Europa-Park Rust bietet Physiotherapie direkt am Europa-Park und ist für Menschen aus Rust, Ringsheim, Herbolzheim, Ettenheim und der südlichen Ortenau gut erreichbar. Der Standort unterstützt schnelle Hilfe bei Beschwerden, Prävention, Training und die physiotherapeutische Betreuung im Umfeld des Europa-Parks.',
     highlights: [
       'Zentrale Lage am Europa-Park',
       'Zügige Terminvergabe',
@@ -260,28 +423,28 @@ export const standorteData: Record<string, Standort> = {
         spec: 'Schulter / Knie / Kiefer'
       },
       {
-        name: 'Claudia Andrich',
+        name: 'Mareike Klein',
         role: 'Physiotherapeutin',
-        image: '/images/team/claudia-andrich.jpg',
-        spec: 'Kiefer / Rücken / Knie'
+        image: '/images/team/mareike-klein.jpg',
+        spec: 'Leitung / Knie / Sprunggelenk'
       },
       {
-        name: 'Marco Rebstock',
+        name: 'Jonas Wolfert',
         role: 'Physiotherapeut',
-        image: '/images/team/marco-rebstock.jpg',
-        spec: 'Hüfte / Knie / Wirbelsäule'
+        image: '/images/team/jonas-wolfert.jpg',
+        spec: 'Knie / Schulter / Hüfte'
       },
       {
-        name: 'Bianca Kohler',
-        role: 'Physiotherapeutin',
-        image: '/images/team/bianca-kohler.jpg',
-        spec: 'Hüfte / Schulter / Knie'
+        name: 'Mareike Strittmatter',
+        role: 'Physiotherapeutin B.Sc.',
+        image: '/images/team/mareike-strittmatter.jpg',
+        spec: 'Hüfte / Rücken / Knie'
       },
       {
-        name: 'Laura Walter',
-        role: 'Physiotherapeutin',
-        image: '/images/team/laura-walter.jpg',
-        spec: 'Hüfte / Schulter / Knie'
+        name: 'Elina Kovacs',
+        role: 'Physiotherapeutin & Osteopathin',
+        image: '/images/team/elina-kovacs.jpg',
+        spec: 'HWS / Knie / Hüfte'
       }
     ],
     badges: [

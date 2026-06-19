@@ -34,22 +34,22 @@ const TOPICS: Topic[] = [
       {
         id: 't1',
         text: 'Wie funktioniert die 48h-Termingarantie?',
-        answer: 'Für akute Fälle (z.B. Hexenschuss, frische Sportverletzungen oder direkt nach einer Operation) haben wir an unseren Standortern spezielle Akut-Slots reserviert. Wenn du als Neupatient mit dringendem Bedarf zu uns kommst, garantieren wir dir einen Behandlungstermin innerhalb von 48 Stunden.\n\nBitte melde dich dafür am besten telefonisch bei uns oder reiche dein Rezept direkt online mit dem Hinweis „Akutfall“ ein.'
+        answer: 'Für akute Fälle (z.B. Hexenschuss, frische Sportverletzungen oder direkt nach einer Operation) haben wir an unseren Standorten spezielle Akut-Slots reserviert. Wenn Sie als Neupatient mit dringendem Bedarf zu uns kommen, garantieren wir Ihnen einen Behandlungstermin innerhalb von 48 Stunden.\n\nBitte melden Sie sich dafür am besten telefonisch bei uns oder reichen Sie Ihr Rezept direkt online mit dem Hinweis „Akutfall“ ein.'
       },
       {
         id: 't2',
         text: 'Bis wann muss ich einen Termin absagen unter 24h?',
-        answer: 'Wir arbeiten nach einem reinen Bestellsystem, um dir lange Wartezeiten zu ersparen und volle Behandlungszeit zu garantieren. Solltest du einen Termin nicht wahrnehmen können, sage diesen bitte mindestens 24 Stunden vorher ab.\n\nDies geht telefonisch, per E-Mail oder ganz unkompliziert direkt im Chat unserer MOVIN App. Nicht oder zu spät abgesagte Termine müssen wir andernfalls leider privat als Ausfallgebühr in Rechnung stellen.'
+        answer: 'Wir arbeiten nach einem reinen Bestellsystem, um Ihnen lange Wartezeiten zu ersparen und volle Behandlungszeit zu garantieren. Sollten Sie einen Termin nicht wahrnehmen können, sagen Sie diesen bitte mindestens 24 Stunden vorher ab.\n\nDies geht telefonisch, per E-Mail oder ganz unkompliziert direkt im Chat unserer MOVIN App. Nicht oder zu spät abgesagte Termine müssen wir andernfalls leider privat als Ausfallgebühr in Rechnung stellen.'
       },
       {
         id: 't3',
         text: 'Was muss ich zum ersten Termin mitbringen?',
-        answer: 'Für deinen ersten Termin bei MOVIN bringst du bitte Folgendes mit:\n\n1. Deine ärztliche Verordnung (Rezept)\n2. Deine Krankenkassenkarte\n3. Eventuell relevante medizinische Berichte, OP-Berichte oder MRT-Bilder\n4. Ein großes Liegetuch oder Sportkleidung\n\nDu kannst Zeit sparen, indem du unseren Anamnesebogen bereits vorab bequem digital von zu Hause ausfüllst!'
+        answer: 'Für Ihren ersten Termin bei MOVIN bringen Sie bitte Folgendes mit:\n\n1. Ihre ärztliche Verordnung (Rezept)\n2. Ihre Krankenkassenkarte\n3. Eventuell relevante medizinische Berichte, OP-Berichte oder MRT-Bilder\n4. Ein großes Liegetuch oder Sportkleidung\n\nSie können Zeit sparen, indem Sie unseren Anamnesebogen bereits vorab bequem digital von zu Hause ausfüllen!'
       },
       {
         id: 't4',
         text: 'Wie stimme ich am besten Folgetermine ab?',
-        answer: 'Um therapeutische Kontinuität und somit den besten Heilungserfolg zu garantieren, vereinbaren wir bevorzugt schon beim ersten Termin die gesamte Behandlungsserie.\n\nDu kannst deine Termine direkt vor Ort am Empfang, digital über unsere App im Chat mit unserem Team oder per Telefon reservieren.'
+        answer: 'Um therapeutische Kontinuität und somit den besten Heilungserfolg zu garantieren, vereinbaren wir bevorzugt schon beim ersten Termin die gesamte Behandlungsserie.\n\nSie können Ihre Termine direkt vor Ort am Empfang, digital über unsere App im Chat mit unserem Team oder per Telefon reservieren.'
       }
     ]
   },
@@ -62,17 +62,17 @@ const TOPICS: Topic[] = [
       {
         id: 'p1',
         text: 'Wo finde ich die MOVIN Praxen?',
-        answer: 'Wir sind an drei hochmodernen Standorten für dich da:\n\n📍 Freiburg Lorettoberg (Mercystraße) - Direkt neben der Klinik am Lorettoberg.\n📍 Freiburg Herdern (Hauptstraße) - Im Herzen von Herdern.\n📍 Rust beim Europa-Park - Perfekt erreichbar mit ausreichend Parkplätzen.\n\nAlle unsere Praxen sind voll klimatisiert, barrierefrei und verfügen über modernste Trainings- und Therapieräume.'
+        answer: 'Wir sind an drei hochmodernen Standorten für Sie da:\n\n📍 Freiburg Lorettoberg (Mercystraße) - direkt neben der Klinik am Lorettoberg.\n📍 Freiburg Mooswald (Wirthstraße) - moderne Boutique-Physiotherapie im Freiburger Westen.\n📍 Europa-Park Rust (Peter-Thumb-Straße) - direkt am Europa-Park und ideal erreichbar.\n\nAlle unsere Praxen sind voll klimatisiert, barrierefrei und verfügen über moderne Therapie- und Trainingsräume.'
       },
       {
         id: 'p2',
-        text: 'Welche Leistungen bietet ihr an?',
+        text: 'Welche Leistungen bietet MOVIN an?',
         answer: 'Unsere Praxen bieten ein breites Spektrum an:\n\n• Klassische Physiotherapie / Krankengymnastik (KG)\n• Manuelle Therapie (MT) & Lymphdrainage (MLD)\n• Krankengymnastik am Gerät (KGG)\n• Sportphysiotherapie & Rehabilitatives Training (z.B. T-RENA)\n• Massagen & Wellness-Therapien\n\nKombiniert wird dies bei uns immer mit unserem digitalen Therapie-Ansatz!'
       },
       {
         id: 'p3',
-        text: 'Bietet ihr medizinisches Gerätetraining an?',
-        answer: 'Ja! An all unseren Standorten bieten wir medizinische Trainingstherapie an modernsten cloud-vernetzten Geräten an. Dies kann über ein KGG-Rezept deines Arztes, im Rahmen einer Reha-Nachsorge (T-RENA) oder über private Monatsabos genutzt werden.\n\nUnsere Therapeuten erstellen deinen individuellen Trainingsplan direkt in der MOVIN App.'
+        text: 'Bietet MOVIN medizinisches Gerätetraining an?',
+        answer: 'Ja! An all unseren Standorten bieten wir medizinische Trainingstherapie an modernsten cloud-vernetzten Geräten an. Dies kann über ein KGG-Rezept Ihres Arztes, im Rahmen einer Reha-Nachsorge (T-RENA) oder über private Monatsabos genutzt werden.\n\nUnsere Therapeuten erstellen Ihren individuellen Trainingsplan direkt in der MOVIN App.'
       }
     ]
   },
@@ -85,17 +85,17 @@ const TOPICS: Topic[] = [
       {
         id: 'a1',
         text: 'Was kann die MOVIN App eigentlich?',
-        answer: 'Die MOVIN App ist dein digitaler Therapiebegleiter für die Hosentasche:\n\n• Termine rund um die Uhr verwalten, buchen & verschieben\n• Rezepte unkompliziert per Webcam/Kamera hochladen und prüfen lassen\n• Individuelle Video-Trainingsprogramme für zu Hause\n• Direkt-Chat mit deinem Therapeuten bei Fragen\n• Integrierte Schmerz- und Fortschrittsmessung'
+        answer: 'Die MOVIN App ist Ihr digitaler Therapiebegleiter für die Hosentasche:\n\n• Termine rund um die Uhr verwalten, buchen & verschieben\n• Rezepte unkompliziert per Webcam/Kamera hochladen und prüfen lassen\n• Individuelle Video-Trainingsprogramme für zu Hause\n• Direkt-Chat mit Ihrem Therapeuten bei Fragen\n• Integrierte Schmerz- und Fortschrittsmessung'
       },
       {
         id: 'a2',
         text: 'Wie erhalte ich die Zugangsdaten zur App?',
-        answer: 'Nach deiner ersten Anmeldung oder Rezeptprüfung bei uns schalten wir dein Profil frei. Du erhältst deine persönlichen Zugangsdaten ganz unkompliziert per E-Mail oder direkt von deinem Therapeuten beim ersten Termin vor Ort in der Praxis.'
+        answer: 'Nach Ihrer ersten Anmeldung oder Rezeptprüfung bei uns schalten wir Ihr Profil frei. Sie erhalten Ihre persönlichen Zugangsdaten ganz unkompliziert per E-Mail oder direkt von Ihrem Therapeuten beim ersten Termin vor Ort in der Praxis.'
       },
       {
         id: 'a3',
         text: 'Wie funktioniert das Rezept-Hochladen?',
-        answer: 'Ganz einfach: Klicke in der App (oder auf unserer Website) auf "Rezept einreichen". Fotografiere dein Rezept mit dem Smartphone. Unser Patientenservice prüft das Rezept sofort auf Richtigkeit, klärt die Zuweisung und schickt dir direkt freie Terminvorschläge passend zu deinen Wunschzeiten!'
+        answer: 'Ganz einfach: Klicken Sie in der App (oder auf unserer Website) auf "Rezept einreichen". Fotografieren Sie Ihr Rezept mit dem Smartphone. Unser Patientenservice prüft das Rezept sofort auf Richtigkeit, klärt die Zuweisung und schickt Ihnen direkt freie Terminvorschläge passend zu Ihren Wunschzeiten!'
       }
     ]
   },
@@ -112,7 +112,7 @@ const TOPICS: Topic[] = [
       },
       {
         id: 'k2',
-        text: 'Behandelt ihr auch Privatversicherte?',
+        text: 'Behandeln Sie auch Privatversicherte?',
         answer: 'Selbstverständlich! Wir behandeln gesetzlich Versicherte aller Kassen, Privatversicherte sowie Beihilfeberechtigte und Selbstzahler.\n\nPrivatpatienten erhalten nach Abschluss der Behandlungsserie eine detaillierte Rechnung zur Einreichung bei der privaten Krankenversicherung oder Beihilfestelle.'
       },
       {
@@ -130,7 +130,7 @@ export default function AIChatbot() {
     {
       id: 'welcome',
       role: 'model',
-      text: 'Hallo! Willkommen beim MOVIN Informations-Assistenten. 🌟\n\nIch liefere dir blitzschnell und datenschutzkonform alle Antworten zu unseren Praxen, Leistungen und Abläufen. Wähle einfach ein Thema aus:',
+      text: 'Hallo! Willkommen beim MOVIN Informations-Assistenten. 🌟\n\nIch liefere Ihnen blitzschnell und datenschutzkonform alle Antworten zu unseren Praxen, Leistungen und Abläufen. Wählen Sie einfach ein Thema aus:',
       isInteractive: true
     }
   ]);
@@ -183,7 +183,7 @@ export default function AIChatbot() {
       {
         id: 'welcome_again',
         role: 'model',
-        text: 'Brauchst du weitere Informationen? Wähle einfach eine Kategorie oder eine Frage aus:',
+        text: 'Brauchen Sie weitere Informationen? Wählen Sie einfach eine Kategorie oder eine Frage aus:',
         isInteractive: true
       }
     ]);
