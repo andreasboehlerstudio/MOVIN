@@ -107,7 +107,7 @@ export default function StationaereVersorgung() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-secondary text-white text-center">
+      <section className="py-20 cta-footer-gradient text-white text-center">
         <div className="container-custom max-w-3xl">
           <div className="flex justify-center mb-8">
             <Logo className="h-12 w-auto" variant="white" />

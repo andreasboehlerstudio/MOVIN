@@ -515,7 +515,7 @@ export default function Training() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-secondary text-white text-center relative overflow-hidden">
+      <section className="py-20 cta-footer-gradient text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,178,186,0.15),transparent_40%)] pointer-events-none" />
         <div className="container-custom max-w-3xl relative z-10">
           <div className="flex justify-center mb-8">

@@ -14,7 +14,6 @@ import {
   Trash2, 
   Paperclip, 
   CheckCircle2, 
-  Download, 
   Sparkles, 
   Check, 
   Phone, 
@@ -782,7 +781,7 @@ startxref
             <h2 className="text-3xl md:text-5xl font-black text-secondary tracking-tight mb-4">Wählen Sie Ihren Karriereweg</h2>
             <div className="h-1.5 w-20 bg-primary mx-auto mb-6 rounded-full" />
             <p className="text-lg text-dark/70 leading-relaxed">
-              Hier finden Sie die aktuell ausgeschriebenen Möglichkeiten. Die vorhandenen Stellenangebote können Sie direkt als PDF öffnen oder sich online bewerben.
+              Hier finden Sie die aktuell ausgeschriebenen Möglichkeiten. Die vorhandenen Stellenangebote können Sie direkt als PDF ansehen oder sich online bewerben.
             </p>
           </div>
 
@@ -814,10 +813,13 @@ startxref
                     {job.pdfUrl ? (
                       <a
                         href={job.pdfUrl}
-                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        type="application/pdf"
+                        aria-label={`${job.title} als PDF in neuem Fenster ansehen`}
                         className="btn-outline flex items-center justify-center gap-2 border-border text-secondary hover:bg-light w-full py-2.5 px-4 text-xs font-bold tracking-wider"
                       >
-                        <Download className="w-4 h-4" /> PDF herunterladen
+                        <ExternalLink className="w-4 h-4" /> PDF ansehen
                       </a>
                     ) : (
                       <button 
@@ -866,30 +868,6 @@ startxref
                     </ul>
                   </div>
                 </div>
-
-                {job.pdfUrl && (
-                  <div className="border border-border/70 rounded-2xl overflow-hidden bg-light">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 border-b border-border/70">
-                      <div>
-                        <p className="text-xs font-bold text-primary uppercase tracking-widest">Original-PDF</p>
-                        <p className="text-sm font-bold text-secondary">{job.title}</p>
-                      </div>
-                      <a
-                        href={job.pdfUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-outline flex items-center justify-center gap-2 border-border text-secondary hover:bg-white py-2 px-4 text-xs font-bold tracking-wider"
-                      >
-                        <ExternalLink className="w-4 h-4" /> PDF öffnen
-                      </a>
-                    </div>
-                    <iframe
-                      src={job.pdfUrl}
-                      title={`PDF ${job.title}`}
-                      className="hidden md:block w-full h-[420px] bg-white"
-                    />
-                  </div>
-                )}
               </motion.div>
             ))}
           </div>

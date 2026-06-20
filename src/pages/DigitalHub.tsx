@@ -9,24 +9,27 @@ const digitalServices = [
     description: 'Ihre Therapie für die Hosentasche. Trainingspläne, Fortschritts-Tracking und direkter Chat mit Ihrem Therapeuten.',
     path: '/digital/movin-app',
     icon: Smartphone,
-    color: 'bg-blue-500',
-    image: 'https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&q=80&w=800'
+    iconClass: 'bg-primary text-white ring-1 ring-white/35',
+    image: '/images/movin-app/h-main-parallax-2.webp',
+    imageLabel: ''
   },
   {
     title: 'KI Physiotherapie',
     description: 'Erleben Sie die Zukunft der Bewegung. Intelligente Analyse und KI-gestützte Therapieansätze für maximale Effizienz.',
     path: '/digital/ki-physiotherapie',
     icon: Brain,
-    color: 'bg-purple-500',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800'
+    iconClass: 'bg-secondary text-white ring-1 ring-white/35',
+    image: '/images/ki/ki-physiotherapie-hero-ki-generiert-nano-banana-2.webp',
+    imageLabel: 'KI-generiert'
   },
   {
     title: 'Digitaler Anamnesebogen',
     description: 'Bereite Sie optimal auf Ihren Termin vor. Fülle Ihren Anamnesebogen bequem und sicher von zu Hause aus.',
     path: '/digital/anamnesebogen',
     icon: FileText,
-    color: 'bg-orange-500',
-    image: 'https://images.unsplash.com/photo-1586772002130-b0f3daa6288b?auto=format&fit=crop&q=80&w=800'
+    iconClass: 'bg-mint text-secondary ring-1 ring-primary/25',
+    image: '/images/digital/anamnesebogen-ki-generiert-nano-banana-2.webp',
+    imageLabel: 'KI-generiert'
   }
 ];
 
@@ -88,11 +91,18 @@ export default function DigitalHub() {
                     <img 
                       src={service.image} 
                       alt={service.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    {service.imageLabel && (
+                      <span className="absolute right-5 top-5 rounded-full border border-white/50 bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-secondary shadow-sm backdrop-blur-sm">
+                        {service.imageLabel}
+                      </span>
+                    )}
                     <div className="absolute bottom-6 left-8">
-                      <div className={`w-12 h-12 ${service.color} rounded-2xl flex items-center justify-center text-white shadow-lg mb-2`}>
+                      <div className={`w-12 h-12 ${service.iconClass} rounded-2xl flex items-center justify-center shadow-lg mb-2`}>
                         <service.icon className="w-6 h-6" />
                       </div>
                     </div>
@@ -137,7 +147,7 @@ export default function DigitalHub() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-20 cta-footer-gradient">
         <div className="container-custom">
           <div className="bg-gradient-to-br from-primary to-teal-600 rounded-[3rem] p-12 md:p-20 text-white text-center relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />

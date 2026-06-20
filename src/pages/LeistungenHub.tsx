@@ -252,13 +252,13 @@ export default function LeistungenHub() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-secondary text-white text-center">
+      <section className="py-20 cta-footer-gradient text-white text-center">
         <div className="container-custom max-w-3xl">
           <div className="flex justify-center mb-8">
             <Logo className="h-12 w-auto" variant="white" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Unsicher, welche Therapie die richtige ist?</h2>
-          <p className="text-blue-tint/80 text-lg mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white drop-shadow-sm">Unsicher, welche Therapie die richtige ist?</h2>
+          <p className="text-white/85 text-lg mb-10">
             Lassen Sie uns gemeinsam herausfinden, was Ihnen am besten hilft. Vereinbaren Sie einen Ersttermin für eine ausführliche Anamnese.
           </p>
           <Link to="/termin/" className="btn-cta-cheetah text-lg px-8 py-4 rounded-full">

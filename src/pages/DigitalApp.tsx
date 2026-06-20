@@ -80,7 +80,7 @@ const appFeatures: AppFeature[] = [
     icon: CheckCircle2,
     videoUrl: "/videos/app/Video Anamnesebogen-optimized.mp4",
     videoKeywords: ["anamnesebogen", "ergebnis"],
-    poster: "/images/movin-app/h-main-parallax-2.png",
+    poster: "/images/movin-app/h-main-parallax-2.webp",
     tag: "#anamnese"
   },
   {
@@ -122,7 +122,7 @@ const appFeatures: AppFeature[] = [
     desc: "Die Krankenkassen ermöglichen es Ihnen und uns, die Therapie per Telemedizin durchzuführen. Nutzen Sie dafür unsere App, die DSGVO-konform, verschlüsselt und absolut sicher ist.",
     icon: Video,
     videoKeywords: ["telemedizin"],
-    poster: "/images/movin-app/h-main-parallax-2.png",
+    poster: "/images/movin-app/h-main-parallax-2.webp",
     tag: "#telemedizin"
   },
   {
@@ -226,7 +226,7 @@ export default function DigitalApp() {
       <section className="relative h-[55vh] min-h-[480px] flex items-center bg-secondary overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/movin-app/h-main-parallax-2.png" 
+            src="/images/movin-app/h-main-parallax-2.webp" 
             alt="MOVIN App Screens und Funktionen" 
             className="w-full h-full object-cover opacity-35 mix-blend-overlay"
           />
@@ -494,7 +494,7 @@ export default function DigitalApp() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-secondary text-white text-center relative overflow-hidden">
+      <section className="py-20 cta-footer-gradient text-white text-center relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
         <div className="container-custom max-w-3xl relative z-10">
           <div className="flex justify-center mb-8">

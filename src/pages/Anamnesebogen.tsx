@@ -843,7 +843,7 @@ export default function Anamnesebogen() {
                       onClick={downloadManualPDF}
                       className="btn-outline flex items-center gap-2"
                     >
-                      <Download className="w-5 h-5" /> PDF laden
+                      <Download className="w-5 h-5" /> PDF herunterladen
                     </button>
                     <button 
                       type="submit"

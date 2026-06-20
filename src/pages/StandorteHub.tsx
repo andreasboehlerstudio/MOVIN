@@ -188,7 +188,7 @@ export default function StandorteHub() {
       {/* Global CTA */}
       <section className="py-20 bg-white">
         <div className="container-custom">
-          <div className="bg-secondary rounded-[3rem] p-8 md:p-16 text-center text-white relative overflow-hidden">
+          <div className="cta-footer-gradient rounded-[3rem] p-8 md:p-16 text-center text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
             <div className="relative z-10">
               <h2 className="text-3xl md:text-5xl font-black mb-6 text-white">Noch unsicher, welcher Standort der richtige ist?</h2>

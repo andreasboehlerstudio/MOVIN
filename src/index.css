@@ -77,6 +77,11 @@
   .bg-gradient-teal-mint {
     @apply bg-gradient-to-r from-[#B4DFBB] to-[#00b2ba];
   }
+  .cta-footer-gradient {
+    background:
+      radial-gradient(circle at 82% 16%, rgba(0, 194, 203, 0.34) 0%, rgba(0, 194, 203, 0.16) 27%, transparent 48%),
+      linear-gradient(135deg, #0a0f4d 0%, #13206a 46%, #0c5f88 74%, #00a8af 100%);
+  }
   .btn-cta-cheetah {
     @apply inline-flex items-center justify-center border-0 text-white font-semibold overflow-hidden relative cursor-pointer select-none transition-all duration-300;
     background: linear-gradient(135deg, #B4DFBB 0%, #00c2cb 50%, #00a8af 100%);

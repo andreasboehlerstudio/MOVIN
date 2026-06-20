@@ -37,7 +37,7 @@ export default function DigitalKi() {
       <section className="relative h-[60vh] min-h-[500px] flex items-center bg-secondary overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/ki/ki-physiotherapie-hero-movin.jpg" 
+            src="/images/ki/ki-physiotherapie-hero-ki-generiert-nano-banana-2.webp" 
             alt="Therapeutische Bewegungseinheit bei MOVIN mit digitaler Unterstützung" 
             className="w-full h-full object-cover opacity-[0.48]"
           />
@@ -45,6 +45,10 @@ export default function DigitalKi() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_45%,rgba(0,178,186,0.26),transparent_34%)]" />
           <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/35 to-transparent" />
         </div>
+
+        <span className="absolute bottom-6 right-6 z-10 rounded-full border border-white/35 bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-secondary shadow-sm backdrop-blur-sm">
+          KI-generiert
+        </span>
         
         <div className="container-custom relative z-10 text-white mt-16 text-center max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-2 text-primary font-semibold uppercase tracking-wider text-sm mb-4">
