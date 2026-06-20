@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router';
-import { MapPin, Phone, Mail, Clock, Calendar, CheckCircle2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Calendar, CheckCircle2, ExternalLink, PlayCircle } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import { standorteData, Standort } from '../data/standorte';
 import { GdprEmbed } from '../components/gdpr/GdprEmbed';
@@ -152,6 +152,47 @@ export default function StandortPage() {
                   <h3 className="text-2xl font-bold text-secondary mb-4">Physiotherapie vor Ort</h3>
                   <p className="text-dark/75 leading-relaxed">
                     {standort.localSeoText}
+                  </p>
+                </div>
+              )}
+
+              {standort.video && (
+                <div className="rounded-[2rem] border border-border/80 bg-light p-5 md:p-6 shadow-sm">
+                  <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <span className="text-primary font-bold uppercase tracking-widest text-xs mb-2 block">
+                        {standort.video.eyebrow}
+                      </span>
+                      <h3 className="text-2xl md:text-3xl font-bold text-secondary">
+                        {standort.video.heading}
+                      </h3>
+                    </div>
+                    <a
+                      href={standort.video.watchUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-5 py-3 text-xs font-bold text-white transition-colors hover:bg-primary"
+                    >
+                      Auf YouTube ansehen <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+
+                  <div className="overflow-hidden rounded-[1.5rem] border border-border bg-secondary shadow-xl">
+                    <GdprEmbed category="marketing" provider="YouTube">
+                      <iframe
+                        src={standort.video.embedUrl}
+                        title={standort.video.title}
+                        className="w-full aspect-video border-0"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    </GdprEmbed>
+                  </div>
+
+                  <p className="mt-4 flex items-start gap-2 text-sm leading-relaxed text-dark/70">
+                    <PlayCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    {standort.video.description}
                   </p>
                 </div>
               )}

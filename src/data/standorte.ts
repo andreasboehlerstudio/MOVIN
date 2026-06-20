@@ -20,6 +20,15 @@ export interface StandortBadge {
   description: string;
 }
 
+export interface StandortVideo {
+  embedUrl: string;
+  watchUrl: string;
+  title: string;
+  eyebrow: string;
+  heading: string;
+  description: string;
+}
+
 export interface Standort {
   name: string;
   seoTitle: string;
@@ -36,6 +45,7 @@ export interface Standort {
   openingHours?: OpeningHoursSection[];
   team: TeamMember[];
   badges?: StandortBadge[];
+  video?: StandortVideo;
 }
 
 export const standorteData: Record<string, Standort> = {
@@ -267,6 +277,14 @@ export const standorteData: Record<string, Standort> = {
         ]
       }
     ],
+    video: {
+      embedUrl: 'https://www.youtube-nocookie.com/embed/p0XnVjgkomQ?rel=0',
+      watchUrl: 'https://www.youtube.com/watch?v=p0XnVjgkomQ',
+      title: 'MOVIN Standort Mooswald Video',
+      eyebrow: 'Einblick Mooswald',
+      heading: 'Boutique-Physiotherapie in Bewegung erleben',
+      description: 'Das Video zeigt den Standort Mooswald als modernen Praxis- und Trainingsraum: hell, hochwertig und auf persönliche Betreuung ausgerichtet.'
+    },
     team: [
       {
         name: 'Daniel Klein',
