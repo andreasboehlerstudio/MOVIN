@@ -90,6 +90,19 @@ async function startServer() {
     }
   });
 
+  app.get("/docs/*", (req, res, next) => {
+    const docsRoot = path.resolve(process.cwd(), "public", "docs");
+    const requestedPath = path.resolve(process.cwd(), "public", `.${req.path}`);
+
+    if (!requestedPath.startsWith(docsRoot)) {
+      return next();
+    }
+
+    res.sendFile(requestedPath, (error) => {
+      if (error) next();
+    });
+  });
+
   app.post("/api/send-contact", async (req, res) => {
     const { name, email, phone, message, standort } = req.body;
 
@@ -142,9 +155,15 @@ async function startServer() {
       selectedJobId,
       fileName,
       fileBase64,
+      files,
     } = req.body;
 
-    if (!name || !email || !phone || !fileBase64 || !fileName) {
+    const attachmentFiles = (Array.isArray(files) && files.length > 0
+      ? files
+      : (fileName && fileBase64 ? [{ fileName, fileBase64 }] : []))
+      .filter((file: { fileName?: string; fileBase64?: string }) => file.fileName && file.fileBase64);
+
+    if (!name || !email || !phone || attachmentFiles.length === 0) {
       return res.status(400).json({ error: "Required fields are missing" });
     }
 
@@ -167,13 +186,11 @@ async function startServer() {
           "Nachricht / Begleittext:",
           message || "Keine Nachricht angegeben.",
         ].join("\n"),
-        attachments: [
-          {
-            filename: safeFileName(fileName),
-            content: extractBase64Content(fileBase64),
-            encoding: "base64",
-          },
-        ],
+        attachments: attachmentFiles.map((file: { fileName: string; fileBase64: string }) => ({
+          filename: safeFileName(file.fileName),
+          content: extractBase64Content(file.fileBase64),
+          encoding: "base64",
+        })),
       });
 
       res.json({ message: "Application processed", ...result });

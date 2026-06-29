@@ -2,24 +2,20 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router';
 import { 
   Smartphone, 
-  CheckCircle2, 
-  PlayCircle, 
-  MessageCircle, 
-  Calendar, 
-  FileText, 
-  Activity, 
-  Pill, 
+  MessageCircleMore,
+  ReceiptText,
+  ShoppingCart,
+  BookOpen,
+  Dumbbell,
+  Frown,
+  Flag,
+  BriefcaseMedical,
+  ClipboardCheck,
+  ListChecks,
+  IdCard,
   Video, 
   QrCode, 
-  ClipboardList, 
-  Brain, 
   ChevronDown,
-  Volume2,
-  VolumeX,
-  Play,
-  Pause,
-  UploadCloud,
-  Check
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { QRCodeSVG } from 'qrcode.react';
@@ -41,24 +37,24 @@ interface AppFeature {
 const appFeatures: AppFeature[] = [
   {
     id: "rezepte",
-    title: "Meine Rezepte",
+    title: "Rezepte",
     subtitle: "Schneller Rezept-Upload",
-    desc: "Um Ihnen die Kontaktaufnahme und Terminfindung zu erleichtern, können Sie hier Ihr Rezept hochladen und Ihre Terminwünsche eintragen. Beides wird von uns bearbeitet und Sie erhalten alle Infos und Zeiten digital zurück. Zudem können Zuzahlungen zum Rezept direkt mit PayPal beglichen werden. Mögliche Fehler im Rezept werden mit Änderungswunsch hinzugefügt.",
-    icon: FileText,
+    desc: "Reichen Sie Ihr Rezept digital ein, verfolgen Sie den Bearbeitungsstand und erhalten Sie Rückmeldung zu Terminen oder möglichen Änderungswünschen direkt in der App.",
+    icon: ReceiptText,
     videoUrl: "/videos/app/rezepte-optimized.mp4",
     videoKeywords: ["rezepte"],
-    poster: "/images/movin-app/menu.png",
+    poster: "/images/movin-app/app-redesign-service.webp",
     tag: "#rezepte"
   },
   {
     id: "physiotherapie",
-    title: "Meine Trainingspläne",
+    title: "Trainingspläne",
     subtitle: "Detaillierte Übungsvideos",
-    desc: "Keine Übung gerät jemals mehr in Vergessenheit und kein Plan geht mehr verloren. Unsere Trainingsgeräte finden Sie hier als digitale Version. Zudem erstellen wir mit Ihnen auf Basis der Physiotherapie Ihre individuellen Übungen per Video. Dies auch im Bereich „Hausaufgaben“, mit der Möglichkeit, an die Übungszeit erinnert zu werden.",
-    icon: Activity,
+    desc: "Geräte- und Functional-Training, Hausaufgaben und Übungsvideos bleiben digital abrufbar. So behalten Sie Ihren Plan auch außerhalb der Praxis im Blick.",
+    icon: Dumbbell,
     videoUrl: "/videos/app/Video Meine Physiotherapie-optimized.mp4",
     videoKeywords: ["meine physiotherapie", "physiotherapie"],
-    poster: "/images/movin-app/Mockup_movin_app.png",
+    poster: "/images/movin-app/app-redesign-therapy.webp",
     tag: "#coaching"
   },
   {
@@ -66,10 +62,10 @@ const appFeatures: AppFeature[] = [
     title: "Schmerztagebuch",
     subtitle: "Verlauf & Symptome tracken",
     desc: "Bitte teilen Sie uns wichtige Informationen über Ihre Schmerzen und Befinden mit. Je mehr wir über Ihre Beschwerden und deren Verlauf wissen, desto besser können wir Sie in der Therapie unterstützen.",
-    icon: ClipboardList,
+    icon: Frown,
     videoUrl: "/videos/app/Video Schmerztagebuch-optimized.mp4",
     videoKeywords: ["schmerztagebuch", "schmerz"],
-    poster: "/images/movin-app/menu.png",
+    poster: "/images/movin-app/app-redesign-therapy.webp",
     tag: "#tracking"
   },
   {
@@ -77,10 +73,10 @@ const appFeatures: AppFeature[] = [
     title: "Anamnesebogen & Ergebnisbogen",
     subtitle: "Optimale Erstvorbereitung",
     desc: "Um uns optimal auf Ihren ersten Termin vorzubereiten, benötigen wir einige Informationen über Ihre Beschwerden. Dafür haben wir einen Anamnesebogen auf ICF-Basis erstellt. Am Ende Ihrer Therapie möchten wir diese Informationen mit dem Beginn vergleichen. Passend dazu finden Sie einen Outcomes-Bogen.",
-    icon: CheckCircle2,
+    icon: ClipboardCheck,
     videoUrl: "/videos/app/Video Anamnesebogen-optimized.mp4",
     videoKeywords: ["anamnesebogen", "ergebnis"],
-    poster: "/images/movin-app/h-main-parallax-2.webp",
+    poster: "/images/movin-app/app-redesign-therapy.webp",
     tag: "#anamnese"
   },
   {
@@ -88,9 +84,9 @@ const appFeatures: AppFeature[] = [
     title: "Fragen an den Arzt",
     subtitle: "Therapiebegleitende Klärungen",
     desc: "Wichtige Fragen können schnell vergessen werden oder im Alltag untergehen. Mit dieser Funktion kann dies nicht mehr passieren. Wir formulieren hier Fragen für Sie an die Ärztinnen, die diese direkt beantworten können. So gehen therapie-relevante Fragen nicht mehr verloren.",
-    icon: MessageCircle,
+    icon: MessageCircleMore,
     videoKeywords: ["fragen", "arzt"],
-    poster: "/images/movin-app/movin-menu.png",
+    poster: "/images/movin-app/app-redesign-service.webp",
     tag: "#arzt"
   },
   {
@@ -98,42 +94,42 @@ const appFeatures: AppFeature[] = [
     title: "Wissenswertes",
     subtitle: "Praxis-Infos & Gesundheitstipps",
     desc: "Wir freuen uns, Ihnen Informationen über unsere Praxen und spannende Einblicke in die Welt der Physiotherapie zu bieten. Entdecken Sie hier mehr oder werfen Sie einen Blick über den Tellerrand der klassischen Therapie.",
-    icon: Brain,
+    icon: BookOpen,
     videoUrl: "/videos/app/Video Wissenswertes-optimized.mp4",
     videoKeywords: ["wissenswertes", "wissen"],
-    poster: "/images/movin-app/menu.png",
+    poster: "/images/movin-app/app-redesign-service.webp",
     tag: "#wissen"
   },
   {
     id: "shop",
     title: "Shop vor Ort",
     subtitle: "Hilfsmittel & Abokarten",
-    desc: "Benötigen Sie ein Hilfsmittel für Ihre Therapie? Dann können Sie aus unserem Angebot das passende Produkt reservieren oder bestellen. Auch unsere Abokarten für das Training stehen Ihnen zur Verfügung. Die Bezahlung erfolgt bequem per PayPal!",
-    icon: QrCode,
+    desc: "Produkte, Hilfsmittel und Abokarten können Sie direkt in der App auswählen und die Abholung vor Ort vorbereiten.",
+    icon: ShoppingCart,
     videoUrl: "/videos/app/_Video App Shop-optimized.mp4",
     videoKeywords: ["_video app shop", "app shop", "shop"],
-    poster: "/images/movin-app/Mockup_2_Phones.png",
+    poster: "/images/movin-app/app-redesign-service.webp",
     tag: "#shop"
   },
   {
     id: "telemedizin",
-    title: "Telemedizin (Coming Soon)",
+    title: "Videotherapie (Coming Soon)",
     subtitle: "Sichere Video-Therapie",
-    desc: "Die Krankenkassen ermöglichen es Ihnen und uns, die Therapie per Telemedizin durchzuführen. Nutzen Sie dafür unsere App, die DSGVO-konform, verschlüsselt und absolut sicher ist.",
+    desc: "Die Videotherapie ist im neuen App-Menü bereits vorbereitet und wird freigeschaltet, sobald diese Funktion verfügbar ist.",
     icon: Video,
     videoKeywords: ["telemedizin"],
-    poster: "/images/movin-app/h-main-parallax-2.webp",
+    poster: "/images/movin-app/app-redesign-service.webp",
     tag: "#telemedizin"
   },
   {
     id: "dokumente",
-    title: "Meine Dokumente",
-    subtitle: "Befunde & Berichte hochladen",
-    desc: "Bitte laden Sie hier alle wichtigen Unterlagen zu Ihrer Therapie hoch. Dies können Arztberichte, MRT-Berichte oder auch Nachbehandlungsschemata sein. Von uns bereitgestellt werden der Behandlungsvertrag und unsere DSGVO, die Sie unterscheiben oder akzeptieren können.",
-    icon: FileText,
+    title: "Kontakt & Fallmanager",
+    subtitle: "Service und Fallwechsel",
+    desc: "Kontakt zur Praxis aufnehmen, Fälle einsehen oder den aktuellen Fall wechseln: Die App bündelt wichtige Servicefunktionen an einem Ort.",
+    icon: IdCard,
     videoUrl: "/videos/app/Video Dokumente-optimized.mp4",
     videoKeywords: ["dokumente"],
-    poster: "/images/movin-app/movin-menu.png",
+    poster: "/images/movin-app/app-redesign-service.webp",
     tag: "#dokumente"
   },
   {
@@ -141,10 +137,10 @@ const appFeatures: AppFeature[] = [
     title: "Meine Medikamente",
     subtitle: "Integrierte Medikationsliste",
     desc: "Keine zusätzliche App für Ihre aktuellen Medikamente nötig! Pflegen Sie Ihre Medikation einfach in unserer App ein. Das kann auch für uns therapierelevant sein und sichert Sie perfekt ab.",
-    icon: Pill,
+    icon: BriefcaseMedical,
     videoUrl: "/videos/app/Video Medikamente-optimized.mp4",
     videoKeywords: ["medikamente"],
-    poster: "/images/movin-app/menu.png",
+    poster: "/images/movin-app/app-redesign-therapy.webp",
     tag: "#medikamente"
   }
 ];
@@ -223,22 +219,19 @@ export default function DigitalApp() {
       />
 
       {/* Hero */}
-      <section className="relative h-[55vh] min-h-[480px] flex items-center bg-secondary overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/movin-app/h-main-parallax-2.webp" 
-            alt="MOVIN App Screens und Funktionen" 
-            className="w-full h-full object-cover opacity-35 mix-blend-overlay"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/80 to-secondary/40" />
-        </div>
+      <section className="relative min-h-[680px] flex items-center bg-secondary overflow-hidden pt-28 pb-16">
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_72%_24%,rgba(96,195,205,0.30),transparent_34%),radial-gradient(circle_at_18%_82%,rgba(178,234,214,0.18),transparent_36%),linear-gradient(135deg,#050b2f_0%,#10144a_48%,#062f3c_100%)]" />
+        <div className="absolute inset-0 z-0 bg-[linear-gradient(90deg,rgba(16,20,74,0.98)_0%,rgba(16,20,74,0.82)_38%,rgba(16,20,74,0.18)_72%,transparent_100%)]" />
+        <div className="absolute right-[-18%] top-[10%] z-0 h-[520px] w-[520px] rounded-full border border-primary/20" />
+        <div className="absolute right-[2%] bottom-[8%] z-0 h-40 w-[46%] rotate-[-8deg] rounded-full bg-primary/15 blur-3xl" />
         
-        <div className="container-custom relative z-10 text-white text-center max-w-4xl mx-auto px-4 mt-6">
+        <div className="container-custom relative z-10 grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] items-center gap-10 lg:gap-16">
+          <div className="text-white max-w-2xl">
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center justify-center gap-2 text-primary font-heading font-semibold uppercase tracking-wider text-sm mb-4"
+            className="flex items-center gap-2 text-primary font-heading font-semibold uppercase tracking-wider text-sm mb-5"
           >
             <Smartphone className="w-5 h-5 text-primary" /> Digital
           </motion.div>
@@ -246,18 +239,47 @@ export default function DigitalApp() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black mb-6 text-gradient-teal-mint"
+            className="text-5xl md:text-7xl font-black mb-6 text-white leading-[0.95] tracking-tight"
           >
-            Die MOVIN App
+            Die <span className="text-gradient-teal-mint">MOVIN App</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl text-blue-tint/90 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-blue-tint/90 max-w-xl leading-relaxed mb-8"
           >
             Ihre Physiotherapie für die Hosentasche. Wir begleiten Sie auch außerhalb unserer Behandlungsräume optimal auf Ihrem Weg zur Genesung.
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+            className="flex flex-wrap gap-3"
+          >
+            {['Rezepte', 'Training', 'Schmerztagebuch'].map((item) => (
+              <span key={item} className="rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-bold text-blue-tint backdrop-blur">
+                {item}
+              </span>
+            ))}
+          </motion.div>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 40, scale: 0.96 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="relative flex min-h-[360px] items-center justify-center lg:min-h-[560px]"
+          >
+            <div className="absolute inset-[10%] rounded-full bg-primary/15 blur-3xl" />
+            <img
+              src="/images/movin-app/app-redesign-floating-iphone-psd-graphite-clean.webp"
+              alt="Neue MOVIN App Screens nach dem Redesign"
+              className="relative z-10 w-full max-w-[720px] object-contain drop-shadow-[0_34px_80px_rgba(0,0,0,0.42)]"
+              fetchPriority="high"
+              loading="eager"
+              decoding="async"
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -274,9 +296,15 @@ export default function DigitalApp() {
                 className="relative max-w-md w-full"
               >
                 <div className="absolute inset-0 bg-primary/10 rounded-[3rem] transform -translate-x-4 translate-y-4" />
-                <img 
-                  src="/images/movin-app/GIF_Main_auf_einenblick_2_iteration_3.gif" 
-                  alt="MOVIN App Hauptmenü im Überblick" 
+                <video
+                  src="/videos/app/movin-app-redesign-overview-optimized.mp4"
+                  poster="/images/movin-app/app-redesign-video-poster.webp"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-label="MOVIN App Redesign Preview"
                   className="relative z-10 rounded-[2.5rem] shadow-2xl w-full max-w-[300px] mx-auto h-auto bg-white"
                 />
               </motion.div>
@@ -293,12 +321,12 @@ export default function DigitalApp() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { icon: PlayCircle, title: 'Übungsvideos', desc: 'Individuelle Pläne mit glasklaren Videoanleitungen.' },
-                  { icon: ClipboardList, title: 'Anamnesebögen', desc: 'Fragebögen bequem und stressfrei vorab erledigen.' },
-                  { icon: Activity, title: 'Schmerztagebuch', desc: 'Lückenloses Tracking von Training & Schmerzverlauf.' },
-                  { icon: Brain, title: 'KI mit Pia', desc: 'Intelligente Symptomanalyse & sofortige Beratung.' },
-                  { icon: CheckCircle2, title: 'Praxisbegleiter', desc: 'Ihr verlässlicher und aktiver Begleiter durch die Therapie.' },
-                  { icon: Calendar, title: 'Termine', desc: 'Sämtliche Termine rund um die Uhr digital im Blick.' },
+                  { icon: Dumbbell, title: 'Trainingspläne', desc: 'Übungen, Hausaufgaben und Training digital abrufbar.' },
+                  { icon: Frown, title: 'Schmerztagebuch', desc: 'Schmerzen dokumentieren und den Verlauf ansehen.' },
+                  { icon: Flag, title: 'Ziele', desc: 'Therapieziele und Einschätzungen verfolgen.' },
+                  { icon: BriefcaseMedical, title: 'Medikamente', desc: 'Medikation und Einnahmeinformationen prüfen.' },
+                  { icon: ClipboardCheck, title: 'Anamnesebogen', desc: 'Ganzheitliche Beschwerden vorab erfassen.' },
+                  { icon: ListChecks, title: 'Ergebnisbogen', desc: 'Feedback zum persönlichen Outcome geben.' },
                 ].map((feature, i) => (
                   <motion.div 
                     key={i} 
@@ -308,7 +336,7 @@ export default function DigitalApp() {
                     transition={{ delay: i * 0.05 }}
                     className="flex items-start gap-3 p-4 rounded-2xl bg-light border border-border/50 hover:border-primary/20 hover:bg-white hover:shadow-sm transition-all"
                   >
-                    <div className="w-10 h-10 rounded-full bg-mint flex items-center justify-center text-primary shrink-0">
+                    <div className="w-10 h-10 rounded-2xl bg-[#f5f8f8] ring-1 ring-border/60 flex items-center justify-center text-primary shrink-0">
                       <feature.icon className="w-5 h-5" />
                     </div>
                     <div>
@@ -369,7 +397,7 @@ export default function DigitalApp() {
                       <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
                         isSelected 
                           ? 'bg-primary text-white' 
-                          : 'bg-mint text-primary group-hover:bg-primary group-hover:text-white'
+                          : 'bg-[#f5f8f8] text-primary ring-1 ring-border/60 group-hover:bg-mint group-hover:ring-primary/20'
                       }`}>
                         <IconComponent className="w-5 h-5" />
                       </div>
@@ -637,8 +665,10 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
   return (
     <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] md:max-w-[440px] select-none">
       <video
+        key={currentVideoSrc}
         ref={videoRef}
         src={encodeURI(currentVideoSrc)}
+        poster={feature.poster}
         autoPlay
         loop={shouldLoop}
         onEnded={handleEnded}

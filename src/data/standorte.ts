@@ -56,14 +56,14 @@ export const standorteData: Record<string, Standort> = {
     address: 'Mercystrasse 14, 79100 Freiburg im Breisgau',
     phone: '+49 761 707 33 66',
     email: 'kontakt@movin-freiburg.de',
-    image: '/images/standorte/lorettoberg/lorettoberg-gallery-1.webp',
+    image: '/images/standorte/lorettoberg/lorettoberg-startseite-20260622.webp',
     gallery: [
+      '/images/standorte/lorettoberg/lorettoberg-startseite-20260622.webp',
+      '/images/standorte/lorettoberg/lorettoberg-training-20260622.webp',
+      '/images/standorte/lorettoberg/lorettoberg-behandlungsraum-20260622.webp',
       '/images/standorte/lorettoberg/lorettoberg-gallery-1.webp',
       '/images/standorte/lorettoberg/lorettoberg-gallery-2.webp',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-6.webp',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-7.webp',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-8.webp',
-      '/images/standorte/lorettoberg/lorettoberg-gallery-9.webp'
+      '/images/standorte/lorettoberg/lorettoberg-gallery-6.webp'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2669.839841838618!2d7.838411315648831!3d47.98144997921199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911b6c00000000%3A0x0!2sMercystra%C3%9Fe%2014%2C%2079100%20Freiburg%20im%20Breisgau!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: `Seit über ${years} Jahren betreiben wir hier unseren Hauptstandort für Physiotherapie auf höchstem Niveau. Durch unsere Kooperation mit der Artemed Klinik stellen wir zudem die stationäre Versorgung sicher. Auf über 600 Quadratmetern bieten wir Ihnen modernste Therapie- und Trainingsmöglichkeiten.`,
@@ -92,129 +92,124 @@ export const standorteData: Record<string, Standort> = {
     ],
     team: [
       {
-        name: 'Prof. Dr. Martin Klein',
-        role: 'Facharzt für Orthopädie',
-        image: '/images/team/martin-klein.jpg',
+        name: 'Prof. Dr. med. Martin Klein',
+        role: 'Inhaber',
+        image: '/images/team-uniform/martin-klein.webp',
         spec: 'Privatpatienten'
       },
       {
         name: 'Daniel Klein',
-        role: 'Physiotherapeut / Fachkraft BGM',
-        image: '/images/team/daniel-klein.jpg',
-        spec: 'Schulter / Knie / Kiefer'
+        role: 'Geschäftsführer',
+        image: '/images/team-uniform/daniel-klein.webp',
+        spec: 'Schulter / Knie / OSG'
       },
       {
         name: 'Maik Forsbach',
-        role: 'Bürokaufmann / Wirtschaftsfachwirt (IHK)',
-        image: '/images/team/maik-forsbach.jpg',
+        role: 'Geschäftsführer',
+        image: '/images/team-uniform/maik-forsbach.webp',
         spec: 'Verwaltung / Rezeption'
       },
       {
         name: 'Mareike Klein',
         role: 'Physiotherapeutin',
-        image: '/images/team/mareike-klein.jpg',
-        spec: 'Knie / Sprunggelenk'
+        image: '/images/team-uniform/mareike-klein.webp',
+        spec: 'Wirbelsäule / Schulter / Knie'
       },
       {
         name: 'Jana Züge',
         role: 'Hotelkauffrau',
-        image: '/images/team/jana-zuege.jpg',
+        image: '/images/team-uniform/jana-zuege.webp',
         spec: 'Mutterschutz / Anmeldung'
       },
       {
         name: 'Claudia Andrich',
         role: 'Physiotherapeutin',
-        image: '/images/team/claudia-andrich.jpg',
+        image: '/images/team-uniform/claudia-andrich.webp',
         spec: 'Kiefer / Rücken / Knie'
       },
       {
         name: 'Lina Haberstroh',
         role: 'Rezeptionistin',
-        image: '/images/team/lina-haberstroh.jpg',
+        image: '/images/team-uniform/lina-haberstroh.webp',
         spec: 'Anmeldung'
       },
       {
         name: 'Mareike Strittmatter',
         role: 'Physiotherapeutin B.Sc.',
-        image: '/images/team/mareike-strittmatter.jpg',
+        image: '/images/team-uniform/mareike-strittmatter.webp',
         spec: 'Leitung / Hüfte / Rücken / Knie'
       },
       {
         name: 'Jonas Wolfert',
         role: 'Physiotherapeut',
-        image: '/images/team/jonas-wolfert.jpg',
+        image: '/images/team-uniform/jonas-wolfert.webp',
         spec: 'Stellv. Leitung / Knie / Schulter / Hüfte'
       },
       {
         name: 'Olga Schmidt',
         role: 'Kauffrau',
-        image: '/images/team/olga-schmidt.jpg',
+        image: '/images/team-uniform/olga-schmidt.webp',
         spec: 'Verwaltung / Anmeldung'
       },
       {
         name: 'Senka Dizdarevic',
         role: 'Physiotherapeutin',
-        image: '/images/team/senka-dizdarevic.jpg',
+        image: '/images/team-uniform/senka-dizdarevic.webp',
         spec: 'Stationäre Versorgung'
       },
       {
         name: 'Ellen Heilmann',
         role: 'Physiotherapeutin',
-        image: '/images/team/ellen-heilmann.jpg',
+        image: '/images/team-uniform/ellen-heilmann.webp',
         spec: 'Orthopädie / Station'
       },
       {
         name: 'Maximilian Schmidt',
         role: 'Physiotherapeut',
-        image: '/images/team/maximilian-schmidt.jpg',
+        image: '/images/team-uniform/maximilian-schmidt.webp',
         spec: 'Hand / Knie / Hüfte'
       },
       {
-        name: 'Heidrun Brinkmann',
-        role: 'Bankkauffrau',
-        image: '/images/team/heidrun-brinkmann.jpg',
+        name: 'Heidrun Drinkmann',
+        role: 'Rezeptionistin',
+        image: '/images/team-uniform/heidrun-brinkmann.webp',
         spec: 'Verwaltung / Abrechnung'
       },
       {
         name: 'Marco Rebstock',
         role: 'Physiotherapeut',
-        image: '/images/team/marco-rebstock.jpg',
+        image: '/images/team-uniform/marco-rebstock.webp',
         spec: 'Hüfte / Knie / Wirbelsäule'
       },
       {
         name: 'Bianca Kohler',
         role: 'Physiotherapeutin',
-        image: '/images/team/bianca-kohler.jpg',
+        image: '/images/team-uniform/bianca-kohler.webp',
         spec: 'Hüfte / Schulter / Knie'
       },
       {
         name: 'Heather Mitgorden-Keller',
         role: 'Physiotherapeutin',
-        image: '/images/team/heather-mitgorden-keller.jpg',
+        image: '/images/team-uniform/heather-mitgorden-keller.webp',
         spec: 'Station'
       },
       {
         name: 'Laura Walter',
         role: 'Physiotherapeutin',
-        image: '/images/team/laura-walter.jpg',
+        image: '/images/team-uniform/laura-walter.webp',
         spec: 'Hüfte / Schulter / Knie'
       },
       {
         name: 'Lea Ruf',
         role: 'Physiotherapeutin',
-        image: '/images/team/lea-ruf.jpg',
+        image: '/images/team-uniform/lea-ruf.webp',
         spec: 'Hüfte / Knie / HWS'
       },
       {
         name: 'Mara Schöneck',
         role: 'Physiotherapeutin',
-        image: '/images/team/mara-schoeneck.jpg',
+        image: '/images/team-uniform/mara-schoeneck.webp',
         spec: 'Knie / Hüfte / Wirbelsäule'
-      },
-      {
-        name: 'Theuerkauf',
-        role: 'Teammitglied',
-        spec: 'Lorettoberg'
       },
       {
         name: 'Aushilfen',
@@ -242,14 +237,14 @@ export const standorteData: Record<string, Standort> = {
     address: 'Wirthstraße 9, 79110 Freiburg',
     phone: '+49 761 707 33 77',
     email: 'physiotherapie.mooswald@movin-freiburg.de',
-    image: '/images/standorte/mooswald/mooswald-main.webp',
+    image: '/images/standorte/mooswald/mooswald-training-track-20260622.webp',
     gallery: [
+      '/images/standorte/mooswald/mooswald-training-track-20260622.webp',
+      '/images/standorte/mooswald/mooswald-praxisflur-20260622.webp',
+      '/images/standorte/mooswald/mooswald-skillcourt-20260622.webp',
       '/images/standorte/mooswald/mooswald-gallery-1.webp',
       '/images/standorte/mooswald/mooswald-gallery-2.webp',
-      '/images/standorte/mooswald/mooswald-gallery-3.webp',
-      '/images/standorte/mooswald/mooswald-gallery-4.webp',
-      '/images/standorte/mooswald/mooswald-gallery-5.webp',
-      '/images/standorte/mooswald/mooswald-gallery-6.webp'
+      '/images/standorte/mooswald/mooswald-gallery-3.webp'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2668.5!2d7.8!3d48.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sWirthstra%C3%9Fe%209%2C%2079110%20Freiburg!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: 'Willkommen in unserer hochmodernen Boutique-Praxis im Stadtteil Mooswald – der ersten Boutique-Praxis Deutschlands. Hier trifft exklusives Ambiente auf hochmoderne und qualitativ hochwertige Physiotherapie. In unserer Lounge und der entspannten Atmosphäre verbindet sich Wohlfühlatmosphäre mit modernster Therapie.',
@@ -288,100 +283,97 @@ export const standorteData: Record<string, Standort> = {
     team: [
       {
         name: 'Daniel Klein',
-        role: 'Physiotherapeut / Fachkraft BGM',
-        image: '/images/team/daniel-klein.jpg',
-        spec: 'Schulter / Knie / Kiefer'
+        role: 'Geschäftsführer',
+        image: '/images/team-uniform/daniel-klein.webp',
+        spec: 'Schulter / Knie / OSG'
       },
       {
         name: 'Maik Forsbach',
-        role: 'Bürokaufmann / Wirtschaftsfachwirt (IHK)',
-        image: '/images/team/maik-forsbach.jpg',
+        role: 'Geschäftsführer',
+        image: '/images/team-uniform/maik-forsbach.webp',
         spec: 'Verwaltung / Rezeption'
       },
       {
         name: 'Mareike Klein',
         role: 'Physiotherapeutin',
-        image: '/images/team/mareike-klein.jpg',
-        spec: 'Stellv. Leitung / Knie / Sprunggelenk'
+        image: '/images/team-uniform/mareike-klein.webp',
+        spec: 'Stellv. Leitung / Wirbelsäule / Schulter / Knie'
       },
       {
         name: 'Francisca Yanes Yanes',
         role: 'Physiotherapeutin',
-        image: '/images/team/francisca-yanes-yanes.jpg',
+        image: '/images/team-uniform/francisca-yanes-yanes.webp',
         spec: 'Leitung / Wirbelsäule / Schulter / Hüfte'
       },
       {
         name: 'Jana Züge',
-        role: 'Hotelkauffrau',
-        image: '/images/team/jana-zuege.jpg',
-        spec: 'Mutterschutz / Anmeldung'
+        role: 'Rezeptionistin',
+        image: '/images/team-uniform/jana-zuege.webp',
+        spec: 'Mutterschutz'
       },
       {
         name: 'Lina Haberstroh',
         role: 'Rezeptionistin',
-        image: '/images/team/lina-haberstroh.jpg',
+        image: '/images/team-uniform/lina-haberstroh.webp',
         spec: 'Anmeldung'
       },
       {
         name: 'Olga Schmidt',
         role: 'Kauffrau',
-        image: '/images/team/olga-schmidt.jpg',
+        image: '/images/team-uniform/olga-schmidt.webp',
         spec: 'Verwaltung / Anmeldung'
       },
       {
         name: 'Daniela Fichter',
         role: 'Physiotherapeutin',
-        image: '/images/team/daniela-fichter.jpg',
+        image: '/images/team-uniform/daniela-fichter.webp',
         spec: 'Knie / Hüfte / Sprunggelenk'
       },
       {
         name: 'Elina Kovacs',
         role: 'Physiotherapeutin & Osteopathin',
-        image: '/images/team/elina-kovacs.jpg',
+        image: '/images/team-uniform/elina-kovacs.webp',
         spec: 'HWS / Knie / Hüfte'
       },
       {
-        name: 'Heidrun Brinkmann',
-        role: 'Bankkauffrau',
-        image: '/images/team/heidrun-brinkmann.jpg',
+        name: 'Heidrun Drinkmann',
+        role: 'Rezeptionistin',
+        image: '/images/team-uniform/heidrun-brinkmann.webp',
         spec: 'Verwaltung / Abrechnung'
       },
       {
         name: 'Julius Leibold',
         role: 'Physiotherapeut',
-        image: '/images/team/julius-leibold.jpg',
+        image: '/images/team-uniform/julius-leibold.webp',
         spec: 'Knie / Fuß / Schulter'
       },
       {
         name: 'Lea Ruf',
         role: 'Physiotherapeutin',
-        image: '/images/team/lea-ruf.jpg',
+        image: '/images/team-uniform/lea-ruf.webp',
         spec: 'Hüfte / Knie / HWS'
       },
       {
-        name: 'Prell',
-        role: 'Teammitglied',
-        spec: 'Neu'
+        name: 'Lena Pall',
+        role: 'Physiotherapeutin',
+        image: '/images/team-uniform/lena-pall.webp',
+        spec: 'Neu im Team'
       },
       {
-        name: 'Nochemann',
-        role: 'Teammitglied',
-        spec: 'Neu'
+        name: 'Lasse Nockemann',
+        role: 'Physiotherapeut',
+        spec: 'Ohne Bild'
       },
       {
         name: 'Theresa Maier',
-        role: 'Teammitglied',
-        spec: 'Neu'
+        role: 'Physiotherapeutin',
+        spec: 'Neu ab Juli'
       },
       {
-        name: 'Lara',
-        role: 'Kasse',
-        spec: 'Mooswald'
-      },
-      {
-        name: 'Miriam Ferne',
-        role: 'Teammitglied',
-        spec: 'Mooswald'
+        name: 'Miriam Ferré',
+        role: 'Physiotherapeutin',
+        image: '/images/team-uniform/miriam-ferre.webp',
+        spec: 'Wirbelsäule / Hüfte / Knie'
       }
     ],
     badges: [
@@ -404,13 +396,15 @@ export const standorteData: Record<string, Standort> = {
     address: 'Peter-Thumb-Str. 8, 77977 Rust',
     phone: '+49 761 707 33 66',
     email: 'europapark.physio@movin-freiburg.de',
-    image: '/images/standorte/rust/rust-main.webp',
+    image: '/images/standorte/rust/rust-gallery-7.jpg',
     gallery: [
-      '/images/standorte/rust/rust-gallery-1.jpg',
+      '/images/standorte/rust/rust-gallery-7.jpg',
+      '/images/standorte/rust/rust-gallery-8.jpg',
+      '/images/standorte/rust/rust-main.webp',
       '/images/standorte/rust/rust-gallery-4.jpg',
       '/images/standorte/rust/rust-gallery-5.jpg',
       '/images/standorte/rust/rust-gallery-6.jpg',
-      '/images/standorte/rust/rust-gallery-7.jpg'
+      '/images/standorte/rust/rust-gallery-1.jpg'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.0!2d7.7!3d48.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPeter-Thumb-Str.%208%2C%2077977%20Rust!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
     description: 'Unser Standort in Rust bietet erstklassige physiotherapeutische Versorgung direkt am Europa-Park und dem Hotel Bell Rock. In enger Zusammenarbeit mit dem Feelgood Center und dem Europa-Park betreuen wir dort die Mitarbeiterinnen und Mitarbeiter des Europa-Parks.',
@@ -436,32 +430,32 @@ export const standorteData: Record<string, Standort> = {
     team: [
       {
         name: 'Daniel Klein',
-        role: 'Physiotherapeut / Fachkraft BGM',
-        image: '/images/team/daniel-klein.jpg',
-        spec: 'Schulter / Knie / Kiefer'
+        role: 'Geschäftsführer',
+        image: '/images/team-uniform/daniel-klein.webp',
+        spec: 'Schulter / Knie / OSG'
       },
       {
         name: 'Mareike Klein',
         role: 'Physiotherapeutin',
-        image: '/images/team/mareike-klein.jpg',
-        spec: 'Leitung / Knie / Sprunggelenk'
+        image: '/images/team-uniform/mareike-klein.webp',
+        spec: 'Leitung / Wirbelsäule / Schulter / Knie'
       },
       {
         name: 'Jonas Wolfert',
         role: 'Physiotherapeut',
-        image: '/images/team/jonas-wolfert.jpg',
+        image: '/images/team-uniform/jonas-wolfert.webp',
         spec: 'Knie / Schulter / Hüfte'
       },
       {
         name: 'Mareike Strittmatter',
         role: 'Physiotherapeutin B.Sc.',
-        image: '/images/team/mareike-strittmatter.jpg',
+        image: '/images/team-uniform/mareike-strittmatter.webp',
         spec: 'Hüfte / Rücken / Knie'
       },
       {
         name: 'Elina Kovacs',
         role: 'Physiotherapeutin & Osteopathin',
-        image: '/images/team/elina-kovacs.jpg',
+        image: '/images/team-uniform/elina-kovacs.webp',
         spec: 'HWS / Knie / Hüfte'
       }
     ],

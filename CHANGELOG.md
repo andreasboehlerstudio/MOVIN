@@ -2,6 +2,49 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.0] - 2026-06-29
+
+### Release-Status
+- Fortlaufender Pre-Live-Stand nach weiterer Kundekorrekturrunde und visueller Feinabstimmung.
+- Schwerpunkt: neue App-Screens, Teamdarstellung, Standortbilder, Leistungsbilder und finale Formular-/Download-Details.
+
+### Startseite und MOVIN App
+- MOVIN App-Bereich auf der Startseite mit groesserem, perspektivischem Smartphone-Mockup aus den neuen App-Screens aktualisiert.
+- App-Mockup aus PSD-Vorlage abgeleitet, neutraler in Graphit/Dunkelgrau eingefaerbt und ohne starken Bodenschatten eingebunden.
+- MOVIN App-Seite mit scharfem Hero-Mockup, dunklem MOVIN-Verlauf und aktualisierten Feature-Screens ueberarbeitet.
+- App-Funktionselemente und Icons an die neuen Redesign-Screens angepasst.
+- App-Videos und Poster geprueft und wieder sauber eingebunden.
+
+### Team und Ueber uns
+- Ueber-uns-Team mit Standortdaten abgeglichen und fehlende Personen ergaenzt.
+- Neue Teamkachel-Optik als Designvorschlag eingefuehrt: reduzierte MOVIN-Farbraeume, Freisteller und Light-Trail-Overlay.
+- Portrait-Ausschnitte fuer Kopfhoehe, Zentrierung und Oberkoerperwirkung weiter angeglichen.
+- Lena Pall und Miriam Ferre ergaenzt bzw. korrigiert.
+
+### Standorte
+- Neue Standortbilder aus dem Kundenupload fuer Lorettoberg und Mooswald eingebunden.
+- Mooswald-Bildduplung reduziert und Video auf der Standortseite ergaenzt.
+- Rust-Galerie angepasst, damit weniger Stuhlansichten dominieren und Hochformate besser wirken.
+- Standorte-Hub mit neuem KI-generiertem Hero-Motiv inklusive Kennzeichnung aktualisiert.
+
+### Leistungen und Training
+- Hero-Bilder der Leistungsseiten nochmals geprueft und fuer BGF sowie Lymphdrainage neu generiert/ersetzt.
+- Trainingsseite mit optimiertem Startbild und aktualisiertem Bildmaterial weiter angepasst.
+- Overlays und CTA-Kontraste nachjustiert, damit Texte und Bilder besser lesbar bleiben.
+- Preisliste, Abokarten und PDF-Buttons weiter vereinfacht bzw. konsistenter eingebunden.
+
+### Karriere, PDFs und Formulare
+- Job-PDF-Preview entfernt und durch direkten PDF-Oeffnen-/Download-Button ersetzt.
+- PDF-Routen korrigiert, damit Stellenangebote direkt im neuen Fenster bzw. Browser-PDF-Viewer erreichbar sind.
+- Formularziele und Datenschutzhinweise fuer Kontakt, Bewerbung und Anamnesebogen weiter vorbereitet.
+- Ansprache auf "Sie" vereinheitlicht.
+
+### Reviews, SEO und Technik
+- Hinweistext bei den Google-Bewertungen entfernt; Bewertungsbereich bleibt manuell kuratiert.
+- Canonicals, Sitemap-/SEO-Struktur und lokale Datenbasis weiter gepflegt.
+- Neue Medien als WebP/optimierte Assets abgelegt, Originale bleiben getrennt erhalten.
+- Light-Streak-Asset fuer visuelle Branding-Overlays ergaenzt.
+
 ## [1.0.0] - 2026-06-19
 
 ### Release-Status

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
-import { Activity, MapPin, Brain, Clock, ArrowRight, Star, Smartphone, PlayCircle, Calendar, ArrowDown, ClipboardList, HelpCircle, ChevronDown, ChevronUp, HeartPulse, Hand, Trophy, Dumbbell, ShieldCheck } from 'lucide-react';
+import { Activity, MapPin, Brain, Clock, ArrowRight, Star, Smartphone, PlayCircle, Calendar, ArrowDown, ClipboardList, HelpCircle, ChevronDown, ChevronUp, HeartPulse, Hand, Trophy, Dumbbell, ShieldCheck, ExternalLink } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
 import InstagramFeed from '../components/social/InstagramFeed';
@@ -10,14 +10,42 @@ import { GdprEmbed } from '../components/gdpr/GdprEmbed';
 import { getYearsOfExperience } from '../data/companyInfo';
 import PartnerLogos from '../components/common/PartnerLogos';
 
+const googleReviewProfiles = [
+  {
+    name: 'MOVIN Lorettoberg',
+    rating: '4,9 / 5',
+    reviewCount: '34 Google-Rezensionen',
+    quote: 'Perfekte Betreuung von A bis Z.',
+    author: 'Google-Rezension',
+    href: 'https://www.google.com/search?q=MOVIN+Physiotherapie+Lorettoberg+Google+Bewertungen',
+  },
+  {
+    name: 'MOVIN Mooswald',
+    rating: '4,9 / 5',
+    reviewCount: '73 Google-Rezensionen',
+    quote: 'Top! Fühle mich dort jedes Mal aufs Neue wohl und besser.',
+    author: 'Goran Salah',
+    href: 'https://www.google.com/search?q=MOVIN+Physiotherapie+Mooswald+Google+Bewertungen',
+  },
+  {
+    name: 'MOVIN Europa-Park Rust',
+    rating: '4,8 / 5',
+    reviewCount: '9 Google-Rezensionen',
+    quote: 'Eine sehr angenehme Atmosphäre und äußerst nette Physiotherapeuten.',
+    author: 'Google-Rezension',
+    href: 'https://www.google.com/search?q=MOVIN+Physiotherapie+Europa-Park+Rust+Google+Bewertungen',
+  },
+];
+
 export default function Home() {
   const years = getYearsOfExperience();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "name": "MOVIN Physiotherapie Freiburg",
-    "image": "https://movin-freiburg.de/images/standorte/lorettoberg/lorettoberg-main.webp",
+    "image": "https://movin-freiburg.de/images/standorte/lorettoberg/lorettoberg-startseite-20260622.webp",
     "@id": "https://movin-freiburg.de",
     "url": "https://movin-freiburg.de",
     "telephone": "+497617073366",
@@ -188,13 +216,13 @@ export default function Home() {
             </div>
             <Link to="/standorte/" className="btn-outline shrink-0">Alle Standorte</Link>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { 
                 name: 'Lorettoberg', 
                 address: 'Mercystrasse 14, 79100 Freiburg', 
-                img: '/images/standorte/lorettoberg/lorettoberg-gallery-1.webp', 
+                img: '/images/standorte/lorettoberg/lorettoberg-startseite-20260622.webp',
                 path: '/standorte/physiotherapie-freiburg-lorettoberg/',
                 badges: [
                   { img: '/images/partner-logos/zertifikate/badge_lorettoberg.png', title: 'Ausgezeichnete Patientenzufriedenheit' },
@@ -204,7 +232,7 @@ export default function Home() {
               { 
                 name: 'Mooswald', 
                 address: 'Wirthstraße 9, 79110 Freiburg', 
-                img: '/images/standorte/mooswald/mooswald-main.webp', 
+                img: '/images/standorte/mooswald/mooswald-main.webp',
                 path: '/standorte/physiotherapie-freiburg-mooswald/',
                 badges: [
                   { img: '/images/partner-logos/zertifikate/badge_mooswald.png', title: 'Ausgezeichnete Patientenzufriedenheit' },
@@ -285,7 +313,7 @@ export default function Home() {
               { title: 'Manuelle Therapie', desc: 'Spezielle Handgrifftechniken zur Schmerzlinderung und Mobilisation.', path: '/leistungen/manuelle-therapie/', icon: Hand },
               { title: 'Sportphysiotherapie', desc: 'Zielgerichtete Betreuung von Sportler*innen zur Leistungsoptimierung, Verletzungsprävention und spezifischen Rehabilitation.', path: '/leistungen/sportphysiotherapie/', icon: Trophy },
               { title: 'MTT Training', desc: 'Zielgerichtetes, gerätegestütztes Training zur Rehabilitation und Prävention.', path: '/leistungen/mtt-training/', icon: Dumbbell },
-              { title: 'Skillcourt', desc: 'Kognitives und motorisches Training zur Gehirnleistung.', path: '/leistungen/skillcourt/', icon: Brain },
+              { title: 'Krankengymnastik am Gerät', desc: 'Medizinisches Aufbautraining mit therapeutischer Begleitung.', path: '/leistungen/krankengymnastik-am-geraet/', icon: Activity },
               { title: 'EAP Physiotherapie', desc: 'Intensive Komplexleistung für Privatversicherte.', path: '/leistungen/eap-privat/', icon: ShieldCheck },
             ].map((leistung) => (
               <Link to={leistung.path} key={leistung.title} className="p-8 rounded-2xl bg-light border border-transparent hover:border-primary/20 hover:bg-white hover:shadow-lg transition-all duration-300 group">
@@ -307,7 +335,7 @@ export default function Home() {
       <section className="section-padding bg-secondary text-white overflow-hidden">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-1/2">
+            <div className="lg:w-[44%]">
               <span className="text-gradient-teal-mint font-heading font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Digital</span>
               <h2 className="text-4xl md:text-5xl mb-6 text-white tracking-tight">
                 Die <span className="text-gradient-teal-mint">MOVIN App</span>:<br/> Ihre Therapie für die Hosentasche
@@ -316,7 +344,7 @@ export default function Home() {
                 Mit unserer hauseigenen App begleiten wir Sie auch außerhalb der Praxis. Greifen Sie auf individuelle Trainingspläne zu, verfolgen Sie Ihren Fortschritt und bleiben Sie in Kontakt mit Ihrem Therapeuten.
               </p>
               <ul className="flex flex-col gap-4 mb-10">
-                {['Personalisierte Übungsvideos', 'Anamnesebögen', 'Schmerztagebuch', 'KI mit Pia', 'Aktiver Praxisbegleiter'].map((item, i) => (
+                {['Trainingspläne', 'Rezepte & Service', 'Schmerztagebuch', 'Anamnesebogen & Ergebnisbogen', 'Fallmanager'].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 text-blue-tint/90">
                     <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary shrink-0">
                       <Smartphone className="w-3 h-3" />
@@ -327,12 +355,13 @@ export default function Home() {
               </ul>
               <Link to="/digital/" className="btn-primary">Die App entdecken</Link>
             </div>
-            <div className="lg:w-1/2 relative">
-              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full" />
+            <div className="lg:w-[56%] relative flex justify-center">
+              <div className="absolute inset-[8%] bg-[radial-gradient(circle_at_55%_45%,rgba(96,195,205,0.30),rgba(178,234,214,0.13)_36%,transparent_70%)] blur-3xl rounded-full" />
+              <div className="absolute left-1/2 top-1/2 h-40 w-[78%] -translate-x-1/2 -translate-y-1/2 rotate-[-11deg] rounded-full bg-primary/10 blur-2xl" />
               <img 
-                src="/images/movin-app/Mockup_2_Phones.webp" 
-                alt="MOVIN App auf Smartphone" 
-                className="relative z-10 rounded-3xl shadow-2xl border-4 border-white/10 transform rotate-3 hover:rotate-0 transition-transform duration-500"
+                src="/images/movin-app/app-redesign-floating-iphone-psd-graphite-clean.webp" 
+                alt="Neue MOVIN App nach dem Redesign auf zwei Smartphones" 
+                className="relative z-10 w-full max-w-[700px] transition-transform duration-500 hover:scale-[1.02]"
                 loading="lazy"
                 decoding="async"
               />
@@ -403,30 +432,43 @@ export default function Home() {
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl mb-6 tracking-tight">
-              Das sagen unsere <span className="text-gradient-teal-mint">Patienten</span>
+              Das sagen unsere <span className="text-gradient-teal-mint">Patient:innen</span>
             </h2>
             <div className="flex items-center justify-center gap-2 mb-4">
               {[1,2,3,4,5].map(i => <Star key={i} className="w-6 h-6 fill-primary text-primary" />)}
             </div>
-            <p className="text-lg font-bold text-secondary">4.9 / 5 Sternen auf Google</p>
+            <p className="text-lg font-bold text-secondary">
+              Aktuelle Bewertungen direkt bei Google ansehen
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: 'Sarah M.', text: 'Nach meiner Knie-OP war ich bei MOVIN am Lorettoberg. Die Betreuung war erstklassig, die Therapeuten extrem kompetent. Dank der App konnte ich auch zuhause optimal trainieren.' },
-              { name: 'Thomas K.', text: 'Endlich eine Praxis, die nicht nur Symptome behandelt, sondern die Ursache sucht. Die 48h Termingarantie hat mir bei akuten Rückenschmerzen sehr geholfen.' },
-              { name: 'Julia R.', text: 'Modernes Ambiente, super freundliches Team und die Kombination aus klassischer Physio und gerätegestütztem Training ist perfekt. Sehr zu empfehlen!' },
-            ].map((review, i) => (
-              <div key={i} className="card-base p-8 relative">
-                <div className="absolute top-8 right-8 text-primary/20">
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {googleReviewProfiles.map((profile) => (
+              <a
+                key={profile.name}
+                href={profile.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card-base p-8 flex flex-col justify-between gap-8 hover:-translate-y-1 transition-transform"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-6">
+                    <div className="flex items-center gap-1">
+                      {[1,2,3,4,5].map(star => <Star key={star} className="w-4 h-4 fill-primary text-primary" />)}
+                    </div>
+                    <span className="text-sm font-bold text-secondary">{profile.rating}</span>
+                  </div>
+                  <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary mb-3">{profile.reviewCount}</p>
+                  <h3 className="text-xl font-bold text-secondary mb-4">{profile.name}</h3>
+                  <p className="text-dark/80 italic text-lg leading-relaxed">
+                    "{profile.quote}"
+                  </p>
+                  <p className="text-sm font-semibold text-dark/55 mt-5">{profile.author}</p>
                 </div>
-                <div className="flex items-center gap-1 mb-6">
-                  {[1,2,3,4,5].map(star => <Star key={star} className="w-4 h-4 fill-primary text-primary" />)}
-                </div>
-                <p className="text-dark/80 italic mb-6 relative z-10">"{review.text}"</p>
-                <p className="font-bold text-secondary">{review.name}</p>
-              </div>
+                <span className="inline-flex items-center gap-2 text-primary font-bold">
+                  Google-Bewertungen öffnen <ExternalLink className="w-4 h-4" />
+                </span>
+              </a>
             ))}
           </div>
         </div>

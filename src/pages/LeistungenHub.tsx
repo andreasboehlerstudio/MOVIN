@@ -14,7 +14,8 @@ import {
   HeartPulse,
   Brain,
   Target,
-  ShieldCheck
+  ShieldCheck,
+  Leaf
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/seo/SEO';
@@ -32,6 +33,7 @@ export default function LeistungenHub() {
       path: '/leistungen/krankengymnastik/',
       category: 'Physiotherapie',
       area: 'Ganzkörper',
+      tags: ['Evidenzorientierte Therapie'],
       icon: Activity
     },
     { 
@@ -40,6 +42,7 @@ export default function LeistungenHub() {
       path: '/leistungen/manuelle-therapie/',
       category: 'Physiotherapie',
       area: 'Gelenke',
+      tags: ['Evidenzorientierte Therapie'],
       icon: Hand
     },
     { 
@@ -48,6 +51,7 @@ export default function LeistungenHub() {
       path: '/leistungen/krankengymnastik-am-geraet/',
       category: 'Physiotherapie',
       area: 'Ganzkörper',
+      tags: ['Evidenzorientierte Therapie'],
       icon: Dumbbell
     },
     { 
@@ -56,6 +60,7 @@ export default function LeistungenHub() {
       path: '/leistungen/lymphdrainage/',
       category: 'Physiotherapie',
       area: 'Gewebe',
+      tags: ['Hands-On', 'Post OP'],
       icon: Droplet
     },
     { 
@@ -64,6 +69,7 @@ export default function LeistungenHub() {
       path: '/leistungen/betriebliche-gesundheitsfoerderung/',
       category: 'Betriebe',
       area: 'B2B',
+      tags: ['Kontextfaktoren'],
       icon: Briefcase
     },
     { 
@@ -72,6 +78,7 @@ export default function LeistungenHub() {
       path: '/leistungen/sportphysiotherapie/',
       category: 'Spezialisierung',
       area: 'Sport',
+      tags: ['Return to Sport', 'Betreuung'],
       icon: Trophy
     },
     { 
@@ -80,7 +87,17 @@ export default function LeistungenHub() {
       path: '/leistungen/personal-training/',
       category: 'Prävention',
       area: 'Fitness',
+      tags: ['Medical Training'],
       icon: UserCheck
+    },
+    {
+      title: 'Prävention & Gesundheitsförderung',
+      desc: 'Beschwerden vorbeugen, Ressourcen stärken und Belastbarkeit im Alltag aufbauen.',
+      path: '/leistungen/praevention-gesundheitsfoerderung/',
+      category: 'Prävention',
+      area: 'Gesundheitsförderung',
+      tags: ['Kontextfaktoren', 'Belastbarkeit'],
+      icon: Leaf
     },
     { 
       title: 'Medizinisches Training (MTT)', 
@@ -88,6 +105,7 @@ export default function LeistungenHub() {
       path: '/leistungen/mtt-training/',
       category: 'Prävention',
       area: 'Training',
+      tags: ['Selbstzahler', 'Ganzheitlich'],
       icon: HeartPulse
     },
     { 
@@ -96,6 +114,7 @@ export default function LeistungenHub() {
       path: '/leistungen/skillcourt/',
       category: 'Prävention',
       area: 'Kognition',
+      tags: ['Kognitiv - Visuell - Motorisch', 'Trainingsreiz'],
       icon: Brain
     },
     { 
@@ -104,6 +123,7 @@ export default function LeistungenHub() {
       path: '/leistungen/sensopro/',
       category: 'Prävention',
       area: 'Koordination',
+      tags: ['Kurz und Intensiv'],
       icon: Target
     },
     { 
@@ -112,6 +132,7 @@ export default function LeistungenHub() {
       path: '/leistungen/eap-privat/',
       category: 'Spezialisierung',
       area: 'Intensiv',
+      tags: ['Evidenzorientierte Therapie'],
       icon: ShieldCheck
     },
   ];
@@ -235,7 +256,9 @@ export default function LeistungenHub() {
                       
                       <ul className="flex flex-col gap-2 mb-8">
                         <li className="flex items-center gap-2 text-sm text-dark/60"><CheckCircle2 className="w-4 h-4 text-primary" /> {leistung.area}</li>
-                        <li className="flex items-center gap-2 text-sm text-dark/60"><CheckCircle2 className="w-4 h-4 text-primary" /> Evidenzbasierte Methoden</li>
+                        {leistung.tags.map((tag) => (
+                          <li key={tag} className="flex items-center gap-2 px-2 py-1 text-sm text-dark/80"><CheckCircle2 className="w-4 h-4 text-primary" /> {tag}</li>
+                        ))}
                       </ul>
 
                       <div className="mt-auto pt-6 border-t border-border flex items-center justify-between text-primary font-semibold">

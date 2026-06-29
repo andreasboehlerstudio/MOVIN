@@ -62,10 +62,13 @@ export default function StandorteHub() {
       <section className="relative pt-32 pb-20 bg-secondary overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20">
           <img 
-            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2000" 
-            alt="MOVIN Standorte" 
+            src="/images/standorte/standorte-hub-hero-network-nano-banana-2.webp" 
+            alt="KI-generiertes Netzwerk-Symbolbild der MOVIN Standorte" 
             className="w-full h-full object-cover"
           />
+        </div>
+        <div className="absolute right-4 bottom-4 z-10 rounded-full bg-secondary/60 px-3 py-1 text-[11px] font-medium text-white/70 backdrop-blur-sm border border-white/10">
+          KI-generiertes Symbolbild
         </div>
         <div className="container-custom relative z-10 text-white text-center">
           <motion.h1 

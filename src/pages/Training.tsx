@@ -212,13 +212,14 @@ export default function Training() {
       <section className="relative h-[65vh] min-h-[500px] flex items-center bg-secondary overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/training/sensopro-training.webp" 
-            alt="Patienten beim medizinischen Training an Hightech-Geräten" 
+            src="/images/training/training-hero-original-logo-2026.webp"
+            alt="MOVIN Therapeutin im medizinischen Trainingsbereich"
             decoding="async"
-            className="w-full h-full object-cover opacity-35"
+            className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-secondary/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/80 to-secondary/50" />
+          <div className="absolute inset-0 bg-secondary/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/45 to-secondary/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/55 via-transparent to-transparent" />
         </div>
         
         <div className="container-custom relative z-10 text-white mt-16 text-center max-w-4xl mx-auto">
@@ -452,8 +453,8 @@ export default function Training() {
             <div className="lg:col-span-4">
               <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Preise & Abokarten</span>
               <h2 className="text-3xl font-bold text-secondary mb-4">Training flexibel weiterführen</h2>
-              <p className="text-sm text-dark/75 leading-relaxed">
-                Wer nach der Therapie oder unabhängig vom Rezept weiter trainieren möchte, kann bei MOVIN flexible Abokarten und Monatsmodelle nutzen. Die konkrete Auswahl stimmen wir beim Einstieg auf Ziel, Belastbarkeit und Standort ab.
+              <p className="p-4 text-sm text-dark/75 leading-relaxed">
+                Wer nach der Therapie oder unabhängig vom Rezept trainieren möchte, kann bei MOVIN flexible Abokarten und Monatsmodelle nutzen. Die konkrete Auswahl stimmen wir beim Einstieg auf Ziel, Belastbarkeit und Standort ab.
               </p>
               <a
                 href="/docs/training/preisliste-juni-2025.pdf"

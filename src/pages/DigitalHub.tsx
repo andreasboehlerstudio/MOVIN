@@ -6,11 +6,11 @@ import SEO from '../components/seo/SEO';
 const digitalServices = [
   {
     title: 'MOVIN App',
-    description: 'Ihre Therapie für die Hosentasche. Trainingspläne, Fortschritts-Tracking und direkter Chat mit Ihrem Therapeuten.',
+    description: 'Ihre Therapie für die Hosentasche. Im neuen Redesign mit Trainingsplänen, Schmerztagebuch, Rezepten und Servicefunktionen.',
     path: '/digital/movin-app',
     icon: Smartphone,
     iconClass: 'bg-primary text-white ring-1 ring-white/35',
-    image: '/images/movin-app/h-main-parallax-2.webp',
+    image: '/images/movin-app/app-redesign-duo.webp',
     imageLabel: ''
   },
   {

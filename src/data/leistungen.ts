@@ -55,7 +55,7 @@ export const leistungenData = {
     title: 'Manuelle Lymphdrainage',
     seoTitle: 'Manuelle Lymphdrainage Freiburg | MOVIN',
     seoDesc: 'Sanfte Manuelle Lymphdrainage in Freiburg. Entstauungstherapie nach Operationen, bei Lipödem oder Sportverletzungen. Schnelle Termine!',
-    heroImage: '/images/leistungen/lymphdrainage-hero-ki.webp',
+    heroImage: '/images/leistungen/lymphdrainage-hero-nano-banana-2-v3.webp',
     heroImageCaption: 'KI-generiertes Symbolbild',
     description: 'Eine sanfte Form der physikalischen Therapie, die den Abtransport von Gewebeflüssigkeit fördert und das Lymphsystem aktiviert. Wir setzen die Lymphdrainage gezielt nach Operationen oder Verletzungen ein, um Schwellungen zu reduzieren. Die Entstauung bildet die Basis, damit Sie schneller wieder schmerzfrei in Ihre aktiven Bewegungsmuster zurückkehren können.',
     benefits: [
@@ -148,7 +148,7 @@ export const leistungenData = {
     seoTitle: 'Prävention & Gesundheitsförderung Freiburg | MOVIN',
     seoDesc: 'Präventive Physiotherapie und Gesundheitsförderung in Freiburg. Beschwerden vorbeugen, Ressourcen stärken und Gesundheit fördern. Firmenfitness & Ergonomie-Beratung.',
     heroImage: '/images/leistungen/praevention-gesundheitsfoerderung-hero.jpg',
-    description: 'Salutogenese – Hilfe zur Selbsthilfe. Unser Leitbild fokussiert sich nicht nur auf die Behandlung bestehender Beschwerden, sondern auf deren Vermeidung. Mit gezielten Präventionskursen, Arbeitsplatz-Ergonomie-Beratung und individuellem Gesundheitstraining stärken wir Ihre Ressourcen für einen beschwerdefreien Alltag.',
+    description: 'Prävention bedeutet, Beschwerden zu vermeiden, bevor sie entstehen. Mit gezielter physiotherapeutischer Beratung, biopsychosozialer Analyse und individuell angepasstem Training berücksichtigen wir alle Kontextfaktoren, die Ihre Gesundheit beeinflussen - für mehr Belastbarkeit, Beweglichkeit und einen dauerhaft beschwerdefreien Alltag.',
     benefits: [
       'Erkennung und Ausgleich muskulärer Dysbalancen',
       'Ergonomische Beratung für den (Home-)Office Alltag',
@@ -160,7 +160,7 @@ export const leistungenData = {
     title: 'Betriebliche Gesundheitsförderung (BGF)',
     seoTitle: 'BGF Freiburg | Betriebliche Gesundheitsförderung MOVIN',
     seoDesc: 'Stärken Sie die Gesundheit Ihrer Mitarbeiter mit BGF in Freiburg. Ergonomie-Beratung, aktive Pausen und Firmenevents bei MOVIN.',
-    heroImage: '/images/leistungen/betriebliche-gesundheitsfoerderung-hero-ki.webp',
+    heroImage: '/images/leistungen/betriebliche-gesundheitsfoerderung-hero-nano-banana-2-v2.webp',
     heroImageCaption: 'KI-generiertes Symbolbild',
     description: 'Gesunde Mitarbeiter sind das wertvollste Gut eines Unternehmens. Unsere betriebliche Gesundheitsförderung (BGF) bietet maßgeschneiderte Lösungen für Betriebe in der Region Freiburg. Von Ergonomie-Workshops am Arbeitsplatz über aktive Pausen bis hin zu Firmenfitness-Programmen – wir unterstützen Sie dabei, die Leistungsfähigkeit und Zufriedenheit Ihres Teams nachhaltig zu steigern.',
     benefits: [

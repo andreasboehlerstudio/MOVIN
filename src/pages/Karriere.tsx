@@ -44,6 +44,9 @@ const fileToBase64 = (file: File) => new Promise<string>((resolve, reject) => {
   reader.readAsDataURL(file);
 });
 
+const MAX_PDF_SIZE = 12 * 1024 * 1024;
+const MAX_TOTAL_UPLOAD_SIZE = 24 * 1024 * 1024;
+
 export default function Karriere() {
   const [selectedJob, setSelectedJob] = useState<string>('aushilfe-wochenende');
   const [formData, setFormData] = useState({
@@ -55,7 +58,7 @@ export default function Karriere() {
     einstieg: '',
     agree: false
   });
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [isDragActive, setIsDragActive] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStep, setSubmitStep] = useState(0);
@@ -194,7 +197,7 @@ ET
 BT
 /F1 12 Tf
 50 595 Td
-(II. DEINE AUFGABEN) Tj
+(II. IHRE AUFGABEN) Tj
 ET
 ${job.tasks.map((task, idx) => `BT
 /F1 9.5 Tf
@@ -204,7 +207,7 @@ ET`).join('\n')}
 BT
 /F1 12 Tf
 50 500 Td
-(III. DEINE QUALIFIKATIONEN) Tj
+(III. IHRE QUALIFIKATIONEN) Tj
 ET
 ${job.requirements.map((req, idx) => `BT
 /F1 9.5 Tf
@@ -290,6 +293,37 @@ startxref
     }
   };
 
+  const addPdfFiles = (fileList: FileList | File[]) => {
+    const incomingFiles = Array.from(fileList);
+    if (incomingFiles.length === 0) return;
+
+    const pdfFiles = incomingFiles.filter((file) => file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf'));
+    if (pdfFiles.length !== incomingFiles.length) {
+      alert("Bitte laden Sie nur PDF-Dateien hoch.");
+    }
+
+    const validFiles = pdfFiles.filter((file) => file.size <= MAX_PDF_SIZE);
+    if (validFiles.length !== pdfFiles.length) {
+      alert("Einzelne PDF-Dateien dürfen maximal 12 MB groß sein.");
+    }
+
+    const nextFiles = [...uploadedFiles, ...validFiles].filter((file, index, allFiles) => (
+      allFiles.findIndex((candidate) => (
+        candidate.name === file.name &&
+        candidate.size === file.size &&
+        candidate.lastModified === file.lastModified
+      )) === index
+    ));
+
+    const totalSize = nextFiles.reduce((sum, file) => sum + file.size, 0);
+    if (totalSize > MAX_TOTAL_UPLOAD_SIZE) {
+      alert("Bitte laden Sie insgesamt maximal 24 MB PDF-Dateien hoch.");
+      return;
+    }
+
+    setUploadedFiles(nextFiles);
+  };
+
   // Drag and Drop files
   const handleDrag = (e: React.DragEvent) => {
     e.preventDefault();
@@ -305,24 +339,15 @@ startxref
     e.preventDefault();
     e.stopPropagation();
     setIsDragActive(false);
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      const file = e.dataTransfer.files[0];
-      if (file.type === "application/pdf") {
-        setUploadedFile(file);
-      } else {
-        alert("Bitte laden Sie nur PDF-Dateien hoch.");
-      }
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      addPdfFiles(e.dataTransfer.files);
     }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      if (file.type === "application/pdf") {
-        setUploadedFile(file);
-      } else {
-        alert("Bitte laden Sie nur PDF-Dateien hoch.");
-      }
+    if (e.target.files && e.target.files.length > 0) {
+      addPdfFiles(e.target.files);
+      e.target.value = '';
     }
   };
 
@@ -332,8 +357,8 @@ startxref
     }
   };
 
-  const removeFile = () => {
-    setUploadedFile(null);
+  const removeFile = (indexToRemove: number) => {
+    setUploadedFiles((files) => files.filter((_, index) => index !== indexToRemove));
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -352,8 +377,8 @@ startxref
       alert("Bitte füllen Sie alle Pflichtfelder (*) aus.");
       return;
     }
-    if (!uploadedFile) {
-      alert("Bitte laden Sie Ihren Lebenslauf (PDF) hoch.");
+    if (uploadedFiles.length === 0) {
+      alert("Bitte laden Sie mindestens eine PDF-Datei hoch.");
       return;
     }
     if (!formData.agree) {
@@ -367,7 +392,10 @@ startxref
 
     try {
       const selectedJobData = jobs.find(j => j.id === selectedJob);
-      const fileBase64 = await fileToBase64(uploadedFile);
+      const files = await Promise.all(uploadedFiles.map(async (file) => ({
+        fileName: file.name,
+        fileBase64: await fileToBase64(file),
+      })));
       setSubmitStep(2);
 
       const response = await fetch('/api/send-bewerbung', {
@@ -377,8 +405,7 @@ startxref
           ...formData,
           selectedJobId: selectedJob,
           selectedJobTitle: selectedJobData?.title || 'Initiativbewerbung',
-          fileName: uploadedFile.name,
-          fileBase64,
+          files,
         }),
       });
 
@@ -409,7 +436,7 @@ startxref
       einstieg: '',
       agree: false
     });
-    setUploadedFile(null);
+    setUploadedFiles([]);
     setIsSuccess(false);
     setSubmitError('');
   };
@@ -527,10 +554,10 @@ startxref
               <p className="text-dark/75 leading-relaxed mb-6">
                 Gemeinsam eins: Bringen Sie Ihre Ideen ein, denken Sie mit und treten Sie selbstbewusst auf. Bei MOVIN entsteht Fortschritt, wenn Menschen Verantwortung übernehmen und Physiotherapie weiterentwickeln.
               </p>
-              <div className="bg-light border border-border/80 rounded-2xl p-5">
+              <div className="bg-light/70 border border-border/70 rounded-2xl p-5">
                 <p className="text-xs font-bold text-primary uppercase tracking-widest mb-2">Verweis Hands-Off-Konzept</p>
                 <p className="text-sm text-dark/70 leading-relaxed">
-                  Unsere Vision knüpft an das Hands-Off-Konzept an: Patient*innen sollen nicht nur behandelt, sondern aktiv in Selbstwirksamkeit, Bewegungskompetenz und nachhaltige Gesundheit begleitet werden.
+                  Unsere Vision knüpft an das Hands-Off-Konzept an: Patient*innen sollen nicht nur behandelt, sondern aktiv in Selbstwirksamkeit, Bewegungskompetenz und nachhaltige Gesundheit begleitet werden. Vom normalen Befehlsempfänger (Compliance) hin zur Adhärenz.
                 </p>
               </div>
             </div>
@@ -538,16 +565,16 @@ startxref
             <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
-                  title: 'Unsere Vision',
-                  desc: 'Think Different. Sei MOVIN. Entwickle mit uns ein Hands-Off-Konzept weiter, das Patient*innen stärkt und Physiotherapie neu denkt.'
+                  title: 'Das Think Different Prinzip',
+                  desc: 'Think Different. Sei MOVIN. Entwickeln Sie mit uns ein Hands-Off-Konzept weiter, das Patient*innen stärkt und Physiotherapie neu denkt.'
                 },
                 {
                   title: 'Ärztenetzwerk & Lernen',
-                  desc: 'Kommuniziere mit einem ausgezeichneten Ärztenetzwerk und profitiere von internen sowie externen Fortbildungen.'
+                  desc: 'Kommunizieren Sie mit einem ausgezeichneten Ärztenetzwerk und profitieren Sie von internen sowie externen Fortbildungen.'
                 },
                 {
                   title: 'Digital & evidenzbasiert',
-                  desc: 'Arbeite mit der MOVIN App, digitaler Organisation und einer evidenz- sowie leitlinienorientierten Therapiephilosophie.'
+                  desc: 'Arbeiten Sie mit der MOVIN App, digitaler Organisation und einer evidenz- sowie leitlinienorientierten Therapiephilosophie.'
                 },
                 {
                   title: 'Gemeinsam eins',
@@ -710,7 +737,7 @@ startxref
                 num: '01',
                 icon: <Euro className="w-8 h-8 text-primary" />,
                 title: 'Absicherung & Zuschüsse', 
-                desc: 'Betriebliche Altersvorsorge, Gutscheine durch die Krankenkasse, steuerfreie Sachbezüge und flexible Vereinbarungen.' 
+                desc: 'Betriebliche Altersvorsorge, Sachbezüge als Kreditkarte und flexible Vereinbarungen.'
               },
               { 
                 num: '02',
@@ -762,7 +789,7 @@ startxref
                     <div className="p-3 bg-white/5 rounded-xl border border-white/10 group-hover:bg-primary/10 group-hover:border-primary/20 transition-colors">
                       {benefit.icon}
                     </div>
-                    <span className="font-mono text-3xl font-black text-white/5 tracking-wider group-hover:text-primary/15 transition-colors">{benefit.num}</span>
+                    <span className="font-mono text-3xl font-black text-white bg-primary/20 border border-primary/30 rounded-lg px-2 tracking-wider transition-colors">{benefit.num}</span>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">{benefit.title}</h3>
                   <p className="text-blue-tint/70 text-sm leading-relaxed">{benefit.desc}</p>
@@ -893,8 +920,8 @@ startxref
           <div className="text-center mb-12">
             <span className="text-primary font-bold uppercase tracking-widest text-sm mb-2 block">SECURE EXPRESS PORTAL</span>
             <h2 className="text-3xl md:text-5xl font-black text-secondary tracking-tight mb-4">Hier direkt bewerben</h2>
-            <p className="text-dark/70 text-sm max-w-xl mx-auto">
-              Ihre Schnellbewerbung nimmt weniger als 2 Minuten in Anspruch. Lebenslauf hochladen (PDF), Pflichtfelder ausfüllen und abschicken.
+            <p className="rounded-xl bg-light/80 p-3 text-dark/70 text-sm max-w-xl mx-auto">
+              Ihre Schnellbewerbung nimmt weniger als 2 Minuten in Anspruch. PDF-Unterlagen hochladen, Pflichtfelder ausfüllen und abschicken.
             </p>
           </div>
 
@@ -922,7 +949,7 @@ startxref
                     <p><strong>Bewerber:</strong> {formData.name}</p>
                     <p><strong>E-Mail:</strong> {formData.email}</p>
                     <p><strong>Angestrebte Stelle:</strong> {jobs.find(j => j.id === selectedJob)?.title || 'Initiativbewerbung'}</p>
-                    <p><strong>Übertragene Datei:</strong> {uploadedFile?.name} ({Math.round((uploadedFile?.size || 0) / 1024)} KB)</p>
+                    <p><strong>Übertragene Dateien:</strong> {uploadedFiles.length} PDF{uploadedFiles.length === 1 ? '' : 's'}</p>
                     <p><strong>Verschlüsselungs-ID:</strong> MOV-{Math.floor(100000 + Math.random() * 900000)}</p>
                     <p><strong>Empfänger:</strong> daniel.klein@movin-freiburg.de</p>
                   </div>
@@ -1128,7 +1155,7 @@ startxref
 
                 {/* Dragg & Drop File Upload Area */}
                 <div className="flex flex-col gap-2">
-                  <span className="text-sm font-bold text-secondary">Lebenslauf / Qualifikationsnachweis (PDF) *</span>
+                  <span className="text-sm font-bold text-secondary">Lebenslauf / Qualifikationsnachweise (PDF, mehrere möglich) *</span>
                   
                   <div 
                     onDragEnter={handleDrag}
@@ -1149,26 +1176,40 @@ startxref
                       onChange={handleFileChange}
                       className="hidden" 
                       accept=".pdf"
+                      multiple
                     />
 
-                    {uploadedFile ? (
-                      <div className="w-full flex items-center justify-between bg-white border border-border/80 rounded-xl p-3 shadow-sm" onClick={e => e.stopPropagation()}>
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-rose-50 border border-rose-100 rounded-lg flex items-center justify-center text-rose-500">
-                            <Paperclip className="w-5 h-5" />
+                    {uploadedFiles.length > 0 ? (
+                      <div className="w-full space-y-3" onClick={e => e.stopPropagation()}>
+                        {uploadedFiles.map((file, index) => (
+                          <div key={`${file.name}-${file.lastModified}`} className="w-full flex items-center justify-between bg-white border border-border/80 rounded-xl p-3 shadow-sm">
+                            <div className="flex items-center gap-3 min-w-0">
+                              <div className="w-10 h-10 bg-rose-50 border border-rose-100 rounded-lg flex items-center justify-center text-rose-500 shrink-0">
+                                <Paperclip className="w-5 h-5" />
+                              </div>
+                              <div className="text-left min-w-0">
+                                <p className="text-sm font-bold text-secondary max-w-[200px] sm:max-w-xs truncate">{file.name}</p>
+                                <p className="text-xs text-dark/50 font-semibold">{(file.size / 1024).toFixed(1)} KB | PDF Dokument</p>
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => removeFile(index)}
+                              className="p-1.5 rounded-lg text-rose-500 hover:bg-rose-50 transition-colors"
+                              aria-label={`${file.name} entfernen`}
+                            >
+                              <Trash2 className="w-5 h-5" />
+                            </button>
                           </div>
-                          <div className="text-left">
-                            <p className="text-sm font-bold text-secondary max-w-[200px] sm:max-w-xs truncate">{uploadedFile.name}</p>
-                            <p className="text-xs text-dark/50 font-semibold">{(uploadedFile.size / 1024).toFixed(1)} KB | PDF Dokument</p>
-                          </div>
-                        </div>
-                        <button 
+                        ))}
+                        <button
                           type="button" 
-                          onClick={removeFile}
-                          className="p-1.5 rounded-lg text-rose-500 hover:bg-rose-50 transition-colors"
+                          onClick={triggerFileInput}
+                          className="w-full rounded-xl border border-border bg-white px-4 py-2 text-xs font-bold text-primary hover:bg-mint/40 transition-colors"
                         >
-                          <Trash2 className="w-5 h-5" />
+                          Weitere PDF hinzufügen
                         </button>
+                        <p className="text-xs text-dark/40 font-semibold text-center">Maximal 12 MB pro Datei, 24 MB gesamt.</p>
                       </div>
                     ) : (
                       <>
@@ -1177,7 +1218,7 @@ startxref
                         </div>
                         <div className="text-center">
                           <p className="text-sm font-bold text-secondary">Klicken Sie zum Auswählen oder ziehen Sie die PDF hierher</p>
-                          <p className="text-xs text-dark/40 font-semibold mt-1">Nur PDF-Dateien bis maximal 12 MB erlaubt</p>
+                          <p className="text-xs text-dark/40 font-semibold mt-1">Mehrere PDF-Dateien möglich, maximal 12 MB pro Datei</p>
                         </div>
                       </>
                     )}
@@ -1196,7 +1237,7 @@ startxref
                     className="w-4 h-4 rounded text-primary focus:ring-primary border-border cursor-pointer mt-0.5"
                   />
                   <label htmlFor="agree" className="text-xs text-dark/70 font-medium leading-relaxed cursor-pointer select-none">
-                    Ich willige ein, dass meine Angaben und der hochgeladene PDF-Lebenslauf zur Bearbeitung meiner Bewerbung an daniel.klein@movin-freiburg.de übermittelt und verarbeitet werden. Hinweise zu Upload-Verarbeitung, Empfängern, Speicherdauer, Widerruf und Löschung finden Sie in der <Link to="/datenschutz/" className="text-primary hover:underline">Datenschutzerklärung</Link>. *
+                    Ich willige ein, dass meine Angaben und die hochgeladenen PDF-Unterlagen zur Bearbeitung meiner Bewerbung an daniel.klein@movin-freiburg.de übermittelt und verarbeitet werden. Hinweise zu Upload-Verarbeitung, Empfängern, Speicherdauer, Widerruf und Löschung finden Sie in der <Link to="/datenschutz/" className="text-primary hover:underline">Datenschutzerklärung</Link>. *
                   </label>
                 </div>
 

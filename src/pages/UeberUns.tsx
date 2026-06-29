@@ -4,6 +4,35 @@ import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
 import { getYearsOfExperience } from '../data/companyInfo';
 
+const teamCutoutPreviewByImage: Record<string, string> = {
+  '/images/team-uniform/martin-klein.webp': '/images/team-cutouts-polished-bottom/martin-klein.png',
+  '/images/team-uniform/daniel-klein.webp': '/images/team-cutouts-polished-bottom/daniel-klein.png',
+  '/images/team-uniform/maik-forsbach.webp': '/images/team-cutouts-polished-bottom/maik-forsbach.png',
+  '/images/team-uniform/mareike-klein.webp': '/images/team-cutouts-polished-bottom/mareike-klein.png',
+  '/images/team-uniform/francisca-yanes-yanes.webp': '/images/team-cutouts-polished-bottom/francisca-yanes-yanes.png',
+  '/images/team-uniform/jana-zuege.webp': '/images/team-cutouts-polished-bottom/jana-zuege.png',
+  '/images/team-uniform/claudia-andrich.webp': '/images/team-cutouts-hr-safe/claudia-andrich.png',
+  '/images/team-uniform/lina-haberstroh.webp': '/images/team-cutouts-selected/lina-haberstroh.png',
+  '/images/team-uniform/mareike-strittmatter.webp': '/images/team-cutouts-polished-bottom/mareike-strittmatter.png',
+  '/images/team-uniform/jonas-wolfert.webp': '/images/team-cutouts-polished-bottom/jonas-wolfert.png',
+  '/images/team-uniform/olga-schmidt.webp': '/images/team-cutouts-hr-safe/olga-schmidt.png',
+  '/images/team-uniform/senka-dizdarevic.webp': '/images/team-cutouts-selected/senka-dizdarevic.png',
+  '/images/team-uniform/ellen-heilmann.webp': '/images/team-cutouts-polished-bottom/ellen-heilmann.png',
+  '/images/team-uniform/maximilian-schmidt.webp': '/images/team-cutouts-polished-bottom/maximilian-schmidt.png',
+  '/images/team-uniform/daniela-fichter.webp': '/images/team-cutouts-polished-bottom/daniela-fichter.png',
+  '/images/team-uniform/elina-kovacs.webp': '/images/team-cutouts-polished-bottom/elina-kovacs.png',
+  '/images/team-uniform/heidrun-brinkmann.webp': '/images/team-cutouts-polished-bottom/heidrun-brinkmann.png',
+  '/images/team-uniform/julius-leibold.webp': '/images/team-cutouts-hr-safe/julius-leibold.png',
+  '/images/team-uniform/marco-rebstock.webp': '/images/team-cutouts-polished-bottom/marco-rebstock.png',
+  '/images/team-uniform/bianca-kohler.webp': '/images/team-cutouts-polished-bottom/bianca-kohler.png',
+  '/images/team-uniform/heather-mitgorden-keller.webp': '/images/team-cutouts-polished-bottom/heather-mitgorden-keller.png',
+  '/images/team-uniform/laura-walter.webp': '/images/team-cutouts-polished-bottom/laura-walter.png',
+  '/images/team-uniform/lea-ruf.webp': '/images/team-cutouts-polished-bottom/lea-ruf.png',
+  '/images/team-uniform/mara-schoeneck.webp': '/images/team-cutouts-polished-bottom/mara-schoeneck.png',
+  '/images/team-uniform/lena-pall.webp': '/images/team-cutouts-polished-bottom/lena-pall.png',
+  '/images/team-uniform/miriam-ferre.webp': '/images/team-cutouts-polished-bottom/miriam-ferre.png'
+};
+
 export default function UeberUns() {
   const years = getYearsOfExperience();
   const schema = {
@@ -16,10 +45,18 @@ export default function UeberUns() {
       "url": "https://movin-freiburg.de/ueber-uns/"
     }
   };
+  const getInitials = (name: string) => name
+    .replace(/\([^)]*\)/g, '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase();
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Über uns | Das Team von MOVIN Physiotherapie Freiburg"
         description="Erfahren Sie mehr über die Philosophie, das Team und die Geschichte von MOVIN. Ihr innovatives Therapiezentrum in Freiburg und am Europa-Park."
         schema={schema}
@@ -46,15 +83,15 @@ export default function UeberUns() {
               </div>
             </div>
             <div className="lg:w-1/2 w-full">
-              <img 
-                src="https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_RGB_gradient.png" 
-                alt="MOVIN Team" 
+              <img
+                src="https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_RGB_gradient.png"
+                alt="MOVIN Team"
                 className="rounded-3xl shadow-2xl w-full object-contain bg-white p-12 h-[400px] dark:hidden"
                 referrerPolicy="no-referrer"
               />
-              <img 
-                src="https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_1C_pos.png" 
-                alt="MOVIN Team" 
+              <img
+                src="https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_1C_pos.png"
+                alt="MOVIN Team"
                 className="rounded-3xl shadow-2xl w-full object-contain bg-white p-12 h-[400px] hidden dark:block"
                 referrerPolicy="no-referrer"
               />
@@ -101,7 +138,7 @@ export default function UeberUns() {
               <p className="text-lg text-dark/80 leading-relaxed mb-8">
                 Mit modernster Diagnostik, KI-gestützter Therapie und unserer hauseigenen MOVIN App geben wir Ihnen die Werkzeuge an die Hand, um langfristig gesund und schmerzfrei zu bleiben.
               </p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex items-start gap-3">
                   <Target className="w-6 h-6 text-primary shrink-0" />
@@ -119,12 +156,12 @@ export default function UeberUns() {
                 </div>
               </div>
             </div>
-            
+
             <div className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl transform translate-x-4 translate-y-4" />
-              <img 
-                src="/images/ueber-uns/salutogenese-movin.jpg" 
-                alt="Aktive therapeutische Begleitung im Sinne der Salutogenese" 
+              <img
+                src="/images/ueber-uns/salutogenese-movin.jpg"
+                alt="Aktive therapeutische Begleitung im Sinne der Salutogenese"
                 className="relative z-10 rounded-3xl shadow-xl object-cover h-[400px] w-full"
               />
             </div>
@@ -139,11 +176,11 @@ export default function UeberUns() {
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">Unsere Geschichte</h2>
             <p className="text-lg text-dark/70">Von einer Vision zu drei Standorten - unser Weg seit der Gründung.</p>
           </div>
-          
+
           <div className="max-w-4xl mx-auto relative">
             {/* Vertical Line */}
             <div className="absolute left-[20px] md:left-[50%] top-2 bottom-2 w-px bg-primary/20 transform md:-translate-x-1/2"></div>
-            
+
             <div className="space-y-12">
               {[
                 { year: '1998', title: 'Gründung', desc: 'Gründung der ersten Praxis mit der Vision, Physiotherapie moderner zu gestalten.', align: 'right' },
@@ -180,200 +217,236 @@ export default function UeberUns() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { 
-                name: 'Prof. Dr. Martin Klein', 
-                category: 'Gründer & Wissenschaftliche Leitung', 
-                role: 'Facharzt für Orthopädie und Unfallchirurgie, Chirurgie, Sportmedizin, Rehabilitationswesen', 
-                spec: 'Beratung und Behandlung von Privatpatienten, Dozent, Studienleitung ISBA', 
-                image: '/images/team/martin-klein.jpg' 
+              {
+                name: 'Prof. Dr. med. Martin Klein',
+                category: 'Inhaber & Wissenschaftliche Leitung',
+                role: 'Inhaber',
+                spec: 'Beratung und Behandlung von Privatpatienten, Dozent, Studienleitung ISBA',
+                image: '/images/team-uniform/martin-klein.webp'
               },
-              { 
-                name: 'Daniel Klein', 
-                category: 'Geschäftsleitung', 
-                role: 'Physiotherapeut / Fachkraft betriebliches Gesundheitsmanagement', 
-                spec: 'Schulter / Knie / Kiefer', 
-                image: '/images/team/daniel-klein.jpg' 
+              {
+                name: 'Daniel Klein',
+                category: 'Geschäftsleitung',
+                role: 'Geschäftsführer',
+                spec: 'Schulter / Knie / OSG',
+                image: '/images/team-uniform/daniel-klein.webp'
               },
-              { 
-                name: 'Maik Forsbach', 
-                category: 'Anmeldung / Verwaltung', 
-                role: 'Bürokaufmann / Wirtschaftsfachwirt (IHK)', 
-                spec: 'Verwaltung / Rezeption', 
-                image: '/images/team/maik-forsbach.jpg' 
+              {
+                name: 'Maik Forsbach',
+                category: 'Geschäftsleitung',
+                role: 'Geschäftsführer',
+                spec: 'Verwaltung / Rezeption',
+                image: '/images/team-uniform/maik-forsbach.webp'
               },
-              { 
-                name: 'Mareike Klein', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin', 
-                spec: 'Knie / Sprunggelenk / Kiefer', 
-                image: '/images/team/mareike-klein.jpg' 
+              {
+                name: 'Mareike Klein',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Wirbelsäule / Schulter / Knie',
+                image: '/images/team-uniform/mareike-klein.webp'
               },
-              { 
-                name: 'Francisca Yanes Yanes', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin', 
-                spec: 'Wirbelsäule / Schulter / Hüfte', 
-                status: 'Mutterschutz', 
-                image: '/images/team/francisca-yanes-yanes.jpg' 
+              {
+                name: 'Francisca Yanes Yanes',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Wirbelsäule / Schulter / Hüfte',
+                status: 'Mutterschutz',
+                image: '/images/team-uniform/francisca-yanes-yanes.webp'
               },
-              { 
-                name: 'Desiree Wiegel', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin B.A.', 
-                spec: 'Schulter / Fuß / Knie', 
-                image: '/images/team/desiree-wiegel.jpg' 
+              {
+                name: 'Jana Züge',
+                category: 'Anmeldung / Verwaltung',
+                role: 'Hotelkauffrau',
+                spec: 'Verwaltung / Anmeldung',
+                image: '/images/team-uniform/jana-zuege.webp'
               },
-              { 
-                name: 'Jana Züge', 
-                category: 'Anmeldung / Verwaltung', 
-                role: 'Hotelkauffrau', 
-                spec: 'Verwaltung / Anmeldung', 
-                image: '/images/team/jana-zuege.jpg' 
+              {
+                name: 'Claudia Andrich',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Kiefer / Rücken / Knie',
+                image: '/images/team-uniform/claudia-andrich.webp'
               },
-              { 
-                name: 'Claudia Andrich', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin', 
-                spec: 'Kiefer / Rücken / Knie', 
-                image: '/images/team/claudia-andrich.jpg' 
+              {
+                name: 'Lina Haberstroh',
+                category: 'Anmeldung / Verwaltung',
+                role: 'Rezeptionistin',
+                spec: 'Anmeldung',
+                image: '/images/team-uniform/lina-haberstroh.webp'
               },
-              { 
-                name: 'Lina Haberstroh', 
-                category: 'Anmeldung / Verwaltung', 
-                role: 'Rezeptionistin', 
-                spec: 'Anmeldung', 
-                image: '/images/team/lina-haberstroh.jpg' 
+              {
+                name: 'Mareike Strittmatter',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin B.Sc.',
+                spec: 'Hüfte / Rücken / Knie',
+                image: '/images/team-uniform/mareike-strittmatter.webp'
               },
-              { 
-                name: 'Mareike Strittmatter', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin B.Sc.', 
-                spec: 'Hüfte / Rücken / Knie', 
-                image: '/images/team/mareike-strittmatter.jpg' 
+              {
+                name: 'Jonas Wolfert',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeut',
+                spec: 'Knie / Schulter / Hüfte',
+                image: '/images/team-uniform/jonas-wolfert.webp'
               },
-              { 
-                name: 'Jonas Wolfert', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeut', 
-                spec: 'Knie / Schulter / Hüfte', 
-                image: '/images/team/jonas-wolfert.jpg' 
+              {
+                name: 'Olga Schmidt',
+                category: 'Anmeldung / Verwaltung',
+                role: 'Kauffrau',
+                spec: 'Verwaltung / Anmeldung',
+                image: '/images/team-uniform/olga-schmidt.webp'
               },
-              { 
-                name: 'Olga Schmidt', 
-                category: 'Anmeldung / Verwaltung', 
-                role: 'Kauffrau', 
-                spec: 'Verwaltung / Anmeldung', 
-                image: '/images/team/olga-schmidt.jpg' 
+              {
+                name: 'Senka Dizdarevic',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Stationäre Versorgung',
+                image: '/images/team-uniform/senka-dizdarevic.webp'
               },
-              { 
-                name: 'Senka Dizdarevic', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin', 
-                spec: 'Stationäre Versorgung', 
-                image: '/images/team/senka-dizdarevic.jpg' 
+              {
+                name: 'Ellen Heilmann',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Orthopädie / Station / Intensiv',
+                image: '/images/team-uniform/ellen-heilmann.webp'
               },
-              { 
-                name: 'Ellen Heilmann', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin', 
-                spec: 'Orthopädie / Station / Intensiv', 
-                image: '/images/team/ellen-heilmann.jpg' 
+              {
+                name: 'Maximilian Schmidt',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeut',
+                spec: 'Hand / Knie / Hüfte',
+                image: '/images/team-uniform/maximilian-schmidt.webp'
               },
-              { 
-                name: 'Maximilian Schmidt', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeut', 
-                spec: 'Hand / Knie / Hüfte', 
-                image: '/images/team/maximilian-schmidt.jpg' 
+              {
+                name: 'Daniela Fichter',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Knie / Hüfte / Sprunggelenk',
+                image: '/images/team-uniform/daniela-fichter.webp'
               },
-              { 
-                name: 'Daniela Fichter', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin', 
-                spec: 'Knie / Hüfte / Sprunggelenk', 
-                image: '/images/team/daniela-fichter.jpg' 
+              {
+                name: 'Elina Kovacs',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin & Osteopathin',
+                spec: 'Hws / Knie / Hüfte',
+                image: '/images/team-uniform/elina-kovacs.webp'
               },
-              { 
-                name: 'Elina Kovacs', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin & Osteopathin', 
-                spec: 'Hws / Knie / Hüfte', 
-                image: '/images/team/elina-kovacs.jpg' 
+              {
+                name: 'Heidrun Drinkmann',
+                category: 'Anmeldung / Verwaltung',
+                role: 'Rezeptionistin',
+                spec: 'Verwaltung / Abrechnung / Terminierung',
+                image: '/images/team-uniform/heidrun-brinkmann.webp'
               },
-              { 
-                name: 'Heidrun Brinkmann', 
-                category: 'Anmeldung / Verwaltung', 
-                role: 'Bankkauffrau', 
-                spec: 'Verwaltung / Abrechnung / Terminierung', 
-                image: '/images/team/heidrun-brinkmann.jpg' 
+              {
+                name: 'Julius Leibold',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeut',
+                spec: 'Knie / Fuss / Schulter',
+                image: '/images/team-uniform/julius-leibold.webp'
               },
-              { 
-                name: 'Max Stöhr', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeut', 
-                spec: 'Knie / Hüfte / Sprunggelenk', 
-                image: '/images/team/max-stoehr.jpg' 
+              {
+                name: 'Marco Rebstock',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeut',
+                spec: 'Hüfte / Knie / Wirbelsäule',
+                image: '/images/team-uniform/marco-rebstock.webp'
               },
-              { 
-                name: 'Julius Leibold', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeut', 
-                spec: 'Knie / Fuss / Schulter', 
-                image: '/images/team/julius-leibold.jpg' 
+              {
+                name: 'Bianca Kohler',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Hüfte / Schulter / Knie',
+                image: '/images/team-uniform/bianca-kohler.webp'
               },
-              { 
-                name: 'Marco Rebstock', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeut', 
-                spec: 'Hüfte / Knie / Wirbelsäule', 
-                image: '/images/team/marco-rebstock.jpg' 
+              {
+                name: 'Heather Mitgorden-Keller',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Station',
+                image: '/images/team-uniform/heather-mitgorden-keller.webp'
               },
-              { 
-                name: 'Bianca Kohler', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin', 
-                spec: 'Hüfte / Schulter / Knie', 
-                image: '/images/team/bianca-kohler.jpg' 
+              {
+                name: 'Laura Walter',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Hüfte / Schulter / Knie',
+                image: '/images/team-uniform/laura-walter.webp'
               },
-              { 
-                name: 'Heather Mitgorden-Keller', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin', 
-                spec: 'Station', 
-                image: '/images/team/heather-mitgorden-keller.jpg' 
+              {
+                name: 'Lea Ruf',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Hüfte / Knie / HWS',
+                image: '/images/team-uniform/lea-ruf.webp'
               },
-              { 
-                name: 'Laura Walter', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin', 
-                spec: 'Hüfte / Schulter / Knie', 
-                image: '/images/team/laura-walter.jpg' 
+              {
+                name: 'Mara Schöneck',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Knie / Hüfte / Wirbelsäule',
+                image: '/images/team-uniform/mara-schoeneck.webp'
               },
-              { 
-                name: 'Lea Ruf', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin', 
-                spec: 'Hüfte / Knie / HWS', 
-                image: '/images/team/lea-ruf.jpg' 
+              {
+                name: 'Lena Pall',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Neu im Team',
+                image: '/images/team-uniform/lena-pall.webp'
               },
-              { 
-                name: 'Mara Schöneck', 
-                category: 'Physiotherapie', 
-                role: 'Physiotherapeutin', 
-                spec: 'Knie / Hüfte / Wirbelsäule', 
-                image: '/images/team/mara-schoeneck.jpg' 
+              {
+                name: 'Lasse Nockemann',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeut',
+                spec: 'Ohne Bild'
+              },
+              {
+                name: 'Theresa Maier',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Neu ab Juli'
+              },
+              {
+                name: 'Miriam Ferré',
+                category: 'Physiotherapie',
+                role: 'Physiotherapeutin',
+                spec: 'Wirbelsäule / Hüfte / Knie',
+                image: '/images/team-uniform/miriam-ferre.webp'
               }
-            ].map((member, i) => (
+            ].map((member, i) => {
+              const memberImage = 'image' in member ? member.image : undefined;
+              const cutoutPreview = memberImage ? teamCutoutPreviewByImage[memberImage] : undefined;
+              const brandBackground =
+                i % 2 === 0
+                  ? 'team-portrait-bg team-portrait-bg--mint'
+                  : 'team-portrait-bg team-portrait-bg--aqua';
+
+              return (
               <div key={i} className="card-base group">
-                <div className="relative h-80 overflow-hidden">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    referrerPolicy="no-referrer"
-                  />
+                <div className={`relative isolate aspect-square overflow-hidden ${cutoutPreview ? brandBackground : ''}`}>
+                  {cutoutPreview ? (
+                    <>
+                      <img
+                        src={cutoutPreview}
+                        alt={member.name}
+                        className="relative z-10 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.035]"
+                        referrerPolicy="no-referrer"
+                      />
+                      <div className={`team-light-trails ${i % 2 === 0 ? 'team-light-trails--warm' : 'team-light-trails--aqua'}`} aria-hidden="true" />
+                    </>
+                  ) : memberImage ? (
+                    <img
+                      src={memberImage}
+                      alt={member.name}
+                      className="relative z-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <div className="relative z-0 w-full h-full bg-mint text-primary flex items-center justify-center text-5xl font-black transition-transform duration-500 group-hover:scale-110">
+                      {getInitials(member.name)}
+                    </div>
+                  )}
                   {/* Real Live-Website Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/85 to-secondary/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-left border-b-4 border-primary">
+                  <div className="absolute inset-0 z-30 bg-gradient-to-t from-secondary/95 via-secondary/85 to-secondary/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-left border-b-4 border-primary">
                     <div className="space-y-3">
                       <div>
                         <span className="text-[10px] uppercase tracking-wider text-primary font-bold block mb-0.5">Berufsbezeichnung</span>
@@ -400,9 +473,10 @@ export default function UeberUns() {
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
-          
+
           <div className="mt-16 text-center">
             <p className="text-dark/60 italic text-lg">...und viele weitere engagierte Kolleg:innen an unseren Standorten.</p>
           </div>
@@ -418,7 +492,7 @@ export default function UeberUns() {
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6">Werden Sie Teil unserer Erfolgsgeschichte</h2>
           <p className="text-lg text-dark/70 mb-10">Ob als Patient:in oder als Teil unseres Teams - wir freuen uns auf Sie.</p>
-          
+
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/termin/" className="btn-cta-cheetah text-base font-medium px-8 py-3 rounded-full">
               <span className="relative z-10 flex items-center justify-center gap-2">
@@ -434,3 +508,4 @@ export default function UeberUns() {
     </>
   );
 }
+

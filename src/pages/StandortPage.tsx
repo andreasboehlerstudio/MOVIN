@@ -29,6 +29,20 @@ export default function StandortPage() {
     .map((part) => part[0])
     .join('')
     .toUpperCase();
+  const getGalleryItemClass = (img: string, index: number) => {
+    const isRustLocation = slug === 'physiotherapie-europa-park-rust';
+    const isRustPortraitImage = isRustLocation && img.includes('/images/standorte/rust/rust-gallery-');
+
+    if (isRustPortraitImage) {
+      return 'h-[34rem] sm:h-[38rem] md:h-[42rem]';
+    }
+
+    if (isRustLocation && img.includes('/images/standorte/rust/')) {
+      return 'sm:col-span-2 h-72 md:h-80';
+    }
+
+    return index === 0 ? 'sm:col-span-2 h-80' : 'h-60';
+  };
 
   const schema = [
     {
@@ -226,11 +240,11 @@ export default function StandortPage() {
                   <h3 className="text-2xl font-bold text-secondary mb-8">Einblicke in unsere Praxis</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {standort.gallery.map((img, i) => (
-                      <div key={i} className={`relative overflow-hidden rounded-2xl shadow-lg ${i === 0 ? 'sm:col-span-2 h-80' : 'h-60'}`}>
+                      <div key={i} className={`relative overflow-hidden rounded-2xl shadow-lg ${getGalleryItemClass(img, i)}`}>
                         <img 
                           src={img} 
                           alt={`${standort.name} Impression ${i + 1}`} 
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                           referrerPolicy="no-referrer"
                         />
                       </div>
