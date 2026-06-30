@@ -18,6 +18,7 @@ export default function CtaTransition() {
   useEffect(() => {
     const handleGlobalClick = (event: MouseEvent) => {
       if (state !== 'IDLE') return;
+      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
 
       const target = event.target as HTMLElement;
       if (!target) return;
@@ -28,40 +29,36 @@ export default function CtaTransition() {
 
       const href = anchor.getAttribute('href');
       if (!href) return;
+      if (anchor.hasAttribute('download')) return;
+      if (anchor.target && anchor.target !== '_self') return;
+      if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
-      // Filter for CTA buttons or links pointing to /termin/ or /kontakt/
-      // Ensure we only intercept internal links that are meant to be styled CTAs
-      const isInternal = href.startsWith('/') || !href.includes('://');
-      if (!isInternal) return;
+      const targetUrl = new URL(href, window.location.origin);
+      if (targetUrl.origin !== window.location.origin) return;
 
-      const isCtaTarget = href.includes('/termin') || href.includes('/kontakt') || href.includes('/karriere');
-      const isCtaStyle = anchor.classList.contains('btn-primary') ||
-                         anchor.classList.contains('btn-secondary') ||
-                         anchor.classList.contains('btn-outline') ||
-                         anchor.closest('.btn-primary') ||
-                         anchor.closest('.btn-secondary');
+      const targetPath = `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`;
+      const isStaticAsset = /\.(pdf|jpg|jpeg|png|webp|gif|svg|mp4|webm|zip)$/i.test(targetUrl.pathname);
+      if (isStaticAsset) return;
 
-      // Also support special data attribute
-      const hasCtaAttr = anchor.getAttribute('data-cta') === 'true' || target.closest('[data-cta="true"]');
+      const isHashOnlyNavigation = targetUrl.pathname === window.location.pathname && targetUrl.hash;
+      if (isHashOnlyNavigation) return;
 
-      if (isCtaTarget || isCtaStyle || hasCtaAttr) {
-        // Prevent default browser/router navigation
-        event.preventDefault();
-        event.stopPropagation();
+      // Prevent default browser/router navigation
+      event.preventDefault();
+      event.stopPropagation();
 
-        // Check if we are already on the target URL
-        const cleanHref = href.replace(/\/+$/, '');
-        const cleanCurrent = activeUrlRef.current.replace(/\/+$/, '');
-        if (cleanHref === cleanCurrent && cleanHref !== '') {
-          // Just scroll to top if already there
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          return;
-        }
-
-        // Start full page transition!
-        setTargetUrl(href);
-        setState('ENTERING');
+      // Check if we are already on the target URL
+      const cleanHref = targetUrl.pathname.replace(/\/+$/, '') || '/';
+      const cleanCurrent = activeUrlRef.current.replace(/\/+$/, '') || '/';
+      if (cleanHref === cleanCurrent && !targetUrl.search && !targetUrl.hash) {
+        // Just scroll to top if already there
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
       }
+
+      // Start full page transition!
+      setTargetUrl(targetPath);
+      setState('ENTERING');
     };
 
     // Use capture phase to intercept prior to React Router's click handler

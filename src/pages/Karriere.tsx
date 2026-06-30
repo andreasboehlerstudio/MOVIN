@@ -629,18 +629,18 @@ startxref
             className="relative rounded-3xl overflow-hidden shadow-2xl border border-border bg-black aspect-video mb-6"
           >
             <iframe
-              src="https://www.youtube.com/embed/UYP4_OR9A9M?autoplay=0&rel=0"
+              src="https://www.youtube-nocookie.com/embed/UYP4_OR9A9M?rel=0&modestbranding=1"
               title="MOVIN Karriere & Philosophie"
               className="absolute inset-0 w-full h-full border-0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
-              referrerPolicy="no-referrer"
+              referrerPolicy="strict-origin-when-cross-origin"
             />
           </motion.div>
 
           <div className="flex flex-col items-center justify-center text-center mt-6 p-4 rounded-2xl bg-light border border-border/60 max-w-xl mx-auto">
             <span className="text-xs text-dark/50 font-semibold mb-2">
-              ⚠️ Hinweis: YouTube blockiert Abfragen aus geschlossenen Testumgebungen mit dem Fehler 153/150 (Domain-Sicherheitsregel der Originalseite).
+              Falls das Video im Browser blockiert wird, können Sie es direkt auf YouTube öffnen.
             </span>
             <a
               href="https://www.youtube.com/watch?v=UYP4_OR9A9M"

@@ -34,7 +34,7 @@ export default function Termin() {
           </div>
           <h1 className="text-4xl md:text-6xl font-black mb-6 text-gradient-teal-mint">Buchen Sie Ihren Termin</h1>
           <p className="text-xl text-dark/80 leading-relaxed">
-            Wählen Sie den modernsten Buchungsweg über unsere App oder buchen Sie klassisch online bzw. telefonisch an einem unserer Standorte.
+            Wählen Sie den modernsten Buchungsweg über unsere App oder kontaktieren Sie klassisch telefonisch einen unserer Standorte.
           </p>
         </div>
       </section>
@@ -217,7 +217,7 @@ export default function Termin() {
           {/* Standorte Grid */}
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl font-extrabold text-secondary">Klassische Terminvereinbarung</h2>
-            <p className="text-dark/70 text-sm mt-3">Sie möchten direkt online über Doctolib oder per Telefon einen Termin für einen bestimmten Standort vereinbaren?</p>
+            <p className="text-dark/70 text-sm mt-3">Sie möchten einen Termin für einen bestimmten Standort vereinbaren? Nutzen Sie die MOVIN App oder rufen Sie direkt am passenden Standort an.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -230,8 +230,8 @@ export default function Termin() {
               <p className="text-dark/60 mb-6">Mercystrasse 14, 79100 Freiburg</p>
               
               <div className="mt-auto flex flex-col gap-4">
-                <a href="https://www.doctolib.de" target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center">
-                  Online buchen
+                <a href="#app-download-box" className="btn-primary w-full justify-center">
+                  App downloaden
                 </a>
                 <a href="tel:+497617073366" className="btn-outline w-full justify-center">
                   +49 761 707 33 66
@@ -248,8 +248,8 @@ export default function Termin() {
               <p className="text-dark/60 mb-6">Wirthstraße 9, 79110 Freiburg</p>
               
               <div className="mt-auto flex flex-col gap-4">
-                <a href="https://www.doctolib.de" target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center">
-                  Online buchen
+                <a href="#app-download-box" className="btn-primary w-full justify-center">
+                  App downloaden
                 </a>
                 <a href="tel:+497617073377" className="btn-outline w-full justify-center">
                   +49 761 707 33 77
@@ -266,8 +266,8 @@ export default function Termin() {
               <p className="text-dark/60 mb-6">Peter-Thumb-Str. 8, 77977 Rust</p>
               
               <div className="mt-auto flex flex-col gap-4">
-                <a href="https://www.doctolib.de" target="_blank" rel="noopener noreferrer" className="btn-primary w-full justify-center">
-                  Online buchen
+                <a href="#app-download-box" className="btn-primary w-full justify-center">
+                  App downloaden
                 </a>
                 <a href="tel:+497617073366" className="btn-outline w-full justify-center">
                   +49 761 707 33 66

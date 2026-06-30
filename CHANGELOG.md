@@ -2,6 +2,32 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.1] - 2026-06-30
+
+### Release-Status
+- Patch-Release fuer weitere Kundekorrekturen, Navigation, Terminseite, Karriere-Video und GitHub-Dokumentation.
+- Schwerpunkt: sauberere Seitenwechsel, Terminbuchungslogik ohne Doctolib, aktualisierte Karriere- und Standortinhalte sowie dokumentierte Versionierung.
+
+### Kundekorrekturen
+- Standort Lorettoberg: Prof. Dr. med. Martin Klein auf "Studienleiter Physiotherapie" angepasst.
+- Ellen Heilmann auf "Stationaere Versorgung" reduziert.
+- Training-Seite: Ueberschrift auf "Warum lohnt sich ein Training bei MOVIN Freiburg?" geaendert.
+- Weitere Kundenfeedbackpunkte aus der Runde vom 30.06. eingearbeitet, unter anderem Team-/Rollenbezeichnungen, Mooswald-Bild und Skillcourt-Medien.
+
+### Navigation und Seitenwechsel
+- Globale Page-Transition fuer interne Seitenwechsel erweitert, sodass die bisherige Karriere-/CTA-Transition nun websiteweit greift.
+- Externe Links, Downloads, PDFs, Medien, Telefon-/Mail-Links und reine Ankerlinks bleiben von der Transition ausgenommen.
+
+### Termin und Karriere
+- Terminseite bereinigt: Doctolib-Verweise entfernt.
+- Alle drei Standortkarten in der klassischen Terminvereinbarung fuehren jetzt per "App downloaden" zur MOVIN App Download-Box.
+- Karriere-Video auf datenschutzfreundliche `youtube-nocookie`-Einbindung umgestellt.
+- Alter YouTube-Fehlerhinweis durch neutralen Fallbacktext ersetzt.
+
+### Dokumentation und Versionierung
+- README fuer GitHub neu aufgebaut: Website-/App-Beschreibung, aktueller Stand, Changelog-Auszug, lokale Startanleitung und Livegang-Hinweise.
+- Versionierungsvorgehen dokumentiert: kuenftig werden Changelog, README, Version, Commit, Tag und Push gemeinsam gepflegt.
+
 ## [1.1.0] - 2026-06-29
 
 ### Release-Status
