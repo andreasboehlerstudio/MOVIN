@@ -95,7 +95,7 @@ export const standorteData: Record<string, Standort> = {
         name: 'Prof. Dr. med. Martin Klein',
         role: 'Inhaber',
         image: '/images/team-uniform/martin-klein.webp',
-        spec: 'Privatpatienten'
+        spec: 'Studienleiter Physiotherapie'
       },
       {
         name: 'Daniel Klein',
@@ -117,9 +117,9 @@ export const standorteData: Record<string, Standort> = {
       },
       {
         name: 'Jana Züge',
-        role: 'Hotelkauffrau',
+        role: 'Rezeptionistin',
         image: '/images/team-uniform/jana-zuege.webp',
-        spec: 'Mutterschutz / Anmeldung'
+        spec: 'Mutterschutz'
       },
       {
         name: 'Claudia Andrich',
@@ -147,7 +147,7 @@ export const standorteData: Record<string, Standort> = {
       },
       {
         name: 'Olga Schmidt',
-        role: 'Kauffrau',
+        role: 'Rezeptionistin',
         image: '/images/team-uniform/olga-schmidt.webp',
         spec: 'Verwaltung / Anmeldung'
       },
@@ -161,7 +161,7 @@ export const standorteData: Record<string, Standort> = {
         name: 'Ellen Heilmann',
         role: 'Physiotherapeutin',
         image: '/images/team-uniform/ellen-heilmann.webp',
-        spec: 'Orthopädie / Station'
+        spec: 'Stationäre Versorgung'
       },
       {
         name: 'Maximilian Schmidt',
@@ -191,7 +191,7 @@ export const standorteData: Record<string, Standort> = {
         name: 'Heather Mitgorden-Keller',
         role: 'Physiotherapeutin',
         image: '/images/team-uniform/heather-mitgorden-keller.webp',
-        spec: 'Station'
+        spec: 'Stationäre Versorgung'
       },
       {
         name: 'Laura Walter',
@@ -237,11 +237,11 @@ export const standorteData: Record<string, Standort> = {
     address: 'Wirthstraße 9, 79110 Freiburg',
     phone: '+49 761 707 33 77',
     email: 'physiotherapie.mooswald@movin-freiburg.de',
-    image: '/images/standorte/mooswald/mooswald-training-track-20260622.webp',
+    image: '/images/standorte/mooswald/mooswald-skillcourt-20260622.webp',
     gallery: [
-      '/images/standorte/mooswald/mooswald-training-track-20260622.webp',
-      '/images/standorte/mooswald/mooswald-praxisflur-20260622.webp',
       '/images/standorte/mooswald/mooswald-skillcourt-20260622.webp',
+      '/images/standorte/mooswald/mooswald-praxisflur-20260622.webp',
+      '/images/standorte/mooswald/mooswald-training-track-20260622.webp',
       '/images/standorte/mooswald/mooswald-gallery-1.webp',
       '/images/standorte/mooswald/mooswald-gallery-2.webp',
       '/images/standorte/mooswald/mooswald-gallery-3.webp'
@@ -319,7 +319,7 @@ export const standorteData: Record<string, Standort> = {
       },
       {
         name: 'Olga Schmidt',
-        role: 'Kauffrau',
+        role: 'Rezeptionistin',
         image: '/images/team-uniform/olga-schmidt.webp',
         spec: 'Verwaltung / Anmeldung'
       },
@@ -354,9 +354,9 @@ export const standorteData: Record<string, Standort> = {
         spec: 'Hüfte / Knie / HWS'
       },
       {
-        name: 'Lena Pall',
+        name: 'Lena Prell',
         role: 'Physiotherapeutin',
-        image: '/images/team-uniform/lena-pall.webp',
+        image: '/images/team-uniform/lena-prell.webp',
         spec: 'Neu im Team'
       },
       {

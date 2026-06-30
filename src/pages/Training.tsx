@@ -18,7 +18,6 @@ import {
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
-import { GdprEmbed } from '../components/gdpr/GdprEmbed';
 
 export default function Training() {
   const schema = {
@@ -97,8 +96,8 @@ export default function Training() {
         '§20-Präventionskurs online kaufen und 8 Wochen absolvieren',
         '80-100 % Kostenerstattung durch die Krankenkasse, danach 3 Monate kostenlos weiter trainieren'
       ],
-      image: '/images/training/skillcourt-training-optimized.webp',
-      imageAlt: 'Skillcourt Dual-Task Training mit Bodenraster und Bildschirm',
+      image: '/images/training/skillcourt-reha-stability-test-mann.webp',
+      imageAlt: 'Skillcourt Stability Test mit Reaktionstraining',
       infoTitle: 'Besonderheit §20',
       info: 'Der Präventionsweg ist besonders attraktiv: Kurs buchen, acht Wochen Training absolvieren, Erstattung bei der Krankenkasse einreichen und anschließend drei Monate kostenlos weiter trainieren.',
       badge: '§20 möglich'
@@ -161,7 +160,6 @@ export default function Training() {
     }
   ];
 
-  const skillcourtVideoUrl = 'https://www.youtube.com/embed/Uq0wtadfhiY?rel=0';
   const skillcourtFlow = [
     {
       icon: Monitor,
@@ -242,7 +240,7 @@ export default function Training() {
             <div className="lg:col-span-5 relative">
               <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Ihr Mehrwert</span>
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 leading-tight">
-                Warum Training bei MOVIN Freiburg?
+                Warum lohnt sich ein Training bei MOVIN Freiburg?
               </h2>
               <p className="text-dark/80 text-base leading-relaxed mb-6">
                 Der Ursprung des heutigen Functional Trainings liegt in der Physiotherapie. Bei MOVIN verbinden wir orthopädisch fundiertes medizinisches Training mit moderner Trainingsfläche, digitaler Analyse und Technologien aus Reha und Spitzensport. 
@@ -421,24 +419,22 @@ export default function Training() {
 
             <div className="lg:col-span-7">
               <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-secondary shadow-xl">
-                <GdprEmbed category="marketing" provider="YouTube">
-                  <iframe
-                    src={skillcourtVideoUrl}
-                    title="Skillcourt Training Video"
-                    className="w-full aspect-video border-0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </GdprEmbed>
+                <video
+                  src="/videos/training/skillcourt-in-action-02-quer.mp4"
+                  poster="/images/training/skillcourt-reha-stability-test-mann.webp"
+                  className="w-full aspect-video object-cover"
+                  controls
+                  playsInline
+                  preload="metadata"
+                />
               </div>
               <div className="mt-5 flex justify-start sm:justify-end">
                 <a
-                  href="https://www.youtube.com/watch?v=Uq0wtadfhiY"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/videos/training/skillcourt-in-action-02-quer.mp4"
+                  download
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-secondary px-5 py-3 text-xs font-bold text-white transition-colors hover:bg-primary"
                 >
-                  Auf YouTube ansehen <ChevronRight className="w-4 h-4" />
+                  Skillcourt-Video herunterladen <ChevronRight className="w-4 h-4" />
                 </a>
               </div>
             </div>

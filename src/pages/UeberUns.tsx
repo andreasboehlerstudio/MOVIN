@@ -30,6 +30,7 @@ const teamCutoutPreviewByImage: Record<string, string> = {
   '/images/team-uniform/lea-ruf.webp': '/images/team-cutouts-polished-bottom/lea-ruf.png',
   '/images/team-uniform/mara-schoeneck.webp': '/images/team-cutouts-polished-bottom/mara-schoeneck.png',
   '/images/team-uniform/lena-pall.webp': '/images/team-cutouts-polished-bottom/lena-pall.png',
+  '/images/team-uniform/lena-prell.webp': '/images/team-cutouts-polished-bottom/lena-prell.png',
   '/images/team-uniform/miriam-ferre.webp': '/images/team-cutouts-polished-bottom/miriam-ferre.png'
 };
 
@@ -256,8 +257,8 @@ export default function UeberUns() {
               {
                 name: 'Jana Züge',
                 category: 'Anmeldung / Verwaltung',
-                role: 'Hotelkauffrau',
-                spec: 'Verwaltung / Anmeldung',
+                role: 'Rezeptionistin',
+                spec: 'Mutterschutz',
                 image: '/images/team-uniform/jana-zuege.webp'
               },
               {
@@ -291,7 +292,7 @@ export default function UeberUns() {
               {
                 name: 'Olga Schmidt',
                 category: 'Anmeldung / Verwaltung',
-                role: 'Kauffrau',
+                role: 'Rezeptionistin',
                 spec: 'Verwaltung / Anmeldung',
                 image: '/images/team-uniform/olga-schmidt.webp'
               },
@@ -306,7 +307,7 @@ export default function UeberUns() {
                 name: 'Ellen Heilmann',
                 category: 'Physiotherapie',
                 role: 'Physiotherapeutin',
-                spec: 'Orthopädie / Station / Intensiv',
+                spec: 'Stationäre Versorgung',
                 image: '/images/team-uniform/ellen-heilmann.webp'
               },
               {
@@ -362,7 +363,7 @@ export default function UeberUns() {
                 name: 'Heather Mitgorden-Keller',
                 category: 'Physiotherapie',
                 role: 'Physiotherapeutin',
-                spec: 'Station',
+                spec: 'Stationäre Versorgung',
                 image: '/images/team-uniform/heather-mitgorden-keller.webp'
               },
               {
@@ -387,11 +388,11 @@ export default function UeberUns() {
                 image: '/images/team-uniform/mara-schoeneck.webp'
               },
               {
-                name: 'Lena Pall',
+                name: 'Lena Prell',
                 category: 'Physiotherapie',
                 role: 'Physiotherapeutin',
                 spec: 'Neu im Team',
-                image: '/images/team-uniform/lena-pall.webp'
+                image: '/images/team-uniform/lena-prell.webp'
               },
               {
                 name: 'Lasse Nockemann',

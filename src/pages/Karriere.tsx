@@ -75,7 +75,7 @@ export default function Karriere() {
       type: 'Wochenenddienst',
       location: 'Freiburg',
       department: 'Service & Praxisorganisation',
-      salary: 'Aushilfstätigkeit',
+      salary: '15,15-17,00 Euro/Stunde',
       description: 'Unterstütze unser Team am Wochenende im Praxisalltag. Ideal für Schüler*innen oder Student*innen, die Einblick in ein modernes Therapie- und Trainingszentrum bekommen möchten.',
       requirements: [
         'Sie sind Schüler*in oder Student*in und suchen eine sinnvolle Nebentätigkeit',
@@ -97,7 +97,7 @@ export default function Karriere() {
       type: 'Ausbildung',
       location: 'Freiburg',
       department: 'Verwaltung & Terminierung',
-      salary: 'Ausbildungsplatz',
+      salary: '880-1.100 Euro/Monat',
       description: 'Starten Sie Ihre Ausbildung in einem modernen Gesundheitsunternehmen. Sie lernen Organisation, Terminierung, Kommunikation mit Patient*innen und digitale Abläufe im Praxisalltag kennen.',
       requirements: [
         'Interesse an Gesundheitswesen, Organisation und Kommunikation',
@@ -119,7 +119,7 @@ export default function Karriere() {
       type: 'Nach Vereinbarung',
       location: 'Freiburg / Rust',
       department: 'Alle Bereiche',
-      salary: 'Individuell',
+      salary: '2.900-3.500 Euro/Monat',
       description: 'Aktuell sind nicht alle Möglichkeiten als konkrete Stelle ausgeschrieben. Wenn Sie zu MOVIN passen, Ihre Ideen einbringen möchten oder sich in einem unserer Tätigkeitsfelder sehen, freuen wir uns über Ihre Initiativbewerbung.',
       requirements: [
         'Sie möchten Physiotherapie, Training oder Gesundheitsorganisation weiterdenken',
@@ -590,14 +590,15 @@ startxref
           </div>
 
           <div className="mt-12 bg-secondary rounded-[2rem] p-8 md:p-10 text-white">
-            <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Tätigkeitsfelder: High Five</span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Tätigkeitsfelder</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
               {[
-                'Ambulante Versorgung',
+                'Ambulante Versorgung & Sportphysiotherapie',
                 'Funktional- und Gerätetraining',
                 'Stationäre Versorgung',
-                'Verwaltung / Terminierung',
-                'Betriebliche Gesundheitsförderung'
+                'Rezeption / Verwaltung',
+                'Professionelle Beratung außerhalb des Gesundheitssystems',
+                'Studienleitung Physiotherapie'
               ].map((field) => (
                 <div key={field} className="bg-white/5 border border-white/10 rounded-xl p-4 text-sm font-bold text-blue-tint">
                   {field}

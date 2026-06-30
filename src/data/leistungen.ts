@@ -95,7 +95,7 @@ export const leistungenData = {
     title: 'Skillcourt Training',
     seoTitle: 'Skillcourt Training Freiburg | MOVIN',
     seoDesc: 'Innovatives Gehirntraining durch Bewegung in Freiburg. Steigern Sie Ihre kognitive Leistung mit Skillcourt bei MOVIN.',
-    heroImage: '/images/training/skillcourt-training-optimized.webp',
+    heroImage: '/images/training/skillcourt-reha-stability-test-mann.webp',
     description: 'Ein innovatives, videomotorisches Training, das kognitive Leistungsfähigkeit mit motorischen Bewegungen verknüpft. Mit dem Skillcourt trainieren wir Reaktionsschnelligkeit und Wahrnehmung unter körperlicher Belastung. Es ist ein moderner Baustein, um Sie mental und physisch auf komplexe Alltagsanforderungen vorzubereiten.',
     benefits: [
       'Verbesserung der Konzentrationsfähigkeit',
