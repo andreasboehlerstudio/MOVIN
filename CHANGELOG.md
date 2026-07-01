@@ -2,6 +2,15 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.3] - 2026-07-01
+
+### Release-Status
+- Patch-Release fuer eine Bildkorrektur auf der Standortseite Mooswald.
+
+### Standorte
+- Mooswald-Galerie: leeres Trainingsraumbild durch ein aktiveres MAM-Motiv mit Betreuung am Trainingsgeraet ersetzt.
+- Neues Bild aus dem Kundenordner optimiert als WebP abgelegt und in die Mooswald-Galerie eingebunden.
+
 ## [1.1.2] - 2026-07-01
 
 ### Release-Status

@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.2`
-- Letzter Release-Tag: `v1.1.2`
+- Aktuelle Version: `1.1.3`
+- Letzter Release-Tag: `v1.1.3`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.3] - 2026-07-01
+
+- Mooswald-Galerie: leeres Trainingsraumbild durch ein aktiveres MAM-Bild mit Betreuung am Trainingsgeraet ersetzt.
+- Neues Mooswald-Bild als optimiertes WebP im Website-Asset-Ordner abgelegt.
 
 ### [1.1.2] - 2026-07-01
 
