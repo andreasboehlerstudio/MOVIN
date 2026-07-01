@@ -359,8 +359,8 @@ export default function Home() {
               <div className="absolute inset-[8%] bg-[radial-gradient(circle_at_55%_45%,rgba(96,195,205,0.30),rgba(178,234,214,0.13)_36%,transparent_70%)] blur-3xl rounded-full" />
               <div className="absolute left-1/2 top-1/2 h-40 w-[78%] -translate-x-1/2 -translate-y-1/2 rotate-[-11deg] rounded-full bg-primary/10 blur-2xl" />
               <img 
-                src="/images/movin-app/app-redesign-floating-iphone-psd-graphite-clean.webp" 
-                alt="Neue MOVIN App nach dem Redesign auf zwei Smartphones" 
+                src="/images/movin-app/iphone-mockup-home.png" 
+                alt="MOVIN App Screens auf iPhone Mockups" 
                 className="relative z-10 w-full max-w-[700px] transition-transform duration-500 hover:scale-[1.02]"
                 loading="lazy"
                 decoding="async"

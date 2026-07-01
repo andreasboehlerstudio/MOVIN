@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.1`
-- Letzter Release-Tag: `v1.1.1`
+- Aktuelle Version: `1.1.2`
+- Letzter Release-Tag: `v1.1.2`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.2] - 2026-07-01
+
+- Neues iPhone-Mockup fuer den MOVIN App Bereich auf der Startseite eingebunden.
+- Dasselbe Mockup im Hero Header der MOVIN App Detailseite verwendet.
+- App-Mockup-Asset in den Website-Bilderordner uebernommen und Alt-Texte angepasst.
 
 ### [1.1.1] - 2026-06-30
 

@@ -2,6 +2,17 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.2] - 2026-07-01
+
+### Release-Status
+- Patch-Release fuer die aktualisierte MOVIN App Darstellung auf Startseite und App-Detailseite.
+
+### Startseite und MOVIN App
+- Neues iPhone-Mockup aus dem Kunden-Output in den Website-Asset-Ordner uebernommen.
+- MOVIN App Bereich auf der Startseite auf das neue iPhone-Mockup umgestellt.
+- Hero Header der MOVIN App Detailseite ebenfalls auf dasselbe neue Mockup umgestellt.
+- Alt-Texte fuer die App-Mockups neutral und beschreibend angepasst.
+
 ## [1.1.1] - 2026-06-30
 
 ### Release-Status

@@ -272,8 +272,8 @@ export default function DigitalApp() {
           >
             <div className="absolute inset-[10%] rounded-full bg-primary/15 blur-3xl" />
             <img
-              src="/images/movin-app/app-redesign-floating-iphone-psd-graphite-clean.webp"
-              alt="Neue MOVIN App Screens nach dem Redesign"
+              src="/images/movin-app/iphone-mockup-home.png"
+              alt="MOVIN App Screens auf iPhone Mockups"
               className="relative z-10 w-full max-w-[720px] object-contain drop-shadow-[0_34px_80px_rgba(0,0,0,0.42)]"
               fetchPriority="high"
               loading="eager"
