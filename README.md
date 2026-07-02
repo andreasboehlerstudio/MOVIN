@@ -17,14 +17,22 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.4`
-- Letzter Release-Tag: `v1.1.4`
+- Aktuelle Version: `1.1.5`
+- Letzter Release-Tag: `v1.1.5`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.5] - 2026-07-02
+
+- Social-Preview-Bild fuer geteilte Links auf die MOVIN Bildmarke mit weissem Hintergrund umgestellt.
+- Open-Graph- und Twitter-Metadaten fuer WhatsApp, LinkedIn, Facebook und weitere Link-Vorschauen ergaenzt.
+- Google Analytics / GA4 Tag `G-ZS80MQPC9Z` eingebunden.
+- GA4 wird erst nach aktiver Zustimmung zur Kategorie "Analyse & Statistik" geladen.
+- Datenschutzseite und Cookie-Banner entsprechend aktualisiert.
 
 ### [1.1.4] - 2026-07-02
 

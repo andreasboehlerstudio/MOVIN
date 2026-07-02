@@ -20,6 +20,7 @@ export default function SEO({ title, description, canonical, schema, preloadImag
   const location = useLocation();
 
   const baseUrl = "https://movin-freiburg.de";
+  const shareImage = `${baseUrl}/og-image.jpg`;
   const normalizePath = (path: string) => {
     if (!path || path === "/") return "/";
     const cleanPath = path.split("?")[0].split("#")[0];
@@ -42,6 +43,18 @@ export default function SEO({ title, description, canonical, schema, preloadImag
       <meta property="og:type" content="website" />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content={siteName} />
+      <meta property="og:image" content={shareImage} />
+      <meta property="og:image:secure_url" content={shareImage} />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="MOVIN Bildmarke" />
+      
+      {/* Twitter / X */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={shareImage} />
       
       {/* Canonical */}
       <link rel="canonical" href={currentUrl} />

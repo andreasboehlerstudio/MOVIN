@@ -81,8 +81,8 @@ export default function Datenschutz() {
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-secondary">Analyse & Statistik</td>
-                    <td className="p-4 text-dark/75">Auswertung der Nutzung, sofern ein Analysedienst eingerichtet wird.</td>
-                    <td className="p-4 text-dark/75">Nur nach Einwilligung; aktuell ist kein Google Analytics oder Meta Pixel aktiv eingebunden.</td>
+                    <td className="p-4 text-dark/75">Auswertung der Nutzung mit Google Analytics, um Inhalte, Navigation und technische Qualitaet der Website zu verbessern.</td>
+                    <td className="p-4 text-dark/75">Nur nach Einwilligung. Die Einwilligung kann jederzeit ueber die Cookie-Einstellungen widerrufen werden.</td>
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-secondary">Externe Medien & Marketing</td>
@@ -92,6 +92,10 @@ export default function Datenschutz() {
                 </tbody>
               </table>
             </div>
+
+            <p className="mb-4">
+              Google Analytics wird auf dieser Website ausschliesslich nach Ihrer aktiven Einwilligung geladen. Die Einbindung erfolgt ueber den Google Tag mit IP-Anonymisierung und ohne automatische Seitenaufrufe vor Ihrer Zustimmung. Bei einem Widerruf wird Google Analytics deaktiviert und vorhandene Analyse-Cookies werden entfernt.
+            </p>
 
             <p className="mb-4">
               Bei externen Medien können nach Ihrer Freigabe personenbezogene Daten, insbesondere Ihre IP-Adresse und technische Browserinformationen, an den jeweiligen Anbieter übermittelt werden. Die Datenverarbeitung erfolgt dann in eigener Verantwortung des Anbieters. Eingesetzte Drittanbieter können insbesondere Google/YouTube und Google Maps, Spotify sowie Instagram/Meta sein.

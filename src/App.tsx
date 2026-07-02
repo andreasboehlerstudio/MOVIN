@@ -22,11 +22,13 @@ import GenericPage from './pages/GenericPage';
 import { CookieConsent } from './components/gdpr/CookieConsent';
 import CtaTransition from './components/effects/CtaTransition';
 import InitialLoader from './components/effects/InitialLoader';
+import GoogleAnalytics from './components/analytics/GoogleAnalytics';
 
 export default function App() {
   return (
     <>
       <InitialLoader />
+      <GoogleAnalytics />
       <CtaTransition />
       <CookieConsent />
       <Routes>

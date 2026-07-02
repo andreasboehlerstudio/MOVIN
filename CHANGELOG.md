@@ -2,6 +2,27 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.5] - 2026-07-02
+
+### Release-Status
+- Patch-Release fuer Social-Preview und Google Analytics.
+
+### SEO und Social Preview
+- Globales Open-Graph- und Twitter-Preview-Bild auf die neue MOVIN Bildmarke mit weissem Hintergrund umgestellt.
+- Social-Preview-Metadaten fuer WhatsApp, LinkedIn, Facebook und weitere Link-Vorschauen ergaenzt.
+- Preview-Bild als optimiertes 1200x630 JPEG abgelegt.
+
+### Analytics und Datenschutz
+- Google Analytics / GA4 Measurement-ID `G-ZS80MQPC9Z` eingebunden.
+- Analytics laedt erst nach aktiver Zustimmung zur Kategorie "Analyse & Statistik".
+- SPA-Seitenwechsel werden als Pageviews an GA4 gesendet.
+- Bei Widerruf werden Analytics deaktiviert und vorhandene `_ga`-Cookies entfernt.
+- Cookie-Banner und Datenschutzerklaerung auf die neue GA4-Einbindung angepasst.
+
+### Validierung
+- `npm run lint` erfolgreich.
+- `npm run build` erfolgreich.
+
 ## [1.1.4] - 2026-07-02
 
 ### Release-Status

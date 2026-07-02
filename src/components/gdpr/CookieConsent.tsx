@@ -122,7 +122,7 @@ export const CookieConsent: React.FC = () => {
                 />
                 <CookieOption
                   title="Analyse & Statistik"
-                  description="Helfen uns zu verstehen, wie Besucher mit der Webseite interagieren (anonymisiert)."
+                  description="Erlaubt Google Analytics, damit wir verstehen, wie Besucher die Website nutzen und die Seite verbessern koennen."
                   checked={tempConsent.analytics}
                   onToggle={() => handleToggle('analytics')}
                 />
