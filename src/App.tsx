@@ -18,6 +18,7 @@ import Training from './pages/Training';
 import StationaereVersorgung from './pages/StationaereVersorgung';
 import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
+import GoogleStatistiken from './pages/GoogleStatistiken';
 import GenericPage from './pages/GenericPage';
 import { CookieConsent } from './components/gdpr/CookieConsent';
 import CtaTransition from './components/effects/CtaTransition';
@@ -56,6 +57,7 @@ export default function App() {
 
           <Route path="impressum" element={<Impressum />} />
           <Route path="datenschutz" element={<Datenschutz />} />
+          <Route path="intern/google-statistiken" element={<GoogleStatistiken />} />
 
           <Route path="*" element={<GenericPage />} />
         </Route>

@@ -17,14 +17,22 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.5`
-- Letzter Release-Tag: `v1.1.5`
+- Aktuelle Version: `1.1.6`
+- Letzter Release-Tag: `v1.1.6`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.6] - 2026-07-02
+
+- Interne Unterseite `/intern/google-statistiken/` fuer Google-Analytics-Kennzahlen angelegt.
+- Server-API fuer echte GA4 Data API Werte vorbereitet.
+- Dashboard mit Zugriffscode, Zeitraum-Auswahl, Kennzahlenkarten, Tagesverlauf, Quellen, Geraeten und Top-Seiten umgesetzt.
+- Dashboard auf `noindex, nofollow` gesetzt.
+- `.env.example` und README um die benoetigten GA4-/Service-Account-Variablen erweitert.
 
 ### [1.1.5] - 2026-07-02
 
@@ -104,6 +112,25 @@ Lokale URL:
 ```text
 http://localhost:3000/
 ```
+
+## Internes Analytics-Dashboard
+
+Die interne Unterseite fuer Google Analytics Kennzahlen ist erreichbar unter:
+
+```text
+/intern/google-statistiken/
+```
+
+Damit echte GA4-Daten angezeigt werden, muessen serverseitig folgende Variablen gesetzt sein:
+
+```text
+GA4_PROPERTY_ID=
+GOOGLE_SERVICE_ACCOUNT_EMAIL=
+GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY=
+ANALYTICS_DASHBOARD_TOKEN=
+```
+
+Der Google Service Account muss in der GA4 Property Leserechte erhalten. `ANALYTICS_DASHBOARD_TOKEN` ist der interne Zugriffscode fuer die Dashboard-Seite.
 
 ## Qualitaetschecks
 

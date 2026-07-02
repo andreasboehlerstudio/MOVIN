@@ -2,6 +2,27 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.6] - 2026-07-02
+
+### Release-Status
+- Patch-Release fuer ein internes Google-Analytics-Dashboard.
+
+### Analytics Dashboard
+- Interne Unterseite `/intern/google-statistiken/` angelegt.
+- Dashboard mit Zugriffscode-Feld, Zeitraum-Auswahl fuer 7, 30 und 90 Tage sowie Karten fuer Nutzer, Sitzungen, Seitenaufrufe, Sitzungsdauer und Engagement Rate ergaenzt.
+- Visualisierungen fuer Tagesverlauf, Traffic-Quellen, Geraetetypen und Top-Seiten ergaenzt.
+- Seite auf `noindex, nofollow` gesetzt, damit sie nicht in Suchmaschinen erscheint.
+
+### Server und Deployment
+- Server-Endpunkt `/api/analytics-summary` fuer die GA4 Data API vorbereitet.
+- Zusaetzliche Vercel-kompatible API-Funktion unter `api/analytics-summary.ts` ergaenzt.
+- `.env.example` und README um die benoetigten Server-Variablen erweitert.
+- Dashboard zeigt einen Setup-Hinweis, solange GA4 Property ID, Service Account und Zugriffscode noch nicht hinterlegt sind.
+
+### Validierung
+- `npm run lint` erfolgreich.
+- `npm run build` erfolgreich.
+
 ## [1.1.5] - 2026-07-02
 
 ### Release-Status

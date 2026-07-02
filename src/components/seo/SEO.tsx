@@ -12,9 +12,10 @@ interface SEOProps {
   canonical?: string;
   schema?: any;
   preloadImage?: string;
+  noindex?: boolean;
 }
 
-export default function SEO({ title, description, canonical, schema, preloadImage }: SEOProps) {
+export default function SEO({ title, description, canonical, schema, preloadImage, noindex }: SEOProps) {
   const siteName = "MOVIN Physiotherapie Freiburg";
   const fullTitle = `${title} | ${siteName}`;
   const location = useLocation();
@@ -36,6 +37,7 @@ export default function SEO({ title, description, canonical, schema, preloadImag
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
