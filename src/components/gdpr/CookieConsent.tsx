@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, Settings, Check, X, ChevronRight, Info } from 'lucide-react';
 import { useCookieConsent, CookieCategory } from './CookieContext';
@@ -9,6 +9,19 @@ export const CookieConsent: React.FC = () => {
   const [showSettings, setShowSettings] = useState(false);
   const [tempConsent, setTempConsent] = useState(consent);
 
+  useEffect(() => {
+    const openSettings = () => {
+      setTempConsent(consent);
+      setShowSettings(true);
+    };
+
+    window.addEventListener('movin:open-cookie-settings', openSettings);
+
+    return () => {
+      window.removeEventListener('movin:open-cookie-settings', openSettings);
+    };
+  }, [consent]);
+
   if (hasResponded && !showSettings) return null;
 
   const handleToggle = (category: CookieCategory) => {
@@ -18,6 +31,16 @@ export const CookieConsent: React.FC = () => {
 
   const handleSave = () => {
     updateConsent(tempConsent);
+    setShowSettings(false);
+  };
+
+  const handleAcceptAll = () => {
+    acceptAll();
+    setShowSettings(false);
+  };
+
+  const handleDeclineAll = () => {
+    declineAll();
     setShowSettings(false);
   };
 
@@ -48,7 +71,7 @@ export const CookieConsent: React.FC = () => {
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
-                  onClick={acceptAll}
+                  onClick={handleAcceptAll}
                   className="flex-1 bg-primary text-white hover:bg-primary-hover px-6 py-3 rounded-full font-bold transition-colors"
                 >
                   Alle akzeptieren
@@ -61,10 +84,10 @@ export const CookieConsent: React.FC = () => {
                   Einstellungen
                 </button>
                 <button
-                  onClick={declineAll}
+                  onClick={handleDeclineAll}
                   className="flex-1 bg-transparent border border-border text-dark/70 hover:bg-light px-6 py-3 rounded-full font-medium transition-colors"
                 >
-                  Nur Notwendige
+                  Alle ablehnen
                 </button>
               </div>
               
@@ -111,7 +134,13 @@ export const CookieConsent: React.FC = () => {
                 />
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button
+                  onClick={handleDeclineAll}
+                  className="flex-1 bg-light text-secondary hover:bg-border px-6 py-3 rounded-full font-bold transition-colors"
+                >
+                  Alle ablehnen
+                </button>
                 <button
                   onClick={handleSave}
                   className="flex-1 bg-primary text-white hover:bg-primary-hover px-6 py-3 rounded-full font-bold transition-colors"
@@ -119,7 +148,7 @@ export const CookieConsent: React.FC = () => {
                   Auswahl speichern
                 </button>
                 <button
-                  onClick={acceptAll}
+                  onClick={handleAcceptAll}
                   className="flex-1 bg-secondary text-white hover:bg-secondary/90 px-6 py-3 rounded-full font-bold transition-colors"
                 >
                   Alle akzeptieren

@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/seo/SEO';
+import { GdprEmbed } from '../components/gdpr/GdprEmbed';
 
 interface Job {
   id: string;
@@ -628,14 +629,16 @@ startxref
             transition={{ duration: 0.7 }}
             className="relative rounded-3xl overflow-hidden shadow-2xl border border-border bg-black aspect-video mb-6"
           >
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/UYP4_OR9A9M?rel=0&modestbranding=1"
-              title="MOVIN Karriere & Philosophie"
-              className="absolute inset-0 w-full h-full border-0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
+            <GdprEmbed category="marketing" provider="YouTube">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/UYP4_OR9A9M?rel=0&modestbranding=1"
+                title="MOVIN Karriere & Philosophie"
+                className="absolute inset-0 w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </GdprEmbed>
           </motion.div>
 
           <div className="flex flex-col items-center justify-center text-center mt-6 p-4 rounded-2xl bg-light border border-border/60 max-w-xl mx-auto">
@@ -681,13 +684,15 @@ startxref
               </div>
               
               <div className="relative rounded-2xl overflow-hidden shadow-md border border-neutral-100 h-[480px] bg-neutral-900 flex items-center justify-center">
-                <iframe 
-                  src="https://www.instagram.com/reel/DUNI1TzCG0z/embed" 
-                  className="w-full h-full border-0 absolute inset-0" 
-                  scrolling="no" 
-                  allowFullScreen
-                  referrerPolicy="no-referrer"
-                />
+                <GdprEmbed category="marketing" provider="Instagram">
+                  <iframe 
+                    src="https://www.instagram.com/reel/DUNI1TzCG0z/embed" 
+                    className="w-full h-full border-0 absolute inset-0" 
+                    scrolling="no" 
+                    allowFullScreen
+                    referrerPolicy="no-referrer"
+                  />
+                </GdprEmbed>
               </div>
             </motion.div>
 
@@ -706,13 +711,15 @@ startxref
               </div>
 
               <div className="relative rounded-2xl overflow-hidden shadow-md border border-neutral-100 h-[480px] bg-neutral-900 flex items-center justify-center">
-                <iframe 
-                  src="https://www.instagram.com/reel/DUKiuNWCNG6/embed" 
-                  className="w-full h-full border-0 absolute inset-0" 
-                  scrolling="no" 
-                  allowFullScreen
-                  referrerPolicy="no-referrer"
-                />
+                <GdprEmbed category="marketing" provider="Instagram">
+                  <iframe 
+                    src="https://www.instagram.com/reel/DUKiuNWCNG6/embed" 
+                    className="w-full h-full border-0 absolute inset-0" 
+                    scrolling="no" 
+                    allowFullScreen
+                    referrerPolicy="no-referrer"
+                  />
+                </GdprEmbed>
               </div>
             </motion.div>
           </div>

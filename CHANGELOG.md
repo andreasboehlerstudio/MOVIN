@@ -2,6 +2,31 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.4] - 2026-07-02
+
+### Release-Status
+- Patch-Release fuer die neue Startseiten-Ladeanimation, weitere Asset-Optimierung und kleinere Korrekturen aus der laufenden Kundenabstimmung.
+
+### Logo und Ladeanimation
+- Neues MOVIN 2026 Logo aus der AI-/PDF-kompatiblen Quelldatei als echtes SVG extrahiert und im Projekt abgelegt.
+- Startseiten-Loader auf SVG-Pfadanimation umgestellt.
+- Animationsabfolge verfeinert: erst die vier linken Swipes der Bildmarke, danach Figur mit Kopf, danach Wortmarke und Claim.
+- Loader-Intro neu gestaltet: heller Start, anschliessender Fade in den Mint-Teal-Verlauf der Page Transition, danach Logoaufbau.
+- Alte harte Logo-Schnitte und die weisse Abschlusswelle im Loader entfernt.
+
+### Inhalte und Datenschutz
+- Cookie-/Datenschutzbereiche weiter nachgezogen, inklusive nachtraeglich erreichbarer Cookie-Einstellungen im Footer.
+- Leistungs- und Standortinhalte aus den letzten Kundekorrekturen weiter gepflegt, unter anderem BGF-/Praeventionstexte, Standortbild und kleinere Label-/Textkorrekturen.
+- Ueber-uns-Bereich um eine ruhigere, animierte MOVIN-Philosophie-Grafik erweitert.
+
+### Medien und Performance
+- Medienbestand weiter konsolidiert: optimierte WebP- und MP4-Dateien eingebunden, nicht mehr referenzierte grosse Altdateien entfernt.
+- MOVIN App-Mockups und Logo-Assets fuer Startseite, App-Seite und Loader aktualisiert.
+- Team-Freisteller und Light-Streak-Overlays als WebP-Assets nachgezogen.
+
+### Validierung
+- `npm run build` erfolgreich.
+
 ## [1.1.3] - 2026-07-01
 
 ### Release-Status

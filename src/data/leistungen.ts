@@ -151,7 +151,7 @@ export const leistungenData = {
     description: 'Prävention bedeutet, Beschwerden zu vermeiden, bevor sie entstehen. Mit gezielter physiotherapeutischer Beratung, biopsychosozialer Analyse und individuell angepasstem Training berücksichtigen wir alle Kontextfaktoren, die Ihre Gesundheit beeinflussen - für mehr Belastbarkeit, Beweglichkeit und einen dauerhaft beschwerdefreien Alltag.',
     benefits: [
       'Erkennung und Ausgleich muskulärer Dysbalancen',
-      'Ergonomische Beratung für den (Home-)Office Alltag',
+      'Individuelle Bewegungsanalyse nach aktuellem wissenschaftlichem Stand',
       'Präventionskurse (teilweise von Krankenkassen bezuschusst)',
       'Langfristiger Erhalt der körperlichen Leistungsfähigkeit'
     ]
@@ -159,15 +159,15 @@ export const leistungenData = {
   'betriebliche-gesundheitsfoerderung': {
     title: 'Betriebliche Gesundheitsförderung (BGF)',
     seoTitle: 'BGF Freiburg | Betriebliche Gesundheitsförderung MOVIN',
-    seoDesc: 'Stärken Sie die Gesundheit Ihrer Mitarbeiter mit BGF in Freiburg. Ergonomie-Beratung, aktive Pausen und Firmenevents bei MOVIN.',
+    seoDesc: 'Betriebliche Gesundheitsförderung in Freiburg: Analyse, Ergonomie-Beratung, externe Mitarbeiterberatung und bewegungsorientierte Maßnahmen für gesunde Teams.',
     heroImage: '/images/leistungen/betriebliche-gesundheitsfoerderung-hero-nano-banana-2-v2.webp',
     heroImageCaption: 'KI-generiertes Symbolbild',
-    description: 'Gesunde Mitarbeiter sind das wertvollste Gut eines Unternehmens. Unsere betriebliche Gesundheitsförderung (BGF) bietet maßgeschneiderte Lösungen für Betriebe in der Region Freiburg. Von Ergonomie-Workshops am Arbeitsplatz über aktive Pausen bis hin zu Firmenfitness-Programmen – wir unterstützen Sie dabei, die Leistungsfähigkeit und Zufriedenheit Ihres Teams nachhaltig zu steigern.',
+    description: 'Gesunde Mitarbeiter sind das wertvollste Gut eines Unternehmens - doch echte Gesundheitsförderung beginnt dort, wo das klassische Gesundheitssystem endet. Unsere BGF basiert auf aktuellem wissenschaftlichem Wissen aus Physiotherapie, Bewegungswissenschaft und biopsychosozialer Gesundheitsforschung, nicht auf Diagnosen, Verordnungen oder starren Behandlungspfaden. Das gibt uns die Freiheit, Ihr Team dort abzuholen, wo es steht: mit individuell zugeschnittenen Konzepten statt Schema-F-Maßnahmen, die einem Kassenkatalog entsprechen müssen.',
     benefits: [
-      'Reduktion des Krankenstandes',
-      'Steigerung der Mitarbeiterzufriedenheit & Bindung',
-      'Verbesserung der Ergonomie am Arbeitsplatz',
-      'Steuerliche Vorteile für Unternehmen nutzen'
+      'Wissenschaftlich fundierte Ansätze statt standardisierter Kassenleistungen',
+      'Individuelle Konzepte ohne Verordnungszwang oder Diagnosebindung',
+      'Direkter Wissenstransfer aus der Physiotherapie - praxisnah und verständlich',
+      'Ganzheitlicher, biopsychosozialer Blick auf Gesundheit im Arbeitsalltag'
     ],
     isB2B: true
   }

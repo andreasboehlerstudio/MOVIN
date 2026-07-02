@@ -78,14 +78,14 @@ export default function Kontakt() {
                     <div className="w-12 h-12 rounded-full bg-mint flex items-center justify-center text-primary shrink-0">
                       <MapPin className="w-6 h-6" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h4 className="font-bold text-secondary text-lg mb-1">Lorettoberg (Freiburg)</h4>
                       <p className="text-dark/70 mb-2">Mercystrasse 14, 79100 Freiburg</p>
                       <a href="tel:+497617073366" className="flex items-center gap-2 text-primary hover:underline mb-1">
-                        <Phone className="w-4 h-4" /> +49 761 707 33 66
+                        <Phone className="w-4 h-4 shrink-0" /> +49 761 707 33 66
                       </a>
-                      <a href="mailto:kontakt@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
-                        <Mail className="w-4 h-4" /> kontakt@movin-freiburg.de
+                      <a href="mailto:kontakt@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline min-w-0">
+                        <Mail className="w-4 h-4 shrink-0" /> <span className="min-w-0 break-all">kontakt@movin-freiburg.de</span>
                       </a>
                     </div>
                   </div>
@@ -95,14 +95,14 @@ export default function Kontakt() {
                     <div className="w-12 h-12 rounded-full bg-mint flex items-center justify-center text-primary shrink-0">
                       <MapPin className="w-6 h-6" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h4 className="font-bold text-secondary text-lg mb-1">Mooswald (Freiburg)</h4>
                       <p className="text-dark/70 mb-2">Wirthstraße 9, 79110 Freiburg</p>
                       <a href="tel:+497617073377" className="flex items-center gap-2 text-primary hover:underline mb-1">
-                        <Phone className="w-4 h-4" /> +49 761 707 33 77
+                        <Phone className="w-4 h-4 shrink-0" /> +49 761 707 33 77
                       </a>
-                      <a href="mailto:physiotherapie.mooswald@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
-                        <Mail className="w-4 h-4" /> physiotherapie.mooswald@movin-freiburg.de
+                      <a href="mailto:physiotherapie.mooswald@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline min-w-0">
+                        <Mail className="w-4 h-4 shrink-0" /> <span className="min-w-0 break-all">physiotherapie.mooswald@movin-freiburg.de</span>
                       </a>
                     </div>
                   </div>
@@ -112,14 +112,14 @@ export default function Kontakt() {
                     <div className="w-12 h-12 rounded-full bg-mint flex items-center justify-center text-primary shrink-0">
                       <MapPin className="w-6 h-6" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h4 className="font-bold text-secondary text-lg mb-1">Europa-Park (Rust)</h4>
                       <p className="text-dark/70 mb-2">Peter-Thumb-Str. 8, 77977 Rust</p>
                       <a href="tel:+497617073366" className="flex items-center gap-2 text-primary hover:underline mb-1">
-                        <Phone className="w-4 h-4" /> +49 761 707 33 66
+                        <Phone className="w-4 h-4 shrink-0" /> +49 761 707 33 66
                       </a>
-                      <a href="mailto:europapark.physio@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline">
-                        <Mail className="w-4 h-4" /> europapark.physio@movin-freiburg.de
+                      <a href="mailto:europapark.physio@movin-freiburg.de" className="flex items-center gap-2 text-primary hover:underline min-w-0">
+                        <Mail className="w-4 h-4 shrink-0" /> <span className="min-w-0 break-all">europapark.physio@movin-freiburg.de</span>
                       </a>
                     </div>
                   </div>

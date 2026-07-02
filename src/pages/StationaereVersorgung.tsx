@@ -24,7 +24,7 @@ export default function StationaereVersorgung() {
       <section className="relative h-[60vh] min-h-[500px] flex items-center bg-secondary overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000" 
+            src="/images/standorte/lorettoberg/lorettoberg-main.webp" 
             alt="Physiotherapie im Krankenhaus" 
             className="w-full h-full object-cover opacity-30 mix-blend-overlay"
           />
@@ -76,7 +76,7 @@ export default function StationaereVersorgung() {
             <div className="relative">
               <div className="absolute inset-0 bg-primary/10 rounded-3xl transform translate-x-4 translate-y-4" />
               <img 
-                src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800" 
+                src="/images/standorte/lorettoberg/lorettoberg-behandlungsraum-20260622.webp" 
                 alt="Loretto Krankenhaus Freiburg" 
                 className="relative z-10 rounded-3xl shadow-xl object-cover h-[500px] w-full"
               />

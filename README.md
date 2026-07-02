@@ -17,14 +17,22 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.3`
-- Letzter Release-Tag: `v1.1.3`
+- Aktuelle Version: `1.1.4`
+- Letzter Release-Tag: `v1.1.4`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.4] - 2026-07-02
+
+- Startseiten-Loader mit neuem MOVIN SVG-Logo aufgebaut.
+- Logoanimation verfeinert: erst die vier linken Swipes der Bildmarke, danach Figur, Wortmarke und Claim.
+- Loader-Intro ruhiger gestaltet: Page-Transition-Farbverlauf blendet ein, danach animiert das Logo.
+- Medienbestand weiter optimiert und WebP-/MP4-Assets fuer bessere Ladezeiten nachgezogen.
+- Datenschutz-/Cookie- und Inhaltskorrekturen aus der laufenden Kundenabstimmung weiter gepflegt.
 
 ### [1.1.3] - 2026-07-01
 

@@ -108,7 +108,9 @@ export default function LeistungDetail() {
           <div className="flex items-center gap-2 text-primary font-semibold uppercase tracking-wider text-sm mb-4">
             <Activity className="w-4 h-4" /> Leistung
           </div>
-          <h1 className="text-5xl md:text-7xl font-black mb-6 text-gradient-teal-mint">{leistung.title}</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 text-gradient-teal-mint break-words hyphens-auto [overflow-wrap:anywhere]">
+            {leistung.title}
+          </h1>
         </div>
       </section>
 

@@ -881,7 +881,7 @@ export default function Anamnesebogen() {
             className="absolute opacity-0 pointer-events-none overflow-hidden" 
             style={{ top: 0, left: 0, width: '210mm', zIndex: -100 }}
           >
-            <div ref={pdfRef} className="w-[210mm] bg-[#f8fafc]">
+            <div ref={pdfRef} className="fixed left-[-9999px] top-0 z-[-1] w-[210mm] bg-[#f8fafc] pointer-events-none" aria-hidden="true">
               {/* PAGE 1: Personal Info & Body Map & Section I */}
               <div className="pdf-page w-[210mm] h-[297mm] bg-[#ffffff] p-[15mm] text-[#0f172a] font-sans flex flex-col relative overflow-hidden">
                 {/* Header with Logo-like styling */}

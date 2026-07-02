@@ -21,10 +21,12 @@ import Datenschutz from './pages/Datenschutz';
 import GenericPage from './pages/GenericPage';
 import { CookieConsent } from './components/gdpr/CookieConsent';
 import CtaTransition from './components/effects/CtaTransition';
+import InitialLoader from './components/effects/InitialLoader';
 
 export default function App() {
   return (
     <>
+      <InitialLoader />
       <CtaTransition />
       <CookieConsent />
       <Routes>

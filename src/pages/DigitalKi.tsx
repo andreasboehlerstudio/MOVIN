@@ -396,12 +396,12 @@ export default function DigitalKi() {
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
                   <a
                     href="/docs/ki/einwilligung-in-den-datenschutz.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-outline border-white/30 text-white hover:bg-white hover:text-secondary text-sm px-5 py-3 justify-center"
+                    className="btn-outline border-white/30 text-white hover:bg-white hover:text-secondary text-sm px-5 py-3 justify-center max-w-full whitespace-normal text-center"
                   >
                     Datenschutzerklärung
                   </a>
@@ -409,7 +409,7 @@ export default function DigitalKi() {
                     href="/docs/ki/aushang-patienteninformation-zum-datenschutz.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-outline border-white/30 text-white hover:bg-white hover:text-secondary text-sm px-5 py-3 justify-center"
+                    className="btn-outline border-white/30 text-white hover:bg-white hover:text-secondary text-sm px-5 py-3 justify-center max-w-full whitespace-normal text-center"
                   >
                     Patienteninformation anfragen
                   </a>

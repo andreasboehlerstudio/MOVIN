@@ -45,7 +45,7 @@ export default function DigitalHub() {
       <section className="relative h-[50vh] min-h-[400px] flex items-center bg-secondary overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=2000" 
+            src="/images/movin-app/app-redesign-duo-perspective-home-clean.webp" 
             alt="Digital" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay"
           />

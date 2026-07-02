@@ -108,7 +108,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-5xl md:text-[5rem] font-bold mb-6 leading-[1.1] text-white tracking-tight uppercase"
+              className="text-4xl sm:text-5xl md:text-[5rem] font-bold mb-6 leading-[1.1] text-white tracking-tight uppercase break-words hyphens-auto [overflow-wrap:anywhere]"
             >
               Evidenzbasierte<br />
               <span className="text-gradient-teal-mint">Physiotherapie</span><br />
@@ -190,8 +190,8 @@ export default function Home() {
               <div className="w-16 h-16 rounded-full bg-mint flex items-center justify-center text-primary">
                 <Brain className="w-8 h-8" />
               </div>
-              <h3 className="font-bold text-secondary">KI-Integration Next Level</h3>
-              <p className="text-sm text-dark/70">Modernste Diagnostik</p>
+              <h3 className="font-bold text-secondary">KI-Integration</h3>
+              <p className="text-sm text-dark/70">Next Level</p>
             </div>
             <div className="flex flex-col items-center text-center gap-3">
               <div className="w-16 h-16 rounded-full bg-mint flex items-center justify-center text-primary">
@@ -359,7 +359,7 @@ export default function Home() {
               <div className="absolute inset-[8%] bg-[radial-gradient(circle_at_55%_45%,rgba(96,195,205,0.30),rgba(178,234,214,0.13)_36%,transparent_70%)] blur-3xl rounded-full" />
               <div className="absolute left-1/2 top-1/2 h-40 w-[78%] -translate-x-1/2 -translate-y-1/2 rotate-[-11deg] rounded-full bg-primary/10 blur-2xl" />
               <img 
-                src="/images/movin-app/iphone-mockup-home.png" 
+                src="/images/movin-app/iphone-mockup-home.webp" 
                 alt="MOVIN App Screens auf iPhone Mockups" 
                 className="relative z-10 w-full max-w-[700px] transition-transform duration-500 hover:scale-[1.02]"
                 loading="lazy"
@@ -373,8 +373,8 @@ export default function Home() {
       {/* App Booking Highlight */}
       <section className="py-12 bg-mint/20 border-b border-mint/40">
         <div className="container-custom">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100">
+            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 text-center lg:text-left">
               <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
                 <Calendar className="w-10 h-10" />
               </div>
@@ -387,7 +387,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full md:w-auto">
+            <div className="flex flex-col lg:flex-row gap-4 shrink-0 w-full lg:w-auto">
               <Link to="/digital/movin-app/" className="btn-primary flex items-center justify-center gap-2 whitespace-nowrap">
                 <Smartphone className="w-5 h-5" />
                 App herunterladen
@@ -400,13 +400,13 @@ export default function Home() {
       {/* Anamnesebogen Highlight */}
       <section className="py-12 bg-white border-b border-border">
         <div className="container-custom">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-light p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6 text-center md:text-left">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 bg-light p-8 md:p-10 rounded-3xl shadow-sm border border-gray-100">
+            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 text-center lg:text-left">
               <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
                 <ClipboardList className="w-10 h-10" />
               </div>
               <div>
-                <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
+                <div className="flex items-center justify-center lg:justify-start gap-2 mb-3">
                   <h3 className="text-2xl md:text-3xl font-bold text-secondary">
                     Digitaler Anamnesebogen
                   </h3>
@@ -417,7 +417,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full md:w-auto">
+            <div className="flex flex-col lg:flex-row gap-4 shrink-0 w-full lg:w-auto">
               <Link to="/digital/anamnesebogen/" className="btn-primary flex items-center justify-center gap-2 whitespace-nowrap">
                 <ClipboardList className="w-5 h-5" />
                 Anamnesebogen öffnen
@@ -582,7 +582,7 @@ export default function Home() {
 
       {/* CTA Banner */}
       <section className="py-24 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+        <div className="absolute inset-0 opacity-10 [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.8)_1px,transparent_0)] [background-size:22px_22px]" />
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#4ade80]/40 to-transparent rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3" />
         <div className="container-custom relative z-10 text-center">
           <div className="flex justify-center mb-8">

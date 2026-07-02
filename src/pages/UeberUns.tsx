@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router';
 import { Users, Target, Heart, ShieldCheck, Lightbulb, Award, Calendar, MapPin, Activity } from 'lucide-react';
 import SEO from '../components/seo/SEO';
@@ -5,37 +6,38 @@ import Logo from '../components/common/Logo';
 import { getYearsOfExperience } from '../data/companyInfo';
 
 const teamCutoutPreviewByImage: Record<string, string> = {
-  '/images/team-uniform/martin-klein.webp': '/images/team-cutouts-polished-bottom/martin-klein.png',
-  '/images/team-uniform/daniel-klein.webp': '/images/team-cutouts-polished-bottom/daniel-klein.png',
-  '/images/team-uniform/maik-forsbach.webp': '/images/team-cutouts-polished-bottom/maik-forsbach.png',
-  '/images/team-uniform/mareike-klein.webp': '/images/team-cutouts-polished-bottom/mareike-klein.png',
-  '/images/team-uniform/francisca-yanes-yanes.webp': '/images/team-cutouts-polished-bottom/francisca-yanes-yanes.png',
-  '/images/team-uniform/jana-zuege.webp': '/images/team-cutouts-polished-bottom/jana-zuege.png',
-  '/images/team-uniform/claudia-andrich.webp': '/images/team-cutouts-hr-safe/claudia-andrich.png',
-  '/images/team-uniform/lina-haberstroh.webp': '/images/team-cutouts-selected/lina-haberstroh.png',
-  '/images/team-uniform/mareike-strittmatter.webp': '/images/team-cutouts-polished-bottom/mareike-strittmatter.png',
-  '/images/team-uniform/jonas-wolfert.webp': '/images/team-cutouts-polished-bottom/jonas-wolfert.png',
-  '/images/team-uniform/olga-schmidt.webp': '/images/team-cutouts-hr-safe/olga-schmidt.png',
-  '/images/team-uniform/senka-dizdarevic.webp': '/images/team-cutouts-selected/senka-dizdarevic.png',
-  '/images/team-uniform/ellen-heilmann.webp': '/images/team-cutouts-polished-bottom/ellen-heilmann.png',
-  '/images/team-uniform/maximilian-schmidt.webp': '/images/team-cutouts-polished-bottom/maximilian-schmidt.png',
-  '/images/team-uniform/daniela-fichter.webp': '/images/team-cutouts-polished-bottom/daniela-fichter.png',
-  '/images/team-uniform/elina-kovacs.webp': '/images/team-cutouts-polished-bottom/elina-kovacs.png',
-  '/images/team-uniform/heidrun-brinkmann.webp': '/images/team-cutouts-polished-bottom/heidrun-brinkmann.png',
-  '/images/team-uniform/julius-leibold.webp': '/images/team-cutouts-hr-safe/julius-leibold.png',
-  '/images/team-uniform/marco-rebstock.webp': '/images/team-cutouts-polished-bottom/marco-rebstock.png',
-  '/images/team-uniform/bianca-kohler.webp': '/images/team-cutouts-polished-bottom/bianca-kohler.png',
-  '/images/team-uniform/heather-mitgorden-keller.webp': '/images/team-cutouts-polished-bottom/heather-mitgorden-keller.png',
-  '/images/team-uniform/laura-walter.webp': '/images/team-cutouts-polished-bottom/laura-walter.png',
-  '/images/team-uniform/lea-ruf.webp': '/images/team-cutouts-polished-bottom/lea-ruf.png',
-  '/images/team-uniform/mara-schoeneck.webp': '/images/team-cutouts-polished-bottom/mara-schoeneck.png',
-  '/images/team-uniform/lena-pall.webp': '/images/team-cutouts-polished-bottom/lena-pall.png',
-  '/images/team-uniform/lena-prell.webp': '/images/team-cutouts-polished-bottom/lena-prell.png',
-  '/images/team-uniform/miriam-ferre.webp': '/images/team-cutouts-polished-bottom/miriam-ferre.png'
+  '/images/team-uniform/martin-klein.webp': '/images/team-cutouts-polished-bottom/martin-klein.webp',
+  '/images/team-uniform/daniel-klein.webp': '/images/team-cutouts-polished-bottom/daniel-klein.webp',
+  '/images/team-uniform/maik-forsbach.webp': '/images/team-cutouts-polished-bottom/maik-forsbach.webp',
+  '/images/team-uniform/mareike-klein.webp': '/images/team-cutouts-polished-bottom/mareike-klein.webp',
+  '/images/team-uniform/francisca-yanes-yanes.webp': '/images/team-cutouts-polished-bottom/francisca-yanes-yanes.webp',
+  '/images/team-uniform/jana-zuege.webp': '/images/team-cutouts-polished-bottom/jana-zuege.webp',
+  '/images/team-uniform/claudia-andrich.webp': '/images/team-cutouts-hr-safe/claudia-andrich.webp',
+  '/images/team-uniform/lina-haberstroh.webp': '/images/team-cutouts-selected/lina-haberstroh.webp',
+  '/images/team-uniform/mareike-strittmatter.webp': '/images/team-cutouts-polished-bottom/mareike-strittmatter.webp',
+  '/images/team-uniform/jonas-wolfert.webp': '/images/team-cutouts-polished-bottom/jonas-wolfert.webp',
+  '/images/team-uniform/olga-schmidt.webp': '/images/team-cutouts-hr-safe/olga-schmidt.webp',
+  '/images/team-uniform/senka-dizdarevic.webp': '/images/team-cutouts-selected/senka-dizdarevic.webp',
+  '/images/team-uniform/ellen-heilmann.webp': '/images/team-cutouts-polished-bottom/ellen-heilmann.webp',
+  '/images/team-uniform/maximilian-schmidt.webp': '/images/team-cutouts-polished-bottom/maximilian-schmidt.webp',
+  '/images/team-uniform/daniela-fichter.webp': '/images/team-cutouts-polished-bottom/daniela-fichter.webp',
+  '/images/team-uniform/elina-kovacs.webp': '/images/team-cutouts-polished-bottom/elina-kovacs.webp',
+  '/images/team-uniform/heidrun-brinkmann.webp': '/images/team-cutouts-polished-bottom/heidrun-brinkmann.webp',
+  '/images/team-uniform/julius-leibold.webp': '/images/team-cutouts-hr-safe/julius-leibold.webp',
+  '/images/team-uniform/marco-rebstock.webp': '/images/team-cutouts-polished-bottom/marco-rebstock.webp',
+  '/images/team-uniform/bianca-kohler.webp': '/images/team-cutouts-polished-bottom/bianca-kohler.webp',
+  '/images/team-uniform/heather-mitgorden-keller.webp': '/images/team-cutouts-polished-bottom/heather-mitgorden-keller.webp',
+  '/images/team-uniform/laura-walter.webp': '/images/team-cutouts-polished-bottom/laura-walter.webp',
+  '/images/team-uniform/lea-ruf.webp': '/images/team-cutouts-polished-bottom/lea-ruf.webp',
+  '/images/team-uniform/mara-schoeneck.webp': '/images/team-cutouts-polished-bottom/mara-schoeneck.webp',
+  '/images/team-uniform/lena-pall.webp': '/images/team-cutouts-polished-bottom/lena-pall.webp',
+  '/images/team-uniform/lena-prell.webp': '/images/team-cutouts-polished-bottom/lena-prell.webp',
+  '/images/team-uniform/miriam-ferre.webp': '/images/team-cutouts-polished-bottom/miriam-ferre.webp'
 };
 
 export default function UeberUns() {
   const years = getYearsOfExperience();
+  const philosophyGraphicRef = useRef<HTMLDivElement | null>(null);
   const schema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
@@ -54,6 +56,92 @@ export default function UeberUns() {
     .map((part) => part[0])
     .join('')
     .toUpperCase();
+  const philosophyBubbles = [
+    {
+      icon: Award,
+      title: 'Qualität & Entwicklung',
+      placement: 'philosophy-bubble--quality',
+      tone: 'philosophy-bubble--light',
+      delay: '-0.3s'
+    },
+    {
+      icon: Users,
+      title: 'Netzwerk',
+      placement: 'philosophy-bubble--network',
+      tone: 'philosophy-bubble--mint',
+      delay: '-1.4s'
+    },
+    {
+      icon: Activity,
+      title: 'Therapie & Training',
+      placement: 'philosophy-bubble--therapy',
+      tone: 'philosophy-bubble--primary',
+      delay: '-2.2s'
+    },
+    {
+      icon: Lightbulb,
+      title: 'Innovation & Digitalisierung',
+      placement: 'philosophy-bubble--innovation',
+      tone: 'philosophy-bubble--soft',
+      delay: '-3.1s'
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Nachhaltigkeit & Eigenständigkeit',
+      placement: 'philosophy-bubble--sustainability',
+      tone: 'philosophy-bubble--soft',
+      delay: '-4s'
+    },
+    {
+      icon: Heart,
+      title: 'Beratung & Kommunikation',
+      placement: 'philosophy-bubble--communication',
+      tone: 'philosophy-bubble--mint',
+      delay: '-4.8s'
+    }
+  ];
+  const philosophyStakeholders = ['Patient:innen', 'Mitarbeiter:innen', 'Ärzt:innen', 'Unternehmen'];
+
+  useEffect(() => {
+    const graphic = philosophyGraphicRef.current;
+    if (!graphic) return;
+
+    let frame = 0;
+
+    const updateScrollMotion = () => {
+      frame = 0;
+      const rect = graphic.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || 1;
+      const graphicCenter = rect.top + rect.height / 2;
+      const progress = Math.max(-1, Math.min(1, (viewportHeight / 2 - graphicCenter) / viewportHeight));
+      const y = progress * 18;
+      const x = progress * 10;
+
+      graphic.style.setProperty('--philosophy-shift-y', `${y.toFixed(2)}px`);
+      graphic.style.setProperty('--philosophy-shift-y-inverse', `${(-y).toFixed(2)}px`);
+      graphic.style.setProperty('--philosophy-shift-y-soft', `${(y * 0.55).toFixed(2)}px`);
+      graphic.style.setProperty('--philosophy-shift-y-soft-inverse', `${(-y * 0.55).toFixed(2)}px`);
+      graphic.style.setProperty('--philosophy-shift-x', `${x.toFixed(2)}px`);
+      graphic.style.setProperty('--philosophy-shift-x-inverse', `${(-x).toFixed(2)}px`);
+      graphic.style.setProperty('--philosophy-shift-x-soft', `${(x * 0.65).toFixed(2)}px`);
+      graphic.style.setProperty('--philosophy-shift-x-soft-inverse', `${(-x * 0.65).toFixed(2)}px`);
+    };
+
+    const scheduleUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(updateScrollMotion);
+    };
+
+    updateScrollMotion();
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
+    };
+  }, []);
 
   return (
     <>
@@ -85,13 +173,13 @@ export default function UeberUns() {
             </div>
             <div className="lg:w-1/2 w-full">
               <img
-                src="https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_RGB_gradient.png"
+                src="/images/logos/movin-logo-2026-horizontal-rgb-gradient.png"
                 alt="MOVIN Team"
                 className="rounded-3xl shadow-2xl w-full object-contain bg-white p-12 h-[400px] dark:hidden"
                 referrerPolicy="no-referrer"
               />
               <img
-                src="https://movin-freiburg.de/wp-content/uploads/2026/04/RZ_Movin_Logo_2026_Bild_Wort_Claim_Horizontal_1C_pos.png"
+                src="/images/logos/movin-logo-2026-horizontal-1c-pos.png"
                 alt="MOVIN Team"
                 className="rounded-3xl shadow-2xl w-full object-contain bg-white p-12 h-[400px] hidden dark:block"
                 referrerPolicy="no-referrer"
@@ -170,6 +258,82 @@ export default function UeberUns() {
         </div>
       </section>
 
+      {/* Mensch im Mittelpunkt */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-center">
+            <div>
+              <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">MOVIN Prinzip</span>
+              <h2 className="text-3xl md:text-5xl font-black text-secondary mb-6">Der Mensch im Mittelpunkt</h2>
+              <p className="text-lg text-dark/80 leading-relaxed mb-6">
+                Unsere Philosophie verbindet Patient:innen, Mitarbeiter:innen, Ärzt:innen und Unternehmen in einer gemeinsamen Vision: Gesundheit entsteht dort, wo Therapie, Training, Kommunikation und Eigenverantwortung sinnvoll zusammenspielen.
+              </p>
+              <p className="text-lg text-dark/70 leading-relaxed mb-8">
+                Im Mittelpunkt steht immer die Frage, was Menschen brauchen, um Gesundheit, Belastbarkeit und Selbstständigkeit nachhaltig zu entwickeln - im Alltag, im Beruf und in Bewegung.
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                {philosophyStakeholders.map((item) => (
+                  <span key={item} className="inline-flex items-center rounded-full border border-primary/20 bg-mint px-4 py-2 text-sm font-bold text-secondary">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div ref={philosophyGraphicRef} className="philosophy-motion relative mx-auto w-full max-w-[660px]">
+              <div className="philosophy-graphic hidden md:block">
+                <div className="philosophy-ring philosophy-ring--outer" aria-hidden="true" />
+                <div className="philosophy-ring philosophy-ring--inner" aria-hidden="true" />
+
+                {philosophyBubbles.map((bubble) => {
+                  const Icon = bubble.icon;
+
+                  return (
+                    <div
+                      key={bubble.title}
+                      className={`philosophy-bubble ${bubble.placement} ${bubble.tone}`}
+                      style={{ animationDelay: bubble.delay }}
+                    >
+                      <Icon className="mb-2 h-6 w-6 shrink-0" aria-hidden="true" />
+                      <span>{bubble.title}</span>
+                    </div>
+                  );
+                })}
+
+                <div className="philosophy-center">
+                  <span>Vision</span>
+                  <strong>Mensch</strong>
+                </div>
+              </div>
+
+              <div className="md:hidden rounded-[2rem] border border-primary/10 bg-gradient-to-br from-[#f8ffff] via-[#eefafa] to-[#e2f3ee] p-4 shadow-[0_20px_60px_rgba(10,15,77,0.10)]">
+                <div className="rounded-2xl bg-secondary px-5 py-6 text-center text-white shadow-lg mb-3">
+                  <span className="block text-[10px] font-bold uppercase tracking-[0.22em] text-primary-light mb-1">Vision</span>
+                  <strong className="text-2xl font-black">Mensch</strong>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  {philosophyBubbles.map((bubble) => {
+                    const Icon = bubble.icon;
+
+                    return (
+                      <div
+                        key={bubble.title}
+                        className={`philosophy-mobile-bubble ${bubble.tone}`}
+                        style={{ animationDelay: bubble.delay }}
+                      >
+                        <Icon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                        <span>{bubble.title}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Geschichte */}
       <section className="section-padding bg-white">
         <div className="container-custom">
@@ -188,7 +352,7 @@ export default function UeberUns() {
                 { year: '2003', title: 'Lorettoberg', desc: 'Umzug in die heutigen Haupträume am Lorettoberg – unser Herzstück in Freiburg.', align: 'left' },
                 { year: '2008', title: 'Wachstum', desc: 'Deutliche Teamerweiterung und Wachstum, um der steigenden Nachfrage gerecht zu werden.', align: 'right' },
                 { year: '2019', title: 'Movin am Mooswald', desc: 'Eröffnung des Standorts Movin am Mooswald im Westen Freiburgs.', align: 'left' },
-                { year: '2024', title: 'Europa-Park Standort', desc: 'Eröffnung des Standorts am Europa-Park in Rust für spezialisierte Sportphysiotherapie.', align: 'right' },
+                { year: '2024', title: 'Europa-Park Standort', desc: 'Eröffnung des Standorts am Europa-Park in Rust.', align: 'right' },
                 { year: '2025', title: 'MOVIN Digital', desc: 'Launch von MOVIN Digital und der neuen MOVIN App für eine hybride Patientenversorgung.', align: 'left' },
                 { year: '2026', title: 'Zukunft', desc: 'Umfassende Modernisierung und Rebranding. Weiterentwicklung für die Physiotherapie von morgen.', align: 'right' }
               ].map((item, i) => (
@@ -259,6 +423,7 @@ export default function UeberUns() {
                 category: 'Anmeldung / Verwaltung',
                 role: 'Rezeptionistin',
                 spec: 'Mutterschutz',
+                status: 'Mutterschutz',
                 image: '/images/team-uniform/jana-zuege.webp'
               },
               {

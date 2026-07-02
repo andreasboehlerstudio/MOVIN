@@ -16,6 +16,7 @@ import {
   Video, 
   QrCode, 
   ChevronDown,
+  Download,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { QRCodeSVG } from 'qrcode.react';
@@ -272,7 +273,7 @@ export default function DigitalApp() {
           >
             <div className="absolute inset-[10%] rounded-full bg-primary/15 blur-3xl" />
             <img
-              src="/images/movin-app/iphone-mockup-home.png"
+              src="/images/movin-app/iphone-mockup-home.webp"
               alt="MOVIN App Screens auf iPhone Mockups"
               className="relative z-10 w-full max-w-[720px] object-contain drop-shadow-[0_34px_80px_rgba(0,0,0,0.42)]"
               fetchPriority="high"
@@ -534,19 +535,29 @@ export default function DigitalApp() {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12">
-            <a href={iosUrl} target="_blank" rel="noopener noreferrer" className="transform transition-transform hover:scale-105">
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" 
-                alt="Download on App Store" 
-                className="h-14 w-auto"
-              />
+            <a
+              href={iosUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-w-[210px] items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white px-6 py-4 text-secondary shadow-lg transition-transform hover:scale-105"
+            >
+              <Download className="h-5 w-5 text-primary" />
+              <span className="flex flex-col text-left leading-tight">
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-dark/50">Download im</span>
+                <span className="text-lg font-black">App Store</span>
+              </span>
             </a>
-            <a href={androidUrl} target="_blank" rel="noopener noreferrer" className="transform transition-transform hover:scale-105">
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
-                alt="Get it on Google Play" 
-                className="h-14 w-auto"
-              />
+            <a
+              href={androidUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-w-[210px] items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white px-6 py-4 text-secondary shadow-lg transition-transform hover:scale-105"
+            >
+              <Download className="h-5 w-5 text-primary" />
+              <span className="flex flex-col text-left leading-tight">
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-dark/50">Download bei</span>
+                <span className="text-lg font-black">Google Play</span>
+              </span>
             </a>
           </div>
 

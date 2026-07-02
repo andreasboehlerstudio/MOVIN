@@ -15,9 +15,9 @@ export default function Datenschutz() {
 
       <section className="pt-32 pb-20 bg-light min-h-[60vh]">
         <div className="container-custom max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-black mb-12 text-gradient-teal-mint">Datenschutzerklärung</h1>
+          <h1 className="text-4xl md:text-5xl font-black mb-12 text-gradient-teal-mint break-words hyphens-auto [overflow-wrap:anywhere]">Datenschutzerklärung</h1>
 
-          <div className="prose prose-lg prose-slate max-w-none">
+          <div className="prose prose-lg prose-slate max-w-none [overflow-wrap:anywhere]">
             <div className="bg-white p-6 rounded-2xl border border-border mb-10">
               <div className="flex items-center gap-3 mb-3 text-primary">
                 <ShieldCheck className="w-6 h-6" />
@@ -53,7 +53,51 @@ export default function Datenschutz() {
 
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">3. Cookies und Einwilligungen</h2>
             <p className="mb-4">
-              Unsere Internetseiten verwenden Cookies. Technisch notwendige Cookies dienen dem Betrieb der Website. Weitere Dienste werden nur nach Ihrer Einwilligung aktiviert, soweit eine Einwilligung erforderlich ist. Sie können Ihre Cookie-Entscheidung jederzeit widerrufen oder ändern.
+              Unsere Website verwendet Cookies und ähnliche lokale Speichertechnologien. Technisch notwendige Einträge dienen dem Betrieb der Website und der Speicherung Ihrer Cookie-Entscheidung. Optionale Dienste werden erst nach Ihrer Einwilligung aktiviert. Sie können Ihre Cookie-Entscheidung jederzeit widerrufen oder ändern.
+            </p>
+            <p className="mb-4">
+              Die Einwilligung wird lokal in Ihrem Browser unter dem Schlüssel <strong>cookie-consent</strong> gespeichert. Dabei wird festgehalten, ob Sie technisch notwendige, funktionale, Analyse-/Statistik- oder externe Medien-/Marketing-Dienste zugelassen haben. Die Speicherung erfolgt, damit das Banner nicht bei jedem Seitenaufruf erneut angezeigt werden muss. Die Auswahl bleibt gespeichert, bis Sie sie über den Button auf dieser Seite zurücksetzen oder den lokalen Speicher Ihres Browsers löschen.
+            </p>
+
+            <div className="overflow-x-auto rounded-2xl border border-border bg-white my-8">
+              <table className="w-full text-sm">
+                <thead className="bg-light text-secondary">
+                  <tr>
+                    <th className="p-4 text-left font-bold">Kategorie</th>
+                    <th className="p-4 text-left font-bold">Zweck</th>
+                    <th className="p-4 text-left font-bold">Aktivierung</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-border">
+                  <tr>
+                    <td className="p-4 font-semibold text-secondary">Technisch notwendig</td>
+                    <td className="p-4 text-dark/75">Betrieb der Website, Sicherheit, Formularfunktion und Speicherung der Cookie-Auswahl.</td>
+                    <td className="p-4 text-dark/75">Immer aktiv, soweit technisch erforderlich.</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-secondary">Funktional</td>
+                    <td className="p-4 text-dark/75">Komfortfunktionen wie Darstellungsoptionen oder erweiterte Websitefunktionen.</td>
+                    <td className="p-4 text-dark/75">Nur nach Einwilligung.</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-secondary">Analyse & Statistik</td>
+                    <td className="p-4 text-dark/75">Auswertung der Nutzung, sofern ein Analysedienst eingerichtet wird.</td>
+                    <td className="p-4 text-dark/75">Nur nach Einwilligung; aktuell ist kein Google Analytics oder Meta Pixel aktiv eingebunden.</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-semibold text-secondary">Externe Medien & Marketing</td>
+                    <td className="p-4 text-dark/75">Einbettung externer Inhalte wie YouTube, Google Maps, Spotify oder Instagram.</td>
+                    <td className="p-4 text-dark/75">Erst nach aktiver Freigabe im Banner oder direkt am blockierten Inhalt.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p className="mb-4">
+              Bei externen Medien können nach Ihrer Freigabe personenbezogene Daten, insbesondere Ihre IP-Adresse und technische Browserinformationen, an den jeweiligen Anbieter übermittelt werden. Die Datenverarbeitung erfolgt dann in eigener Verantwortung des Anbieters. Eingesetzte Drittanbieter können insbesondere Google/YouTube und Google Maps, Spotify sowie Instagram/Meta sein.
+            </p>
+            <p className="mb-4">
+              Rechtsgrundlage für technisch notwendige Speicherungen ist Art. 6 Abs. 1 lit. f DSGVO in Verbindung mit den Vorgaben für den Zugriff auf Endeinrichtungen. Optionale Dienste werden auf Grundlage Ihrer Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO aktiviert. Sie können eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.
             </p>
 
             <div className="bg-mint/10 p-6 rounded-2xl border border-mint/30 my-8">
@@ -69,7 +113,7 @@ export default function Datenschutz() {
                   resetConsent();
                   window.location.reload();
                 }}
-                className="inline-flex items-center gap-2 bg-white border border-border text-secondary px-6 py-3 rounded-full font-bold hover:bg-light transition-colors"
+                className="inline-flex max-w-full items-center justify-center gap-2 bg-white border border-border text-secondary px-6 py-3 rounded-full font-bold hover:bg-light transition-colors whitespace-normal text-center"
               >
                 Cookie-Einstellungen zurücksetzen
               </button>
@@ -143,7 +187,7 @@ export default function Datenschutz() {
               </p>
               <a
                 href="mailto:datenschutz@movin-freiburg.de?subject=Datenschutzanfrage"
-                className="inline-flex items-center gap-2 bg-secondary text-white px-6 py-3 rounded-full font-bold hover:bg-primary transition-colors"
+                className="inline-flex max-w-full items-center justify-center gap-2 bg-secondary text-white px-6 py-3 rounded-full font-bold hover:bg-primary transition-colors whitespace-normal text-center"
               >
                 Datenschutzanfrage per E-Mail stellen
               </a>
@@ -155,7 +199,7 @@ export default function Datenschutz() {
             </p>
 
             <p className="mt-12 text-sm text-dark/60">
-              Stand: 18. Juni 2026
+              Stand: 1. Juli 2026
             </p>
           </div>
         </div>

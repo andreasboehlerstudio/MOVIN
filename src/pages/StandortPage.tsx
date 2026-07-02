@@ -173,7 +173,7 @@ export default function StandortPage() {
               {standort.video && (
                 <div className="rounded-[2rem] border border-border/80 bg-light p-5 md:p-6 shadow-sm">
                   <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                    <div>
+                    <div className="min-w-0">
                       <span className="text-primary font-bold uppercase tracking-widest text-xs mb-2 block">
                         {standort.video.eyebrow}
                       </span>
@@ -298,7 +298,7 @@ export default function StandortPage() {
                     <div className="w-10 h-10 rounded-full bg-mint flex items-center justify-center text-primary shrink-0">
                       <MapPin className="w-5 h-5" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h4 className="font-bold text-secondary mb-1">Adresse</h4>
                       <p className="text-dark/70">{standort.address.split(',')[0]}<br/>{standort.address.split(',')[1]}</p>
                     </div>
@@ -308,7 +308,7 @@ export default function StandortPage() {
                     <div className="w-10 h-10 rounded-full bg-mint flex items-center justify-center text-primary shrink-0">
                       <Phone className="w-5 h-5" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h4 className="font-bold text-secondary mb-1">Telefon</h4>
                       <a href={`tel:${standort.phone.replace(/\s/g, '')}`} className="text-primary hover:underline">{standort.phone}</a>
                     </div>
@@ -320,7 +320,7 @@ export default function StandortPage() {
                     </div>
                     <div>
                       <h4 className="font-bold text-secondary mb-1">E-Mail</h4>
-                      <a href={`mailto:${standort.email}`} className="text-primary hover:underline">{standort.email}</a>
+                      <a href={`mailto:${standort.email}`} className="text-primary hover:underline break-all">{standort.email}</a>
                     </div>
                   </div>
 
@@ -328,7 +328,7 @@ export default function StandortPage() {
                     <div className="w-10 h-10 rounded-full bg-mint flex items-center justify-center text-primary shrink-0">
                       <Clock className="w-5 h-5" />
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 min-w-0">
                       <h4 className="font-bold text-secondary mb-2">Öffnungszeiten</h4>
                       {standort.openingHours ? (
                         <div className="flex flex-col gap-4">

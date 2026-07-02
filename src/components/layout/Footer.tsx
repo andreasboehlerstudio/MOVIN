@@ -143,10 +143,9 @@ export default function Footer() {
             <Link to="/datenschutz/" className="text-blue-tint/60 hover:text-white transition-colors text-sm">Datenschutz</Link>
             <button 
               onClick={() => {
-                localStorage.removeItem('cookie-consent');
-                window.location.reload();
+                window.dispatchEvent(new CustomEvent('movin:open-cookie-settings'));
               }}
-              className="px-3 py-1 text-secondary hover:text-secondary transition-colors text-sm"
+              className="text-blue-tint/60 hover:text-white transition-colors text-sm"
             >
               Cookie-Einstellungen
             </button>
