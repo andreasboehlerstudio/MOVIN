@@ -50,7 +50,7 @@ export default function SEO({ title, description, canonical, schema, preloadImag
       <meta property="og:image:type" content="image/jpeg" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="MOVIN Bildmarke" />
+      <meta property="og:image:alt" content="MOVIN Physiotherapie innovativ bewegt" />
       
       {/* Twitter / X */}
       <meta name="twitter:card" content="summary_large_image" />

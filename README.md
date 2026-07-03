@@ -17,14 +17,22 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.6`
-- Letzter Release-Tag: `v1.1.6`
+- Aktuelle Version: `1.1.7`
+- Letzter Release-Tag: `v1.1.7`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.7] - 2026-07-03
+
+- Social-/WhatsApp-Previewbild auf das neue Mareike/MOVIN-Motiv umgestellt.
+- Preview-Bild als optimiertes 1200x630 JPEG unter `/og-image.jpg` bereitgestellt.
+- Trainingsseite nutzt dasselbe Motiv als optimiertes Hero-WebP.
+- GA4 Property ID `543894426` und Service-Account-E-Mail fuer das interne Analytics-Dashboard dokumentiert.
+- Hinweis zur Aktivierung der Google Analytics Data API im Google-Cloud-Projekt `movin-501211` ergaenzt.
 
 ### [1.1.6] - 2026-07-02
 
@@ -124,13 +132,13 @@ Die interne Unterseite fuer Google Analytics Kennzahlen ist erreichbar unter:
 Damit echte GA4-Daten angezeigt werden, muessen serverseitig folgende Variablen gesetzt sein:
 
 ```text
-GA4_PROPERTY_ID=
-GOOGLE_SERVICE_ACCOUNT_EMAIL=
+GA4_PROPERTY_ID=543894426
+GOOGLE_SERVICE_ACCOUNT_EMAIL=movin-550@movin-501211.iam.gserviceaccount.com
 GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY=
 ANALYTICS_DASHBOARD_TOKEN=
 ```
 
-Der Google Service Account muss in der GA4 Property Leserechte erhalten. `ANALYTICS_DASHBOARD_TOKEN` ist der interne Zugriffscode fuer die Dashboard-Seite.
+Der Google Service Account muss in der GA4 Property Leserechte erhalten. Zusaetzlich muss im Google-Cloud-Projekt `movin-501211` die Google Analytics Data API aktiviert sein. `ANALYTICS_DASHBOARD_TOKEN` ist der interne Zugriffscode fuer die Dashboard-Seite.
 
 ## Qualitaetschecks
 

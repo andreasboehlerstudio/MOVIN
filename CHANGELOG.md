@@ -2,6 +2,26 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.7] - 2026-07-03
+
+### Release-Status
+- Patch-Release fuer Social Preview, Trainings-Hero und weitere GA4-Dashboard-Konfiguration.
+
+### Social Preview und Training
+- Globales Social-/WhatsApp-Previewbild auf das neue Mareike/MOVIN-Motiv umgestellt.
+- Open-Graph-Bild weiterhin als optimiertes 1200x630 JPEG unter `/og-image.jpg` bereitgestellt.
+- Alt-Text der Social-Metadaten auf "MOVIN Physiotherapie innovativ bewegt" angepasst.
+- Dasselbe Motiv als eigenes optimiertes WebP fuer den Hero Header der Trainingsseite erzeugt.
+- Trainingsseite auf das neue Hero-Bild umgestellt und als Preload-Bild hinterlegt.
+
+### Analytics Dashboard
+- GA4 Property ID `543894426` in README und `.env.example` dokumentiert.
+- Service-Account-E-Mail `movin-550@movin-501211.iam.gserviceaccount.com` in README und `.env.example` dokumentiert.
+- Hinweis ergaenzt, dass im Google-Cloud-Projekt `movin-501211` die Google Analytics Data API aktiviert sein muss.
+
+### Validierung
+- `npm run build` erfolgreich.
+
 ## [1.1.6] - 2026-07-02
 
 ### Release-Status

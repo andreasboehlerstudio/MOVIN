@@ -204,13 +204,14 @@ export default function Training() {
         title="Training & Bewegung Freiburg | MTT, Senso Pro, Skill Court | MOVIN"
         description="Medizinisches Training in Freiburg: MTT, Senso Pro, Skill Court, Return to Work/Sport/Competition und T-RENA Nachsorge mit therapeutischer Qualität."
         schema={schema}
+        preloadImage="/images/training/training-hero-mareike-2026.webp"
       />
 
       {/* Hero */}
       <section className="relative h-[65vh] min-h-[500px] flex items-center bg-secondary overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/training/training-hero-original-logo-2026.webp"
+            src="/images/training/training-hero-mareike-2026.webp"
             alt="MOVIN Therapeutin im medizinischen Trainingsbereich"
             decoding="async"
             className="w-full h-full object-cover opacity-80"
