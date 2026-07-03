@@ -592,14 +592,13 @@ startxref
 
           <div className="mt-12 bg-secondary rounded-[2rem] p-8 md:p-10 text-white">
             <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Tätigkeitsfelder</span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
               {[
                 'Ambulante Versorgung & Sportphysiotherapie',
                 'Funktional- und Gerätetraining',
                 'Stationäre Versorgung',
                 'Rezeption / Verwaltung',
-                'Professionelle Beratung außerhalb des Gesundheitssystems',
-                'Studienleitung Physiotherapie'
+                'Professionelle Beratung außerhalb des Gesundheitssystems'
               ].map((field) => (
                 <div key={field} className="bg-white/5 border border-white/10 rounded-xl p-4 text-sm font-bold text-blue-tint">
                   {field}
@@ -1088,7 +1087,7 @@ startxref
                         value={formData.name}
                         onChange={handleInputChange}
                         className="w-full pl-11 pr-4 py-3 rounded-xl border border-border focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary bg-light text-sm font-semibold"
-                        placeholder="z.B. Mara Schöneck"
+                        placeholder="Vorname Nachname"
                       />
                     </div>
                   </div>
@@ -1125,7 +1124,7 @@ startxref
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="w-full pl-11 pr-4 py-3 rounded-xl border border-border focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary bg-light text-sm font-semibold"
-                        placeholder="z.B. +49 176 12345678"
+                        placeholder="z.B. +49 000 0000000"
                       />
                     </div>
                   </div>

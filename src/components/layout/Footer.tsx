@@ -101,7 +101,6 @@ export default function Footer() {
               <li><Link to="/leistungen/krankengymnastik/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Krankengymnastik</Link></li>
               <li><Link to="/leistungen/manuelle-therapie/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Manuelle Therapie</Link></li>
               <li><Link to="/leistungen/sportphysiotherapie/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Sportphysiotherapie</Link></li>
-              <li><Link to="/leistungen/knie-schulter-therapie/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Knie- & Schulter</Link></li>
               <li><Link to="/leistungen/lymphdrainage/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Lymphdrainage</Link></li>
               <li><Link to="/leistungen/betriebliche-gesundheitsfoerderung/" className="text-blue-tint/80 hover:text-primary transition-colors text-sm">Betriebliche Gesundheitsförderung (BGF)</Link></li>
               <li><Link to="/leistungen/" className="text-primary hover:text-white transition-colors text-sm font-medium mt-2 inline-block">Alle Leistungen ansehen &rarr;</Link></li>

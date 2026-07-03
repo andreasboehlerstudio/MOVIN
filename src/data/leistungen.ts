@@ -57,7 +57,7 @@ export const leistungenData = {
     seoDesc: 'Sanfte Manuelle Lymphdrainage in Freiburg. Entstauungstherapie nach Operationen, bei Lipödem oder Sportverletzungen. Schnelle Termine!',
     heroImage: '/images/leistungen/lymphdrainage-hero-nano-banana-2-v3.webp',
     heroImageCaption: 'KI-generiertes Symbolbild',
-    description: 'Eine sanfte Form der physikalischen Therapie, die den Abtransport von Gewebeflüssigkeit fördert und das Lymphsystem aktiviert. Wir setzen die Lymphdrainage gezielt nach Operationen oder Verletzungen ein, um Schwellungen zu reduzieren. Die Entstauung bildet die Basis, damit Sie schneller wieder schmerzfrei in Ihre aktiven Bewegungsmuster zurückkehren können.',
+    description: 'Eine sanfte Form der physikalischen Therapie, die den Abtransport von Gewebeflüssigkeit fördert und das Lymphsystem aktiviert. Wir setzen die Lymphdrainage gezielt nach Operationen oder Verletzungen ein, um Schwellungen zu reduzieren. Eine Lymphdrainage kann auch durch gezielte Aktivität (Kontraktion) angeleitet werden und muss nicht nur passiv erfolgen.',
     benefits: [
       'Schnellere Regeneration nach Verletzungen oder OPs',
       'Sichtbare Reduktion von Ödemen und Schwellungen',
@@ -83,7 +83,7 @@ export const leistungenData = {
     seoTitle: 'Personal Training Freiburg | MOVIN',
     seoDesc: 'Exklusives Personal Training in Freiburg. Individuelle Betreuung für maximale Erfolge. Jetzt Probetraining vereinbaren!',
     heroImage: '/images/leistungen/personal-training-hero.jpg',
-    description: 'Hochqualifiziertes Personal Training auf Selbstzahlerbasis für eine nachhaltige Gesundheit. Wir erstellen Ihnen einen individuellen Trainingsplan, der auf Ihre Ziele (z.B. Arthrosemanagement oder Fitness) abgestimmt ist. Wir begleiten Sie intensiv und berücksichtigen Ihre persönlichen Kontextfaktoren für maximalen Erfolg.',
+    description: 'Hochqualifiziertes Personal Training auf Selbstzahlerbasis für eine nachhaltige Gesundheit. Wir erstellen Ihnen einen individuellen Trainingsplan, der auf Ihre Ziele abgestimmt ist. Wir begleiten Sie intensiv und berücksichtigen Ihre persönlichen Kontextfaktoren für maximalen Erfolg.',
     benefits: [
       'Training unter fachkundiger, therapeutischer Aufsicht',
       '100% Fokus auf Sie und Ihre Ziele',
@@ -95,7 +95,7 @@ export const leistungenData = {
     title: 'Skillcourt Training',
     seoTitle: 'Skillcourt Training Freiburg | MOVIN',
     seoDesc: 'Innovatives Gehirntraining durch Bewegung in Freiburg. Steigern Sie Ihre kognitive Leistung mit Skillcourt bei MOVIN.',
-    heroImage: '/images/training/skillcourt-reha-stability-test-mann.webp',
+    heroImage: '/images/standorte/mooswald/mooswald-skillcourt-20260622-enhanced-bold.webp',
     description: 'Ein innovatives, videomotorisches Training, das kognitive Leistungsfähigkeit mit motorischen Bewegungen verknüpft. Mit dem Skillcourt trainieren wir Reaktionsschnelligkeit und Wahrnehmung unter körperlicher Belastung. Es ist ein moderner Baustein, um Sie mental und physisch auf komplexe Alltagsanforderungen vorzubereiten.',
     benefits: [
       'Verbesserung der Konzentrationsfähigkeit',

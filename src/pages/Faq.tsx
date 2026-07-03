@@ -77,6 +77,14 @@ export default function Faq() {
         {
           question: "Wo kann ich die MOVIN-App für mein Training und die Therapie herunterladen?",
           answer: "Unsere App ist komplett kostenlos und steht im Apple App Store (für iOS) sowie im Google Play Store (für Android) unter dem Suchbegriff „Movin innovativ bewegt“ zum Download bereit. Die App verbindet Sie direkt mit Ihren Therapeut*innen und Ihren persönlichen Trainingsdaten."
+        },
+        {
+          question: "Wie sind die Öffnungszeiten der MOVIN Standorte?",
+          answer: "Lorettoberg:\nMontag bis Donnerstag 7:30 bis 20:00 Uhr\nFreitag 8:00 bis 16:00 Uhr\n\nMooswald:\nMontag bis Donnerstag 8:00 bis 20:00 Uhr\nFreitag 8:00 bis 16:00 Uhr\n\nEuropa-Park Rust:\nMittwoch 8:00 bis 16:30 Uhr\nDonnerstag 10:00 bis 18:30 Uhr\nFreitag 8:00 bis 16:00 Uhr"
+        },
+        {
+          question: "Kann ich bei MOVIN in Rust auch als externer Patient behandelt werden?",
+          answer: "Der Standort Europa-Park Rust ist in erster Linie auf die Mitarbeitenden des Europa-Park sowie umliegende Betriebe ausgerichtet. Aufgrund der besonderen Öffnungszeiten und begrenzten Kapazitäten empfehlen wir externen Patientinnen und Patienten, vorab telefonisch bei uns anzufragen, ob ein Termin möglich ist."
         }
       ]
     },
@@ -91,11 +99,11 @@ export default function Faq() {
         },
         {
           question: "Kann ich auch als Privatpatient oder Selbstzahler zu MOVIN kommen?",
-          answer: "Selbstverständlich. Wir behandeln Privatpatienten aller Kassen sowie Beihilfeversicherte. Wenn Sie als gesetzlich versicherter Patient ohne Rezept etwas für Ihre Gesundheit tun möchten, können Sie unsere Leistungen auch als Selbstzahler in Anspruch nehmen."
+          answer: "Selbstverständlich. Wir behandeln Privatpatienten aller Kassen sowie Beihilfeversicherte. Sie brauchen in Deutschland allerdings für Physiotherapie immer eine Heilmittelverordnung. Als Selbstzahler bieten wir Ihnen Angebote im Bereich Personal Training, Gerätetraining, Functional Training, Skillcourt Training und Senso Pro an."
         },
         {
           question: "Brauche ich für die Physiotherapie zwingend ein ärztliches Rezept?",
-          answer: "Wenn die Behandlung über die gesetzliche oder private Krankenkasse abgerechnet werden soll, ist ein ärztliches Rezept (vom Hausarzt, Orthopäden, Zahnarzt etc.) zwingend erforderlich. Dieses sollte idealerweise nicht älter als 28 Tage sein."
+          answer: "Ja. Wenn die Behandlung über die gesetzliche oder private Krankenkasse abgerechnet werden soll, ist ein ärztliches Rezept (vom Hausarzt, Orthopäden, Zahnarzt etc.) zwingend erforderlich. Dieses sollte bei Kassenpatienten idealerweise nicht älter als 28 Tage sein."
         },
         {
           question: "Was passiert, wenn ich ein Rezept von einem Freiburger Arzt habe – wie schnell bekomme ich einen Termin?",
@@ -150,6 +158,14 @@ export default function Faq() {
         {
           question: "Was passiert, wenn ich einen Termin absagen muss?",
           answer: "Wir führen unsere Praxen nach einem strikten Bestellsystem, um Wartezeiten für Sie zu vermeiden. Sollten Sie einen Termin einmal nicht wahrnehmen können, sagen Sie diesen bitte mindestens 24 Stunden vorher telefonisch oder per E-Mail aus. Nicht rechtzeitig abgesagte Termine müssen wir Ihnen leider privat in Rechnung stellen, da wir den Zeitraum exklusiv für Sie reserviert haben."
+        },
+        {
+          question: "Behandelt MOVIN auch Kinder und Jugendliche?",
+          answer: "Ja, auf Anfrage behandeln wir auch Kinder und Jugendliche. Bitte kontaktieren Sie uns vorab telefonisch oder per Mail, damit wir prüfen können, ob wir Ihrem Kind die passende Betreuung anbieten können."
+        },
+        {
+          question: "Bietet MOVIN auch Hausbesuche an?",
+          answer: "Hausbesuche sind bei MOVIN in Ausnahmefällen und nach individueller Absprache möglich. Bitte wenden Sie sich hierfür direkt an unser Empfangsteam, damit wir Ihre Anfrage prüfen können."
         }
       ]
     },
@@ -172,7 +188,7 @@ export default function Faq() {
         },
         {
           question: "Welche Beschwerdebilder werden bei MOVIN primär behandelt?",
-          answer: "Wir behandeln das gesamte Spektrum orthopädischer, traumatologischer und chirurgischer Beschwerden. Dazu gehören z.B. akute und chronische Rückenschmerzen (Bandscheibenvorfälle, Hexenschuss), Sportverletzungen (Kreuzbandrisse, Muskelverletzungen), Arthrose in Hüfte und Knie, Haltungsschäden sowie die Rehabilitation nach dem Einsatz von künstlichen Gelenken (TEP). Die gesamte Breite also der therapeutischen Versorgung."
+          answer: "Wir behandeln das gesamte Spektrum orthopädischer, traumatologischer und chirurgischer Beschwerden. Dazu gehören z. B. akute und chronische Rückenschmerzen (Bandscheibenvorfälle, Hexenschuss), traumatische Sportverletzungen (Kreuzbandrisse, Muskelverletzungen), Arthrose, Haltungsschäden, muskuläre Dysbalancen, Kraftdefizite, Funktionseinschränkungen, Schmerzen allgemein sowie die Rehabilitation nach Frakturen, Verletzungen oder postoperativen Eingriffen. Die gesamte Breite also der therapeutischen Versorgung."
         },
         {
           question: "Bietet MOVIN auch präventive Leistungen und Kurse an?",
@@ -190,8 +206,8 @@ export default function Faq() {
           answer: "Ja, absolut. MOVIN deckt das gesamte Spektrum der klassischen und erweiterten physiotherapeutischen Kassenleistungen ab. Unsere Therapeuten besitzen alle notwendigen Zusatzqualifikationen und staatlich anerkannten Zertifikate. Sie können jedes dieser Rezepte an unseren Standorten in Freiburg (Wiehre & Mooswald) sowie in Rust einlösen."
         },
         {
-          question: "Wo in Freiburg can ich ein Rezept für Manuelle Lymphdrainage (MLD) einlösen?",
-          answer: "Wenn Ihnen Ihr Arzt eine Manuelle Lymphdrainage (z. B. nach einer Operation, Sportverletzung oder bei primären/sekundären Lymphödemen) verordnet hat, sind Sie bei MOVIN in besten Händen. Unsere zertifizierten Therapeuten beherrschen die präzisen Grifftechniken zur Entstauung des Gewebes."
+          question: "Wo in Freiburg kann ich ein Rezept für Manuelle Lymphdrainage (MLD) einlösen?",
+          answer: "Wenn Ihnen Ihr Arzt eine Manuelle Lymphdrainage (z. B. nach einer Operation, Sportverletzung oder bei primären/sekundären Lymphödemen) verordnet hat, sind Sie bei MOVIN in besten Händen. Sie können auch auf Selbstzahlerbasis unseren Lymphstim selbstständig nutzen, für Lymphdrainage, Regeneration nach dem Sport oder nach anderen Aktivitäten."
         },
         {
           question: "Welcher MOVIN Standort in Freiburg eignet sich am besten für Krankengymnastik am Gerät (KGG)?",
@@ -251,6 +267,42 @@ export default function Faq() {
         "text": faq.answer
       }
     }))
+  };
+
+  const renderFaqAnswer = (faq: { question: string; answer: string }) => {
+    if (faq.question === "Wie sind die Öffnungszeiten der MOVIN Standorte?") {
+      const locations = [
+        {
+          name: 'Lorettoberg',
+          hours: ['Montag bis Donnerstag: 7:30 bis 20:00 Uhr', 'Freitag: 8:00 bis 16:00 Uhr']
+        },
+        {
+          name: 'Mooswald',
+          hours: ['Montag bis Donnerstag: 8:00 bis 20:00 Uhr', 'Freitag: 8:00 bis 16:00 Uhr']
+        },
+        {
+          name: 'Europa-Park Rust',
+          hours: ['Mittwoch: 8:00 bis 16:30 Uhr', 'Donnerstag: 10:00 bis 18:30 Uhr', 'Freitag: 8:00 bis 16:00 Uhr']
+        }
+      ];
+
+      return (
+        <div className="space-y-5">
+          {locations.map((location) => (
+            <div key={location.name} className="rounded-2xl bg-white/70 border border-border/70 p-4">
+              <p className="font-black text-secondary mb-2">{location.name}</p>
+              <div className="space-y-1.5">
+                {location.hours.map((hour) => (
+                  <p key={hour} className="text-dark/80">{hour}</p>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    return <p className="whitespace-pre-line">{faq.answer}</p>;
   };
 
   return (
@@ -421,7 +473,7 @@ export default function Faq() {
                           } overflow-hidden`}
                         >
                           <div className="px-6 pb-6 pt-2 text-sm text-dark/80 leading-relaxed border-t border-border/40 mt-1">
-                            {faq.answer}
+                            {renderFaqAnswer(faq)}
                           </div>
                         </div>
                       </div>

@@ -258,7 +258,7 @@ export default function DigitalApp() {
             transition={{ duration: 0.5, delay: 0.45 }}
             className="flex flex-wrap gap-3"
           >
-            {['Rezepte', 'Training', 'Schmerztagebuch'].map((item) => (
+            {['Rezepte', 'Training', 'Kontextfaktoren'].map((item) => (
               <span key={item} className="rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-bold text-blue-tint backdrop-blur">
                 {item}
               </span>
@@ -273,7 +273,7 @@ export default function DigitalApp() {
           >
             <div className="absolute inset-[10%] rounded-full bg-primary/15 blur-3xl" />
             <img
-              src="/images/movin-app/iphone-mockup-home.webp"
+              src="/images/movin-app/iphone-mockup-home-20260703.webp"
               alt="MOVIN App Screens auf iPhone Mockups"
               className="relative z-10 w-full max-w-[720px] object-contain drop-shadow-[0_34px_80px_rgba(0,0,0,0.42)]"
               fetchPriority="high"

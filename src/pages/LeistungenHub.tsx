@@ -60,7 +60,7 @@ export default function LeistungenHub() {
       path: '/leistungen/lymphdrainage/',
       category: 'Physiotherapie',
       area: 'Gewebe',
-      tags: ['Hands-On', 'Post OP'],
+      tags: ['Hands On', 'Hands Off'],
       icon: Droplet
     },
     { 

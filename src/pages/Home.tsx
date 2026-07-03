@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from 'react-router';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { Activity, MapPin, Brain, Clock, ArrowRight, Star, Smartphone, PlayCircle, Calendar, ArrowDown, ClipboardList, HelpCircle, ChevronDown, ChevronUp, HeartPulse, Hand, Trophy, Dumbbell, ShieldCheck, ExternalLink } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
@@ -40,6 +40,14 @@ const googleReviewProfiles = [
 export default function Home() {
   const years = getYearsOfExperience();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const appVisualRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+  const { scrollYProgress: appScrollProgress } = useScroll({
+    target: appVisualRef,
+    offset: ['start end', 'end start'],
+  });
+  const appVisualY = useTransform(appScrollProgress, [0, 1], [42, -42]);
+  const appVisualRotate = useTransform(appScrollProgress, [0, 1], [-1.5, 1.5]);
 
   const schema = {
     "@context": "https://schema.org",
@@ -355,17 +363,36 @@ export default function Home() {
               </ul>
               <Link to="/digital/" className="btn-primary">Die App entdecken</Link>
             </div>
-            <div className="lg:w-[56%] relative flex justify-center">
+            <motion.div ref={appVisualRef} className="lg:w-[56%] relative flex justify-center">
               <div className="absolute inset-[8%] bg-[radial-gradient(circle_at_55%_45%,rgba(96,195,205,0.30),rgba(178,234,214,0.13)_36%,transparent_70%)] blur-3xl rounded-full" />
               <div className="absolute left-1/2 top-1/2 h-40 w-[78%] -translate-x-1/2 -translate-y-1/2 rotate-[-11deg] rounded-full bg-primary/10 blur-2xl" />
-              <img 
-                src="/images/movin-app/iphone-mockup-home.webp" 
-                alt="MOVIN App Screens auf iPhone Mockups" 
-                className="relative z-10 w-full max-w-[700px] transition-transform duration-500 hover:scale-[1.02]"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
+              <motion.div
+                className="relative z-10 w-full max-w-[760px]"
+                style={{
+                  y: shouldReduceMotion ? 0 : appVisualY,
+                  rotate: shouldReduceMotion ? 0 : appVisualRotate,
+                }}
+              >
+                <motion.img
+                  src="/images/movin-app/iphone-mockup-home-20260703.webp"
+                  alt="MOVIN App Screens auf iPhone Mockups"
+                  className="w-full drop-shadow-[0_28px_90px_rgba(0,0,0,0.38)] transition-transform duration-500 hover:scale-[1.02]"
+                  loading="lazy"
+                  decoding="async"
+                  animate={shouldReduceMotion ? undefined : {
+                    y: [0, -18, -4, 10, 0],
+                    x: [0, 7, 0, -6, 0],
+                    rotate: [0, 0.7, 0.15, -0.55, 0],
+                    scale: [1, 1.01, 1.004, 1.012, 1],
+                  }}
+                  transition={shouldReduceMotion ? undefined : {
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                />
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>

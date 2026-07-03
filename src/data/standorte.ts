@@ -241,7 +241,7 @@ export const standorteData: Record<string, Standort> = {
     gallery: [
       '/images/standorte/mooswald/mooswald-training-raum-20260622.webp',
       '/images/standorte/mooswald/mooswald-training-track-20260622.webp',
-      '/images/standorte/mooswald/mooswald-skillcourt-20260622.webp',
+      '/images/standorte/mooswald/mooswald-skillcourt-20260622-enhanced-bold.webp',
       '/images/standorte/mooswald/mooswald-gallery-3.webp',
       '/images/standorte/mooswald/mooswald-praxisflur-20260622.webp',
       '/images/standorte/mooswald/mooswald-gallery-1.webp'

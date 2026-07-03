@@ -293,10 +293,10 @@ export default function DigitalKi() {
             <div className="lg:col-span-5">
               <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Mensch und Technologie</span>
               <h3 className="text-2xl md:text-3xl font-bold text-secondary mb-4">
-                KI begleitet leise im Hintergrund.
+                Der Mensch bleibt im Mittelpunkt.
               </h3>
               <p className="text-dark/75 text-sm md:text-base leading-relaxed mb-6">
-                Das Motiv greift die zentralen Gedanken der bisherigen KI-Seite neu auf: Zukunft, Fokus Mensch und Datenschutz. Die therapeutische Entscheidung bleibt persönlich, während digitale Analyse Informationen strukturiert und Abläufe entlastet.
+                KI unterstützt im Hintergrund. Unsere therapeutischen Entscheidungen basieren auf persönlicher Beziehung, biopsychosozialer Analyse und klinischer Erfahrung. Die KI strukturiert Informationen, entlastet Abläufe und schützt dabei Ihre Daten transparent und sicher.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="flex items-start gap-3 text-sm text-dark/75">

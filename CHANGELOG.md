@@ -2,6 +2,39 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.8] - 2026-07-03
+
+### Release-Status
+- Patch-Release fuer die aktuelle Kundenkorrekturrunde nach Version 1.1.7.
+
+### Inhalte und Navigation
+- FAQ-Seite erweitert und aktualisiert: Privatpatienten/Selbstzahler, Rezeptpflicht, Beschwerdebilder, Manuelle Lymphdrainage, Kinder/Jugendliche, Hausbesuche, Oeffnungszeiten und externe Patientinnen und Patienten in Rust.
+- Oeffnungszeiten auf der FAQ-Seite je Standort klarer getrennt dargestellt.
+- Knie-/Schulter-Leistung aus Hauptnavigation und Footer entfernt, da diese Leistung nicht mehr gefuehrt wird.
+- WhatsApp-Floating-CTA auf die neue Nummer `+49 1523 8060473` umgestellt.
+
+### MOVIN App und KI-Physiotherapie
+- Neues MOVIN-App-iPhone-Mockup als optimiertes WebP abgelegt und auf Startseite sowie MOVIN-App-Unterseite eingebunden.
+- MOVIN-App-Bild auf der Startseite mit dezenter Scroll- und Floating-Animation versehen.
+- MOVIN-App-Stichpunkt im Hero von "Schmerztagebuch" auf "Kontextfaktoren" geaendert.
+- KI-Physiotherapie-Abschnitt "Mensch und Technologie" textlich ueberarbeitet und Ueberschrift auf "Der Mensch bleibt im Mittelpunkt." geaendert.
+
+### Leistungen und Training
+- Personal-Training-Beschreibung bereinigt und Klammerzusatz entfernt.
+- Manuelle Lymphdrainage: Checkpunkte auf "Hands On" und "Hands Off" umgestellt.
+- Manuelle-Lymphdrainage-Beschreibung um den aktiven Ansatz durch gezielte Aktivitaet/Kontraktion ergaenzt.
+- Training: Y-Balance-Test-Bild zu "Return to Work / Sport / Competition" verschoben.
+- Skillcourt wieder mit dem passenden Skillcourt-Bild bebildert.
+- Skillcourt-Bild als kraeftigere WebP-Variante mit mehr Kontrast, Farbe und Schaerfe neu abgelegt und eingebunden.
+
+### Karriere
+- "Studienleitung Physiotherapie" aus den Taetigkeitsfeldern entfernt und Grid wieder auf fuenf Felder angepasst.
+- Bewerbungsformular mit neutralen Platzhaltern fuer Name und Telefonnummer versehen.
+
+### Validierung
+- `npm run lint` erfolgreich.
+- `npm run build` erfolgreich.
+
 ## [1.1.7] - 2026-07-03
 
 ### Release-Status

@@ -33,7 +33,6 @@ export default function Header() {
         { name: 'Krankengymnastik', path: '/leistungen/krankengymnastik' },
         { name: 'Manuelle Therapie', path: '/leistungen/manuelle-therapie' },
         { name: 'Sportphysiotherapie', path: '/leistungen/sportphysiotherapie' },
-        { name: 'Knie- & Schulter', path: '/leistungen/knie-schulter-therapie' },
         { name: 'Lymphdrainage', path: '/leistungen/lymphdrainage' },
         { name: 'BGF (Betriebe)', path: '/leistungen/betriebliche-gesundheitsfoerderung' },
         { name: 'Prävention', path: '/leistungen/praevention-gesundheitsfoerderung' },

@@ -96,8 +96,8 @@ export default function Training() {
         '§20-Präventionskurs online kaufen und 8 Wochen absolvieren',
         '80-100 % Kostenerstattung durch die Krankenkasse, danach 3 Monate kostenlos weiter trainieren'
       ],
-      image: '/images/training/skillcourt-reha-stability-test-mann.webp',
-      imageAlt: 'Skillcourt Stability Test mit Reaktionstraining',
+      image: '/images/standorte/mooswald/mooswald-skillcourt-20260622-enhanced-bold.webp',
+      imageAlt: 'Skillcourt Trainingsfläche mit visuellen und kognitiven Reizen',
       infoTitle: 'Besonderheit §20',
       info: 'Der Präventionsweg ist besonders attraktiv: Kurs buchen, acht Wochen Training absolvieren, Erstattung bei der Krankenkasse einreichen und anschließend drei Monate kostenlos weiter trainieren.',
       badge: '§20 möglich'
@@ -114,8 +114,8 @@ export default function Training() {
         'Return to Competition: umfangreichere Testung für hohe sportliche Anforderungen',
         'Zertifikat und Auswertung als Entscheidungshilfe für den nächsten Schritt'
       ],
-      image: '/images/standorte/mooswald/mooswald-gallery-6.webp',
-      imageAlt: 'Therapeutisch begleitetes Training bei MOVIN',
+      image: '/images/training/skillcourt-reha-stability-test-mann.webp',
+      imageAlt: 'Y-Balance Test zur sicheren Rückführung in Arbeit, Sport und Wettkampf',
       infoTitle: 'Drei Stufen, passender Aufwand',
       info: 'Je nach Ziel unterscheiden sich Testumfang und Zeitaufwand. Return to Sport orientiert sich an der bestehenden Analyse von ca. 75 Minuten; Work und Competition werden passend zum Belastungsprofil geplant.',
       badge: 'Work, Sport, Competition'
@@ -422,7 +422,7 @@ export default function Training() {
               <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-secondary shadow-xl">
                 <video
                   src="/videos/training/skillcourt-in-action-02-quer.mp4"
-                  poster="/images/training/skillcourt-reha-stability-test-mann.webp"
+                  poster="/images/standorte/mooswald/mooswald-skillcourt-20260622-enhanced-bold.webp"
                   className="w-full aspect-video object-cover"
                   controls
                   playsInline

@@ -17,14 +17,24 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.7`
-- Letzter Release-Tag: `v1.1.7`
+- Aktuelle Version: `1.1.8`
+- Letzter Release-Tag: `v1.1.8`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.8] - 2026-07-03
+
+- FAQ-Seite mit neuen und aktualisierten Antworten zu Rezeptpflicht, Selbstzahlern, Beschwerdebildern, MLD, Kindern/Jugendlichen, Hausbesuchen, Oeffnungszeiten und Rust ergaenzt.
+- MOVIN-App-Mockup aktualisiert und auf der Startseite mit Scroll-/Floating-Animation versehen.
+- KI-Physiotherapie-Abschnitt "Mensch und Technologie" ueberarbeitet.
+- Leistungsseite bereinigt: Knie-/Schulter-Verweise entfernt, Lymphdrainage-Texte und Checkpunkte aktualisiert, Personal-Training-Text bereinigt.
+- Training korrigiert: Y-Balance-Test-Bild zu Return to Work/Sport/Competition verschoben, Skillcourt-Bild wiederhergestellt und optisch kraeftiger bearbeitet.
+- Karriereseite bereinigt: Taetigkeitsfelder wieder auf fuenf reduziert und Bewerbungsformular-Platzhalter neutralisiert.
+- WhatsApp-CTA auf die neue Mobilnummer umgestellt.
 
 ### [1.1.7] - 2026-07-03
 
