@@ -96,8 +96,8 @@ export default function Training() {
         '§20-Präventionskurs online kaufen und 8 Wochen absolvieren',
         '80-100 % Kostenerstattung durch die Krankenkasse, danach 3 Monate kostenlos weiter trainieren'
       ],
-      image: '/images/standorte/mooswald/mooswald-skillcourt-20260622-enhanced-bold.webp',
-      imageAlt: 'Skillcourt Trainingsfläche mit visuellen und kognitiven Reizen',
+      image: '/images/training/skillcourt-dual-task-mann-original.webp',
+      imageAlt: 'Skillcourt Dual-Task-Training mit visuellen und kognitiven Reizen',
       infoTitle: 'Besonderheit §20',
       info: 'Der Präventionsweg ist besonders attraktiv: Kurs buchen, acht Wochen Training absolvieren, Erstattung bei der Krankenkasse einreichen und anschließend drei Monate kostenlos weiter trainieren.',
       badge: '§20 möglich'
@@ -422,7 +422,7 @@ export default function Training() {
               <div className="overflow-hidden rounded-[2rem] border border-border/80 bg-secondary shadow-xl">
                 <video
                   src="/videos/training/skillcourt-in-action-02-quer.mp4"
-                  poster="/images/standorte/mooswald/mooswald-skillcourt-20260622-enhanced-bold.webp"
+                  poster="/images/training/skillcourt-dual-task-mann-original.webp"
                   className="w-full aspect-video object-cover"
                   controls
                   playsInline

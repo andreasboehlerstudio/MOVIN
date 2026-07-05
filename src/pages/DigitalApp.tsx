@@ -376,7 +376,7 @@ export default function DigitalApp() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             {/* Features Navigation List & Details (Desktop Column / Mobile Stack) */}
-            <div className="lg:col-span-7 flex flex-col gap-3 max-h-[720px] lg:overflow-y-auto lg:pr-4 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
+            <div className="lg:col-span-7 flex flex-col gap-3 lg:max-h-[720px] lg:overflow-y-auto lg:pr-4 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
               {appFeatures.map((feature) => {
                 const isSelected = activeId === feature.id;
                 const IconComponent = feature.icon;

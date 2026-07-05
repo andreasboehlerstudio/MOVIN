@@ -90,6 +90,14 @@ export const standorteData: Record<string, Standort> = {
         ]
       }
     ],
+    video: {
+      embedUrl: 'https://www.youtube-nocookie.com/embed/FaoaNoCfdto?rel=0',
+      watchUrl: 'https://www.youtube.com/watch?v=FaoaNoCfdto',
+      title: 'MOVIN Standort Lorettoberg Video',
+      eyebrow: 'Einblick Lorettoberg',
+      heading: 'MOVIN am Lorettoberg erleben',
+      description: 'Das Video zeigt den Standort Lorettoberg mit Therapie, Training und der besonderen Lage direkt am Lorettoberg.'
+    },
     team: [
       {
         name: 'Prof. Dr. med. Martin Klein',
@@ -273,8 +281,8 @@ export const standorteData: Record<string, Standort> = {
       }
     ],
     video: {
-      embedUrl: 'https://www.youtube-nocookie.com/embed/p0XnVjgkomQ?rel=0',
-      watchUrl: 'https://www.youtube.com/watch?v=p0XnVjgkomQ',
+      embedUrl: 'https://www.youtube-nocookie.com/embed/pxoNNSfE8Zw?rel=0',
+      watchUrl: 'https://www.youtube.com/watch?v=pxoNNSfE8Zw',
       title: 'MOVIN Standort Mooswald Video',
       eyebrow: 'Einblick Mooswald',
       heading: 'Boutique-Physiotherapie in Bewegung erleben',
@@ -427,6 +435,14 @@ export const standorteData: Record<string, Standort> = {
         ]
       }
     ],
+    video: {
+      embedUrl: 'https://www.youtube-nocookie.com/embed/Yy5iKJN60mY?rel=0',
+      watchUrl: 'https://www.youtube.com/watch?v=Yy5iKJN60mY',
+      title: 'MOVIN Standort Europa-Park Rust Video',
+      eyebrow: 'Einblick Europa-Park Rust',
+      heading: 'MOVIN am Europa-Park erleben',
+      description: 'Das Video gibt einen Eindruck vom Standort am Europa-Park Rust und der physiotherapeutischen Betreuung in diesem besonderen Umfeld.'
+    },
     team: [
       {
         name: 'Daniel Klein',

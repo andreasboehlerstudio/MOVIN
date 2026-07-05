@@ -2,6 +2,28 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.9] - 2026-07-05
+
+### Release-Status
+- Patch-Release fuer Standortvideos, mobile App-Darstellung und Skillcourt-Bildauswahl.
+
+### Standorte
+- Neue YouTube-Videos fuer Lorettoberg, Mooswald und Europa-Park Rust in die Standortseiten eingebunden.
+- Mooswald-Video durch den neuen Kundenlink ersetzt.
+- Lorettoberg und Europa-Park Rust um denselben DSGVO-konformen Video-Block erweitert.
+
+### MOVIN App
+- Mobile Darstellung im Bereich "Die App in Aktion" korrigiert.
+- Desktop-Hoehenbegrenzung der Feature-Liste nur noch ab Desktop-Breakpoint aktiv, damit das Handyvideo auf Mobile nicht mehr abgeschnitten wird.
+
+### Training
+- Skillcourt-Bild auf der Trainingsseite auf das originale Kundenmotiv "dual-task-mann" umgestellt.
+- Neues optimiertes WebP fuer das Skillcourt-Originalbild erzeugt und auch als Skillcourt-Video-Poster verwendet.
+
+### Validierung
+- `npm run lint` erfolgreich.
+- `npm run build` erfolgreich.
+
 ## [1.1.8] - 2026-07-03
 
 ### Release-Status

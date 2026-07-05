@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.8`
-- Letzter Release-Tag: `v1.1.8`
+- Aktuelle Version: `1.1.9`
+- Letzter Release-Tag: `v1.1.9`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.9] - 2026-07-05
+
+- Neue Standortvideos fuer Lorettoberg, Mooswald und Europa-Park Rust DSGVO-konform eingebunden.
+- Mobile Darstellung im MOVIN-App-Bereich "Die App in Aktion" korrigiert, damit das Handyvideo nicht mehr abgeschnitten wird.
+- Skillcourt-Bild auf der Trainingsseite auf das originale Kundenmotiv umgestellt und als optimiertes WebP eingebunden.
 
 ### [1.1.8] - 2026-07-03
 
