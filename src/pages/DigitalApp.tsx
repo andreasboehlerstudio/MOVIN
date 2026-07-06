@@ -644,11 +644,11 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
 
   if (isStaticImage) {
     return (
-      <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] select-none">
+      <div className="relative mx-auto flex w-full max-w-[340px] select-none justify-center sm:max-w-[380px] md:max-w-[420px]">
         <img
           src="/images/telemedizin_soon-1.png"
           alt="Telemedizin Coming Soon"
-          className="w-full h-auto rounded-[2.5rem] bg-transparent z-0 block shadow-md border border-neutral-100"
+          className="block h-auto max-h-[70vh] w-auto max-w-full rounded-[2.5rem] border border-neutral-100 bg-transparent object-contain shadow-md"
           referrerPolicy="no-referrer"
         />
       </div>
@@ -657,7 +657,7 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
 
   if (!currentVideoSrc || videoFailed) {
     return (
-      <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] aspect-[9/16] select-none overflow-hidden rounded-[2.5rem] bg-secondary shadow-sm">
+      <div className="relative mx-auto aspect-[9/16] w-full max-w-[340px] select-none overflow-hidden rounded-[2.5rem] bg-secondary shadow-sm sm:max-w-[348px] lg:max-w-[302px]">
         <img
           src={feature.poster}
           alt={feature.title}
@@ -674,7 +674,7 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] md:max-w-[440px] select-none">
+    <div className="relative mx-auto flex w-full max-w-[340px] select-none justify-center sm:max-w-[380px] md:max-w-[440px]">
       <video
         key={currentVideoSrc}
         ref={videoRef}
@@ -687,7 +687,7 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
         playsInline
         preload="metadata"
         onError={handleVideoError}
-        className="w-full h-auto bg-transparent z-0 block"
+        className="z-0 block h-auto max-h-[70vh] w-auto max-w-full bg-transparent object-contain"
       />
       {playlist.length > 1 && (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full z-10">

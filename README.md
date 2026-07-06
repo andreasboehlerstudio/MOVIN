@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.9`
-- Letzter Release-Tag: `v1.1.9`
+- Aktuelle Version: `1.1.10`
+- Letzter Release-Tag: `v1.1.10`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.10] - 2026-07-06
+
+- MOVIN-App-Feature-Videos responsiv geprueft und die Videodarstellung so angepasst, dass Videos und Fallbacks auf Mobile, Tablet und Desktop proportional bleiben und nicht aus der sichtbaren Hoehe laufen.
+- Ueber-uns-Grafik "Der Mensch im Mittelpunkt" responsiv nachjustiert: mehr Abstand um das Zentrum, keine Bubble-Ueberlappungen und ruhigere Typografie im Zentrum.
 
 ### [1.1.9] - 2026-07-05
 

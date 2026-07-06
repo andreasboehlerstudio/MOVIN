@@ -2,6 +2,27 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.10] - 2026-07-06
+
+### Release-Status
+- Patch-Release fuer responsive Detailkorrekturen an der MOVIN-App-Seite und der Ueber-uns-Philosophie-Grafik.
+
+### MOVIN App
+- Alle Feature-Videos der MOVIN-App-Seite technisch und responsiv gegen Mobile, Tablet und Desktop geprueft.
+- Videoplayer auf proportionale Darstellung mit Hoehenbegrenzung umgestellt, damit Hochformat- und Querformat-Videos nicht mehr aus dem sichtbaren Bereich laufen.
+- Coming-Soon- und Fallback-Darstellungen im App-Feature-Bereich ebenfalls responsiv angeglichen.
+
+### Ueber uns
+- Bubble-Grafik "Der Mensch im Mittelpunkt" fuer Mobile, Tablet und Desktop geprueft.
+- Haupt-Bubbles und Zentrum leicht entzerrt, damit keine Ueberlappungen mehr entstehen.
+- Zentrumstypografie reduziert, damit "Mensch" im Kreis ruhiger und weniger dominant wirkt.
+
+### Validierung
+- Responsive Chrome-Pruefung fuer die MOVIN-App-Videos erfolgreich.
+- Responsive Chrome-Pruefung der Ueber-uns-Bubble-Grafik erfolgreich.
+- `npm run lint` erfolgreich.
+- `npm run build` erfolgreich.
+
 ## [1.1.9] - 2026-07-05
 
 ### Release-Status

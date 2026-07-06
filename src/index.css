@@ -166,9 +166,9 @@
     will-change: transform;
   }
   .philosophy-bubble--quality {
-    left: 34%;
-    top: 4%;
-    width: 32%;
+    left: 35%;
+    top: 3%;
+    width: 30%;
     --bubble-scroll-x: 0px;
     --bubble-scroll-y: var(--philosophy-shift-y-inverse);
   }
@@ -187,9 +187,9 @@
     --bubble-scroll-y: var(--philosophy-shift-y-soft);
   }
   .philosophy-bubble--therapy {
-    left: 34%;
-    bottom: 5%;
-    width: 32%;
+    left: 35%;
+    bottom: 4%;
+    width: 30%;
     --bubble-scroll-x: 0px;
     --bubble-scroll-y: var(--philosophy-shift-y);
   }
@@ -209,16 +209,16 @@
   }
   .philosophy-center {
     @apply absolute left-1/2 top-1/2 z-20 flex aspect-square -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-secondary text-white text-center;
-    width: 25%;
+    width: 24%;
     border: 1px solid rgba(255, 255, 255, 0.24);
     box-shadow: 0 24px 70px rgba(10, 15, 77, 0.28);
     animation: philosophyCenterPulse 6s ease-in-out infinite;
   }
   .philosophy-center span {
-    @apply mb-1 block text-[10px] font-bold uppercase tracking-[0.22em] text-primary-light;
+    @apply mb-1 block text-[9px] font-bold uppercase tracking-[0.22em] text-primary-light;
   }
   .philosophy-center strong {
-    @apply text-2xl lg:text-3xl font-black leading-none;
+    @apply text-xl lg:text-2xl font-black leading-none;
   }
   .philosophy-bubble--light {
     @apply bg-white text-secondary border-primary/20;
