@@ -187,7 +187,7 @@ export default function Termin() {
             <div>
               <h3 className="text-2xl font-bold text-secondary mb-2">48h Termingarantie</h3>
               <p className="text-dark/80">
-                Sie haben akute Schmerzen? Wir garantieren Neupatienten einen Ersttermin innerhalb von 48 Stunden an einem unserer drei Standorte. Bitte rufe uns hierfür direkt an!
+                Sie haben akute Schmerzen? Wir garantieren Neupatienten einen Ersttermin innerhalb von 48 Stunden an einem unserer drei Standorte. Bitte rufen Sie uns hierfür direkt an!
               </p>
             </div>
             <a href="tel:+497617073366" className="btn-primary shrink-0 md:ml-auto">

@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/leistungen/knie-schulter-therapie",
+      "destination": "/leistungen/",
+      "permanent": true
+    },
+    {
+      "source": "/leistungen/knie-schulter-therapie/",
+      "destination": "/leistungen/",
+      "permanent": true
+    }
+  ]
+}

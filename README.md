@@ -17,14 +17,22 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.11`
-- Letzter Release-Tag: `v1.1.11`
+- Aktuelle Version: `1.1.12`
+- Letzter Release-Tag: `v1.1.12`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.12] - 2026-07-06
+
+- SEO/GEO-Runde umgesetzt: alte Knie-/Schulter-Leistungsseite entfernt, Sitemap aktualisiert und 301-Weiterleitung auf die Leistungsuebersicht vorbereitet.
+- Doppelte Meta-Description im serverseitigen Rendering bereinigt.
+- Standortseiten mit erweiterten LocalBusiness-Daten fuer Geo-Koordinaten und standortspezifische Einzugsgebiete gestaerkt.
+- Leistungsdetailseiten um sichtbare Kurz-FAQ-Bloecke und FAQPage-JSON-LD erweitert.
+- Karriereseite alters- und DEI-sensibler formuliert: Aushilfe-Titel neutralisiert, "junges Team" ersetzt, Sie-Ansprache bereinigt und Gleichbehandlungssatz ergaenzt.
 
 ### [1.1.11] - 2026-07-06
 

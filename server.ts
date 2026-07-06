@@ -201,6 +201,11 @@ async function startServer() {
     return result;
   }
 
+  // Keep obsolete service URLs from being indexed as active pages.
+  app.get(["/leistungen/knie-schulter-therapie", "/leistungen/knie-schulter-therapie/"], (req, res) => {
+    res.redirect(301, "/leistungen/");
+  });
+
   // API Route to detect uploaded video files in /public folder
   app.get("/api/list-videos", async (req, res) => {
     try {
@@ -516,6 +521,7 @@ async function startServer() {
       `;
 
       let html = template
+        .replace(/<meta data-rh="true"[^>]*>\s*/g, "")
         .replace(`<!--app-html-->`, appHtml)
         .replace(/<title>.*?<\/title>/, helmetTags);
 

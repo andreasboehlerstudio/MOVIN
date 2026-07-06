@@ -130,19 +130,6 @@ export const leistungenData = {
       'Optimale Vorbereitung auf volle Belastbarkeit'
     ]
   },
-  'knie-schulter-therapie': {
-    title: 'Knie- & Schulter-Therapie',
-    seoTitle: 'Knie & Schulter Reha Freiburg | MOVIN',
-    seoDesc: 'Spezialisten für Knie- und Schulter-Reha in Freiburg. Nach Kreuzbandriss, Arthroskopie oder Impingement. Jetzt Termin buchen!',
-    heroImage: '/images/leistungen/knie-schulter-therapie-hero.jpg',
-    description: 'Knie und Schulter sind komplexe Gelenke, die im Alltag und Sport extremen Belastungen ausgesetzt sind. Wir sind spezialisiert auf die konservative und postoperative Rehabilitation dieser Gelenke. Ob Kreuzbandriss, Meniskusschaden, Rotatorenmanschettenruptur oder Impingement-Syndrom – wir begleiten Sie Schritt für Schritt.',
-    benefits: [
-      'Strukturierte Nachbehandlung nach OP-Protokoll',
-      'Wiederherstellung der vollen Bewegungsamplitude (ROM)',
-      'Propriozeptives Training zur Gelenkstabilisation',
-      'Sichere Rückkehr zu Alltags- und Sportbelastungen'
-    ]
-  },
   'praevention-gesundheitsfoerderung': {
     title: 'Prävention & Gesundheitsförderung',
     seoTitle: 'Prävention & Gesundheitsförderung Freiburg | MOVIN',

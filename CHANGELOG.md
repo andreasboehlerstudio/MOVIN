@@ -2,6 +2,33 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.12] - 2026-07-06
+
+### Release-Status
+- Patch-Release fuer SEO/GEO-Optimierung, strukturierte Daten und DEI-/Ansprache-Korrekturen.
+
+### SEO und GEO
+- Alte Knie-/Schulter-Leistungsseite aus den aktiven Leistungsdaten entfernt.
+- Alte Knie-/Schulter-URL aus der Sitemap entfernt und per 301-Weiterleitung auf die Leistungsuebersicht gelegt.
+- Sitemap-`lastmod` auf den aktuellen Korrekturstand aktualisiert.
+- Doppelte Meta-Description im serverseitigen Rendering bereinigt, indem statische Fallback-Metas vor dem Einsetzen der dynamischen SEO-Tags entfernt werden.
+- Vercel-Redirects fuer die alte Knie-/Schulter-URL ergaenzt.
+
+### Strukturierte Daten
+- LocalBusiness-Schema der Standortseiten um `GeoCoordinates` erweitert.
+- Standortspezifische `areaServed`-Angaben fuer Lorettoberg, Mooswald und Europa-Park Rust ergaenzt.
+- Leistungsdetailseiten um FAQPage-JSON-LD ergaenzt.
+
+### Inhalte und DEI
+- Leistungsdetailseiten um sichtbare "Kurz erklaert"-FAQ-Bloecke erweitert.
+- Karriereseite altersneutraler formuliert: Aushilfe-Titel neutralisiert, Hinweise auf "junges Team" entfernt und Bewerbungstext fuer verschiedene Lebensphasen geoeffnet.
+- Sie-Ansprache auf Karriere-, Termin- und FAQ-Seite bereinigt.
+- Gleichbehandlungssatz auf der Karriereseite ergaenzt.
+
+### Validierung
+- `npm run build` erfolgreich.
+- `npm run lint` erfolgreich.
+
 ## [1.1.11] - 2026-07-06
 
 ### Release-Status

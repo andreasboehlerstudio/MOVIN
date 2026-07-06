@@ -72,14 +72,14 @@ export default function Karriere() {
   const jobs: Job[] = [
     {
       id: 'aushilfe-wochenende',
-      title: 'Schüler-/Studenten-Aushilfe (m/w/d)',
+      title: 'Aushilfe Wochenenddienst (m/w/d)',
       type: 'Wochenenddienst',
       location: 'Freiburg',
       department: 'Service & Praxisorganisation',
       salary: '15,15-17,00 Euro/Stunde',
-      description: 'Unterstütze unser Team am Wochenende im Praxisalltag. Ideal für Schüler*innen oder Student*innen, die Einblick in ein modernes Therapie- und Trainingszentrum bekommen möchten.',
+      description: 'Unterstützen Sie unser Team am Wochenende im Praxisalltag. Ideal für Menschen, die eine sinnvolle Nebentätigkeit suchen und Einblick in ein modernes Therapie- und Trainingszentrum bekommen möchten.',
       requirements: [
-        'Sie sind Schüler*in oder Student*in und suchen eine sinnvolle Nebentätigkeit',
+        'Sie suchen eine sinnvolle Nebentätigkeit, zum Beispiel neben Schule, Studium, Beruf oder in einer neuen Lebensphase',
         'Zuverlässigkeit, Freundlichkeit und ein aufmerksamer Umgang mit Menschen',
         'Interesse an Gesundheit, Therapie, Training oder Praxisorganisation',
         'Bereitschaft, am Wochenende Verantwortung im kleinen Rahmen zu übernehmen'
@@ -104,7 +104,7 @@ export default function Karriere() {
         'Interesse an Gesundheitswesen, Organisation und Kommunikation',
         'Freundliches Auftreten und Freude am Kontakt mit Menschen',
         'Sorgfalt, Verlässlichkeit und Lust auf digitale Arbeitsprozesse',
-        'Motivation, sich in einem jungen und qualitätsorientierten Team zu entwickeln'
+        'Motivation, sich in einem offenen und qualitätsorientierten Team zu entwickeln'
       ],
       tasks: [
         'Terminierung, Empfang und organisatorische Praxisabläufe kennenlernen',
@@ -131,7 +131,7 @@ export default function Karriere() {
       tasks: [
         'Einsatz je nach Profil in Therapie, Training, Verwaltung oder Gesundheitsförderung',
         'Mitgestaltung von Abläufen, digitalen Prozessen und interner Weiterentwicklung',
-        'Zusammenarbeit mit einem jungen, motivierten und fachlich starken Team',
+        'Zusammenarbeit mit einem motivierten und fachlich starken Team',
         'Entwicklung in internen und externen Fortbildungen'
       ]
     }
@@ -547,7 +547,7 @@ startxref
             <div className="lg:col-span-5">
               <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Unsere Vision</span>
               <h2 className="text-3xl md:text-4xl font-black text-secondary tracking-tight mb-6">
-                Think Different. Sei MOVIN.
+                Think Different. Werden Sie Teil von MOVIN.
               </h2>
               <p className="text-dark/75 leading-relaxed mb-5">
                 Hinterfragen Sie kritisch und wissenschaftlich. Wir stärken mit Ihnen den Blick auf Kontextfaktoren – für unsere Patient*innen, das Gesundheitssystem und Ihre persönliche Entwicklung.
@@ -567,7 +567,7 @@ startxref
               {[
                 {
                   title: 'Das Think Different Prinzip',
-                  desc: 'Think Different. Sei MOVIN. Entwickeln Sie mit uns ein Hands-Off-Konzept weiter, das Patient*innen stärkt und Physiotherapie neu denkt.'
+                  desc: 'Think Different. Werden Sie Teil von MOVIN und entwickeln Sie mit uns ein Hands-Off-Konzept weiter, das Patient*innen stärkt und Physiotherapie neu denkt.'
                 },
                 {
                   title: 'Ärztenetzwerk & Lernen',
@@ -910,6 +910,9 @@ startxref
             <h3 className="text-xl font-bold text-secondary mb-3">Keine passende Rolle gefunden?</h3>
             <p className="text-dark/70 text-sm mb-6 max-w-xl mx-auto">
               Sie haben eigene Ideen, bringen außergewöhnliche Stärken ein oder suchen einen anderen Einstieg bei MOVIN? Senden Sie uns gerne Ihre Initiativbewerbung.
+            </p>
+            <p className="text-dark/60 text-xs leading-relaxed mb-6 max-w-2xl mx-auto">
+              Wir freuen uns über Bewerbungen unabhängig von Alter, Geschlecht, Herkunft, Religion, Behinderung oder sexueller Identität.
             </p>
             <button 
               onClick={() => scrollToFormAndSelect('initiativ')}

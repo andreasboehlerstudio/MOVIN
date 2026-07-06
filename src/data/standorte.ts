@@ -39,6 +39,11 @@ export interface Standort {
   image: string;
   gallery?: string[];
   mapUrl: string;
+  geo: {
+    latitude: number;
+    longitude: number;
+  };
+  areaServed: string[];
   description: string;
   localSeoText?: string;
   highlights: string[];
@@ -66,6 +71,11 @@ export const standorteData: Record<string, Standort> = {
       '/images/standorte/lorettoberg/lorettoberg-gallery-6.webp'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2669.839841838618!2d7.838411315648831!3d47.98144997921199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47911b6c00000000%3A0x0!2sMercystra%C3%9Fe%2014%2C%2079100%20Freiburg%20im%20Breisgau!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
+    geo: {
+      latitude: 47.98145,
+      longitude: 7.83841
+    },
+    areaServed: ['Freiburg-Wiehre', 'Lorettoberg', 'Günterstal', 'Vauban', 'Freiburg Innenstadt'],
     description: `Seit über ${years} Jahren betreiben wir hier unseren Hauptstandort für Physiotherapie auf höchstem Niveau. Durch unsere Kooperation mit der Artemed Klinik stellen wir zudem die stationäre Versorgung sicher. Auf über 600 Quadratmetern bieten wir Ihnen modernste Therapie- und Trainingsmöglichkeiten.`,
     localSeoText: 'MOVIN am Lorettoberg ist besonders für Patientinnen und Patienten aus Freiburg-Wiehre, Günterstal, Vauban und der Freiburger Innenstadt gut erreichbar. Durch die Nähe zur Klinik am Lorettoberg eignet sich der Standort für ambulante Physiotherapie, Nachbehandlung nach Operationen, medizinisches Training und eine nahtlose Fortführung der Therapie nach stationären Aufenthalten.',
     highlights: [
@@ -255,6 +265,11 @@ export const standorteData: Record<string, Standort> = {
       '/images/standorte/mooswald/mooswald-gallery-1.webp'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2668.5!2d7.8!3d48.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sWirthstra%C3%9Fe%209%2C%2079110%20Freiburg!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
+    geo: {
+      latitude: 48.01086,
+      longitude: 7.80658
+    },
+    areaServed: ['Freiburg-Mooswald', 'Freiburg-West', 'Landwasser', 'Betzenhausen', 'Lehen'],
     description: 'Willkommen in unserer hochmodernen Boutique-Praxis im Stadtteil Mooswald – der ersten Boutique-Praxis Deutschlands. Hier trifft exklusives Ambiente auf hochmoderne und qualitativ hochwertige Physiotherapie. In unserer Lounge und der entspannten Atmosphäre verbindet sich Wohlfühlatmosphäre mit modernster Therapie.',
     localSeoText: 'Der Standort MOVIN Mooswald richtet sich an Patientinnen und Patienten aus Freiburg-West, Mooswald, Landwasser, Betzenhausen und Lehen. Die moderne Boutique-Praxis verbindet Physiotherapie, medizinisches Training und digitale Trainingssysteme wie Skillcourt in einer ruhigen, hochwertigen Praxisumgebung.',
     highlights: [
@@ -415,6 +430,11 @@ export const standorteData: Record<string, Standort> = {
       '/images/standorte/rust/rust-gallery-1.jpg'
     ],
     mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.0!2d7.7!3d48.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPeter-Thumb-Str.%208%2C%2077977%20Rust!5e0!3m2!1sde!2sde!4v1650000000000!5m2!1sde!2sde',
+    geo: {
+      latitude: 48.26709,
+      longitude: 7.72031
+    },
+    areaServed: ['Rust', 'Europa-Park', 'Ringsheim', 'Herbolzheim', 'Ettenheim', 'südliche Ortenau'],
     description: 'Unser Standort in Rust bietet erstklassige physiotherapeutische Versorgung direkt am Europa-Park und dem Hotel Bell Rock. In enger Zusammenarbeit mit dem Feelgood Center und dem Europa-Park betreuen wir dort die Mitarbeiterinnen und Mitarbeiter des Europa-Parks.',
     localSeoText: 'MOVIN Europa-Park Rust bietet Physiotherapie direkt am Europa-Park und ist für Menschen aus Rust, Ringsheim, Herbolzheim, Ettenheim und der südlichen Ortenau gut erreichbar. Der Standort unterstützt schnelle Hilfe bei Beschwerden, Prävention, Training und die physiotherapeutische Betreuung im Umfeld des Europa-Parks.',
     highlights: [

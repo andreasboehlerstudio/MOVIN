@@ -326,7 +326,7 @@ export default function Faq() {
             Hilfe- & FAQ-Zentrum
           </h1>
           <p className="text-lg md:text-xl text-blue-tint/90 font-light max-w-2xl mx-auto leading-relaxed">
-            Haben Sie Fragen zu Ihrem Rezept, dem Trainingsstart oder unserer App? Suchen Sie direkt nach Begriffen oder filtere nach Kategorien.
+            Haben Sie Fragen zu Ihrem Rezept, dem Trainingsstart oder unserer App? Suchen Sie direkt nach Begriffen oder filtern Sie nach Kategorien.
           </p>
 
           {/* Search Bar */}

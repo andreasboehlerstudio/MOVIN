@@ -14,6 +14,24 @@ export default function LeistungDetail() {
   const baseUrl = 'https://movin-freiburg.de';
   const canonicalUrl = `${baseUrl}/leistungen/${slug}/`;
   const absoluteUrl = (url: string) => url.startsWith('http') ? url : `${baseUrl}${url}`;
+  const serviceFaq = leistung.faq || [
+    {
+      question: `Was ist ${leistung.title}?`,
+      answer: leistung.description
+    },
+    {
+      question: `Für wen eignet sich ${leistung.title} bei MOVIN?`,
+      answer: leistung.isB2B
+        ? 'Das Angebot richtet sich an Unternehmen, die Gesundheit, Bewegung und Belastbarkeit im Arbeitsalltag gezielt fördern möchten.'
+        : 'Das Angebot eignet sich für Menschen, die Beschwerden gezielt behandeln, ihre Belastbarkeit verbessern oder ihre Bewegung langfristig stabilisieren möchten.'
+    },
+    {
+      question: `Wie starte ich mit ${leistung.title}?`,
+      answer: leistung.isB2B
+        ? 'Senden Sie uns eine Anfrage. Wir klären Ziel, Rahmenbedingungen und ein passendes Konzept für Ihr Unternehmen.'
+        : 'Vereinbaren Sie einen Termin oder kontaktieren Sie uns. Wir klären gemeinsam, ob eine Heilmittelverordnung, ein Selbstzahlerangebot oder ein Trainingseinstieg sinnvoll ist.'
+    }
+  ];
 
   const schema = [
     {
@@ -51,6 +69,18 @@ export default function LeistungDetail() {
         "serviceUrl": canonicalUrl,
         "servicePhone": "+49 761 707 33 66"
       }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": serviceFaq.map((item: { question: string; answer: string }) => ({
+        "@type": "Question",
+        "name": item.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.answer
+        }
+      }))
     },
     {
       "@context": "https://schema.org",
@@ -136,6 +166,19 @@ export default function LeistungDetail() {
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              <div className="bg-light rounded-[2rem] border border-border/80 p-6 md:p-8">
+                <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Kurz erklärt</span>
+                <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-6">Häufige Fragen zu {leistung.title}</h2>
+                <div className="divide-y divide-border/70">
+                  {serviceFaq.map((item: { question: string; answer: string }, index: number) => (
+                    <div key={index} className="py-5 first:pt-0 last:pb-0">
+                      <h3 className="text-lg font-bold text-secondary mb-2">{item.question}</h3>
+                      <p className="text-dark/75 leading-relaxed">{item.answer}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 

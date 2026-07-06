@@ -65,12 +65,15 @@ export default function StandortPage() {
         "addressRegion": "Baden-Württemberg",
         "addressCountry": "DE"
       },
-      "areaServed": [
-        { "@type": "City", "name": "Freiburg im Breisgau" },
-        { "@type": "City", "name": "Rust" },
-        { "@type": "AdministrativeArea", "name": "Breisgau-Hochschwarzwald" },
-        { "@type": "AdministrativeArea", "name": "Ortenaukreis" }
-      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": standort.geo.latitude,
+        "longitude": standort.geo.longitude
+      },
+      "areaServed": standort.areaServed.map((name) => ({
+        "@type": "Place",
+        "name": name
+      })),
       "openingHours": openingHours,
       "hasMap": standort.mapUrl,
       "parentOrganization": {
