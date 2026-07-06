@@ -17,14 +17,18 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.10`
-- Letzter Release-Tag: `v1.1.10`
+- Aktuelle Version: `1.1.11`
+- Letzter Release-Tag: `v1.1.11`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.11] - 2026-07-06
+
+- MOVIN-App-Videos im Bereich "Die App in Aktion" als reine Autoplay-Darstellung gesetzt, damit Touch-Scrolling auf Mobile nicht mehr am Handyvideo haengen bleibt.
 
 ### [1.1.10] - 2026-07-06
 

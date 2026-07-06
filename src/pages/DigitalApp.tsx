@@ -648,7 +648,7 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
         <img
           src="/images/telemedizin_soon-1.png"
           alt="Telemedizin Coming Soon"
-          className="block h-auto max-h-[70vh] w-auto max-w-full rounded-[2.5rem] border border-neutral-100 bg-transparent object-contain shadow-md"
+          className="pointer-events-none block h-auto max-h-[70vh] w-auto max-w-full rounded-[2.5rem] border border-neutral-100 bg-transparent object-contain shadow-md"
           referrerPolicy="no-referrer"
         />
       </div>
@@ -661,7 +661,7 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
         <img
           src={feature.poster}
           alt={feature.title}
-          className="absolute inset-0 w-full h-full object-cover opacity-35"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35"
           referrerPolicy="no-referrer"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-secondary/20" />
@@ -687,7 +687,7 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
         playsInline
         preload="metadata"
         onError={handleVideoError}
-        className="z-0 block h-auto max-h-[70vh] w-auto max-w-full bg-transparent object-contain"
+        className="pointer-events-none z-0 block h-auto max-h-[70vh] w-auto max-w-full bg-transparent object-contain"
       />
       {playlist.length > 1 && (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full z-10">

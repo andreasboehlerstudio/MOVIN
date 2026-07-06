@@ -2,6 +2,19 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.11] - 2026-07-06
+
+### Release-Status
+- Patch-Release fuer die mobile Bedienbarkeit der MOVIN-App-Videosektion.
+
+### MOVIN App
+- Videos und Fallback-Bilder im Bereich "Die App in Aktion" als nicht-interaktive Medien gesetzt.
+- Touch- und Mausereignisse auf den Autoplay-Videos deaktiviert, damit Nutzerinnen und Nutzer auf Mobile wieder fluessig ueber aufgeklappte Handyvideos scrollen koennen.
+- Videowiedergabe bleibt unveraendert automatisch, stumm und ohne Bedienoberflaeche.
+
+### Validierung
+- `npm run lint` erfolgreich.
+
 ## [1.1.10] - 2026-07-06
 
 ### Release-Status
