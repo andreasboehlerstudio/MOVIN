@@ -72,14 +72,14 @@ export default function Karriere() {
   const jobs: Job[] = [
     {
       id: 'aushilfe-wochenende',
-      title: 'Aushilfe Wochenenddienst (m/w/d)',
+      title: 'Schüler-/Studenten-Aushilfe (m/w/d)',
       type: 'Wochenenddienst',
       location: 'Freiburg',
       department: 'Service & Praxisorganisation',
       salary: '15,15-17,00 Euro/Stunde',
-      description: 'Unterstützen Sie unser Team am Wochenende im Praxisalltag. Ideal für Menschen, die eine sinnvolle Nebentätigkeit suchen und Einblick in ein modernes Therapie- und Trainingszentrum bekommen möchten.',
+      description: 'Unterstützen Sie unser Team am Wochenende im Praxisalltag. Ideal für Schüler*innen oder Student*innen, die Einblick in ein modernes Therapie- und Trainingszentrum bekommen möchten.',
       requirements: [
-        'Sie suchen eine sinnvolle Nebentätigkeit, zum Beispiel neben Schule, Studium, Beruf oder in einer neuen Lebensphase',
+        'Sie sind Schüler*in oder Student*in und suchen eine sinnvolle Nebentätigkeit',
         'Zuverlässigkeit, Freundlichkeit und ein aufmerksamer Umgang mit Menschen',
         'Interesse an Gesundheit, Therapie, Training oder Praxisorganisation',
         'Bereitschaft, am Wochenende Verantwortung im kleinen Rahmen zu übernehmen'

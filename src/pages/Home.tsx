@@ -1,14 +1,15 @@
-import { useRef, useState } from 'react';
+import { lazy, Suspense, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { Activity, MapPin, Brain, Clock, ArrowRight, Star, Smartphone, PlayCircle, Calendar, ArrowDown, ClipboardList, HelpCircle, ChevronDown, ChevronUp, HeartPulse, Hand, Trophy, Dumbbell, ShieldCheck, ExternalLink } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
-import InstagramFeed from '../components/social/InstagramFeed';
-import { SpotifyEmbeds } from '../components/social/SpotifyEmbeds';
 import { GdprEmbed } from '../components/gdpr/GdprEmbed';
 import { getYearsOfExperience } from '../data/companyInfo';
 import PartnerLogos from '../components/common/PartnerLogos';
+
+const SpotifyEmbeds = lazy(() => import('../components/social/SpotifyEmbeds').then((module) => ({ default: module.SpotifyEmbeds })));
+const InstagramFeed = lazy(() => import('../components/social/InstagramFeed'));
 
 const googleReviewProfiles = [
   {
@@ -518,13 +519,17 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl mb-8 tracking-tight">
                 Unsere <span className="text-gradient-teal-mint">Podcasts</span>
               </h2>
-              <SpotifyEmbeds />
+              <Suspense fallback={<div className="h-48 rounded-3xl bg-light border border-border animate-pulse" aria-hidden="true" />}>
+                <SpotifyEmbeds />
+              </Suspense>
             </div>
 
             {/* Instagram Feed */}
             <div className="lg:col-span-2">
               <GdprEmbed category="marketing" provider="Instagram">
-                <InstagramFeed />
+                <Suspense fallback={<div className="h-56 rounded-3xl bg-light border border-border animate-pulse" aria-hidden="true" />}>
+                  <InstagramFeed />
+                </Suspense>
               </GdprEmbed>
             </div>
           </div>
@@ -562,7 +567,7 @@ export default function Home() {
               },
               {
                 question: "Wie funktioniert die 48h Termingarantie?",
-                answer: "Für Neupatienten mit akuten Schmerzen garantieren wir einen Ersttermin innerhalb von 48 Stunden an einem unserer drei Standorte. Bitte rufe uns hierfür direkt an."
+                answer: "Für Neupatienten mit akuten Schmerzen garantieren wir einen Ersttermin innerhalb von 48 Stunden an einem unserer drei Standorte. Bitte rufen Sie uns hierfür direkt an."
               },
               {
                 question: "Wie kann ich einen Termin absagen?",

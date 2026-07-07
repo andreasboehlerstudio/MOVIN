@@ -17,14 +17,23 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.12`
-- Letzter Release-Tag: `v1.1.12`
+- Aktuelle Version: `1.1.13`
+- Letzter Release-Tag: `v1.1.13`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.13] - 2026-07-07
+
+- Sprachkonsistenz weiter bereinigt: Startseiten-FAQ und Digital-Anamnesebogen-Kachel auf einheitliche Sie-Ansprache korrigiert.
+- Performance-Bundling optimiert: schwere Unterseiten wie Karriere, Anamnesebogen, Training, MOVIN App, KI und Ueber uns werden in eigene Chunks getrennt.
+- Podcast- und Instagram-Bereich auf der Startseite werden lazy geladen.
+- Build-Warnung zu uebergrossen Haupt-Chunks beseitigt; Haupt-JavaScript deutlich reduziert.
+- Datenschutz gegen den digitalen Anamnesebogen geprueft: eigener Abschnitt zu Gesundheitsdaten, PDF-Erzeugung, Empfaenger, Zweck, Dienstleistern und Aufbewahrung ist vorhanden.
+- Karriereseite auf Kundenwunsch wieder mit der Bezeichnung "Schueler-/Studenten-Aushilfe (m/w/d)" gefuehrt.
 
 ### [1.1.12] - 2026-07-06
 

@@ -2,6 +2,31 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.13] - 2026-07-07
+
+### Release-Status
+- Patch-Release fuer Sprachkonsistenz, Performance-Bundling und Dokumentation der aktuellen Datenschutzpruefung.
+
+### Sprache und Inhalte
+- Startseiten-FAQ im Bereich 48h-Termingarantie auf einheitliche Sie-Ansprache korrigiert.
+- Digital-Uebersicht beim Anamnesebogen auf einheitliche Sie-Ansprache korrigiert.
+- Unbenutztes Icon-Import im Digital-Hub entfernt.
+- Karriereseite auf Kundenwunsch wieder mit der Bezeichnung "Schueler-/Studenten-Aushilfe (m/w/d)" und entsprechendem Beschreibungstext gefuehrt.
+
+### Performance
+- Podcast- und Instagram-Komponenten auf der Startseite per Lazy Loading ausgelagert.
+- Vite-Bundling erweitert: grosse Unterseiten wie Karriere, Anamnesebogen, MOVIN App, KI-Physiotherapie, Training, Ueber uns und Google-Statistiken werden in eigene Chunks getrennt.
+- Haupt-JavaScript-Chunk deutlich reduziert und die vorherige Vite-Warnung zu uebergrossen Chunks beseitigt.
+
+### Datenschutz
+- Datenschutzerklaerung gegen den digitalen Anamnesebogen geprueft.
+- Eigener Abschnitt zu Gesundheitsdaten, PDF-Erzeugung, Empfaengeradresse, Zweck, Dienstleistern und Aufbewahrungs-/Loeschlogik ist vorhanden.
+- Hinweis fuer Live-Betrieb bleibt: SMTP-Zugangsdaten muessen gesetzt sein, damit der Anamnesebogen nicht nur simuliert, sondern tatsaechlich per E-Mail versendet wird.
+
+### Validierung
+- `npm run lint` erfolgreich.
+- `npm run build` erfolgreich.
+
 ## [1.1.12] - 2026-07-06
 
 ### Release-Status

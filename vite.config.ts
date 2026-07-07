@@ -25,12 +25,36 @@ export default defineConfig(({ mode }) => {
     build: {
       rollupOptions: {
         output: {
-          manualChunks: {
-            react: ['react', 'react-dom', 'react-router', 'react-helmet-async'],
-            motion: ['framer-motion', 'motion'],
-            icons: ['lucide-react'],
-            pdf: ['jspdf'],
-            canvas: ['html2canvas'],
+          manualChunks(id) {
+            const normalizedId = id.replace(/\\/g, '/');
+
+            if (normalizedId.includes('/node_modules/react') || normalizedId.includes('/node_modules/react-dom') || normalizedId.includes('/node_modules/react-router') || normalizedId.includes('/node_modules/react-helmet-async')) {
+              return 'react';
+            }
+
+            if (normalizedId.includes('/node_modules/framer-motion') || normalizedId.includes('/node_modules/motion')) {
+              return 'motion';
+            }
+
+            if (normalizedId.includes('/node_modules/lucide-react')) {
+              return 'icons';
+            }
+
+            if (normalizedId.includes('/node_modules/jspdf')) {
+              return 'pdf';
+            }
+
+            if (normalizedId.includes('/node_modules/html2canvas')) {
+              return 'canvas';
+            }
+
+            if (normalizedId.includes('/src/pages/Anamnesebogen')) return 'page-anamnesebogen';
+            if (normalizedId.includes('/src/pages/Karriere')) return 'page-karriere';
+            if (normalizedId.includes('/src/pages/DigitalApp')) return 'page-digital-app';
+            if (normalizedId.includes('/src/pages/DigitalKi')) return 'page-digital-ki';
+            if (normalizedId.includes('/src/pages/Training')) return 'page-training';
+            if (normalizedId.includes('/src/pages/UeberUns')) return 'page-ueber-uns';
+            if (normalizedId.includes('/src/pages/GoogleStatistiken')) return 'page-google-statistiken';
           },
         },
       },

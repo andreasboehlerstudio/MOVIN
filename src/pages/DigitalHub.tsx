@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Smartphone, Brain, Activity, FileText, ArrowRight } from 'lucide-react';
+import { Smartphone, Brain, FileText, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 import SEO from '../components/seo/SEO';
 
@@ -24,7 +24,7 @@ const digitalServices = [
   },
   {
     title: 'Digitaler Anamnesebogen',
-    description: 'Bereite Sie optimal auf Ihren Termin vor. Fülle Ihren Anamnesebogen bequem und sicher von zu Hause aus.',
+    description: 'Bereiten Sie sich optimal auf Ihren Termin vor. Füllen Sie Ihren Anamnesebogen bequem und sicher von zu Hause aus.',
     path: '/digital/anamnesebogen',
     icon: FileText,
     iconClass: 'bg-mint text-secondary ring-1 ring-primary/25',
