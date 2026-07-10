@@ -76,7 +76,7 @@ jobs:
               set net:max-retries 2;
               set net:timeout 20;
               set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=accept-new';
-              mirror --reverse --verbose --parallel=4 \"dist/\" \"$target_dir\";
+              mirror --reverse --verbose --parallel=4 dist/ $target_dir;
               bye;
             "
           else
@@ -87,7 +87,7 @@ jobs:
               set ftp:ssl-force yes;
               set ftp:ssl-protect-data yes;
               set ssl:verify-certificate yes;
-              mirror --reverse --verbose --parallel=4 \"dist/\" \"$target_dir\";
+              mirror --reverse --verbose --parallel=4 dist/ $target_dir;
               bye;
             "
           fi

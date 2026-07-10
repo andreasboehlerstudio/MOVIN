@@ -2,6 +2,17 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.15] - 2026-07-10
+
+### Release-Status
+- Patch-Release fuer den zweiten kontrollierten IONOS-Deployment-Test.
+
+### Deployment
+- Erster GitHub-Actions-Lauf vollstaendig ausgewertet.
+- Alle fuenf GitHub-Environment-Secrets wurden erfolgreich erkannt.
+- Installation, TypeScript-Pruefung und Vite-Produktionsbuild liefen erfolgreich durch.
+- Lokale Pfaduebergabe an `lftp` korrigiert; der erste Lauf war vor der Serververbindung an literal interpretierten Anfuehrungszeichen um `dist/` gescheitert.
+
 ## [1.1.14] - 2026-07-10
 
 ### Release-Status

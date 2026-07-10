@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.14`
-- Letzter Release-Tag: `v1.1.14`
+- Aktuelle Version: `1.1.15`
+- Letzter Release-Tag: `v1.1.15`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.15] - 2026-07-10
+
+- Ersten GitHub-Actions-Deploymentlauf ausgewertet: Secrets, Installation, TypeScript-Pruefung und Build wurden erfolgreich bestaetigt.
+- Pfaduebergabe an den SFTP-/FTPS-Client korrigiert, damit der erzeugte `dist`-Ordner ohne literal interpretierte Anfuehrungszeichen hochgeladen wird.
 
 ### [1.1.14] - 2026-07-10
 
