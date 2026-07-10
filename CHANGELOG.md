@@ -2,6 +2,27 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.14] - 2026-07-10
+
+### Release-Status
+- Patch-Release fuer das erste automatisierte Production-Deployment zu IONOS.
+
+### Deployment
+- GitHub-Actions-Workflow fuer Pushes auf `main` und manuelle Testlaeufe angelegt.
+- GitHub Environment `Production` mit den Secrets `FTP_SERVER`, `FTP_USERNAME`, `FTP_PASSWORD`, `FTP_PORT` und `FTP_TARGET_DIR` angebunden.
+- Port 22 wird als SFTP, andere konfigurierte Ports werden als zertifikatsgeprueftes FTPS behandelt.
+- Vor dem Upload laufen `npm ci`, TypeScript-Pruefung und der produktive Vite-Build.
+- Fehlende Deployment-Secrets brechen den Lauf mit einer klaren Meldung ab, ohne Werte auszugeben.
+- Der erste Upload synchronisiert Dateien ohne Remote-Loeschungen.
+
+### Hosting
+- `.htaccess` fuer React-Unterseiten auf Apache-Webspace ergaenzt.
+- Dauerhafte Weiterleitung der alten Knie-/Schulter-URL auch fuer den IONOS-Webspace uebernommen.
+
+### Sicherheit
+- FTP-Zugangsdaten bleiben ausschliesslich in den geschuetzten GitHub-Environment-Secrets.
+- GitHub-Workflow besitzt nur Leserechte auf Repository-Inhalte.
+
 ## [1.1.13] - 2026-07-07
 
 ### Release-Status

@@ -17,14 +17,22 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.13`
-- Letzter Release-Tag: `v1.1.13`
+- Aktuelle Version: `1.1.14`
+- Letzter Release-Tag: `v1.1.14`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.14] - 2026-07-10
+
+- Automatisches Production-Deployment zu IONOS ueber GitHub Actions vorbereitet.
+- Deployment unterstuetzt SFTP auf Port 22 sowie FTPS auf Port 21 und nutzt ausschliesslich geschuetzte Environment-Secrets.
+- Build, TypeScript-Pruefung und Vollstaendigkeitspruefung der Deployment-Konfiguration laufen vor jedem Upload.
+- Apache-Fallback fuer direkte Aufrufe der React-Unterseiten sowie die bestehende Knie-/Schulter-Weiterleitung ergaenzt.
+- Erster Upload arbeitet ohne Remote-Loeschungen, damit der vorhandene Webspace kontrolliert getestet werden kann.
 
 ### [1.1.13] - 2026-07-07
 
