@@ -1,0 +1,95 @@
+name: Deploy Staging to IONOS
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+
+concurrency:
+  group: staging-deployment
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Build and upload staging website
+    runs-on: ubuntu-latest
+    environment:
+      name: Staging
+      url: https://staging.movin-freiburg.de
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate TypeScript
+        run: npm run lint
+
+      - name: Build website
+        run: npm run build
+
+      - name: Check staging deployment settings
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_PORT: ${{ secrets.FTP_PORT }}
+          FTP_TARGET_DIR: ${{ secrets.FTP_TARGET_DIR }}
+        run: |
+          missing=0
+          for name in FTP_SERVER FTP_USERNAME FTP_PASSWORD FTP_PORT FTP_TARGET_DIR; do
+            if [ -z "${!name}" ]; then
+              echo "Missing Staging Environment secret: $name"
+              missing=1
+            fi
+          done
+          exit "$missing"
+
+      - name: Install secure transfer client
+        run: sudo apt-get update && sudo apt-get install --yes lftp
+
+      - name: Upload build to IONOS staging
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_PORT: ${{ secrets.FTP_PORT }}
+          FTP_TARGET_DIR: ${{ secrets.FTP_TARGET_DIR }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          target_dir="${FTP_TARGET_DIR%/}/"
+
+          if [ "$FTP_PORT" = "22" ]; then
+            lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "sftp://$FTP_SERVER:$FTP_PORT" -e "
+              set cmd:fail-exit yes;
+              set net:max-retries 2;
+              set net:timeout 20;
+              set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=accept-new';
+              mirror --reverse --verbose --parallel=4 dist/ $target_dir;
+              bye;
+            "
+          else
+            lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "ftp://$FTP_SERVER:$FTP_PORT" -e "
+              set cmd:fail-exit yes;
+              set net:max-retries 2;
+              set net:timeout 20;
+              set ftp:ssl-force yes;
+              set ftp:ssl-protect-data yes;
+              set ssl:verify-certificate yes;
+              mirror --reverse --verbose --parallel=4 dist/ $target_dir;
+              bye;
+            "
+          fi

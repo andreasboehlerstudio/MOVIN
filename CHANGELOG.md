@@ -2,6 +2,18 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.17-staging.1] - 2026-07-11
+
+### Release-Status
+- Erster klar getrennter Staging-Pre-Release auf dem neuen Branch `develop`.
+
+### GitHub und Deployment
+- Eigenen Workflow `Deploy Staging to IONOS` fuer Pushes auf `develop` und manuelle Testlaeufe angelegt.
+- Workflow referenziert das GitHub-Environment `Staging` und dessen isolierte Secrets.
+- GitHub-Deployment verweist direkt auf `https://staging.movin-freiburg.de`.
+- Staging und Production verwenden getrennte Concurrency-Gruppen und koennen sich nicht gegenseitig abbrechen.
+- Production-Workflow bleibt unveraendert an `main` und das Environment `Production` gebunden.
+
 ## [1.1.16] - 2026-07-11
 
 ### Release-Status

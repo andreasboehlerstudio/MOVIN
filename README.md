@@ -17,14 +17,21 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.16`
-- Letzter Release-Tag: `v1.1.16`
-- Branch: `main`
+- Aktuelle Version: `1.1.17-staging.1`
+- Letzter Release-Tag: `v1.1.17-staging.1`
+- Branch: `develop`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.17-staging.1] - 2026-07-11
+
+- Dauerhaften Branch `develop` fuer gepruefte Staging-Staende eingefuehrt.
+- Eigenen GitHub-Actions-Workflow fuer automatische Deployments in das Environment `Staging` angelegt.
+- Staging-Deployment verwendet ausschliesslich die im Environment `Staging` hinterlegten SFTP-/FTPS-Secrets.
+- Production-Workflow bleibt auf `main` und das Environment `Production` begrenzt.
 
 ### [1.1.16] - 2026-07-11
 
