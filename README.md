@@ -17,14 +17,21 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.15`
-- Letzter Release-Tag: `v1.1.15`
+- Aktuelle Version: `1.1.16`
+- Letzter Release-Tag: `v1.1.16`
 - Branch: `main`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.16] - 2026-07-11
+
+- IONOS-Staging unter `staging.movin-freiburg.de` technisch geprueft: Startseite, HTTPS und Assets funktionieren.
+- Apache-Rewrite um die von IONOS benoetigte `RewriteBase` ergaenzt, damit direkte React-Unterseiten nicht mehr mit Fehler 500 abbrechen.
+- API-Pfade vom statischen React-Fallback ausgenommen.
+- Staging-Subdomain per `X-Robots-Tag` auf `noindex, nofollow` gesetzt, ohne die spaetere Produktionsdomain zu blockieren.
 
 ### [1.1.15] - 2026-07-10
 

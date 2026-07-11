@@ -2,6 +2,21 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.16] - 2026-07-11
+
+### Release-Status
+- Patch-Release fuer die erste technische Staging-Pruefung auf dem IONOS-Webspace.
+
+### Staging und Routing
+- `https://staging.movin-freiburg.de/` auf HTTPS, Seitenausgabe, Assets und Browserfehler geprueft.
+- IONOS-spezifische `RewriteBase /` ergaenzt und SPA-Fallback auf `/index.html` praezisiert.
+- Direkte Unterseiten hatten zuvor wegen der unvollstaendigen Rewrite-Konfiguration HTTP 500 geliefert.
+- `/api/` wird nicht mehr auf die React-Startdatei umgeschrieben, damit fehlende Node-Endpunkte eindeutig erkennbar bleiben.
+
+### SEO-Schutz
+- Ausschliesslich fuer den Host `staging.movin-freiburg.de` wird der HTTP-Header `X-Robots-Tag: noindex, nofollow` gesetzt.
+- Canonicals bleiben auf der spaeteren Produktionsdomain `https://movin-freiburg.de/` ausgerichtet.
+
 ## [1.1.15] - 2026-07-10
 
 ### Release-Status
