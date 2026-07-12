@@ -2,9 +2,9 @@
 
 Die Formulare werden auf IONOS durch PHP-Endpunkte unter `/api/` verarbeitet:
 
-- `/api/send-contact`
-- `/api/send-bewerbung`
-- `/api/send-anamnese`
+- `/api/send-contact.php`
+- `/api/send-bewerbung.php`
+- `/api/send-anamnese.php`
 
 PHPMailer wird fest aus `public/api/vendor/phpmailer` eingebunden. GitHub Actions erzeugt beim Deployment die nicht versionierte Datei `dist/api/.smtp-config.php` aus den Secrets des jeweils gewaehlten GitHub-Environments.
 

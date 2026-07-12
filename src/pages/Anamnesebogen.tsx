@@ -312,7 +312,7 @@ export default function Anamnesebogen() {
       
       const pdfBase64 = pdf.output('datauristring');
 
-      const response = await fetch('/api/send-anamnese', {
+      const response = await fetch('/api/send-anamnese.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

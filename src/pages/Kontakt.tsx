@@ -22,7 +22,7 @@ export default function Kontakt() {
     setSubmitError('');
 
     try {
-      const response = await fetch('/api/send-contact', {
+      const response = await fetch('/api/send-contact.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

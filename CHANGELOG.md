@@ -2,6 +2,13 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.17-staging.4] - 2026-07-12
+
+### Formular-Routing
+- Frontend verwendet auf IONOS die eindeutigen PHP-Pfade fuer Kontakt, Bewerbung und Anamnese.
+- Extensionlose API-Pfade wurden vom Apache-SPA-Fallback als React-Seite beantwortet und deshalb nicht weiterverwendet.
+- Direkte PHP-Ausfuehrung, JSON-Fehlerantworten und 403-Schutz der internen Konfiguration auf Staging verifiziert.
+
 ## [1.1.17-staging.3] - 2026-07-12
 
 ### Formulare und E-Mail

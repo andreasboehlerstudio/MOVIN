@@ -399,7 +399,7 @@ startxref
       })));
       setSubmitStep(2);
 
-      const response = await fetch('/api/send-bewerbung', {
+      const response = await fetch('/api/send-bewerbung.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
