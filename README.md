@@ -17,14 +17,22 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.17-staging.5`
-- Letzter Release-Tag: `v1.1.17-staging.5`
-- Branch: `develop`
-- Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
+- Aktuelle Version: `1.1.17`
+- Letzter Release-Tag: `v1.1.17`
+- Branch: `main`
+- Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.17] - 2026-07-12
+
+- Vollstaendig geprueften Staging-Stand nach Production uebernommen.
+- PHP-Backend fuer Kontakt, Bewerbung und digitalen Anamnesebogen auf IONOS bereitgestellt.
+- Authentifizierten IONOS-SMTP-Versand inklusive PDF-Anhaengen aktiviert.
+- Serverseitige Validierung, Einwilligungspruefung, PDF-Limits, Origin-Schutz, Honeypot und Rate-Limit integriert.
+- Staging- und Production-Deployments mit getrennten GitHub-Environments und Secrets eingerichtet.
 
 ### [1.1.17-staging.5] - 2026-07-12
 

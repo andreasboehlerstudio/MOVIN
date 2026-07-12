@@ -2,6 +2,22 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.17] - 2026-07-12
+
+### Production
+- Den auf `develop` und `staging.movin-freiburg.de` geprueften Stand auf `main` uebernommen.
+- Production-Deployment verwendet ausschliesslich das GitHub-Environment `Production` und dessen eigene FTP- und SMTP-Secrets.
+
+### Formulare
+- Kontaktformular, Bewerbung mit mehreren PDF-Anhaengen und digitaler Anamnesebogen produktionsreif als PHP-Endpunkte bereitgestellt.
+- Authentifizierter Versand ueber IONOS-SMTP mit getrennten Zielpostfaechern aktiviert.
+- Erfolgreiche Staging-End-to-End-Tests fuer alle drei Formularwege abgeschlossen.
+
+### Sicherheit
+- Serverseitige Pflichtfeld-, E-Mail-, Einwilligungs- und PDF-Pruefung aktiviert.
+- Origin-Schutz, Rate-Limit, Honeypot, Request-Limits und geschuetzte SMTP-Konfiguration eingesetzt.
+- PHP-Syntax wird vor jedem Deployment in GitHub Actions validiert.
+
 ## [1.1.17-staging.5] - 2026-07-12
 
 ### Staging-Test
