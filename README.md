@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.17-staging.4`
-- Letzter Release-Tag: `v1.1.17-staging.4`
+- Aktuelle Version: `1.1.17-staging.5`
+- Letzter Release-Tag: `v1.1.17-staging.5`
 - Branch: `develop`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.17-staging.5] - 2026-07-12
+
+- Staging nach Eintragung der IONOS-SMTP-Secrets neu ausgeloest.
+- Kontrollierter End-to-End-Test fuer Kontakt, Bewerbung und digitalen Anamnesebogen vorbereitet.
 
 ### [1.1.17-staging.4] - 2026-07-12
 

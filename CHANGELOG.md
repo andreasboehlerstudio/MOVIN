@@ -2,6 +2,12 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.17-staging.5] - 2026-07-12
+
+### Staging-Test
+- Neu-Deployment zur Uebernahme der im GitHub-Environment `Staging` hinterlegten IONOS-SMTP-Secrets.
+- End-to-End-Pruefung aller drei Formularwege inklusive PDF-Anhaengen vorgesehen.
+
 ## [1.1.17-staging.4] - 2026-07-12
 
 ### Formular-Routing
