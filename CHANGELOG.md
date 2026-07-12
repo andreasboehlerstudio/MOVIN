@@ -2,6 +2,14 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.18] - 2026-07-12
+
+### Production
+- Den unter `1.1.18-staging.1` getesteten Bewerbungs-PDF-Fix auf `main` uebernommen.
+- Browser- und PHP-Laufzeit auf maximal 60 Sekunden begrenzt, damit kein endloser Ladezustand bestehen bleibt.
+- Versandgrenzen auf 10 MB pro Datei und 15 MB insgesamt synchronisiert.
+- Verstaendliche Rueckmeldungen fuer zu grosse Dateien, Zeitueberschreitung und zu viele Versuche aktiviert.
+
 ## [1.1.18-staging.1] - 2026-07-12
 
 ### Bewerbungsformular

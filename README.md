@@ -17,14 +17,21 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.18-staging.1`
-- Letzter Release-Tag: `v1.1.18-staging.1`
-- Branch: `develop`
-- Projektstatus: Staging / fortlaufende Optimierung
+- Aktuelle Version: `1.1.18`
+- Letzter Release-Tag: `v1.1.18`
+- Branch: `main`
+- Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.18] - 2026-07-12
+
+- Auf Staging gepruefte Optimierung des Bewerbungs-PDF-Versands nach Production uebernommen.
+- Endlose Ladeanzeige durch ein verbindliches 60-Sekunden-Timeout verhindert.
+- Uploadgrenzen fuer stabilen SMTP-Versand auf 10 MB pro PDF und 15 MB gesamt angepasst.
+- Status- und Fehlermeldungen fuer Vorbereitung, Versand, Zeitueberschreitung und Rate-Limit verbessert.
 
 ### [1.1.18-staging.1] - 2026-07-12
 
