@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.17-staging.1`
-- Letzter Release-Tag: `v1.1.17-staging.1`
+- Aktuelle Version: `1.1.17-staging.2`
+- Letzter Release-Tag: `v1.1.17-staging.2`
 - Branch: `develop`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.17-staging.2] - 2026-07-12
+
+- Staging-Deployment nach Korrektur des relativen FTP-Zielverzeichnisses erneut ausgeloest.
+- Upload verwendet weiterhin das isolierte GitHub-Environment `Staging`; die Ordnerstruktur wird nun vom dort gesetzten `FTP_TARGET_DIR` bestimmt.
+- Keine inhaltlichen Website-Aenderungen gegenueber `1.1.17-staging.1`.
 
 ### [1.1.17-staging.1] - 2026-07-11
 

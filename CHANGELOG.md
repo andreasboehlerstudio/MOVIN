@@ -2,6 +2,15 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.17-staging.2] - 2026-07-12
+
+### Release-Status
+- Kontrollierter Staging-Neulauf nach Korrektur des FTP-Zielverzeichnisses im GitHub-Environment `Staging`.
+
+### Deployment
+- Website ohne inhaltliche Aenderungen neu gebaut und in das korrigierte relative Staging-Ziel uebertragen.
+- Getrennte Environment-Konfiguration fuer Staging und Production bleibt erhalten.
+
 ## [1.1.17-staging.1] - 2026-07-11
 
 ### Release-Status
