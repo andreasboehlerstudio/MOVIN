@@ -38,6 +38,39 @@ jobs:
       - name: Build website
         run: npm run build
 
+      - name: Create protected SMTP runtime configuration
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_ENCRYPTION: ${{ secrets.SMTP_ENCRYPTION }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_FROM_EMAIL: ${{ secrets.SMTP_FROM_EMAIL }}
+          SMTP_FROM_NAME: ${{ secrets.SMTP_FROM_NAME }}
+          CONTACT_RECEIVER_EMAIL: ${{ secrets.CONTACT_RECEIVER_EMAIL }}
+          CAREER_RECEIVER_EMAIL: ${{ secrets.CAREER_RECEIVER_EMAIL }}
+          ANAMNESE_RECEIVER_EMAIL: ${{ secrets.ANAMNESE_RECEIVER_EMAIL }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          encode() { printf '%s' "$1" | base64 -w 0; }
+          mkdir -p dist/api
+          cat > dist/api/.smtp-config.php <<PHP
+          <?php
+          return [
+              'host' => base64_decode('$(encode "${SMTP_HOST:-smtp.ionos.de}")'),
+              'port' => (int) base64_decode('$(encode "${SMTP_PORT:-587}")'),
+              'encryption' => base64_decode('$(encode "${SMTP_ENCRYPTION:-tls}")'),
+              'username' => base64_decode('$(encode "${SMTP_USER:-}")'),
+              'password' => base64_decode('$(encode "${SMTP_PASS:-}")'),
+              'from_email' => base64_decode('$(encode "${SMTP_FROM_EMAIL:-noreply@movin-freiburg.de}")'),
+              'from_name' => base64_decode('$(encode "${SMTP_FROM_NAME:-MOVIN Website}")'),
+              'contact_receiver' => base64_decode('$(encode "${CONTACT_RECEIVER_EMAIL:-kontakt@movin-freiburg.de}")'),
+              'career_receiver' => base64_decode('$(encode "${CAREER_RECEIVER_EMAIL:-daniel.klein@movin-freiburg.de}")'),
+              'anamnese_receiver' => base64_decode('$(encode "${ANAMNESE_RECEIVER_EMAIL:-anamnesebogen@movin-freiburg.de}")'),
+          ];
+          PHP
+
       - name: Check deployment settings
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
@@ -55,8 +88,11 @@ jobs:
           done
           exit "$missing"
 
-      - name: Install secure transfer client
-        run: sudo apt-get update && sudo apt-get install --yes lftp
+      - name: Install deployment dependencies
+        run: sudo apt-get update && sudo apt-get install --yes lftp php-cli
+
+      - name: Validate PHP form backend
+        run: find dist/api -type f -name '*.php' -print0 | xargs -0 -n1 php -l
 
       - name: Upload build to IONOS
         env:

@@ -318,7 +318,9 @@ export default function Anamnesebogen() {
         body: JSON.stringify({
           pdfBase64,
           name: `${formData.vorname} ${formData.name}`,
-          email: formData.email
+          email: formData.email,
+          privacyAccepted,
+          _website: ''
         })
       });
 

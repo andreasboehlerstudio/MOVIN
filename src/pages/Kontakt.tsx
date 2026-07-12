@@ -8,7 +8,9 @@ export default function Kontakt() {
     email: '',
     phone: '',
     message: '',
-    standort: 'lorettoberg'
+    standort: 'lorettoberg',
+    privacyAccepted: false,
+    _website: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -31,7 +33,7 @@ export default function Kontakt() {
       }
 
       setIsSuccess(true);
-      setFormData({ name: '', email: '', phone: '', message: '', standort: 'lorettoberg' });
+      setFormData({ name: '', email: '', phone: '', message: '', standort: 'lorettoberg', privacyAccepted: false, _website: '' });
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       console.error(error);
@@ -225,7 +227,14 @@ export default function Kontakt() {
                     </div>
 
                     <div className="flex items-start gap-3 mt-2">
-                      <input type="checkbox" id="privacy" required className="mt-1" />
+                      <input
+                        type="checkbox"
+                        id="privacy"
+                        required
+                        checked={formData.privacyAccepted}
+                        onChange={(event) => setFormData({ ...formData, privacyAccepted: event.target.checked })}
+                        className="mt-1"
+                      />
                       <label htmlFor="privacy" className="text-sm text-dark/70">
                         Ich willige ein, dass meine Angaben aus dem Kontaktformular zur Bearbeitung meiner Anfrage an kontakt@movin-freiburg.de übermittelt und verarbeitet werden. Hinweise zu Zweck, Empfängern, Speicherdauer, Widerruf und Löschung finden Sie in unserer <a href="/datenschutz/" className="text-primary hover:underline">Datenschutzerklärung</a>.
                       </label>

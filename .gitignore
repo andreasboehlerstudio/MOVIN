@@ -1,4 +1,5 @@
 node_modules/
+public/api/.smtp-config.php
 build/
 dist/
 coverage/

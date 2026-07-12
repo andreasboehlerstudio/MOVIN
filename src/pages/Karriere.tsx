@@ -404,6 +404,7 @@ startxref
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
+          _website: '',
           selectedJobId: selectedJob,
           selectedJobTitle: selectedJobData?.title || 'Initiativbewerbung',
           files,

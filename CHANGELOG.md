@@ -2,6 +2,24 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.17-staging.3] - 2026-07-12
+
+### Formulare und E-Mail
+- PHP-Endpunkte fuer Kontakt, Bewerbung und digitalen Anamnesebogen hinzugefuegt.
+- PHPMailer `v7.1.1` fuer authentifizierten IONOS-SMTP-Versand eingebunden.
+- Empfaenger bleiben getrennt: Kontakt, Karriere und Anamnese werden an ihre jeweiligen Postfaecher zugestellt.
+
+### Sicherheit
+- Serverseitige E-Mail-, Pflichtfeld- und Einwilligungspruefung eingefuehrt.
+- Bewerbungs- und Anamnese-PDFs werden auf Signatur und Dateigroesse kontrolliert.
+- Rate-Limit, Origin-Pruefung, Honeypot und geschuetzte SMTP-Konfiguration ergaenzt.
+- Fehlende SMTP-Zugangsdaten liefern HTTP 503 statt einer falschen Erfolgsmeldung.
+
+### Deployment
+- Staging- und Production-Workflow erzeugen die SMTP-Konfiguration nur aus Environment-Secrets.
+- PHP-Syntaxpruefung ist verpflichtender Bestandteil vor dem FTP-Upload.
+- Technische Einrichtung in `FORMULAR_BACKEND.md` dokumentiert.
+
 ## [1.1.17-staging.2] - 2026-07-12
 
 ### Release-Status

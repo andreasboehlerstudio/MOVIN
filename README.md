@@ -17,14 +17,22 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.17-staging.2`
-- Letzter Release-Tag: `v1.1.17-staging.2`
+- Aktuelle Version: `1.1.17-staging.3`
+- Letzter Release-Tag: `v1.1.17-staging.3`
 - Branch: `develop`
 - Projektstatus: Pre-Live / fortlaufende Kundekorrekturen
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.17-staging.3] - 2026-07-12
+
+- PHP-Backend fuer Kontaktformular, Bewerbungen und digitalen Anamnesebogen auf dem IONOS-Webhosting entwickelt.
+- IONOS-SMTP-Versand ueber PHPMailer vorbereitet; Zugangsdaten werden erst im Deployment aus GitHub-Environment-Secrets erzeugt.
+- Serverseitige Validierung, Einwilligungspruefung, PDF-Limits, Origin-Schutz, Honeypot und Rate-Limit ergaenzt.
+- GitHub Actions um PHP-Syntaxpruefung vor jedem Staging- und Production-Upload erweitert.
+- Einrichtung und benoetigte Secrets in [FORMULAR_BACKEND.md](./FORMULAR_BACKEND.md) dokumentiert.
 
 ### [1.1.17-staging.2] - 2026-07-12
 
