@@ -35,7 +35,7 @@ Ohne `SMTP_USER` oder `SMTP_PASS` antwortet das Backend kontrolliert mit HTTP 50
 - Rate-Limit pro IP und Formular
 - Honeypot-Feld fuer einfache Bots
 - PDF-Signatur-, Einzelgroessen- und Gesamtgroessenpruefung
-- maximal 12 MB pro PDF und 24 MB pro Bewerbung
+- maximal 10 MB pro PDF und 15 MB pro Bewerbung
 - SMTP-Zugangsdaten werden nicht ins Repository geschrieben
 - direkte Webzugriffe auf Bootstrap und SMTP-Konfiguration werden per `.htaccess` gesperrt
 

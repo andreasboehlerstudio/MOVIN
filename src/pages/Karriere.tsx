@@ -45,8 +45,9 @@ const fileToBase64 = (file: File) => new Promise<string>((resolve, reject) => {
   reader.readAsDataURL(file);
 });
 
-const MAX_PDF_SIZE = 12 * 1024 * 1024;
-const MAX_TOTAL_UPLOAD_SIZE = 24 * 1024 * 1024;
+const MAX_PDF_SIZE = 10 * 1024 * 1024;
+const MAX_TOTAL_UPLOAD_SIZE = 15 * 1024 * 1024;
+const SUBMIT_TIMEOUT_MS = 60_000;
 
 export default function Karriere() {
   const [selectedJob, setSelectedJob] = useState<string>('aushilfe-wochenende');
@@ -305,7 +306,7 @@ startxref
 
     const validFiles = pdfFiles.filter((file) => file.size <= MAX_PDF_SIZE);
     if (validFiles.length !== pdfFiles.length) {
-      alert("Einzelne PDF-Dateien dürfen maximal 12 MB groß sein.");
+      alert("Einzelne PDF-Dateien dürfen maximal 10 MB groß sein.");
     }
 
     const nextFiles = [...uploadedFiles, ...validFiles].filter((file, index, allFiles) => (
@@ -318,7 +319,7 @@ startxref
 
     const totalSize = nextFiles.reduce((sum, file) => sum + file.size, 0);
     if (totalSize > MAX_TOTAL_UPLOAD_SIZE) {
-      alert("Bitte laden Sie insgesamt maximal 24 MB PDF-Dateien hoch.");
+      alert("Bitte laden Sie insgesamt maximal 15 MB PDF-Dateien hoch.");
       return;
     }
 
@@ -391,6 +392,9 @@ startxref
     setSubmitStep(1);
     setSubmitError('');
 
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), SUBMIT_TIMEOUT_MS);
+
     try {
       const selectedJobData = jobs.find(j => j.id === selectedJob);
       const files = await Promise.all(uploadedFiles.map(async (file) => ({
@@ -402,6 +406,7 @@ startxref
       const response = await fetch('/api/send-bewerbung.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
         body: JSON.stringify({
           ...formData,
           _website: '',
@@ -412,7 +417,13 @@ startxref
       });
 
       if (!response.ok) {
-        throw new Error('Bewerbung konnte nicht gesendet werden.');
+        if (response.status === 413) {
+          throw new Error('Die PDF-Unterlagen sind für den E-Mail-Versand zu groß. Bitte reduzieren Sie die Dateigröße.');
+        }
+        if (response.status === 429) {
+          throw new Error('Es wurden zu viele Übertragungen gestartet. Bitte warten Sie einige Minuten und versuchen Sie es erneut.');
+        }
+        throw new Error('Die Bewerbung konnte nicht gesendet werden.');
       }
 
       setSubmitStep(3);
@@ -422,8 +433,15 @@ startxref
       }
     } catch (error) {
       console.error(error);
-      setSubmitError('Die Bewerbung konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut oder senden Sie die Unterlagen direkt an daniel.klein@movin-freiburg.de.');
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        setSubmitError('Die Übertragung hat länger als 60 Sekunden gedauert und wurde beendet. Bitte verwenden Sie kleinere PDF-Dateien oder senden Sie die Unterlagen direkt an daniel.klein@movin-freiburg.de.');
+      } else {
+        setSubmitError(error instanceof Error
+          ? error.message
+          : 'Die Bewerbung konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut oder senden Sie die Unterlagen direkt an daniel.klein@movin-freiburg.de.');
+      }
     } finally {
+      window.clearTimeout(timeoutId);
       setIsSubmitting(false);
     }
   };
@@ -995,8 +1013,8 @@ startxref
                       exit={{ opacity: 0, y: -5 }}
                       className="space-y-2"
                     >
-                      <h4 className="text-xl font-bold text-secondary">Datei wird verschlüsselt...</h4>
-                      <p className="text-dark/50 text-sm">Prüfe PDF-Struktur und formatiere Upload für de.movin.career</p>
+                      <h4 className="text-xl font-bold text-secondary">PDF wird vorbereitet...</h4>
+                      <p className="text-dark/50 text-sm">Die ausgewählten Unterlagen werden für die Übertragung vorbereitet.</p>
                     </motion.div>
                   )}
                   {submitStep === 2 && (
@@ -1007,8 +1025,8 @@ startxref
                       exit={{ opacity: 0, y: -5 }}
                       className="space-y-2"
                     >
-                      <h4 className="text-xl font-bold text-secondary">Bewerberprofil wird generiert...</h4>
-                      <p className="text-dark/50 text-sm">Abgleich für daniel.klein@movin-freiburg.de</p>
+                      <h4 className="text-xl font-bold text-secondary">Unterlagen werden übertragen...</h4>
+                      <p className="text-dark/50 text-sm">Der sichere E-Mail-Versand an MOVIN läuft.</p>
                     </motion.div>
                   )}
                   {submitStep === 3 && (
@@ -1220,7 +1238,7 @@ startxref
                         >
                           Weitere PDF hinzufügen
                         </button>
-                        <p className="text-xs text-dark/40 font-semibold text-center">Maximal 12 MB pro Datei, 24 MB gesamt.</p>
+                        <p className="text-xs text-dark/40 font-semibold text-center">Maximal 10 MB pro Datei, 15 MB gesamt.</p>
                       </div>
                     ) : (
                       <>
@@ -1229,7 +1247,7 @@ startxref
                         </div>
                         <div className="text-center">
                           <p className="text-sm font-bold text-secondary">Klicken Sie zum Auswählen oder ziehen Sie die PDF hierher</p>
-                          <p className="text-xs text-dark/40 font-semibold mt-1">Mehrere PDF-Dateien möglich, maximal 12 MB pro Datei</p>
+                          <p className="text-xs text-dark/40 font-semibold mt-1">Mehrere PDF-Dateien möglich, maximal 10 MB pro Datei und 15 MB gesamt</p>
                         </div>
                       </>
                     )}

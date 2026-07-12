@@ -10,8 +10,10 @@ require_once __DIR__ . '/vendor/phpmailer/PHPMailer.php';
 require_once __DIR__ . '/vendor/phpmailer/SMTP.php';
 
 const MAX_REQUEST_BYTES = 36 * 1024 * 1024;
-const MAX_PDF_BYTES = 12 * 1024 * 1024;
-const MAX_TOTAL_PDF_BYTES = 24 * 1024 * 1024;
+const MAX_PDF_BYTES = 10 * 1024 * 1024;
+const MAX_TOTAL_PDF_BYTES = 15 * 1024 * 1024;
+
+@set_time_limit(60);
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
@@ -172,7 +174,7 @@ function decodePdf(string $encoded): string
         respond(400, ['error' => 'Invalid PDF file']);
     }
     if (strlen($binary) > MAX_PDF_BYTES) {
-        respond(413, ['error' => 'A PDF exceeds the 12 MB limit']);
+        respond(413, ['error' => 'A PDF exceeds the 10 MB limit']);
     }
     return $binary;
 }

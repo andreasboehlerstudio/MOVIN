@@ -29,7 +29,7 @@ foreach ($files as $file) {
     $content = decodePdf((string) ($file['fileBase64'] ?? ''));
     $totalBytes += strlen($content);
     if ($totalBytes > MAX_TOTAL_PDF_BYTES) {
-        respond(413, ['error' => 'Attachments exceed the 24 MB total limit']);
+        respond(413, ['error' => 'Attachments exceed the 15 MB total limit']);
     }
     $attachments[] = [safeFilename((string) ($file['fileName'] ?? 'bewerbung.pdf')), $content];
 }

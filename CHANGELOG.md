@@ -2,6 +2,18 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.18-staging.1] - 2026-07-12
+
+### Bewerbungsformular
+- Endlosen Ladezustand durch einen clientseitigen 60-Sekunden-Timeout verhindert.
+- Eigene Hinweise fuer Zeitueberschreitung, zu grosse Unterlagen und Rate-Limits ergaenzt.
+- Statusanzeige beschreibt nun PDF-Vorbereitung und SMTP-Uebertragung korrekt.
+
+### PDF-Versand
+- Maximale Einzeldatei von 12 MB auf 10 MB reduziert.
+- Maximale Gesamtgroesse von 24 MB auf 15 MB reduziert, um Base64- und MIME-Aufschlag beim E-Mail-Versand zu beruecksichtigen.
+- Client- und PHP-Limits synchronisiert und PHP-Ausfuehrung auf 60 Sekunden begrenzt.
+
 ## [1.1.17] - 2026-07-12
 
 ### Production
