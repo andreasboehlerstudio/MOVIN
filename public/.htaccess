@@ -4,6 +4,41 @@ Options -MultiViews
   RewriteEngine On
   RewriteBase /
 
+  # Alte WordPress-URLs auf ihre fachlich passenden neuen Seiten umleiten.
+  RewriteRule ^anamnesebogen/?$ /digital/anamnesebogen/ [R=301,L]
+  RewriteRule ^ki-gestuetzte-physiotherapie/?$ /digital/ki-physiotherapie/ [R=301,L]
+  RewriteRule ^movinapp/?$ /digital/movin-app/ [R=301,L]
+  RewriteRule ^movin-app/?$ /digital/movin-app/ [R=301,L]
+
+  RewriteRule ^therapie-movinamlorettoberg/?$ /standorte/physiotherapie-freiburg-lorettoberg/ [R=301,L]
+  RewriteRule ^therapie-movinammooswald/?$ /standorte/physiotherapie-freiburg-mooswald/ [R=301,L]
+  RewriteRule ^therapie-movin-am-europa-park/?$ /standorte/physiotherapie-europa-park-rust/ [R=301,L]
+  RewriteRule ^neues-zentrum-am-mooswald/?$ /standorte/physiotherapie-freiburg-mooswald/ [R=301,L]
+
+  RewriteRule ^gesundheitsfoerderung/?$ /leistungen/betriebliche-gesundheitsfoerderung/ [R=301,L]
+  RewriteRule ^betrieb/?$ /leistungen/betriebliche-gesundheitsfoerderung/ [R=301,L]
+  RewriteRule ^buero/?$ /leistungen/betriebliche-gesundheitsfoerderung/ [R=301,L]
+  RewriteRule ^3d-flip-book/bfg-broschuere/?$ /leistungen/betriebliche-gesundheitsfoerderung/ [R=301,L]
+  RewriteRule ^neue-broschuere-bgm/?$ /leistungen/betriebliche-gesundheitsfoerderung/ [R=301,L]
+  RewriteRule ^sportler/?$ /leistungen/sportphysiotherapie/ [R=301,L]
+  RewriteRule ^physiotherapie-partner-des-ehc-freiburg/?$ /leistungen/sportphysiotherapie/ [R=301,L]
+  RewriteRule ^neuer-sportphysiotherapie-partner-der-ehc-woelfe/?$ /leistungen/sportphysiotherapie/ [R=301,L]
+  RewriteRule ^lorettoberg-sensopro/?$ /leistungen/sensopro/ [R=301,L]
+  RewriteRule ^vikomotorik-vortrag/?$ /leistungen/skillcourt/ [R=301,L]
+
+  RewriteRule ^functional-training/?$ /training/ [R=301,L]
+  RewriteRule ^t-rena-nachsorge/?$ /training/ [R=301,L]
+  RewriteRule ^t-rena-deutsche-rentenversicherung/?$ /training/ [R=301,L]
+  RewriteRule ^station/?$ /stationaere-versorgung/ [R=301,L]
+  RewriteRule ^artemed-group-loretto-krankenhaus/?$ /stationaere-versorgung/ [R=301,L]
+
+  RewriteRule ^48-stunden-termingarantie/?$ /termin/ [R=301,L]
+  RewriteRule ^video-termine/?$ /termin/ [R=301,L]
+  RewriteRule ^karriere/bewirb-dich-jetzt/?$ /karriere/ [R=301,L]
+  RewriteRule ^karriere/interesse-bekunden/?$ /karriere/ [R=301,L]
+  RewriteRule ^datenschutzerklaerung/?$ /datenschutz/ [R=301,L]
+  RewriteRule ^cookie-richtlinie-eu/?$ /datenschutz/ [R=301,L]
+
   RewriteRule ^leistungen/knie-schulter-therapie/?$ /leistungen/ [R=301,L]
 
   RewriteRule ^api/ - [L]

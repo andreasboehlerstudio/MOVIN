@@ -2,6 +2,15 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.19] - 2026-07-13
+
+### SEO und Weiterleitungen
+
+- 29 relevante alte WordPress-URLs mit permanenten 301-Weiterleitungen auf ihre fachlich passenden neuen Zielseiten abgebildet.
+- Darunter befinden sich die alten Standortseiten, MOVIN-App- und KI-Seiten, Anamnesebogen, Gesundheitsfoerderung, Sportphysiotherapie, SensoPro, Skillcourt, T-RENA, stationaere Versorgung, Terminseiten, Karriere und Datenschutz.
+- Die bestehende Weiterleitung von `/leistungen/knie-schulter-therapie/` auf die Leistungsuebersicht bleibt erhalten.
+- Fuer Altseiten ohne fachlich passenden Nachfolger wurde bewusst keine pauschale Startseiten-Weiterleitung angelegt, um Soft-404-Signale und Rankingverluste zu vermeiden.
+
 ## [1.1.18] - 2026-07-12
 
 ### Production

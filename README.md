@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.18`
-- Letzter Release-Tag: `v1.1.18`
+- Aktuelle Version: `1.1.19`
+- Letzter Release-Tag: `v1.1.19`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.19] - 2026-07-13
+
+- 29 relevante alte WordPress-URLs per permanentem 301-Redirect auf die jeweils passende neue Standort-, Leistungs-, Digital-, Termin-, Karriere- oder Datenschutzseite umgeleitet.
+- Bestehende Weiterleitung der ehemaligen Knie-/Schulter-Leistungsseite beibehalten.
+- Unpassende Altseiten werden bewusst nicht pauschal auf die Startseite umgeleitet, um Soft-404-Signale zu vermeiden.
 
 ### [1.1.18] - 2026-07-12
 
