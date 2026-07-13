@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.20`
-- Letzter Release-Tag: `v1.1.20`
+- Aktuelle Version: `1.1.21`
+- Letzter Release-Tag: `v1.1.21`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.21] - 2026-07-13
+
+- Google Analytics auf die bestehende GA4-Mess-ID `G-V6PKV5XVJL` umgestellt, damit die historische Datenreihe der bisherigen WordPress-Seite fortgefuehrt wird.
+- Internes Analytics-Dashboard und Environment-Dokumentation auf die zugehoerige Property-ID `391939422` abgeglichen.
+- Consent-gesteuertes Laden von GA4 unveraendert beibehalten.
 
 ### [1.1.20] - 2026-07-13
 
@@ -259,7 +265,7 @@ Die interne Unterseite fuer Google Analytics Kennzahlen ist erreichbar unter:
 Damit echte GA4-Daten angezeigt werden, muessen serverseitig folgende Variablen gesetzt sein:
 
 ```text
-GA4_PROPERTY_ID=543894426
+GA4_PROPERTY_ID=391939422
 GOOGLE_SERVICE_ACCOUNT_EMAIL=movin-550@movin-501211.iam.gserviceaccount.com
 GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY=
 ANALYTICS_DASHBOARD_TOKEN=

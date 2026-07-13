@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { useCookieConsent } from '../gdpr/CookieContext';
 
-const GA_MEASUREMENT_ID = 'G-ZS80MQPC9Z';
+const GA_MEASUREMENT_ID = 'G-V6PKV5XVJL';
 const GA_SCRIPT_ID = 'movin-google-analytics';
 const GA_INITIALIZED_FLAG = '__movinGoogleAnalyticsInitialized';
 

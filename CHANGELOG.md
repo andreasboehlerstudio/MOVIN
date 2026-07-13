@@ -2,6 +2,14 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.21] - 2026-07-13
+
+### Google Analytics
+
+- Website-Tracking von der neuen GA4-Mess-ID auf die bestehende Mess-ID `G-V6PKV5XVJL` der bisherigen WordPress-Seite umgestellt.
+- Property-ID fuer das interne Analytics-Dashboard und die Environment-Dokumentation auf `391939422` aktualisiert.
+- Bestehende Cookie-Einwilligung bleibt Voraussetzung fuer das Laden und Senden von Analytics-Daten.
+
 ## [1.1.20] - 2026-07-13
 
 ### Production
