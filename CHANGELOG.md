@@ -2,6 +2,13 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.20] - 2026-07-13
+
+### Production
+
+- Production-Deployment nach Aktualisierung der Secrets im GitHub-Environment `Production` erneut angestossen.
+- Der Build enthaelt unveraendert die in `1.1.19` ergaenzten 301-Weiterleitungen und das PHP-Formular-Backend.
+
 ## [1.1.19] - 2026-07-13
 
 ### SEO und Weiterleitungen

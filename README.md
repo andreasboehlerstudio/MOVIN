@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.19`
-- Letzter Release-Tag: `v1.1.19`
+- Aktuelle Version: `1.1.20`
+- Letzter Release-Tag: `v1.1.20`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.20] - 2026-07-13
+
+- Production-Deployment nach Aktualisierung der GitHub-Environment-Secrets erneut ausgeloest.
+- Die in `1.1.19` ergaenzten 301-Weiterleitungen werden damit in das korrigierte Live-Ziel uebertragen.
 
 ### [1.1.19] - 2026-07-13
 
