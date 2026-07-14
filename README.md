@@ -17,14 +17,18 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.26`
-- Letzter Release-Tag: `v1.1.26`
+- Aktuelle Version: `1.1.27`
+- Letzter Release-Tag: `v1.1.27`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.27] - 2026-07-14
+
+- Bestaetigte Umsatzsteuer-ID in das Impressum aufgenommen.
 
 ### [1.1.26] - 2026-07-14
 

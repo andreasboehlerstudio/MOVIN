@@ -2,6 +2,12 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.27] - 2026-07-14
+
+### Impressum
+
+- Vom Kunden bestaetigte Umsatzsteuer-ID `DE-0646142019` in das Impressum aufgenommen.
+
 ## [1.1.26] - 2026-07-14
 
 ### Impressum

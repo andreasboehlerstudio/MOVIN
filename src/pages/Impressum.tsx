@@ -39,6 +39,11 @@ export default function Impressum() {
               Registernummer: HRB 5786
             </p>
 
+            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">Umsatzsteuer-ID</h2>
+            <p className="mb-4">
+              USt-ID-Nr.: DE-0646142019
+            </p>
+
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
             <p className="mb-4">
               Daniel Klein<br />
