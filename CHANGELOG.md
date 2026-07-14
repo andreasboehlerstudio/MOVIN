@@ -2,6 +2,16 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.29] - 2026-07-14
+
+### Digitaler Anamnesebogen
+
+- Absturz der PDF-Erstellung bei automatisch grossgeschriebenen Texten mit `ß`, beispielsweise "Nachtschweiß", behoben.
+- Beide PDF-Seiten dynamisch und vollstaendig in das A4-Format eingepasst, sodass Footer und untere Formularinhalte nicht mehr abgeschnitten werden.
+- PDF-Rendering beschleunigt und mit sichtbarer Ladeanzeige fuer Download und Versand versehen.
+- Versand mit einem 60-Sekunden-Timeout sowie eindeutigen Hinweisen fuer Rate-Limit, Dateigroesse und Mailserverfehler abgesichert.
+- Alle sechs Formularschritte mobil auf Text- und Feldueberlaeufe geprueft; Production-Mailversand inklusive PDF-Anhang erfolgreich bestaetigt.
+
 ## [1.1.28] - 2026-07-14
 
 ### 404-Seite

@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.28`
-- Letzter Release-Tag: `v1.1.28`
+- Aktuelle Version: `1.1.29`
+- Letzter Release-Tag: `v1.1.29`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.29] - 2026-07-14
+
+- PDF-Download und E-Mail-Versand des digitalen Anamnesebogens stabilisiert.
+- PDF-Seiten ohne abgeschnittene Formularinhalte auf A4 eingepasst und die mobile Typografie aller sechs Schritte geprueft.
+- Ladeanzeige, Versand-Timeout und konkrete Fehlermeldungen fuer Rate-Limit, Dateigroesse und Mailserver ergaenzt.
 
 ### [1.1.28] - 2026-07-14
 

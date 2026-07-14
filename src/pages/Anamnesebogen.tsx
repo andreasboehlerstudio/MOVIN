@@ -12,9 +12,12 @@ import {
   ArrowLeft, 
   Send, 
   Download,
-  AlertCircle
+  AlertCircle,
+  LoaderCircle
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
+
+const SUBMIT_TIMEOUT_MS = 60_000;
 
 type FormData = {
   // Personal Info
@@ -186,6 +189,7 @@ export default function Anamnesebogen() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(initialData);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
@@ -225,13 +229,15 @@ export default function Anamnesebogen() {
   const prevStep = () => setStep(prev => Math.max(prev - 1, 1));
 
   const generatePDF = async () => {
-    const { jsPDF } = await import('jspdf');
-    const html2canvas = (await import('html2canvas')).default;
+    const [{ jsPDF }, { default: html2canvas }] = await Promise.all([
+      import('jspdf'),
+      import('html2canvas'),
+      document.fonts.ready,
+    ]);
 
     console.log("Starting PDF generation...");
     if (!pdfRef.current) {
-      console.error("PDF Ref is null");
-      return null;
+      throw new Error('PDF template is not available');
     }
     
     try {
@@ -241,8 +247,7 @@ export default function Anamnesebogen() {
       
       console.log(`Found ${pages.length} pages to render`);
       if (pages.length === 0) {
-        console.error("No .pdf-page elements found");
-        return null;
+        throw new Error('No PDF pages found');
       }
       
       for (let i = 0; i < pages.length; i++) {
@@ -250,9 +255,9 @@ export default function Anamnesebogen() {
         const page = pages[i] as HTMLElement;
         
         const canvas = await html2canvas(page, {
-          scale: 2,
+          scale: 1.25,
           useCORS: true,
-          logging: true,
+          logging: false,
           backgroundColor: '#ffffff',
           scrollX: 0,
           scrollY: 0,
@@ -264,6 +269,17 @@ export default function Anamnesebogen() {
                 visibility: visible !important;
                 position: static !important;
                 display: flex !important;
+                height: auto !important;
+                min-height: 297mm !important;
+                overflow: visible !important;
+              }
+              :where(.pdf-page) p {
+                font-size: inherit;
+                line-height: inherit;
+              }
+              :where(.pdf-page) * {
+                text-transform: none !important;
+                letter-spacing: normal !important;
               }
               * { 
                 color-scheme: light !important;
@@ -276,24 +292,31 @@ export default function Anamnesebogen() {
         });
         
         console.log(`Page ${i + 1} rendered to canvas`);
-        const imgData = canvas.toDataURL('image/png');
+        const imgData = canvas.toDataURL('image/jpeg', 0.9);
         if (imgData === 'data:,') {
           console.error(`Page ${i + 1} canvas is empty`);
           throw new Error(`Empty canvas for page ${i + 1}`);
         }
 
         const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+        const pdfPageHeight = pdf.internal.pageSize.getHeight();
+        const fitRatio = Math.min(pdfWidth / canvas.width, pdfPageHeight / canvas.height);
+        const pdfImageWidth = canvas.width * fitRatio;
+        const pdfImageHeight = canvas.height * fitRatio;
+        const pdfImageX = (pdfWidth - pdfImageWidth) / 2;
+        const pdfImageY = (pdfPageHeight - pdfImageHeight) / 2;
         
         if (i > 0) pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.addImage(imgData, 'JPEG', pdfImageX, pdfImageY, pdfImageWidth, pdfImageHeight, undefined, 'FAST');
+
+        await new Promise<void>((resolve) => window.requestAnimationFrame(() => resolve()));
       }
       
       console.log("PDF generation complete");
       return pdf;
     } catch (err) {
       console.error("Error in generatePDF:", err);
-      return null;
+      throw err;
     }
   };
 
@@ -306,15 +329,21 @@ export default function Anamnesebogen() {
     setIsSubmitting(true);
     setError(null);
 
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), SUBMIT_TIMEOUT_MS);
+    let pdfCreated = false;
+
     try {
       const pdf = await generatePDF();
       if (!pdf) throw new Error("PDF generation failed");
+      pdfCreated = true;
       
       const pdfBase64 = pdf.output('datauristring');
 
       const response = await fetch('/api/send-anamnese.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
         body: JSON.stringify({
           pdfBase64,
           name: `${formData.vorname} ${formData.name}`,
@@ -324,21 +353,52 @@ export default function Anamnesebogen() {
         })
       });
 
-      if (!response.ok) throw new Error("Failed to send email");
+      if (!response.ok) {
+        if (response.status === 413) {
+          throw new Error('Das erzeugte PDF ist für den E-Mail-Versand zu groß. Bitte laden Sie es herunter und senden Sie es direkt an anamnesebogen@movin-freiburg.de.');
+        }
+        if (response.status === 429) {
+          throw new Error('Es wurden zu viele Übertragungen gestartet. Bitte warten Sie etwa 15 Minuten und versuchen Sie es erneut.');
+        }
+        if (response.status === 502 || response.status === 503) {
+          throw new Error('Der Mailversand ist momentan nicht verfügbar. Bitte laden Sie das PDF herunter und senden Sie es direkt an anamnesebogen@movin-freiburg.de.');
+        }
+        throw new Error('Der Anamnesebogen konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.');
+      }
 
       setIsSuccess(true);
     } catch (err) {
       console.error(err);
-      setError("Es gab ein Problem beim Senden des Formulars. Bitte versuchen Sie es später erneut oder laden Sie das PDF manuell herunter.");
+      if (err instanceof DOMException && err.name === 'AbortError') {
+        setError('Die Übertragung hat länger als 60 Sekunden gedauert und wurde beendet. Bitte laden Sie das PDF herunter und senden Sie es direkt an anamnesebogen@movin-freiburg.de.');
+      } else if (!pdfCreated) {
+        setError('Das PDF konnte nicht erstellt werden. Bitte versuchen Sie es erneut.');
+      } else {
+        setError(err instanceof Error
+          ? err.message
+          : 'Der Anamnesebogen konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut.');
+      }
     } finally {
+      window.clearTimeout(timeoutId);
       setIsSubmitting(false);
     }
   };
 
   const downloadManualPDF = async () => {
-    const pdf = await generatePDF();
-    if (pdf) {
-      pdf.save(`Anamnesebogen_${formData.name}.pdf`);
+    if (isGeneratingPdf) return;
+
+    setIsGeneratingPdf(true);
+    setError(null);
+
+    try {
+      const pdf = await generatePDF();
+      if (!pdf) throw new Error('PDF generation failed');
+      pdf.save(`Anamnesebogen_${formData.name || 'MOVIN'}.pdf`);
+    } catch (err) {
+      console.error(err);
+      setError('Das PDF konnte nicht erstellt werden. Bitte versuchen Sie es erneut.');
+    } finally {
+      setIsGeneratingPdf(false);
     }
   };
 
@@ -843,16 +903,23 @@ export default function Anamnesebogen() {
                     <button 
                       type="button"
                       onClick={downloadManualPDF}
-                      className="btn-outline flex items-center gap-2"
+                      disabled={isGeneratingPdf || isSubmitting}
+                      className="btn-outline flex items-center gap-2 disabled:cursor-wait disabled:opacity-60"
                     >
-                      <Download className="w-5 h-5" /> PDF herunterladen
+                      {isGeneratingPdf ? (
+                        <LoaderCircle className="h-5 w-5 animate-spin" />
+                      ) : (
+                        <Download className="h-5 w-5" />
+                      )}
+                      {isGeneratingPdf ? 'PDF wird erstellt...' : 'PDF herunterladen'}
                     </button>
                     <button 
                       type="submit"
-                      disabled={isSubmitting}
-                      className="btn-primary flex items-center gap-2"
+                      disabled={isSubmitting || isGeneratingPdf}
+                      className="btn-primary flex items-center gap-2 disabled:cursor-wait disabled:opacity-60"
                     >
-                      {isSubmitting ? "Wird gesendet..." : "Absenden"} <Send className="w-5 h-5" />
+                      {isSubmitting ? <LoaderCircle className="h-5 w-5 animate-spin" /> : <Send className="h-5 w-5" />}
+                      {isSubmitting ? 'PDF wird erstellt und gesendet...' : 'Absenden'}
                     </button>
                   </div>
                 )}
@@ -880,10 +947,25 @@ export default function Anamnesebogen() {
 
           {/* Hidden PDF Template for generation */}
           <div 
-            className="absolute opacity-0 pointer-events-none overflow-hidden" 
-            style={{ top: 0, left: 0, width: '210mm', zIndex: -100 }}
+            className="fixed left-[-10000px] top-0 w-[210mm] pointer-events-none"
+            style={{ zIndex: -100 }}
+            aria-hidden="true"
           >
-            <div ref={pdfRef} className="fixed left-[-9999px] top-0 z-[-1] w-[210mm] bg-[#f8fafc] pointer-events-none" aria-hidden="true">
+            <style>{`
+              .pdf-page {
+                font-size: 11px;
+                line-height: 1.3;
+              }
+              :where(.pdf-page) p {
+                font-size: inherit;
+                line-height: inherit;
+              }
+              :where(.pdf-page) * {
+                text-transform: none !important;
+                letter-spacing: normal !important;
+              }
+            `}</style>
+            <div ref={pdfRef} className="w-[210mm] bg-[#f8fafc] pointer-events-none">
               {/* PAGE 1: Personal Info & Body Map & Section I */}
               <div className="pdf-page w-[210mm] h-[297mm] bg-[#ffffff] p-[15mm] text-[#0f172a] font-sans flex flex-col relative overflow-hidden">
                 {/* Header with Logo-like styling */}
