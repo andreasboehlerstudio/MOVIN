@@ -1,5 +1,7 @@
 Options -MultiViews
 
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -47,7 +49,15 @@ Options -MultiViews
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  RewriteRule ^ /index.html [L]
+  # Nur bekannte React-Routen an die SPA weiterreichen. So bleiben echte
+  # Tippfehler und geloeschte URLs ein HTTP-404 statt eines Soft-404.
+  RewriteRule ^$ /index.html [L]
+  RewriteRule ^(?:leistungen|standorte|digital|training|stationaere-versorgung|ueber-uns|karriere|faq|kontakt|termin|impressum|datenschutz|intern/google-statistiken)/?$ /index.html [L]
+  RewriteRule ^leistungen/(?:krankengymnastik|manuelle-therapie|krankengymnastik-am-geraet|sportphysiotherapie|lymphdrainage|mtt-training|personal-training|skillcourt|sensopro|eap-privat|praevention-gesundheitsfoerderung|betriebliche-gesundheitsfoerderung)/?$ /index.html [L]
+  RewriteRule ^standorte/(?:physiotherapie-freiburg-lorettoberg|physiotherapie-freiburg-mooswald|physiotherapie-europa-park-rust)/?$ /index.html [L]
+  RewriteRule ^digital/(?:movin-app|ki-physiotherapie|anamnesebogen)/?$ /index.html [L]
+
+  RewriteRule ^ - [R=404,L]
 </IfModule>
 
 <IfModule mod_setenvif.c>

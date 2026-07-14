@@ -2,6 +2,20 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.22] - 2026-07-14
+
+### 404 und SEO
+
+- Eigene responsive MOVIN-404-Seite mit den beiden Wegen zur Startseite und zum Kontakt umgesetzt.
+- Catch-all-Platzhalter durch eine nicht indexierbare React-404 ersetzt.
+- Apache-Routing auf bekannte Seiten begrenzt und unbekannte Adressen mit einem echten HTTP-404 versehen, um Soft-404-Signale zu vermeiden.
+
+### FAQ
+
+- Sticky-Verhalten des Bereichs "Haeufige Themen" auf grosse Bildschirmbreiten begrenzt, damit der Block auf Mobilgeraeten normal aus dem sichtbaren Bereich scrollt.
+- Zuzahlungsinformation ab 2027 korrigiert: weiterhin 10 % des Rezeptwertes, die Pauschale steigt von 10 auf 15 Euro pro Verordnung.
+- Ergaenzt, dass sich die pauschale Verordnungsgebuehr damit um 50 % erhoeht.
+
 ## [1.1.21] - 2026-07-13
 
 ### Google Analytics

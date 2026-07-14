@@ -17,14 +17,21 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.21`
-- Letzter Release-Tag: `v1.1.21`
+- Aktuelle Version: `1.1.22`
+- Letzter Release-Tag: `v1.1.22`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.22] - 2026-07-14
+
+- Gebrandete 404-Seite mit Links zur Startseite und zum Kontakt ergaenzt.
+- Unbekannte Adressen liefern ueber Apache jetzt einen echten HTTP-404 statt einer indexierbaren Platzhalterseite.
+- Den Bereich "Haeufige Themen" auf der FAQ-Seite mobil aus dem Sticky-Verhalten geloest, damit er normal mitscrollt.
+- FAQ-Angabe zur gesetzlichen Zuzahlung ab 2027 auf weiterhin 10 % des Rezeptwertes plus 15 Euro je Verordnung aktualisiert.
 
 ### [1.1.21] - 2026-07-13
 

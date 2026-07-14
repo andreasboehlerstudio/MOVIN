@@ -19,7 +19,7 @@ import StationaereVersorgung from './pages/StationaereVersorgung';
 import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
 import GoogleStatistiken from './pages/GoogleStatistiken';
-import GenericPage from './pages/GenericPage';
+import NotFound from './pages/NotFound';
 import { CookieConsent } from './components/gdpr/CookieConsent';
 import CtaTransition from './components/effects/CtaTransition';
 import InitialLoader from './components/effects/InitialLoader';
@@ -59,7 +59,7 @@ export default function App() {
           <Route path="datenschutz" element={<Datenschutz />} />
           <Route path="intern/google-statistiken" element={<GoogleStatistiken />} />
 
-          <Route path="*" element={<GenericPage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>

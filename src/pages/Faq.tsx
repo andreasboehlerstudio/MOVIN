@@ -95,7 +95,7 @@ export default function Faq() {
       items: [
         {
           question: "Muss ich für meine Physiotherapie in Freiburg eine gesetzliche Zuzahlung leisten?",
-          answer: "Ja, der Gesetzgeber schreibt für gesetzlich versicherte Patienten eine Zuzahlung vor (sofern keine offizielle Befreiung vorliegt). Die Staffelung ist gesetzlich wie folgt geregelt:\n\n- Aktuell: Die Zuzahlung beträgt 10 % des reinen Rezeptwertes plus eine Pauschale von 10 Euro pro Verordnung.\n- Ab dem Jahr 2027: Aufgrund gesetzlicher Neuregelungen steigt diese gesetzliche Zuzahlung auf 20 % des Rezeptwertes plus 10 Euro pauschal pro Verordnung.\n\nHinweis: Wir ziehen diesen Betrag zu Beginn Ihrer Behandlungsserie in der Praxis ein. (Ausnahme Blankoverordnung)"
+          answer: "Ja, der Gesetzgeber schreibt für gesetzlich versicherte Patienten eine Zuzahlung vor (sofern keine offizielle Befreiung vorliegt). Die Staffelung ist gesetzlich wie folgt geregelt:\n\n- Aktuell: Die Zuzahlung beträgt 10 % des reinen Rezeptwertes plus eine Pauschale von 10 Euro pro Verordnung.\n- Ab dem Jahr 2027: Die Zuzahlung beträgt weiterhin 10 % des Rezeptwertes. Die Pauschale steigt jedoch auf 15 Euro pro Verordnung. Damit erhöht sich die pauschale Verordnungsgebühr um 50 %.\n\nHinweis: Wir ziehen diesen Betrag zu Beginn Ihrer Behandlungsserie in der Praxis ein. (Ausnahme Blankoverordnung)"
         },
         {
           question: "Kann ich auch als Privatpatient oder Selbstzahler zu MOVIN kommen?",
@@ -394,7 +394,7 @@ export default function Faq() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl xl:max-w-7xl 2xl:max-w-[1440px] mx-auto items-start">
             
             {/* Left Sidebar Info Card */}
-            <div className="lg:col-span-4 bg-light rounded-[2rem] p-8 border border-border/70 sticky top-24">
+            <div className="lg:col-span-4 bg-light rounded-[2rem] p-8 border border-border/70 lg:sticky lg:top-24">
               <h3 className="text-xl font-bold text-secondary mb-4">Häufige Themen</h3>
               <p className="text-xs text-dark/75 leading-relaxed mb-6">
                 Wir möchten Ihren Besuch bei uns so unkompliziert wie möglich gestalten. Wählen Sie eine Kategorie, um die häufigsten Fragen und ausführliche Antworten anzuzeigen.

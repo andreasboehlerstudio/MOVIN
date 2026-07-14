@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Seite nicht gefunden | MOVIN Physiotherapie Freiburg</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #10154f;
+        background: #f4f8f9;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        background:
+          linear-gradient(90deg, #a9dfc0 0%, #11b7bd 52%, #183b78 100%) top / 100% 8px no-repeat,
+          #f4f8f9;
+      }
+
+      main {
+        position: relative;
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        overflow: hidden;
+        padding: 56px 24px;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+        width: min(100%, 1160px);
+        margin: 0 auto;
+      }
+
+      .logo {
+        display: block;
+        width: min(230px, 58vw);
+        height: auto;
+        margin-bottom: 64px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: #148f9b;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      h1 {
+        max-width: 780px;
+        margin: 0 0 24px;
+        font-size: clamp(40px, 7vw, 72px);
+        line-height: 1.05;
+      }
+
+      p {
+        max-width: 680px;
+        margin: 0 0 40px;
+        color: #4f5565;
+        font-size: clamp(18px, 2vw, 21px);
+        line-height: 1.65;
+      }
+
+      .actions { display: flex; flex-wrap: wrap; gap: 16px; }
+
+      .button {
+        display: inline-flex;
+        min-height: 56px;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 28px;
+        border: 2px solid #10154f;
+        border-radius: 999px;
+        color: #10154f;
+        font-size: 17px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+      }
+
+      .button:hover { transform: translateY(-2px); }
+      .button-primary { background: #10154f; color: #fff; }
+      .button-secondary:hover { background: #10154f; color: #fff; }
+
+      .error-number {
+        position: absolute;
+        right: -40px;
+        bottom: -110px;
+        color: rgba(17, 183, 189, 0.07);
+        font-size: clamp(220px, 32vw, 520px);
+        font-weight: 900;
+        line-height: 0.8;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      @media (max-width: 640px) {
+        main { padding: 42px 20px; }
+        .logo { margin-bottom: 44px; }
+        .actions { flex-direction: column; }
+        .button { width: 100%; }
+        .error-number { right: -60px; bottom: -30px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="content">
+        <img class="logo" src="/images/logos/movin-logo-2026-horizontal-1c-pos.svg" alt="MOVIN - innovativ bewegt" />
+        <p class="eyebrow">Fehler 404</p>
+        <h1>Diese Seite wurde nicht gefunden.</h1>
+        <p>Vielleicht wurde die Adresse ge&auml;ndert oder der Link ist nicht mehr aktuell. &Uuml;ber die Startseite oder den Kontakt finden Sie schnell weiter.</p>
+        <div class="actions">
+          <a class="button button-primary" href="/">Zur Startseite</a>
+          <a class="button button-secondary" href="/kontakt/">Kontakt aufnehmen</a>
+        </div>
+      </div>
+      <div class="error-number" aria-hidden="true">404</div>
+    </main>
+  </body>
+</html>
