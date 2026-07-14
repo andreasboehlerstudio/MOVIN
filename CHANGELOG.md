@@ -2,6 +2,13 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.26] - 2026-07-14
+
+### Impressum
+
+- Verlinkten Credit auf "Andreas Boehler - Movie-/Art-Director/Fotograf" erweitert.
+- Bestehende Verlinkung auf `https://www.andreasboehler.com` beibehalten.
+
 ## [1.1.25] - 2026-07-14
 
 ### MOVIN App

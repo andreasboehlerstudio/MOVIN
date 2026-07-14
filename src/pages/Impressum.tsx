@@ -63,7 +63,7 @@ export default function Impressum() {
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"
               >
-                Andreas Boehler
+                Andreas Boehler – Movie-/Art-Director/Fotograf
               </a>
             </p>
           </div>

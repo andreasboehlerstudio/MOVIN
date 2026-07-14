@@ -17,14 +17,18 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.25`
-- Letzter Release-Tag: `v1.1.25`
+- Aktuelle Version: `1.1.26`
+- Letzter Release-Tag: `v1.1.26`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.26] - 2026-07-14
+
+- Verlinkten Andreas-Boehler-Credit im Impressum um die Bezeichnung "Movie-/Art-Director/Fotograf" erweitert.
 
 ### [1.1.25] - 2026-07-14
 
