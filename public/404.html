@@ -4,18 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, follow" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#08b7bf" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
     <title>Seite nicht gefunden | MOVIN Physiotherapie Freiburg</title>
     <style>
       :root {
         color-scheme: light;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Plus Jakarta Sans", Arial, sans-serif;
         color: #10154f;
-        background: #f4f8f9;
+        background: #08b7bf;
       }
 
       * { box-sizing: border-box; }
@@ -23,9 +24,7 @@
       body {
         min-height: 100vh;
         margin: 0;
-        background:
-          linear-gradient(90deg, #a9dfc0 0%, #11b7bd 52%, #183b78 100%) top / 100% 8px no-repeat,
-          #f4f8f9;
+        background: linear-gradient(135deg, #08b7bf 0%, #62d3c8 52%, #b2ead6 100%);
       }
 
       main {
@@ -35,6 +34,7 @@
         align-items: center;
         overflow: hidden;
         padding: 56px 24px;
+        background: linear-gradient(115deg, rgba(10, 15, 77, 0.10) 0%, transparent 42%, rgba(255, 255, 255, 0.16) 100%);
       }
 
       .content {
@@ -46,18 +46,19 @@
 
       .logo {
         display: block;
-        width: min(230px, 58vw);
+        width: min(290px, 72vw);
         height: auto;
-        margin-bottom: 64px;
+        margin-bottom: 56px;
       }
 
       .eyebrow {
         margin: 0 0 18px;
-        color: #148f9b;
+        color: rgba(10, 15, 77, 0.72);
+        font-family: "Outfit", Arial, sans-serif;
         font-size: 14px;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 2px;
+        letter-spacing: 0;
       }
 
       h1 {
@@ -65,12 +66,14 @@
         margin: 0 0 24px;
         font-size: clamp(40px, 7vw, 72px);
         line-height: 1.05;
+        font-family: "Outfit", Arial, sans-serif;
+        font-weight: 900;
       }
 
       p {
         max-width: 680px;
         margin: 0 0 40px;
-        color: #4f5565;
+        color: rgba(10, 15, 77, 0.82);
         font-size: clamp(18px, 2vw, 21px);
         line-height: 1.65;
       }
@@ -86,6 +89,7 @@
         border: 2px solid #10154f;
         border-radius: 999px;
         color: #10154f;
+        font-family: "Outfit", Arial, sans-serif;
         font-size: 17px;
         font-weight: 700;
         text-decoration: none;
@@ -93,14 +97,16 @@
       }
 
       .button:hover { transform: translateY(-2px); }
-      .button-primary { background: #10154f; color: #fff; }
-      .button-secondary:hover { background: #10154f; color: #fff; }
+      .button-primary { background: #10154f; color: #fff; box-shadow: 0 14px 32px rgba(10, 15, 77, 0.20); }
+      .button-secondary { background: rgba(255, 255, 255, 0.24); backdrop-filter: blur(8px); }
+      .button-secondary:hover { background: rgba(255, 255, 255, 0.56); }
 
       .error-number {
         position: absolute;
         right: -40px;
         bottom: -110px;
-        color: rgba(17, 183, 189, 0.07);
+        color: rgba(10, 15, 77, 0.08);
+        font-family: "Outfit", Arial, sans-serif;
         font-size: clamp(220px, 32vw, 520px);
         font-weight: 900;
         line-height: 0.8;
@@ -120,7 +126,7 @@
   <body>
     <main>
       <div class="content">
-        <img class="logo" src="/images/logos/movin-logo-2026-horizontal-1c-pos.svg" alt="MOVIN - innovativ bewegt" />
+        <img class="logo" src="/images/logos/movin-logo-2026-horizontal-rgb-gradient.png" alt="MOVIN - innovativ bewegt" />
         <p class="eyebrow">Fehler 404</p>
         <h1>Diese Seite wurde nicht gefunden.</h1>
         <p>Vielleicht wurde die Adresse ge&auml;ndert oder der Link ist nicht mehr aktuell. &Uuml;ber die Startseite oder den Kontakt finden Sie schnell weiter.</p>

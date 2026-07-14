@@ -2,6 +2,15 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.28] - 2026-07-14
+
+### 404-Seite
+
+- React-404 und eigenstaendige Server-404 im einheitlichen MOVIN-Design neu gestaltet.
+- Vollflaechigen Teal-to-Mint-Markenverlauf und kontrastreiche marineblaue Typografie integriert.
+- Sichtbare MOVIN-Verlaufswortmarke eingebunden und Outfit sowie Plus Jakarta Sans aus den lokal gehosteten Markenschriften verwendet.
+- Navigation zur Startseite und zum Kontakt fuer Desktop und Mobilgeraete optimiert.
+
 ## [1.1.27] - 2026-07-14
 
 ### Impressum

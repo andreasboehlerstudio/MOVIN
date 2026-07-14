@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.27`
-- Letzter Release-Tag: `v1.1.27`
+- Aktuelle Version: `1.1.28`
+- Letzter Release-Tag: `v1.1.28`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.28] - 2026-07-14
+
+- React- und Server-404 im MOVIN-Design mit Teal-to-Mint-Verlauf, sichtbarer Wortmarke und Markentypografie neu gestaltet.
+- 404-Navigation auf Startseite und Kontakt responsiv und kontrastreich umgesetzt.
 
 ### [1.1.27] - 2026-07-14
 
