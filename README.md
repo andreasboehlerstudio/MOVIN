@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.23`
-- Letzter Release-Tag: `v1.1.23`
+- Aktuelle Version: `1.1.24`
+- Letzter Release-Tag: `v1.1.24`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.24] - 2026-07-14
+
+- Oeffentliche Seiten vollstaendig auf sichtbare Platzhalter und unfertige Dummy-Inhalte geprueft.
+- Fehlenden Umsatzsteuer-ID-Platzhalter, Telemedizin-Coming-Soon-Inhalte und die ungenutzte Seite-im-Aufbau entfernt.
+- Formularhinweise neutralisiert und den App-Video-Fallback ohne sichtbaren "Video folgt"-Text gestaltet.
 
 ### [1.1.23] - 2026-07-14
 

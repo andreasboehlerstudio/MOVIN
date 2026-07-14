@@ -164,7 +164,7 @@ export default function Kontakt() {
                           value={formData.name}
                           onChange={handleChange}
                           className="px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light"
-                          placeholder="Max Mustermann"
+                          placeholder="Ihr Name"
                         />
                       </div>
                       <div className="flex flex-col gap-2">
@@ -177,7 +177,7 @@ export default function Kontakt() {
                           value={formData.phone}
                           onChange={handleChange}
                           className="px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light"
-                          placeholder="+49 123 456789"
+                          placeholder="Ihre Telefonnummer"
                         />
                       </div>
                     </div>
@@ -192,7 +192,7 @@ export default function Kontakt() {
                         value={formData.email}
                         onChange={handleChange}
                         className="px-4 py-3 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors bg-light"
-                        placeholder="max@beispiel.de"
+                        placeholder="Ihre E-Mail-Adresse"
                       />
                     </div>
 

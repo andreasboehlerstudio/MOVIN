@@ -2,6 +2,17 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.24] - 2026-07-14
+
+### Platzhalter-Bereinigung
+
+- Alle oeffentlichen Sitemap-Seiten sowie Impressum, Datenschutz, Cookie-Seite und 404 im Browser auf sichtbare Platzhalter geprueft.
+- Unvollstaendigen Umsatzsteuer-ID-Platzhalter aus dem Impressum entfernt; der Abschnitt bleibt bis zur Bestaetigung einer echten Nummer ausgeblendet.
+- Oeffentliche Telemedizin- und Videotherapie-Coming-Soon-Inhalte von der MOVIN-App-Seite entfernt.
+- Ungenutzte generische Seite mit dem Hinweis "Diese Seite befindet sich aktuell im Aufbau" aus dem Projekt entfernt.
+- Unechte Beispielnamen, Telefonnummern und E-Mail-Adressen in Kontakt- und Bewerbungsformularen durch neutrale Eingabehinweise ersetzt.
+- Technischen App-Video-Fallback so angepasst, dass bei einem Medienfehler kein sichtbarer "Video folgt"-Platzhalter erscheint.
+
 ## [1.1.23] - 2026-07-14
 
 ### Impressum und Kontakt

@@ -1109,7 +1109,7 @@ startxref
                         value={formData.name}
                         onChange={handleInputChange}
                         className="w-full pl-11 pr-4 py-3 rounded-xl border border-border focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary bg-light text-sm font-semibold"
-                        placeholder="Vorname Nachname"
+                        placeholder="Ihr Name"
                       />
                     </div>
                   </div>
@@ -1126,7 +1126,7 @@ startxref
                         value={formData.email}
                         onChange={handleInputChange}
                         className="w-full pl-11 pr-4 py-3 rounded-xl border border-border focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary bg-light text-sm font-semibold"
-                        placeholder="name@beispiel.de"
+                        placeholder="Ihre E-Mail-Adresse"
                       />
                     </div>
                   </div>
@@ -1146,7 +1146,7 @@ startxref
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="w-full pl-11 pr-4 py-3 rounded-xl border border-border focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary bg-light text-sm font-semibold"
-                        placeholder="z.B. +49 000 0000000"
+                        placeholder="Ihre Telefonnummer"
                       />
                     </div>
                   </div>
