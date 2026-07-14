@@ -2,6 +2,14 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.25] - 2026-07-14
+
+### MOVIN App
+
+- Telemedizin- und Videotherapie-Coming-Soon-Inhalte auf Kundenwunsch wieder vollstaendig eingebunden.
+- Statisches Telemedizin-Vorschaubild in der interaktiven Feature-Uebersicht wiederhergestellt.
+- Bisherigen Hinweis "Video folgt" fuer fehlende oder technisch ausgefallene App-Videos wieder aktiviert.
+
 ## [1.1.24] - 2026-07-14
 
 ### Platzhalter-Bereinigung

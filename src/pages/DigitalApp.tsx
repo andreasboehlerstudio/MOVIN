@@ -13,6 +13,7 @@ import {
   ClipboardCheck,
   ListChecks,
   IdCard,
+  Video,
   QrCode, 
   ChevronDown,
   Download,
@@ -110,6 +111,16 @@ const appFeatures: AppFeature[] = [
     videoKeywords: ["_video app shop", "app shop", "shop"],
     poster: "/images/movin-app/app-redesign-service.webp",
     tag: "#shop"
+  },
+  {
+    id: "telemedizin",
+    title: "Videotherapie (Coming Soon)",
+    subtitle: "Sichere Video-Therapie",
+    desc: "Die Videotherapie ist im neuen App-Menü bereits vorbereitet und wird freigeschaltet, sobald diese Funktion verfügbar ist.",
+    icon: Video,
+    videoKeywords: ["telemedizin"],
+    poster: "/images/movin-app/app-redesign-service.webp",
+    tag: "#telemedizin"
   },
   {
     id: "dokumente",
@@ -486,6 +497,31 @@ export default function DigitalApp() {
         </div>
       </section>
 
+      {/* Telemedizin - Coming soon */}
+      <section className="section-padding bg-white border-t border-border/40">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-secondary p-12 md:p-16 rounded-[2.5rem] text-white flex flex-col md:flex-row items-center justify-between gap-8 max-w-4xl mx-auto shadow-xl"
+          >
+            <div className="max-w-xl">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-xs font-medium mb-4">
+                <Video className="w-4 h-4 text-primary animate-pulse" /> Coming Soon
+              </div>
+              <h3 className="text-3xl font-bold text-white mb-4">Telemedizin – Coming soon</h3>
+              <p className="text-blue-tint/80 leading-relaxed text-base">
+                Bald können Sie Ihre Therapieberatungen und Feedback-Gespräche auch bequem per verschlüsseltem Video-Call führen. Flexibel, ortsunabhängig und in gewohnter erstklassiger MOVIN Qualität.
+              </p>
+            </div>
+            <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center text-primary shrink-0 self-center md:self-auto shadow-inner">
+              <Video className="w-8 h-8" />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 cta-footer-gradient text-white text-center relative overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-primary/5 blur-3xl pointer-events-none" />
@@ -561,6 +597,8 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
   const [currentPlaylistIndex, setCurrentPlaylistIndex] = useState(0);
   const [videoFailed, setVideoFailed] = useState(false);
 
+  const isStaticImage = feature.id === 'telemedizin';
+
   // Derive custom playlist for specific multi-part features
   const playlist = React.useMemo(() => {
     if (feature.id === 'anamnese') {
@@ -585,11 +623,11 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
 
   // React strictly to current source updates
   useEffect(() => {
-    if (currentVideoSrc && videoRef.current) {
+    if (!isStaticImage && currentVideoSrc && videoRef.current) {
       videoRef.current.load();
       videoRef.current.play().catch(() => {});
     }
-  }, [currentVideoSrc]);
+  }, [currentVideoSrc, isStaticImage]);
 
   const handleEnded = () => {
     if (playlist.length > 1) {
@@ -604,6 +642,19 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
 
   const shouldLoop = playlist.length <= 1;
 
+  if (isStaticImage) {
+    return (
+      <div className="relative mx-auto flex w-full max-w-[340px] select-none justify-center sm:max-w-[380px] md:max-w-[420px]">
+        <img
+          src="/images/telemedizin_soon-1.png"
+          alt="Telemedizin Coming Soon"
+          className="pointer-events-none block h-auto max-h-[70vh] w-auto max-w-full rounded-[2.5rem] border border-neutral-100 bg-transparent object-contain shadow-md"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+    );
+  }
+
   if (!currentVideoSrc || videoFailed) {
     return (
       <div className="relative mx-auto aspect-[9/16] w-full max-w-[340px] select-none overflow-hidden rounded-[2.5rem] bg-secondary shadow-sm sm:max-w-[348px] lg:max-w-[302px]">
@@ -615,7 +666,8 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
         />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-secondary/20" />
         <div className="absolute inset-x-6 bottom-8 text-center">
-          <p className="text-white text-lg font-bold">{feature.title}</p>
+          <p className="text-white text-lg font-bold mb-2">{feature.title}</p>
+          <p className="text-blue-tint/80 text-sm">Video folgt</p>
         </div>
       </div>
     );

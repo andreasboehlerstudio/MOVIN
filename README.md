@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.24`
-- Letzter Release-Tag: `v1.1.24`
+- Aktuelle Version: `1.1.25`
+- Letzter Release-Tag: `v1.1.25`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.25] - 2026-07-14
+
+- Telemedizin-Coming-Soon-Bereich und zugehoerige Feature-Vorschau auf Kundenwunsch wiederhergestellt.
+- Sichtbaren "Video folgt"-Fallback fuer fehlende oder ausgefallene App-Videos wieder aktiviert.
 
 ### [1.1.24] - 2026-07-14
 
