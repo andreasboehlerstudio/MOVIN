@@ -37,7 +37,7 @@ export default function Datenschutz() {
               Mercystraße 14<br />
               79100 Freiburg im Breisgau<br />
               Telefon: +49 761 707 33 66<br />
-              E-Mail: info@movin-freiburg.de
+              E-Mail: kontakt@movin-freiburg.de
             </p>
             <p className="mb-4">
               Weitere Angaben finden Sie im <Link to="/impressum/" className="text-primary hover:underline">Impressum</Link>.

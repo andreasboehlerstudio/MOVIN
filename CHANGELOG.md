@@ -2,6 +2,23 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.23] - 2026-07-14
+
+### Impressum und Kontakt
+
+- Handelsregisternummer `HRB 5786` eingetragen.
+- Daniel Klein als Geschaeftsfuehrer und als Verantwortlicher fuer den Inhalt ergaenzt.
+- Gestaltung und technische Administration mit Verlinkung auf `https://www.andreasboehler.com` aufgenommen.
+- Nicht existente Adresse `info@movin-freiburg.de` im Impressum, Datenschutz und FAQ durch `kontakt@movin-freiburg.de` ersetzt.
+- Gesamte Codebasis auf weitere Vorkommen der alten Adresse geprueft.
+
+### Favicon und Branding
+
+- Bisheriges generisches Favicon durch die offizielle MOVIN-Bildmarke mit Markenverlauf ersetzt.
+- Favicon als skalierbares SVG, PNG in 16 und 32 Pixeln, Mehrformat-ICO und Apple-Touch-Icon in 180 Pixeln bereitgestellt.
+- Passenden Innenabstand fuer eine klare Darstellung in Browser-Tabs und auf Mobilgeraeten ergaenzt.
+- Neues Favicon-Paket sowohl in der Hauptanwendung als auch auf der eigenstaendigen 404-Seite eingebunden.
+
 ## [1.1.22] - 2026-07-14
 
 ### 404 und SEO

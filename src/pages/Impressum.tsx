@@ -23,20 +23,20 @@ export default function Impressum() {
 
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">Vertreten durch</h2>
             <p className="mb-4">
-              Geschäftsführer: [Name des Geschäftsführers]
+              Geschäftsführer: Daniel Klein
             </p>
 
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">Kontakt</h2>
             <p className="mb-4">
               Telefon: +49 761 707 33 66<br />
-              E-Mail: info@movin-freiburg.de
+              E-Mail: kontakt@movin-freiburg.de
             </p>
 
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">Registereintrag</h2>
             <p className="mb-4">
               Eintragung im Handelsregister.<br />
               Registergericht: Amtsgericht Freiburg<br />
-              Registernummer: HRB [Nummer]
+              Registernummer: HRB 5786
             </p>
 
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">Umsatzsteuer-ID</h2>
@@ -47,7 +47,7 @@ export default function Impressum() {
 
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
             <p className="mb-4">
-              [Name des Verantwortlichen]<br />
+              Daniel Klein<br />
               Mercystraße 14<br />
               79100 Freiburg im Breisgau
             </p>
@@ -59,6 +59,18 @@ export default function Impressum() {
             </p>
             <p className="mb-4">
               Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+            </p>
+
+            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">Gestaltung und technische Administration</h2>
+            <p className="mb-4">
+              <a
+                href="https://www.andreasboehler.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                Andreas Boehler
+              </a>
             </p>
           </div>
         </div>

@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.22`
-- Letzter Release-Tag: `v1.1.22`
+- Aktuelle Version: `1.1.23`
+- Letzter Release-Tag: `v1.1.23`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.23] - 2026-07-14
+
+- Impressum um Handelsregisternummer, Geschaeftsfuehrer, inhaltlich Verantwortlichen sowie den verlinkten Hinweis zu Gestaltung und technischer Administration vervollstaendigt.
+- Nicht existente Adresse `info@movin-freiburg.de` im Impressum, Datenschutz und FAQ vollstaendig durch `kontakt@movin-freiburg.de` ersetzt.
+- Neues Favicon-Paket aus der offiziellen MOVIN-Bildmarke als SVG, PNG, ICO und Apple-Touch-Icon erstellt und auch auf der eigenstaendigen 404-Seite eingebunden.
 
 ### [1.1.22] - 2026-07-14
 

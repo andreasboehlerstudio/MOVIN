@@ -492,7 +492,7 @@ export default function Faq() {
                   <a href="tel:+497617073366" className="btn-primary text-xs px-6 py-3.5 flex items-center justify-center gap-2">
                     <Phone className="w-4 h-4" /> Lorettoberg anrufen (0761 / 70 73 366)
                   </a>
-                  <a href="mailto:info@movin-freiburg.de" className="btn-outline text-xs px-6 py-3.5 flex items-center justify-center gap-2">
+                  <a href="mailto:kontakt@movin-freiburg.de" className="btn-outline text-xs px-6 py-3.5 flex items-center justify-center gap-2">
                     <Mail className="w-4 h-4" /> E-Mail schreiben
                   </a>
                 </div>
