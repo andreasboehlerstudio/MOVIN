@@ -186,27 +186,27 @@ const BodyMap = ({ selectedPoints, onToggle, sizeClassName = "w-32 h-64 md:w-40 
 };
 
 const PdfSectionTitle = ({ number, children }: { number: string; children: React.ReactNode }) => (
-  <div className="mb-3 flex items-center gap-2 border-b border-[#c9eef0] pb-2">
-    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#0a0f4d] font-heading text-[11px] font-bold text-white">{number}</span>
-    <h2 className="font-heading text-[15px] font-bold text-[#0a0f4d]">{children}</h2>
+  <div className="mb-3.5 flex items-center gap-2.5 border-b border-[#c9eef0] pb-2.5 pt-0.5">
+    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#0a0f4d] font-heading text-[11px] font-bold leading-none text-white">{number}</span>
+    <h2 className="pb-px font-heading text-[15px] font-bold leading-[1.25] text-[#0a0f4d]">{children}</h2>
   </div>
 );
 
 const PdfAnswerRow = ({ number, label, value, compact = false }: { number?: string; label: string; value?: React.ReactNode; compact?: boolean }) => (
-  <div className={`grid grid-cols-[auto_minmax(0,1fr)] items-start gap-2 border-b border-[#d9e2e8] ${compact ? 'py-1' : 'py-1.5'}`}>
-    {number ? <span className="min-w-5 font-heading text-[10px] font-bold text-[#12aeb5]">{number}</span> : <span className="w-1" />}
-    <div className="grid grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-3">
-      <span className="text-[9.5px] leading-[1.35] text-[#536170]">{label}</span>
-      <span className="min-w-0 break-words font-semibold leading-[1.35] text-[#0a0f4d]">{value || 'Keine Angabe'}</span>
+  <div className={`grid grid-cols-[auto_minmax(0,1fr)] items-start gap-2.5 border-b border-[#d9e2e8] ${compact ? 'py-1.5' : 'py-2'}`}>
+    {number ? <span className="min-w-5 pt-px font-heading text-[10px] font-bold leading-[1.4] text-[#12aeb5]">{number}</span> : <span className="w-1" />}
+    <div className="grid grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-3.5">
+      <span className="text-[9.5px] leading-[1.45] text-[#536170]">{label}</span>
+      <span className="min-w-0 break-words font-semibold leading-[1.45] text-[#0a0f4d]">{value || 'Keine Angabe'}</span>
     </div>
   </div>
 );
 
 const PdfFooter = ({ page, name }: { page: number; name: string }) => (
-  <div className="mt-auto flex items-end justify-between border-t border-[#c9eef0] pt-3 text-[8px] text-[#6c7a86]">
-    <div>
-      <p className="font-bold text-[#0a0f4d]">MOVIN Physiotherapie | Digitaler Anamnesebogen</p>
-      <p>Patient*in: {name || 'Keine Angabe'} | Erstellt am {new Date().toLocaleDateString('de-DE')}</p>
+  <div className="mt-auto flex items-end justify-between border-t border-[#c9eef0] pt-3.5 text-[8px] leading-[1.45] text-[#6c7a86]">
+    <div className="space-y-0.5">
+      <p className="font-bold leading-[1.4] text-[#0a0f4d]">MOVIN Physiotherapie | Digitaler Anamnesebogen</p>
+      <p className="leading-[1.4]">Patient*in: {name || 'Keine Angabe'} | Erstellt am {new Date().toLocaleDateString('de-DE')}</p>
     </div>
     <p className="font-heading text-[15px] font-bold text-[#12aeb5]">{page}/2</p>
   </div>
@@ -1013,7 +1013,7 @@ export default function Anamnesebogen() {
             <style>{`
               .pdf-page {
                 font-size: 11px;
-                line-height: 1.3;
+                line-height: 1.4;
               }
               :where(.pdf-page) p {
                 font-size: inherit;
@@ -1029,28 +1029,28 @@ export default function Anamnesebogen() {
               <div className="pdf-page w-[210mm] min-h-[297mm] bg-white p-[13mm] text-[9.5px] leading-[1.35] text-[#334155] font-sans flex flex-col relative overflow-hidden">
                 <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#0a0f4d] via-[#12aeb5] to-[#b8efd0]" />
 
-                <header className="mb-5 flex items-start justify-between pt-3">
+                <header className="mb-5 flex items-start justify-between pt-3.5">
                   <div className="flex items-center gap-3">
                     <div className="flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#e8f8f7] text-[#12aeb5]">
                       <ClipboardList className="h-7 w-7" />
                     </div>
-                    <div>
-                      <p className="font-heading text-[10px] font-bold text-[#12aeb5]">DIGITALER ANAMNESEBOGEN</p>
-                      <p className="text-[8px] text-[#6c7a86]">Biopsychosoziale Erhebung nach ICF</p>
+                    <div className="space-y-1 pt-0.5">
+                      <p className="font-heading text-[10px] font-bold leading-[1.3] text-[#12aeb5]">DIGITALER ANAMNESEBOGEN</p>
+                      <p className="text-[8px] leading-[1.4] text-[#6c7a86]">Biopsychosoziale Erhebung nach ICF</p>
                     </div>
                   </div>
                   <img src="/images/logos/movin-logo-2026-horizontal-rgb-gradient.png" alt="MOVIN" className="h-auto w-[145px] object-contain" />
                 </header>
 
                 <div className="mb-4">
-                  <h1 className="font-heading text-[30px] font-bold leading-none text-[#0a0f4d]">Anamnesebogen</h1>
-                  <p className="mt-2 max-w-[560px] text-[9px] text-[#6c7a86]">Ihre Angaben unterstützen die Vorbereitung der physiotherapeutischen Behandlung und werden vertraulich verarbeitet.</p>
+                  <h1 className="pb-0.5 font-heading text-[30px] font-bold leading-[1.1] text-[#0a0f4d]">Anamnesebogen</h1>
+                  <p className="mt-2.5 max-w-[560px] text-[9px] leading-[1.45] text-[#6c7a86]">Ihre Angaben unterstützen die Vorbereitung der physiotherapeutischen Behandlung und werden vertraulich verarbeitet.</p>
                 </div>
 
                 <div className="mb-5 grid grid-cols-[1fr_1fr_0.7fr] gap-5 rounded-[10px] bg-[#f5fbfb] px-4 py-3">
-                  <div><p className="text-[8px] font-bold text-[#12aeb5]">NAME</p><p className="border-b border-[#9fb4bd] pb-1 font-semibold text-[#0a0f4d]">{formData.name || 'Keine Angabe'}</p></div>
-                  <div><p className="text-[8px] font-bold text-[#12aeb5]">VORNAME</p><p className="border-b border-[#9fb4bd] pb-1 font-semibold text-[#0a0f4d]">{formData.vorname || 'Keine Angabe'}</p></div>
-                  <div><p className="text-[8px] font-bold text-[#12aeb5]">GEBURTSDATUM</p><p className="border-b border-[#9fb4bd] pb-1 font-semibold text-[#0a0f4d]">{formData.geburtsdatum || 'Keine Angabe'}</p></div>
+                  <div className="space-y-1"><p className="text-[8px] font-bold leading-[1.35] text-[#12aeb5]">NAME</p><p className="border-b border-[#9fb4bd] pb-1.5 font-semibold leading-[1.4] text-[#0a0f4d]">{formData.name || 'Keine Angabe'}</p></div>
+                  <div className="space-y-1"><p className="text-[8px] font-bold leading-[1.35] text-[#12aeb5]">VORNAME</p><p className="border-b border-[#9fb4bd] pb-1.5 font-semibold leading-[1.4] text-[#0a0f4d]">{formData.vorname || 'Keine Angabe'}</p></div>
+                  <div className="space-y-1"><p className="text-[8px] font-bold leading-[1.35] text-[#12aeb5]">GEBURTSDATUM</p><p className="border-b border-[#9fb4bd] pb-1.5 font-semibold leading-[1.4] text-[#0a0f4d]">{formData.geburtsdatum || 'Keine Angabe'}</p></div>
                 </div>
 
                 <PdfSectionTitle number="I">Körperfunktionen und Körperstrukturen</PdfSectionTitle>
@@ -1065,14 +1065,14 @@ export default function Anamnesebogen() {
                     </div>
 
                     <div>
-                      <div className="mb-1 flex items-end justify-between">
-                        <p className="text-[8.5px] text-[#536170]">2.1 Intensität der Schmerzen</p>
-                        <p className="font-heading text-[15px] font-bold text-[#12aeb5]">{formData.intensitaet}/10</p>
+                      <div className="mb-2 flex items-center justify-between gap-3">
+                        <p className="pb-px text-[8.5px] leading-[1.4] text-[#536170]">2.1 Intensität der Schmerzen</p>
+                        <p className="font-heading text-[15px] font-bold leading-[1.2] text-[#12aeb5]">{formData.intensitaet}/10</p>
                       </div>
                       <div className="h-2 overflow-hidden rounded-full bg-[#e6eef0]">
                         <div className="h-full rounded-full bg-gradient-to-r from-[#b8efd0] via-[#12aeb5] to-[#0a0f4d]" style={{ width: `${formData.intensitaet * 10}%` }} />
                       </div>
-                      <div className="mt-1 flex justify-between text-[7px] text-[#7b8994]"><span>0 - keine Schmerzen</span><span>10 - stärkste Schmerzen</span></div>
+                      <div className="mt-1.5 flex justify-between text-[7px] leading-[1.4] text-[#7b8994]"><span>0 - keine Schmerzen</span><span>10 - stärkste Schmerzen</span></div>
                     </div>
                   </div>
 
@@ -1113,15 +1113,15 @@ export default function Anamnesebogen() {
               <div className="pdf-page w-[210mm] min-h-[297mm] bg-white p-[13mm] text-[9.5px] leading-[1.35] text-[#334155] font-sans flex flex-col relative overflow-hidden">
                 <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#0a0f4d] via-[#12aeb5] to-[#b8efd0]" />
 
-                <header className="mb-5 flex items-center justify-between pt-3">
+                <header className="mb-5 flex items-center justify-between pt-3.5">
                   <div>
-                    <p className="font-heading text-[16px] font-bold text-[#0a0f4d]">Anamnesebogen</p>
-                    <p className="text-[8px] text-[#6c7a86]">{formData.vorname} {formData.name}</p>
+                    <p className="pb-0.5 font-heading text-[16px] font-bold leading-[1.3] text-[#0a0f4d]">Anamnesebogen</p>
+                    <p className="mt-1 text-[8px] leading-[1.4] text-[#6c7a86]">{formData.vorname} {formData.name}</p>
                   </div>
                   <img src="/images/logos/movin-logo-2026-horizontal-rgb-gradient.png" alt="MOVIN" className="h-auto w-[135px] object-contain" />
                 </header>
 
-                <div className="space-y-4">
+                <div className="space-y-[17px]">
                   <section>
                     <PdfSectionTitle number="II">Aktivitäten</PdfSectionTitle>
                     <PdfAnswerRow number="1." label="Wobei sind Sie im Alltag eingeschränkt?" value={formData.alltagEingeschraenkt} compact />
@@ -1141,9 +1141,9 @@ export default function Anamnesebogen() {
                       <PdfAnswerRow number="4." label="Einschränkungen im Beruf?" value={formData.einschraenkungBeruf} compact />
                     </div>
                     <PdfAnswerRow number="5." label="Was möchten Sie gerne wieder können?" value={formData.wasWiederKoennen} compact />
-                    <div className="mt-2 rounded-[8px] bg-[#f5fbfb] px-3 py-2">
-                      <div className="flex items-center justify-between"><span className="text-[8.5px] text-[#536170]">6. Zufriedenheit mit der aktuellen Lebenssituation</span><span className="font-heading text-[14px] font-bold text-[#12aeb5]">{formData.lebenssituationZufriedenheit}/10</span></div>
-                      <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-[#dce9eb]"><div className="h-full bg-gradient-to-r from-[#b8efd0] to-[#12aeb5]" style={{ width: `${formData.lebenssituationZufriedenheit * 10}%` }} /></div>
+                    <div className="mt-2.5 rounded-[8px] bg-[#f5fbfb] px-3 py-2.5">
+                      <div className="flex items-center justify-between gap-3"><span className="pb-px text-[8.5px] leading-[1.4] text-[#536170]">6. Zufriedenheit mit der aktuellen Lebenssituation</span><span className="font-heading text-[14px] font-bold leading-[1.2] text-[#12aeb5]">{formData.lebenssituationZufriedenheit}/10</span></div>
+                      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#dce9eb]"><div className="h-full bg-gradient-to-r from-[#b8efd0] to-[#12aeb5]" style={{ width: `${formData.lebenssituationZufriedenheit * 10}%` }} /></div>
                     </div>
                   </section>
 
