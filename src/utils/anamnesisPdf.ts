@@ -178,7 +178,7 @@ function createSvg(markup: string) {
 }
 
 async function loadLogoSvg() {
-  const response = await fetch('/images/logos/movin-logo-2026-horizontal-1c-pos.svg');
+  const response = await fetch('/images/logos/movin-logo-2026-horizontal-rgb-gradient.svg');
   if (!response.ok) throw new Error('MOVIN-Logo konnte nicht geladen werden.');
   return createSvg(await response.text());
 }
@@ -237,9 +237,7 @@ async function drawLogo(pdf: JsPdfType, logoSvg: SVGSVGElement, svg2pdf: typeof 
   const height = compact ? 18.5 : 21;
   const x = PAGE_WIDTH - MARGIN - width;
   const y = compact ? 8.2 : 8;
-  setFill(pdf, COLORS.navy);
-  pdf.roundedRect(x, y, width, height, 3, 3, 'F');
-  await svg2pdf(logoSvg, pdf, { x: x + 2.3, y: y + 1.2, width: width - 4.6, height: height - 2.4 });
+  await svg2pdf(logoSvg, pdf, { x, y, width, height });
 }
 
 function drawPageHeader(pdf: JsPdfType, fonts: { body: string; heading: string }, compact = false) {
