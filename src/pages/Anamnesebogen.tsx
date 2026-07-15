@@ -1144,6 +1144,7 @@ export default function Anamnesebogen() {
                     <div className="mt-2.5 rounded-[8px] bg-[#f5fbfb] px-3 py-2.5">
                       <div className="flex items-center justify-between gap-3"><span className="pb-px text-[8.5px] leading-[1.4] text-[#536170]">6. Zufriedenheit mit der aktuellen Lebenssituation</span><span className="font-heading text-[14px] font-bold leading-[1.2] text-[#12aeb5]">{formData.lebenssituationZufriedenheit}/10</span></div>
                       <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-[#dce9eb]"><div className="h-full bg-gradient-to-r from-[#b8efd0] to-[#12aeb5]" style={{ width: `${formData.lebenssituationZufriedenheit * 10}%` }} /></div>
+                      <div className="mt-1.5 flex justify-between text-[7px] font-medium leading-[1.4] text-[#6c7a86]"><span>0 = sehr zufrieden</span><span>10 = unzufrieden</span></div>
                     </div>
                   </section>
 
