@@ -16,6 +16,7 @@ import {
   LoaderCircle
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
+import { generateAnamnesisPdf } from '../utils/anamnesisPdf';
 
 const SUBMIT_TIMEOUT_MS = 60_000;
 
@@ -261,95 +262,7 @@ export default function Anamnesebogen() {
   const prevStep = () => setStep(prev => Math.max(prev - 1, 1));
 
   const generatePDF = async () => {
-    const [{ jsPDF }, { default: html2canvas }] = await Promise.all([
-      import('jspdf'),
-      import('html2canvas'),
-      document.fonts.ready,
-    ]);
-
-    console.log("Starting PDF generation...");
-    if (!pdfRef.current) {
-      throw new Error('PDF template is not available');
-    }
-    
-    try {
-      // Ensure the template is "visible" to html2canvas but not to the user
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const pages = pdfRef.current.querySelectorAll('.pdf-page');
-      
-      console.log(`Found ${pages.length} pages to render`);
-      if (pages.length === 0) {
-        throw new Error('No PDF pages found');
-      }
-      
-      for (let i = 0; i < pages.length; i++) {
-        console.log(`Rendering page ${i + 1}...`);
-        const page = pages[i] as HTMLElement;
-        
-        const canvas = await html2canvas(page, {
-          scale: 1.25,
-          useCORS: true,
-          logging: false,
-          backgroundColor: '#ffffff',
-          scrollX: 0,
-          scrollY: 0,
-          onclone: (clonedDoc) => {
-            // Ensure the cloned document has the necessary styles
-            const style = clonedDoc.createElement('style');
-            style.innerHTML = `
-              .pdf-page {
-                visibility: visible !important;
-                position: static !important;
-                display: flex !important;
-                height: auto !important;
-                min-height: 297mm !important;
-                overflow: visible !important;
-              }
-              :where(.pdf-page) p {
-                font-size: inherit;
-                line-height: inherit;
-              }
-              :where(.pdf-page) * {
-                text-transform: none !important;
-                letter-spacing: normal !important;
-              }
-              * { 
-                color-scheme: light !important;
-                -webkit-print-color-adjust: exact !important;
-                print-color-adjust: exact !important;
-              }
-            `;
-            clonedDoc.head.appendChild(style);
-          }
-        });
-        
-        console.log(`Page ${i + 1} rendered to canvas`);
-        const imgData = canvas.toDataURL('image/jpeg', 0.9);
-        if (imgData === 'data:,') {
-          console.error(`Page ${i + 1} canvas is empty`);
-          throw new Error(`Empty canvas for page ${i + 1}`);
-        }
-
-        const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfPageHeight = pdf.internal.pageSize.getHeight();
-        const fitRatio = Math.min(pdfWidth / canvas.width, pdfPageHeight / canvas.height);
-        const pdfImageWidth = canvas.width * fitRatio;
-        const pdfImageHeight = canvas.height * fitRatio;
-        const pdfImageX = (pdfWidth - pdfImageWidth) / 2;
-        const pdfImageY = (pdfPageHeight - pdfImageHeight) / 2;
-        
-        if (i > 0) pdf.addPage();
-        pdf.addImage(imgData, 'JPEG', pdfImageX, pdfImageY, pdfImageWidth, pdfImageHeight, undefined, 'FAST');
-
-        await new Promise<void>((resolve) => window.requestAnimationFrame(() => resolve()));
-      }
-      
-      console.log("PDF generation complete");
-      return pdf;
-    } catch (err) {
-      console.error("Error in generatePDF:", err);
-      throw err;
-    }
+    return generateAnamnesisPdf(formData, selectedPainLabels);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -1004,7 +917,8 @@ export default function Anamnesebogen() {
             </div>
           )}
 
-          {/* Hidden PDF Template for generation */}
+          {/* Legacy raster template retained temporarily as a code-level fallback. */}
+          {false && (
           <div 
             className="fixed left-[-10000px] top-0 w-[210mm] pointer-events-none"
             style={{ zIndex: -100 }}
@@ -1486,6 +1400,7 @@ export default function Anamnesebogen() {
               </div>
             </div>
           </div>
+          )}
 </div>
 </div>
 </div>
