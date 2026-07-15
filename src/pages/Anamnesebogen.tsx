@@ -99,33 +99,33 @@ type FormData = {
 
 const BODY_PARTS = [
   // Front
-  { id: 'head-f', label: 'Kopf (V)', cx: 50, cy: 15, r: 8, view: 'front' },
-  { id: 'neck-f', label: 'Hals (V)', cx: 50, cy: 28, r: 5, view: 'front' },
-  { id: 'chest', label: 'Brust', cx: 50, cy: 45, r: 10, view: 'front' },
-  { id: 'shoulder-l-f', label: 'Schulter L (V)', cx: 32, cy: 40, r: 6, view: 'front' },
-  { id: 'shoulder-r-f', label: 'Schulter R (V)', cx: 68, cy: 40, r: 6, view: 'front' },
-  { id: 'arm-l-f', label: 'Arm L (V)', cx: 25, cy: 65, r: 5, view: 'front' },
-  { id: 'arm-r-f', label: 'Arm R (V)', cx: 75, cy: 65, r: 5, view: 'front' },
-  { id: 'abdomen', label: 'Bauch', cx: 50, cy: 65, r: 10, view: 'front' },
-  { id: 'hip-l-f', label: 'Hüfte L (V)', cx: 40, cy: 85, r: 7, view: 'front' },
-  { id: 'hip-r-f', label: 'Hüfte R (V)', cx: 60, cy: 85, r: 7, view: 'front' },
-  { id: 'knee-l-f', label: 'Knie L (V)', cx: 40, cy: 130, r: 6, view: 'front' },
-  { id: 'knee-r-f', label: 'Knie R (V)', cx: 60, cy: 130, r: 6, view: 'front' },
-  { id: 'foot-l-f', label: 'Fuß L (V)', cx: 40, cy: 180, r: 6, view: 'front' },
-  { id: 'foot-r-f', label: 'Fuß R (V)', cx: 60, cy: 180, r: 6, view: 'front' },
+  { id: 'head-f', label: 'Kopf (Vorderseite)', cx: 50, cy: 15, r: 8, view: 'front' },
+  { id: 'neck-f', label: 'Hals (Vorderseite)', cx: 50, cy: 28, r: 5, view: 'front' },
+  { id: 'chest', label: 'Brust (Vorderseite)', cx: 50, cy: 45, r: 10, view: 'front' },
+  { id: 'shoulder-l-f', label: 'Linke Schulter (Vorderseite)', cx: 32, cy: 40, r: 6, view: 'front' },
+  { id: 'shoulder-r-f', label: 'Rechte Schulter (Vorderseite)', cx: 68, cy: 40, r: 6, view: 'front' },
+  { id: 'arm-l-f', label: 'Linker Arm (Vorderseite)', cx: 25, cy: 65, r: 5, view: 'front' },
+  { id: 'arm-r-f', label: 'Rechter Arm (Vorderseite)', cx: 75, cy: 65, r: 5, view: 'front' },
+  { id: 'abdomen', label: 'Bauch (Vorderseite)', cx: 50, cy: 65, r: 10, view: 'front' },
+  { id: 'hip-l-f', label: 'Linke Hüfte (Vorderseite)', cx: 40, cy: 85, r: 7, view: 'front' },
+  { id: 'hip-r-f', label: 'Rechte Hüfte (Vorderseite)', cx: 60, cy: 85, r: 7, view: 'front' },
+  { id: 'knee-l-f', label: 'Linkes Knie (Vorderseite)', cx: 40, cy: 130, r: 6, view: 'front' },
+  { id: 'knee-r-f', label: 'Rechtes Knie (Vorderseite)', cx: 60, cy: 130, r: 6, view: 'front' },
+  { id: 'foot-l-f', label: 'Linker Fuß (Vorderseite)', cx: 40, cy: 180, r: 6, view: 'front' },
+  { id: 'foot-r-f', label: 'Rechter Fuß (Vorderseite)', cx: 60, cy: 180, r: 6, view: 'front' },
   
   // Back
-  { id: 'head-b', label: 'Hinterkopf', cx: 50, cy: 15, r: 8, view: 'back' },
-  { id: 'neck-b', label: 'Nacken', cx: 50, cy: 28, r: 5, view: 'back' },
+  { id: 'head-b', label: 'Hinterkopf (Rückseite)', cx: 50, cy: 15, r: 8, view: 'back' },
+  { id: 'neck-b', label: 'Nacken (Rückseite)', cx: 50, cy: 28, r: 5, view: 'back' },
   { id: 'upper-back', label: 'Oberer Rücken', cx: 50, cy: 45, r: 10, view: 'back' },
-  { id: 'lower-back', label: 'Lendenwirbelsäule', cx: 50, cy: 75, r: 10, view: 'back' },
-  { id: 'shoulder-l-b', label: 'Schulter L (R)', cx: 32, cy: 40, r: 6, view: 'back' },
-  { id: 'shoulder-r-b', label: 'Schulter R (R)', cx: 68, cy: 40, r: 6, view: 'back' },
-  { id: 'buttocks', label: 'Gesäß', cx: 50, cy: 95, r: 12, view: 'back' },
-  { id: 'thigh-l-b', label: 'Oberschenkel L (R)', cx: 40, cy: 115, r: 8, view: 'back' },
-  { id: 'thigh-r-b', label: 'Oberschenkel R (R)', cx: 60, cy: 115, r: 8, view: 'back' },
-  { id: 'calf-l-b', label: 'Wade L', cx: 40, cy: 155, r: 7, view: 'back' },
-  { id: 'calf-r-b', label: 'Wade R', cx: 60, cy: 155, r: 7, view: 'back' },
+  { id: 'lower-back', label: 'Lendenwirbelsäule / unterer Rücken', cx: 50, cy: 75, r: 10, view: 'back' },
+  { id: 'shoulder-l-b', label: 'Linke Schulter (Rückseite)', cx: 32, cy: 40, r: 6, view: 'back' },
+  { id: 'shoulder-r-b', label: 'Rechte Schulter (Rückseite)', cx: 68, cy: 40, r: 6, view: 'back' },
+  { id: 'buttocks', label: 'Gesäß (Rückseite)', cx: 50, cy: 95, r: 12, view: 'back' },
+  { id: 'thigh-l-b', label: 'Linker Oberschenkel (Rückseite)', cx: 40, cy: 115, r: 8, view: 'back' },
+  { id: 'thigh-r-b', label: 'Rechter Oberschenkel (Rückseite)', cx: 60, cy: 115, r: 8, view: 'back' },
+  { id: 'calf-l-b', label: 'Linke Wade (Rückseite)', cx: 40, cy: 155, r: 7, view: 'back' },
+  { id: 'calf-r-b', label: 'Rechte Wade (Rückseite)', cx: 60, cy: 155, r: 7, view: 'back' },
 ];
 
 const initialData: FormData = {
@@ -191,11 +191,16 @@ export default function Anamnesebogen() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [patientCopySent, setPatientCopySent] = useState<boolean | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [sendPatientCopy, setSendPatientCopy] = useState(false);
   const pdfRef = useRef<HTMLDivElement>(null);
 
   const totalSteps = 6;
+  const selectedPainLabels = formData.painPoints
+    .map(id => BODY_PARTS.find(part => part.id === id)?.label)
+    .filter((label): label is string => Boolean(label));
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
@@ -328,6 +333,7 @@ export default function Anamnesebogen() {
     }
     setIsSubmitting(true);
     setError(null);
+    setPatientCopySent(null);
 
     const controller = new AbortController();
     const timeoutId = window.setTimeout(() => controller.abort(), SUBMIT_TIMEOUT_MS);
@@ -349,6 +355,7 @@ export default function Anamnesebogen() {
           name: `${formData.vorname} ${formData.name}`,
           email: formData.email,
           privacyAccepted,
+          sendPatientCopy,
           _website: ''
         })
       });
@@ -366,6 +373,8 @@ export default function Anamnesebogen() {
         throw new Error('Der Anamnesebogen konnte nicht gesendet werden. Bitte versuchen Sie es später erneut.');
       }
 
+      const result = await response.json().catch(() => null) as { copySent?: boolean } | null;
+      setPatientCopySent(result?.copySent === true);
       setIsSuccess(true);
     } catch (err) {
       console.error(err);
@@ -542,6 +551,12 @@ export default function Anamnesebogen() {
                             </button>
                           </div>
                           <BodyMap selectedPoints={formData.painPoints} onToggle={togglePainPoint} />
+                          <p className="rounded-xl bg-mint/50 px-4 py-3 text-sm leading-relaxed text-dark/70" role="status" aria-live="polite">
+                            <span className="font-bold text-secondary">Markiert: </span>
+                            {selectedPainLabels.length > 0
+                              ? selectedPainLabels.join(', ')
+                              : 'Noch keine Körperregion ausgewählt.'}
+                          </p>
                         </div>
                       </div>
 
@@ -877,6 +892,18 @@ export default function Anamnesebogen() {
                       Ich willige ein, dass meine Angaben aus dem digitalen Anamnesebogen, einschließlich Gesundheitsdaten und generiertem PDF, zur Vorbereitung und Durchführung meiner Behandlung verarbeitet und an anamnesebogen@movin-freiburg.de übermittelt werden. Hinweise zu Zweck, Empfängern, Speicherdauer, Widerruf und Löschung finden Sie in der <Link to="/datenschutz/" className="text-primary hover:underline">Datenschutzerklärung</Link>.
                     </span>
                   </label>
+                  <label htmlFor="anamnese-patient-copy" className="mt-4 flex items-start gap-3 border-t border-border pt-4 text-sm text-dark/70 leading-relaxed cursor-pointer">
+                    <input
+                      id="anamnese-patient-copy"
+                      type="checkbox"
+                      checked={sendPatientCopy}
+                      onChange={(event) => setSendPatientCopy(event.target.checked)}
+                      className="mt-1 h-4 w-4 rounded border-border text-primary focus:ring-primary"
+                    />
+                    <span>
+                      Ich möchte eine Kopie des Anamnesebogens als PDF an <strong>{formData.email || 'meine angegebene E-Mail-Adresse'}</strong> erhalten. Mir ist bewusst, dass die E-Mail sensible Gesundheitsdaten enthalten kann.
+                    </span>
+                  </label>
                 </div>
               )}
 
@@ -934,9 +961,14 @@ export default function Anamnesebogen() {
               <p className="text-[#101828B3] text-lg max-w-md mx-auto">
                 Ihr Anamnesebogen wurde erfolgreich übermittelt. Wir freuen uns auf Ihren Besuch in unserer Praxis.
               </p>
+              {sendPatientCopy && (patientCopySent ? (
+                <p className="text-sm text-dark/70">Eine Kopie des PDFs wurde an <strong>{formData.email}</strong> gesendet.</p>
+              ) : (
+                <p className="text-sm text-dark/70">Die Übermittlung an MOVIN war erfolgreich. Die persönliche PDF-Kopie konnte jedoch nicht an <strong>{formData.email}</strong> gesendet werden.</p>
+              ))}
               <div className="pt-8">
                 <button 
-                  onClick={() => { setIsSuccess(false); setStep(1); setFormData(initialData); setPrivacyAccepted(false); setError(null); }}
+                  onClick={() => { setIsSuccess(false); setStep(1); setFormData(initialData); setPrivacyAccepted(false); setSendPatientCopy(false); setPatientCopySent(null); setError(null); }}
                   className="btn-outline"
                 >
                   Neues Formular ausfüllen

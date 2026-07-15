@@ -153,13 +153,16 @@ export default function Datenschutz() {
 
             <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">6. Digitaler Anamnesebogen und Gesundheitsdaten</h2>
             <p className="mb-4">
-              Wenn Sie den digitalen Anamnesebogen nutzen, verarbeiten wir Ihre Angaben zu Person, Kontakt, Beschwerden, Symptomen, Diagnosen, Medikamenten, Körpermarkierungen, Lebenssituation und Therapiezielen. Aus Ihren Angaben wird ein PDF erzeugt und an anamnesebogen@movin-freiburg.de übermittelt.
+              Wenn Sie den digitalen Anamnesebogen nutzen, verarbeiten wir Ihre Angaben zu Person, Kontakt, Beschwerden, Symptomen, Diagnosen, Medikamenten, Körpermarkierungen, Lebenssituation und Therapiezielen. Aus Ihren Angaben wird ein PDF erzeugt und an anamnesebogen@movin-freiburg.de übermittelt. Wenn Sie die freiwillige Kopierfunktion auswählen, wird das PDF zusätzlich als separate E-Mail an die von Ihnen angegebene Adresse gesendet.
             </p>
             <p className="mb-4">
               Zweck der Verarbeitung ist die Vorbereitung, Durchführung und Dokumentation Ihrer physiotherapeutischen Behandlung. Zugriff erhalten die zuständigen Mitarbeiterinnen und Mitarbeiter von MOVIN, die an Terminvorbereitung, Behandlung oder Praxisorganisation beteiligt sind. Technische Dienstleister können im Rahmen von Hosting, Formularverarbeitung und E-Mail-Versand eingebunden sein.
             </p>
             <p className="mb-4">
               Gesundheitsdaten sind besonders geschützt. Die Verarbeitung erfolgt, soweit sie für die Gesundheitsversorgung und Behandlung erforderlich ist, auf Grundlage von Art. 9 Abs. 2 lit. h DSGVO in Verbindung mit den einschlägigen berufs- und sozialrechtlichen Vorgaben. Soweit für die digitale Übermittlung eine Einwilligung eingeholt wird, erfolgt diese zusätzlich auf Grundlage von Art. 6 Abs. 1 lit. a und Art. 9 Abs. 2 lit. a DSGVO.
+            </p>
+            <p className="text-dark/70 leading-relaxed mb-4">
+              Da die PDF Gesundheitsdaten enthalten kann, erfolgt der Versand der persönlichen Kopie nur nach Ihrer ausdrücklichen Einwilligung. Bitte achten Sie auf eine korrekte E-Mail-Adresse und schützen Sie den Zugriff auf Ihr persönliches E-Mail-Postfach.
             </p>
             <p className="mb-4">
               Wird der Anamnesebogen Teil Ihrer Patientendokumentation, gelten die gesetzlichen und berufsrechtlichen Aufbewahrungsfristen, regelmäßig bis zu zehn Jahre. Kommt kein Behandlungsverhältnis zustande, werden die Daten gelöscht, sobald sie für die Anfrage oder Terminvorbereitung nicht mehr erforderlich sind und keine gesetzlichen Gründe entgegenstehen.

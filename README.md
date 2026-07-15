@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.29`
-- Letzter Release-Tag: `v1.1.29`
+- Aktuelle Version: `1.1.30`
+- Letzter Release-Tag: `v1.1.30`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.30] - 2026-07-15
+
+- Markierte Bereiche der Koerperkarte werden direkt im Formular mit eindeutigen Bezeichnungen fuer Seite und Ansicht angezeigt.
+- Freiwillige Patienten-Kopie des Anamnesebogens als separate PDF-E-Mail ergaenzt, ohne Empfaengeradressen offenzulegen.
+- Erfolgsanzeige und Datenschutzhinweise um den Versand der persoenlichen PDF-Kopie erweitert.
 
 ### [1.1.29] - 2026-07-14
 

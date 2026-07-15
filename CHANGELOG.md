@@ -2,6 +2,17 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.30] - 2026-07-15
+
+### Digitaler Anamnesebogen
+
+- Koerperregionen mit ausgeschriebenen Seiten- und Ansichtsangaben versehen, damit Markierungen eindeutig zugeordnet werden koennen.
+- Ausgewaehlte Koerperregionen direkt unter der Koerperkarte als laufend aktualisierte Textliste sichtbar gemacht.
+- Freiwillige, nicht vorausgewaehlte Option fuer eine persoenliche PDF-Kopie an die eingetragene E-Mail-Adresse ergaenzt.
+- Patienten-Kopie technisch als separate E-Mail umgesetzt, sodass Praxis- und Patientenadresse nicht gegenseitig offengelegt werden.
+- Erfolg und Fehler der Patienten-Kopie getrennt von der erfolgreichen internen Uebermittlung behandelt, um doppelte Einreichungen zu vermeiden.
+- Einwilligungstext und Datenschutzerklaerung um Zweck und Risiko der E-Mail-Kopie mit Gesundheitsdaten ergaenzt.
+
 ## [1.1.29] - 2026-07-14
 
 ### Digitaler Anamnesebogen
