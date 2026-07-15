@@ -185,6 +185,33 @@ const BodyMap = ({ selectedPoints, onToggle, sizeClassName = "w-32 h-64 md:w-40 
   );
 };
 
+const PdfSectionTitle = ({ number, children }: { number: string; children: React.ReactNode }) => (
+  <div className="mb-3 flex items-center gap-2 border-b border-[#c9eef0] pb-2">
+    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#0a0f4d] font-heading text-[11px] font-bold text-white">{number}</span>
+    <h2 className="font-heading text-[15px] font-bold text-[#0a0f4d]">{children}</h2>
+  </div>
+);
+
+const PdfAnswerRow = ({ number, label, value, compact = false }: { number?: string; label: string; value?: React.ReactNode; compact?: boolean }) => (
+  <div className={`grid grid-cols-[auto_minmax(0,1fr)] items-start gap-2 border-b border-[#d9e2e8] ${compact ? 'py-1' : 'py-1.5'}`}>
+    {number ? <span className="min-w-5 font-heading text-[10px] font-bold text-[#12aeb5]">{number}</span> : <span className="w-1" />}
+    <div className="grid grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-3">
+      <span className="text-[9.5px] leading-[1.35] text-[#536170]">{label}</span>
+      <span className="min-w-0 break-words font-semibold leading-[1.35] text-[#0a0f4d]">{value || 'Keine Angabe'}</span>
+    </div>
+  </div>
+);
+
+const PdfFooter = ({ page, name }: { page: number; name: string }) => (
+  <div className="mt-auto flex items-end justify-between border-t border-[#c9eef0] pt-3 text-[8px] text-[#6c7a86]">
+    <div>
+      <p className="font-bold text-[#0a0f4d]">MOVIN Physiotherapie | Digitaler Anamnesebogen</p>
+      <p>Patient*in: {name || 'Keine Angabe'} | Erstellt am {new Date().toLocaleDateString('de-DE')}</p>
+    </div>
+    <p className="font-heading text-[15px] font-bold text-[#12aeb5]">{page}/2</p>
+  </div>
+);
+
 export default function Anamnesebogen() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(initialData);
@@ -998,8 +1025,174 @@ export default function Anamnesebogen() {
               }
             `}</style>
             <div ref={pdfRef} className="w-[210mm] bg-[#f8fafc] pointer-events-none">
+              {/* PRINT TEMPLATE: close to the approved two-page ICF form, translated into the 2026 MOVIN brand. */}
+              <div className="pdf-page w-[210mm] min-h-[297mm] bg-white p-[13mm] text-[9.5px] leading-[1.35] text-[#334155] font-sans flex flex-col relative overflow-hidden">
+                <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#0a0f4d] via-[#12aeb5] to-[#b8efd0]" />
+
+                <header className="mb-5 flex items-start justify-between pt-3">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-[10px] bg-[#e8f8f7] text-[#12aeb5]">
+                      <ClipboardList className="h-7 w-7" />
+                    </div>
+                    <div>
+                      <p className="font-heading text-[10px] font-bold text-[#12aeb5]">DIGITALER ANAMNESEBOGEN</p>
+                      <p className="text-[8px] text-[#6c7a86]">Biopsychosoziale Erhebung nach ICF</p>
+                    </div>
+                  </div>
+                  <img src="/images/logos/movin-logo-2026-horizontal-rgb-gradient.png" alt="MOVIN" className="h-auto w-[145px] object-contain" />
+                </header>
+
+                <div className="mb-4">
+                  <h1 className="font-heading text-[30px] font-bold leading-none text-[#0a0f4d]">Anamnesebogen</h1>
+                  <p className="mt-2 max-w-[560px] text-[9px] text-[#6c7a86]">Ihre Angaben unterstützen die Vorbereitung der physiotherapeutischen Behandlung und werden vertraulich verarbeitet.</p>
+                </div>
+
+                <div className="mb-5 grid grid-cols-[1fr_1fr_0.7fr] gap-5 rounded-[10px] bg-[#f5fbfb] px-4 py-3">
+                  <div><p className="text-[8px] font-bold text-[#12aeb5]">NAME</p><p className="border-b border-[#9fb4bd] pb-1 font-semibold text-[#0a0f4d]">{formData.name || 'Keine Angabe'}</p></div>
+                  <div><p className="text-[8px] font-bold text-[#12aeb5]">VORNAME</p><p className="border-b border-[#9fb4bd] pb-1 font-semibold text-[#0a0f4d]">{formData.vorname || 'Keine Angabe'}</p></div>
+                  <div><p className="text-[8px] font-bold text-[#12aeb5]">GEBURTSDATUM</p><p className="border-b border-[#9fb4bd] pb-1 font-semibold text-[#0a0f4d]">{formData.geburtsdatum || 'Keine Angabe'}</p></div>
+                </div>
+
+                <PdfSectionTitle number="I">Körperfunktionen und Körperstrukturen</PdfSectionTitle>
+
+                <div className="mb-3 grid grid-cols-[1.25fr_0.75fr] gap-5">
+                  <div className="space-y-3">
+                    <div className="rounded-[8px] border border-[#c9eef0] bg-[#f7fdfd] p-3">
+                      <p className="mb-1 text-[8px] font-bold text-[#12aeb5]">1. PROBLEME UND SCHMERZREGIONEN</p>
+                      <p className="font-semibold text-[#0a0f4d]">{formData.schmerzenWo || 'Keine freie Beschreibung'}</p>
+                      <p className="mt-2 text-[8px] font-bold text-[#6c7a86]">MARKIERTE KÖRPERSTELLEN</p>
+                      <p className="text-[9px] text-[#334155]">{selectedPainLabels.length ? selectedPainLabels.join(', ') : 'Keine Markierungen'}</p>
+                    </div>
+
+                    <div>
+                      <div className="mb-1 flex items-end justify-between">
+                        <p className="text-[8.5px] text-[#536170]">2.1 Intensität der Schmerzen</p>
+                        <p className="font-heading text-[15px] font-bold text-[#12aeb5]">{formData.intensitaet}/10</p>
+                      </div>
+                      <div className="h-2 overflow-hidden rounded-full bg-[#e6eef0]">
+                        <div className="h-full rounded-full bg-gradient-to-r from-[#b8efd0] via-[#12aeb5] to-[#0a0f4d]" style={{ width: `${formData.intensitaet * 10}%` }} />
+                      </div>
+                      <div className="mt-1 flex justify-between text-[7px] text-[#7b8994]"><span>0 - keine Schmerzen</span><span>10 - stärkste Schmerzen</span></div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col items-center justify-center rounded-[8px] bg-[#fafcfc] px-2 py-2">
+                    <p className="mb-1 text-[8px] font-bold text-[#12aeb5]">SCHMERZLOKALISATION</p>
+                    <BodyMap selectedPoints={formData.painPoints} onToggle={() => {}} sizeClassName="w-16 h-32" className="flex items-center justify-center gap-2" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-x-5">
+                  <PdfAnswerRow number="2." label="Haben Sie Schmerzen?" value={formData.hatSchmerzen} compact />
+                  <PdfAnswerRow number="2.2" label="Ständig Schmerzen?" value={formData.staendigSchmerzen} compact />
+                  <PdfAnswerRow number="2.3" label="Entwicklung der Beschwerden" value={formData.beschwerdenTrend} compact />
+                  <PdfAnswerRow number="2.4" label="Seit wann bestehen die Schmerzen?" value={formData.seitWann} compact />
+                  <PdfAnswerRow number="2.5" label="Können die Schmerzen wieder weggehen?" value={formData.glaubenHeilung} compact />
+                  <PdfAnswerRow number="2.6" label="Unfall als Auslöser?" value={`${formData.unfall || 'Keine Angabe'}${formData.unfallWann ? ` - ${formData.unfallWann}` : ''}`} compact />
+                  <PdfAnswerRow number="3." label="Beweglichkeit verschlechtert?" value={`${formData.beweglichkeitVerschlechtert || 'Keine Angabe'}${formData.beweglichkeitWo ? ` - ${formData.beweglichkeitWo}` : ''}`} compact />
+                  <PdfAnswerRow number="4." label="Gefühlsstörungen?" value={`${formData.gefuehlsstoerungen || 'Keine Angabe'}${formData.gefuehlsstoerungenWo ? ` - ${formData.gefuehlsstoerungenWo}` : ''}`} compact />
+                  <PdfAnswerRow number="6." label="Kraftverlust?" value={`${formData.kraftVerloren || 'Keine Angabe'}${formData.kraftWo ? ` - ${formData.kraftWo}` : ''}`} compact />
+                  <PdfAnswerRow number="6.2" label="Ungewollt gestürzt?" value={formData.gestuerzt} compact />
+                </div>
+
+                <div className="mt-4 rounded-[8px] border border-[#d9e2e8] p-3">
+                  <p className="mb-2 text-[8px] font-bold text-[#12aeb5]">5. BEGLEITSYMPTOME</p>
+                  <div className="grid grid-cols-4 gap-x-4 gap-y-2">
+                    {Object.entries(formData.symptome).map(([key, value]) => (
+                      <div key={key} className="flex items-center gap-2">
+                        <span className={`flex h-3.5 w-3.5 items-center justify-center rounded-[3px] border ${value ? 'border-[#12aeb5] bg-[#12aeb5] text-white' : 'border-[#aebcc4] bg-white'}`}>{value ? '✓' : ''}</span>
+                        <span className={value ? 'font-semibold text-[#0a0f4d]' : 'text-[#7b8994]'}>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <PdfFooter page={1} name={`${formData.vorname} ${formData.name}`.trim()} />
+              </div>
+
+              <div className="pdf-page w-[210mm] min-h-[297mm] bg-white p-[13mm] text-[9.5px] leading-[1.35] text-[#334155] font-sans flex flex-col relative overflow-hidden">
+                <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-[#0a0f4d] via-[#12aeb5] to-[#b8efd0]" />
+
+                <header className="mb-5 flex items-center justify-between pt-3">
+                  <div>
+                    <p className="font-heading text-[16px] font-bold text-[#0a0f4d]">Anamnesebogen</p>
+                    <p className="text-[8px] text-[#6c7a86]">{formData.vorname} {formData.name}</p>
+                  </div>
+                  <img src="/images/logos/movin-logo-2026-horizontal-rgb-gradient.png" alt="MOVIN" className="h-auto w-[135px] object-contain" />
+                </header>
+
+                <div className="space-y-4">
+                  <section>
+                    <PdfSectionTitle number="II">Aktivitäten</PdfSectionTitle>
+                    <PdfAnswerRow number="1." label="Wobei sind Sie im Alltag eingeschränkt?" value={formData.alltagEingeschraenkt} compact />
+                    <div className="grid grid-cols-2 gap-x-5">
+                      <PdfAnswerRow number="2." label="Ist Ihre Nachtruhe gestört?" value={formData.nachtruheGestoert} compact />
+                      <PdfAnswerRow number="3." label="Ist Ihre Gehstrecke eingeschränkt?" value={formData.gehstreckeEingeschraenkt} compact />
+                      <PdfAnswerRow number="4." label="Können Sie normal Treppen steigen?" value={formData.treppensteigenNormal} compact />
+                    </div>
+                  </section>
+
+                  <section>
+                    <PdfSectionTitle number="III">Teilhabe (Partizipation)</PdfSectionTitle>
+                    <div className="grid grid-cols-2 gap-x-5">
+                      <PdfAnswerRow number="1." label="Benötigen Sie Hilfe in der Wohnung?" value={formData.hilfeWohnung} compact />
+                      <PdfAnswerRow number="2." label="Versorgen Sie sich selbst?" value={formData.versorgenSelbst} compact />
+                      <PdfAnswerRow number="3." label="Versorgen Sie Ihre Familie?" value={formData.versorgenFamilie} compact />
+                      <PdfAnswerRow number="4." label="Einschränkungen im Beruf?" value={formData.einschraenkungBeruf} compact />
+                    </div>
+                    <PdfAnswerRow number="5." label="Was möchten Sie gerne wieder können?" value={formData.wasWiederKoennen} compact />
+                    <div className="mt-2 rounded-[8px] bg-[#f5fbfb] px-3 py-2">
+                      <div className="flex items-center justify-between"><span className="text-[8.5px] text-[#536170]">6. Zufriedenheit mit der aktuellen Lebenssituation</span><span className="font-heading text-[14px] font-bold text-[#12aeb5]">{formData.lebenssituationZufriedenheit}/10</span></div>
+                      <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-[#dce9eb]"><div className="h-full bg-gradient-to-r from-[#b8efd0] to-[#12aeb5]" style={{ width: `${formData.lebenssituationZufriedenheit * 10}%` }} /></div>
+                    </div>
+                  </section>
+
+                  <section>
+                    <PdfSectionTitle number="IV">Umweltfaktoren</PdfSectionTitle>
+                    <div className="grid grid-cols-2 gap-x-5">
+                      <PdfAnswerRow number="1." label="Stress im beruflichen Umfeld?" value={formData.stressFirma} compact />
+                      <PdfAnswerRow number="2." label="Stress im familiären Umfeld?" value={formData.stressFamilie} compact />
+                    </div>
+                  </section>
+
+                  <section>
+                    <PdfSectionTitle number="V">Personenbezogene Faktoren und allgemeine Anamnese</PdfSectionTitle>
+                    <div className="grid grid-cols-2 gap-x-5">
+                      <PdfAnswerRow number="1." label="Familienstand" value={formData.familienstand} compact />
+                      <PdfAnswerRow number="2." label="Kinder / im Haushalt" value={`${formData.kinder || 'Keine Angabe'}${formData.kinderImHaus ? ` / ${formData.kinderImHaus}` : ''}`} compact />
+                      <PdfAnswerRow number="3." label="Beruf" value={formData.beruf} compact />
+                      <PdfAnswerRow number="4." label="Hobbys" value={formData.hobbys} compact />
+                    </div>
+
+                    <div className="my-2 rounded-[8px] border border-[#c9eef0] bg-[#f7fdfd] px-3 py-2">
+                      <p className="mb-2 text-[8px] font-bold text-[#12aeb5]">5. DIAGNOSEN</p>
+                      <div className="grid grid-cols-3 gap-4">
+                        {Object.entries(formData.diagnosen).map(([key, value]) => (
+                          <div key={key} className="flex items-center gap-2">
+                            <span className={`flex h-3.5 w-3.5 items-center justify-center rounded-[3px] border ${value ? 'border-[#0a0f4d] bg-[#0a0f4d] text-white' : 'border-[#aebcc4] bg-white'}`}>{value ? '✓' : ''}</span>
+                            <span className={value ? 'font-semibold text-[#0a0f4d]' : 'text-[#7b8994]'}>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <PdfAnswerRow number="6." label="Aktuelle Medikamente" value={formData.medikamente} compact />
+                    <div className="grid grid-cols-2 gap-x-5">
+                      <PdfAnswerRow number="7." label="Ungewollter Gewichtsverlust?" value={formData.gewichtVerloren} compact />
+                      <PdfAnswerRow number="8." label="Frühere Krebserkrankung?" value={`${formData.krebs || 'Keine Angabe'}${formData.krebsWelche ? ` - ${formData.krebsWelche}` : ''}`} compact />
+                      <PdfAnswerRow number="9." label="Nachtschweiß oder Fieberschübe?" value={formData.nachtschweiss} compact />
+                      <PdfAnswerRow number="10." label="Frühere Unfälle" value={formData.fruehereUnfaelle} compact />
+                      <PdfAnswerRow number="11." label="Frühere Operationen" value={formData.fruehereOperationen} compact />
+                    </div>
+                    <PdfAnswerRow number="12." label="Weitere Beschwerden oder Besonderheiten" value={formData.andereBeschwerden} compact />
+                  </section>
+                </div>
+
+                <PdfFooter page={2} name={`${formData.vorname} ${formData.name}`.trim()} />
+              </div>
+
               {/* PAGE 1: Personal Info & Body Map & Section I */}
-              <div className="pdf-page w-[210mm] h-[297mm] bg-[#ffffff] p-[15mm] text-[#0f172a] font-sans flex flex-col relative overflow-hidden">
+              <div className="pdf-page-legacy hidden w-[210mm] h-[297mm] bg-[#ffffff] p-[15mm] text-[#0f172a] font-sans flex-col relative overflow-hidden">
                 {/* Header with Logo-like styling */}
                 <div className="flex justify-between items-start border-b-4 border-[#00c2cb] pb-6 mb-8">
                   <div>
@@ -1151,7 +1344,7 @@ export default function Anamnesebogen() {
               </div>
 
               {/* PAGE 2: Sections II, III & IV */}
-              <div className="pdf-page w-[210mm] h-[297mm] bg-[#ffffff] p-[15mm] text-[#0f172a] font-sans flex flex-col relative overflow-hidden">
+              <div className="pdf-page-legacy hidden w-[210mm] h-[297mm] bg-[#ffffff] p-[15mm] text-[#0f172a] font-sans flex-col relative overflow-hidden">
                 {/* Mini Header Page 2 */}
                 <div className="flex justify-between items-center border-b-2 border-[#0a0f4d] pb-4 mb-8">
                   <div className="flex items-center gap-3">
