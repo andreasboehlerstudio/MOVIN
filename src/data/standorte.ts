@@ -137,7 +137,7 @@ export const standorteData: Record<string, Standort> = {
         name: 'Jana Züge',
         role: 'Rezeptionistin',
         image: '/images/team-uniform/jana-zuege.webp',
-        spec: 'Mutterschutz'
+        spec: 'Elternzeit'
       },
       {
         name: 'Claudia Andrich',
@@ -332,7 +332,7 @@ export const standorteData: Record<string, Standort> = {
         name: 'Jana Züge',
         role: 'Rezeptionistin',
         image: '/images/team-uniform/jana-zuege.webp',
-        spec: 'Mutterschutz'
+        spec: 'Elternzeit'
       },
       {
         name: 'Lina Haberstroh',

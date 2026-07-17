@@ -2,6 +2,22 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.31] - 2026-07-17
+
+### Team
+
+- Status "Mutterschutz" bei Jana Zuege und Francisca Yanes Yanes konsistent in "Elternzeit" geaendert.
+- Standortdaten und zentrale Teamdarstellung auf denselben Status abgeglichen.
+
+### Digitaler Anamnesebogen
+
+- PDF-Ausgabe im neuen MOVIN Branding als natives A4-Dokument neu aufgebaut.
+- Formulartexte bleiben im PDF auswaehlbar und durchsuchbar; Linien, Flaechen, Koerperkarte und Logo werden vektorbasiert ausgegeben.
+- Plus Jakarta Sans und Outfit direkt in das PDF eingebettet und Textabstaende gegen Font-Clipping optimiert.
+- Skala zur Zufriedenheit eindeutig mit "0 = ueberhaupt nicht zufrieden" und "10 = vollstaendig zufrieden" beschriftet.
+- Farbige MOVIN Bild-/Wortmarke aus der originalen RGB-Verlaufsdatei als echtes SVG integriert.
+- Druckformat auf exakte 210 x 297 mm mit sicheren Seitenraendern und dynamischen Folgeseiten ausgelegt.
+
 ## [1.1.30] - 2026-07-15
 
 ### Digitaler Anamnesebogen

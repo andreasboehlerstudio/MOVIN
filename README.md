@@ -17,14 +17,21 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.30`
-- Letzter Release-Tag: `v1.1.30`
+- Aktuelle Version: `1.1.31`
+- Letzter Release-Tag: `v1.1.31`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.31] - 2026-07-17
+
+- Teamstatus "Mutterschutz" an allen betroffenen Stellen konsistent in "Elternzeit" geaendert.
+- Digitalen Anamnesebogen als druckoptimiertes A4-PDF mit auswaehlbarem Text und vektorbasierten Formelementen neu aufgebaut.
+- Farbige MOVIN Bild-/Wortmarke als echtes SVG in die PDF-Ausgabe integriert.
+- Beschriftungen, Abstaende und Skalen der PDF-Ausgabe fuer bessere Lesbarkeit ueberarbeitet.
 
 ### [1.1.30] - 2026-07-15
 

@@ -415,15 +415,15 @@ export default function UeberUns() {
                 category: 'Physiotherapie',
                 role: 'Physiotherapeutin',
                 spec: 'Wirbelsäule / Schulter / Hüfte',
-                status: 'Mutterschutz',
+                status: 'Elternzeit',
                 image: '/images/team-uniform/francisca-yanes-yanes.webp'
               },
               {
                 name: 'Jana Züge',
                 category: 'Anmeldung / Verwaltung',
                 role: 'Rezeptionistin',
-                spec: 'Mutterschutz',
-                status: 'Mutterschutz',
+                spec: 'Elternzeit',
+                status: 'Elternzeit',
                 image: '/images/team-uniform/jana-zuege.webp'
               },
               {
