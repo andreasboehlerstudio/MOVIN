@@ -44,7 +44,10 @@ function analyticsConfig(): array
         }
     }
 
-    $config['private_key'] = str_replace('\\n', "\n", (string) $config['private_key']);
+    $privateKey = trim((string) $config['private_key']);
+    $privateKey = trim($privateKey, "\"'");
+    $privateKey = str_replace('\\n', "\n", $privateKey);
+    $config['private_key'] = trim($privateKey) . "\n";
     return $config;
 }
 
@@ -121,14 +124,7 @@ function createGoogleJwt(array $config): string
 
     $privateKey = openssl_pkey_get_private((string) $config['private_key']);
     if ($privateKey === false) {
-        $keyValue = (string) $config['private_key'];
-        throw new RuntimeException(sprintf(
-            'Invalid service account private key (length=%d, lines=%d, header=%s, footer=%s).',
-            strlen($keyValue),
-            substr_count($keyValue, "\n") + 1,
-            str_starts_with($keyValue, '-----BEGIN PRIVATE KEY-----') ? 'yes' : 'no',
-            str_ends_with(trim($keyValue), '-----END PRIVATE KEY-----') ? 'yes' : 'no'
-        ));
+        throw new RuntimeException('Invalid service account private key.');
     }
 
     $signature = '';
