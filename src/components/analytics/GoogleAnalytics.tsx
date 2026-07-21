@@ -37,9 +37,10 @@ function removeAnalyticsCookies() {
 function ensureGoogleAnalyticsLoaded() {
   (window as unknown as Record<string, unknown>)[`ga-disable-${GA_MEASUREMENT_ID}`] = false;
   window.dataLayer = window.dataLayer || [];
-  window.gtag = window.gtag || ((...args: unknown[]) => {
-    window.dataLayer?.push(args);
-  });
+  window.gtag = window.gtag || function gtag() {
+    // gtag.js recognizes its command queue by the native Arguments object.
+    window.dataLayer?.push(arguments);
+  };
 
   if (!document.getElementById(GA_SCRIPT_ID)) {
     const script = document.createElement('script');

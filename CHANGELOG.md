@@ -2,6 +2,15 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.32] - 2026-07-21
+
+### Google Analytics
+
+- GA4-Konto, Property `391939422`, Webstream und Mess-ID `G-V6PKV5XVJL` direkt in Google Analytics abgeglichen.
+- Befehlsuebergabe an `dataLayer` auf das von Googles Standardsnippet verwendete native `Arguments`-Format vereinheitlicht.
+- Consent-gesteuertes Laden bleibt erhalten; Analytics wird weiterhin erst nach ausdruecklicher Einwilligung aktiviert.
+- Optimierte Analysen sind aktiv und der interne Traffic-Filter bleibt im Testmodus, sodass er regulaere Zugriffe nicht ausschliesst.
+
 ## [1.1.31] - 2026-07-17
 
 ### Team

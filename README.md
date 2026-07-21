@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.31`
-- Letzter Release-Tag: `v1.1.31`
+- Aktuelle Version: `1.1.32`
+- Letzter Release-Tag: `v1.1.32`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.32] - 2026-07-21
+
+- GA4-Konfiguration direkt mit der bestehenden MOVIN Property und dem Webstream abgeglichen.
+- Analytics-Befehlsqueue auf das von Googles Standardsnippet verwendete Format vereinheitlicht.
+- Datenschutzkonformes Laden von Analytics erst nach Einwilligung unveraendert beibehalten.
 
 ### [1.1.31] - 2026-07-17
 
