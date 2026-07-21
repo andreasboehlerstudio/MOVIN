@@ -117,7 +117,7 @@ export default function GoogleStatistiken() {
       setError('');
 
       try {
-        const response = await fetch(`/api/analytics-summary?range=${range}`, {
+        const response = await fetch(`/api/analytics-summary.php?range=${range}`, {
           signal: controller.signal,
           headers: dashboardToken
             ? { 'X-Analytics-Dashboard-Token': dashboardToken }

@@ -218,7 +218,7 @@ async function startServer() {
     }
   });
 
-  app.get("/api/analytics-summary", async (req, res) => {
+  app.get(["/api/analytics-summary", "/api/analytics-summary.php"], async (req, res) => {
     const setupIssues = getAnalyticsSetupIssues();
     if (setupIssues.length > 0) {
       return res.status(503).json({
