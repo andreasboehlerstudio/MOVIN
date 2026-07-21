@@ -121,7 +121,14 @@ function createGoogleJwt(array $config): string
 
     $privateKey = openssl_pkey_get_private((string) $config['private_key']);
     if ($privateKey === false) {
-        throw new RuntimeException('Invalid service account private key.');
+        $keyValue = (string) $config['private_key'];
+        throw new RuntimeException(sprintf(
+            'Invalid service account private key (length=%d, lines=%d, header=%s, footer=%s).',
+            strlen($keyValue),
+            substr_count($keyValue, "\n") + 1,
+            str_starts_with($keyValue, '-----BEGIN PRIVATE KEY-----') ? 'yes' : 'no',
+            str_ends_with(trim($keyValue), '-----END PRIVATE KEY-----') ? 'yes' : 'no'
+        ));
     }
 
     $signature = '';
