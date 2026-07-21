@@ -73,6 +73,31 @@ jobs:
           ];
           PHP
 
+      - name: Create protected Analytics runtime configuration
+        env:
+          GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY }}
+          ANALYTICS_DASHBOARD_TOKEN: ${{ secrets.ANALYTICS_DASHBOARD_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY ANALYTICS_DASHBOARD_TOKEN; do
+            if [ -z "${!name:-}" ]; then
+              echo "Missing Staging Environment secret: $name"
+              exit 1
+            fi
+          done
+          encode() { printf '%s' "$1" | base64 -w 0; }
+          mkdir -p dist/api
+          cat > dist/api/.analytics-config.php <<PHP
+          <?php
+          return [
+              'property_id' => '391939422',
+              'client_email' => 'movin-550@movin-501211.iam.gserviceaccount.com',
+              'private_key' => base64_decode('$(encode "$GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY")'),
+              'dashboard_token' => base64_decode('$(encode "$ANALYTICS_DASHBOARD_TOKEN")'),
+          ];
+          PHP
+
       - name: Check staging deployment settings
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}

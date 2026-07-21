@@ -17,7 +17,7 @@ export default function NotFound() {
         <div className="container-custom relative z-10">
           <div className="max-w-3xl">
             <img
-              src="/images/logos/movin-logo-2026-horizontal-rgb-gradient.png"
+              src="/images/logos/movin-logo-2026-horizontal-1c-pos.svg"
               alt="MOVIN – innovativ bewegt"
               className="mb-12 h-auto w-[min(280px,72vw)]"
             />

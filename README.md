@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.32`
-- Letzter Release-Tag: `v1.1.32`
+- Aktuelle Version: `1.1.33`
+- Letzter Release-Tag: `v1.1.33`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.33] - 2026-07-21
+
+- Internes GA4-Dashboard ueber einen kostenlosen, geschuetzten PHP-Endpunkt auf dem bestehenden IONOS-Webhosting angebunden.
+- Analytics-Zugangsdaten werden erst im Deployment aus GitHub-Environment-Secrets erzeugt und bleiben ausserhalb des Repositorys.
+- Weisse MOVIN-Wortmarke fuer bessere Lesbarkeit auf der 404-Seite eingesetzt.
 
 ### [1.1.32] - 2026-07-21
 

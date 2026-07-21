@@ -2,6 +2,20 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.33] - 2026-07-21
+
+### Google Analytics
+
+- Kostenlosen PHP-Endpunkt fuer das interne GA4-Dashboard auf dem bestehenden IONOS-Webhosting ergaenzt.
+- Service-Account-Authentifizierung und Google Analytics Data API serverseitig ohne zusaetzlichen Hostingdienst umgesetzt.
+- Analytics-Konfiguration wird beim Deployment aus geschuetzten GitHub-Environment-Secrets erzeugt und nicht im Repository gespeichert.
+- Dashboard-Endpunkt mit internem Zugriffscode, sicheren Antwort-Headern und geschuetzter Konfigurationsdatei abgesichert.
+- Korrekte GA4-Property `391939422` und das Servicekonto fest mit dem Deployment abgeglichen.
+
+### 404-Seite
+
+- Farbige Wortmarke auf der verlaufenden 404-Seite durch die kontrastreiche weisse MOVIN-Wortmarke ersetzt.
+
 ## [1.1.32] - 2026-07-21
 
 ### Google Analytics
