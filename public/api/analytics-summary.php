@@ -284,8 +284,12 @@ try {
     ]);
 } catch (Throwable $error) {
     error_log('MOVIN Analytics dashboard failed: ' . $error->getMessage());
-    analyticsRespond(502, [
+    $payload = [
         'configured' => true,
         'message' => 'Google Analytics Daten konnten nicht geladen werden.',
-    ]);
+    ];
+    if (str_starts_with(strtolower((string) ($_SERVER['HTTP_HOST'] ?? '')), 'staging.')) {
+        $payload['detail'] = $error->getMessage();
+    }
+    analyticsRespond(502, $payload);
 }
