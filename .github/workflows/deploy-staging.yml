@@ -140,6 +140,8 @@ jobs:
               set net:timeout 20;
               set sftp:connect-program 'ssh -a -x -o StrictHostKeyChecking=accept-new';
               mirror --reverse --verbose --parallel=4 dist/ $target_dir;
+              rm -f ${target_dir}videos/home/evidenz-physiotherapie-scroll.mp4;
+              rm -f ${target_dir}images/home/evidenz-physiotherapie-poster.webp;
               bye;
             "
           else
@@ -151,6 +153,8 @@ jobs:
               set ftp:ssl-protect-data yes;
               set ssl:verify-certificate yes;
               mirror --reverse --verbose --parallel=4 dist/ $target_dir;
+              rm -f ${target_dir}videos/home/evidenz-physiotherapie-scroll.mp4;
+              rm -f ${target_dir}images/home/evidenz-physiotherapie-poster.webp;
               bye;
             "
           fi
