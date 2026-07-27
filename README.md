@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.33`
+- Aktuelle Version: `1.1.34-staging.1`
 - Letzter Release-Tag: `v1.1.33`
-- Branch: `main`
-- Projektstatus: Production
+- Branch: `develop`
+- Projektstatus: Staging
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.34-staging.1] - 2026-07-27
+
+- Theresa Maier mit vorbereitetem Teambild und Platzhalterangaben im Bereich "Ueber uns" ergaenzt.
+- Scrollbaren Video-Hero der Startseite aus dem Staging entfernt und die bisherige statische Live-Variante wiederhergestellt.
 
 ### [1.1.33] - 2026-07-21
 

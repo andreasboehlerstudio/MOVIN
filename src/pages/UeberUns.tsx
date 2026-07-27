@@ -32,7 +32,8 @@ const teamCutoutPreviewByImage: Record<string, string> = {
   '/images/team-uniform/mara-schoeneck.webp': '/images/team-cutouts-polished-bottom/mara-schoeneck.webp',
   '/images/team-uniform/lena-pall.webp': '/images/team-cutouts-polished-bottom/lena-pall.webp',
   '/images/team-uniform/lena-prell.webp': '/images/team-cutouts-polished-bottom/lena-prell.webp',
-  '/images/team-uniform/miriam-ferre.webp': '/images/team-cutouts-polished-bottom/miriam-ferre.webp'
+  '/images/team-uniform/miriam-ferre.webp': '/images/team-cutouts-polished-bottom/miriam-ferre.webp',
+  '/images/team-uniform/theresa-maier.webp': '/images/team-uniform/theresa-maier.webp'
 };
 
 export default function UeberUns() {
@@ -569,7 +570,8 @@ export default function UeberUns() {
                 name: 'Theresa Maier',
                 category: 'Physiotherapie',
                 role: 'Physiotherapeutin',
-                spec: 'Neu ab Juli'
+                spec: 'Weitere Angaben folgen',
+                image: '/images/team-uniform/theresa-maier.webp'
               },
               {
                 name: 'Miriam Ferré',

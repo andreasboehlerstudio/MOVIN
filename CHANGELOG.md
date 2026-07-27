@@ -2,6 +2,20 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.34-staging.1] - 2026-07-27
+
+### Team
+
+- Theresa Maier im Bereich "Ueber uns" mit ihrem neuen Teambild ergaenzt.
+- Bis zur Lieferung der fachlichen Detailangaben wird die neutrale Kennzeichnung "Weitere Angaben folgen" verwendet.
+- Das Portrait wurde als separates, transparentes WebP fuer die bestehende MOVIN Teamdarstellung aufbereitet; die Originaldatei bleibt unveraendert.
+
+### Startseite
+
+- Den experimentellen, scrollbaren Video-Hero vollstaendig aus dem Staging entfernt.
+- Startseiten-Hero wieder auf den bisherigen statischen Live-Aufbau zurueckgesetzt.
+- Nicht mehr benoetigte Video-, Poster- und Komponenten-Assets des Experiments entfernt.
+
 ## [1.1.33] - 2026-07-21
 
 ### Google Analytics
