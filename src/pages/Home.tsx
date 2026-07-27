@@ -1,13 +1,12 @@
 import { lazy, Suspense, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
-import { Activity, MapPin, Brain, Clock, ArrowRight, Star, Smartphone, PlayCircle, Calendar, ClipboardList, HelpCircle, ChevronDown, ChevronUp, HeartPulse, Hand, Trophy, Dumbbell, ShieldCheck, ExternalLink } from 'lucide-react';
+import { Activity, MapPin, Brain, Clock, ArrowRight, Star, Smartphone, PlayCircle, Calendar, ArrowDown, ClipboardList, HelpCircle, ChevronDown, ChevronUp, HeartPulse, Hand, Trophy, Dumbbell, ShieldCheck, ExternalLink } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Logo from '../components/common/Logo';
 import { GdprEmbed } from '../components/gdpr/GdprEmbed';
 import { getYearsOfExperience } from '../data/companyInfo';
 import PartnerLogos from '../components/common/PartnerLogos';
-import EvidenceScrollHero from '../components/home/EvidenceScrollHero';
 
 const SpotifyEmbeds = lazy(() => import('../components/social/SpotifyEmbeds').then((module) => ({ default: module.SpotifyEmbeds })));
 const InstagramFeed = lazy(() => import('../components/social/InstagramFeed'));
@@ -74,11 +73,103 @@ export default function Home() {
         title="Physiotherapie Freiburg – Innovativ. Bewegt. Wirksam."
         description={`MOVIN Physiotherapie in Freiburg & Europa-Park Rust. ${years} Jahre Erfahrung, KI-gestützte Therapie, 48h Termingarantie. Jetzt Termin buchen!`}
         schema={schema}
-        preloadImage="/images/home/evidenz-physiotherapie-poster.webp"
+        preloadImage="/images/MOVIN_Header_Home_V3-poster.webp"
       />
 
       {/* Hero Section */}
-      <EvidenceScrollHero />
+      <section className="relative h-[85vh] lg:h-screen min-h-[550px] lg:min-h-[650px] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/MOVIN_Header_Home_V3-poster.webp"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            fetchPriority="high"
+            loading="eager"
+            decoding="async"
+          />
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            preload="metadata"
+            className="hidden md:block absolute inset-0 w-full h-full object-cover object-center"
+            poster="/images/MOVIN_Header_Home_V3-poster.webp"
+          >
+            <source src="/images/MOVIN_Header_Home_V3-optimized.mp4" type="video/mp4" media="(min-width: 768px)" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f4d]/90 via-[#0a0f4d]/80 to-[#00b2ba]/80" />
+        </div>
+        
+        <div className="container-custom relative z-10 text-white w-full">
+          <div className="max-w-3xl -ml-2 sm:ml-0">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-sm md:text-base text-white/90 font-heading font-medium tracking-[0.15em] uppercase mb-4"
+            >
+              Physiotherapie in Freiburg und Rust
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="text-4xl sm:text-5xl md:text-[5rem] font-bold mb-6 leading-[1.1] text-white tracking-tight uppercase break-words hyphens-auto [overflow-wrap:anywhere]"
+            >
+              Evidenzbasierte<br />
+              <span className="text-gradient-teal-mint">Physiotherapie</span><br />
+              für nachhaltige Erfolge.
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="text-lg md:text-xl text-white/90 mb-10 max-w-3xl font-light leading-relaxed"
+            >
+              Innovativ · Bewegt · Auf Basis aktueller Evidenz durch unser spezialisiertes<br className="hidden md:inline" /> Hands-Off Konzept an drei Standorten von Freiburg bis Rust.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 500, damping: 15 }}
+              >
+                <Link to="/standorte/" className="bg-primary text-white hover:bg-primary-hover transition-colors rounded-full text-base font-medium px-8 py-3 text-center block">
+                  Unsere Standorte
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 500, damping: 15 }}
+              >
+                <Link to="/leistungen/" className="bg-transparent border border-white/50 text-white hover:bg-white/10 transition-colors rounded-full text-base font-medium px-8 py-3 backdrop-blur-sm text-center block">
+                  Leistungen entdecken
+                </Link>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10"
+        >
+          <ArrowDown className="w-5 h-5 text-white/70" />
+        </motion.div>
+      </section>
 
       {/* USP Bar */}
       <motion.section 
