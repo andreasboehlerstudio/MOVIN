@@ -17,14 +17,21 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.34`
+- Aktuelle Version: `1.1.35-staging.1`
 - Letzter Release-Tag: `v1.1.34`
-- Branch: `main`
-- Projektstatus: Production
+- Branch: `develop`
+- Projektstatus: Staging
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.35-staging.1] - 2026-07-28
+
+- Theresa Maiers hochaufgeloesten Freisteller auf dasselbe 1800-x-1800-Raster wie die bestehenden Teamfotos gebracht.
+- Bildausschnitt, Kopfhoehe, Shirtweiss, Hautton und Farbabstimmung an die Teamserie angeglichen; bisherige Webdatei bleibt als Rueckfalloption erhalten.
+- Theresa Maier am Standort Mooswald mit Portrait und den Fachgebieten Ellenbogen, Kiefer und Hand ergaenzt.
+- Lena Prell am Standort Mooswald mit den Fachgebieten Huefte, Knie und Schulter aktualisiert.
 
 ### [1.1.34] - 2026-07-28
 
