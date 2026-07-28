@@ -17,7 +17,7 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.36-staging.1`
+- Aktuelle Version: `1.1.36-staging.2`
 - Letzter Release-Tag: `v1.1.35`
 - Branch: `develop`
 - Projektstatus: Staging
@@ -25,6 +25,11 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.36-staging.2] - 2026-07-28
+
+- Standortportraits von Lena Prell und Theresa Maier vom engen Headshot auf den Oberkoerper-Ausschnitt der bestehenden Mooswald-Teamserie umgestellt.
+- Neutralen grauen Portraithintergrund sowie Kopfraum und unteren Bildabschluss an die vorhandenen Standortbilder angeglichen.
 
 ### [1.1.36-staging.1] - 2026-07-28
 

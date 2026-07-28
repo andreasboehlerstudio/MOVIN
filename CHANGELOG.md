@@ -2,6 +2,15 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.36-staging.2] - 2026-07-28
+
+### Standort Mooswald
+
+- Die zu engen Headshots von Lena Prell und Theresa Maier verworfen.
+- Beide Portraits auf den Oberkoerper-Ausschnitt der bestehenden Mooswald-Teamserie umgestellt.
+- Sichtbaren Anteil von Kopf, Schulter, Shirt und verschraenkten Armen an den vorhandenen Standortbildern ausgerichtet.
+- Teal-Hintergrund durch den ruhigen neutralgrauen Portraithintergrund der bestehenden Standortserie ersetzt.
+
 ## [1.1.36-staging.1] - 2026-07-28
 
 ### Standort Mooswald
