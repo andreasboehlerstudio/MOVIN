@@ -2,6 +2,24 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.34-staging.2] - 2026-07-28
+
+### SEO und historische Inhalte
+
+- Den noch bei Google auffindbaren WordPress-Beitrag unter der exakten URL `/stadtbeste-physiotherapie/` als eigenstaendige MOVIN Seite rekonstruiert.
+- Kernaussage des alten Beitrags erhalten: MOVIN wurde 2016 und 2017 von Freiburgerinnen und Freiburgern zur besten Physiotherapie der Stadt gewaehlt.
+- Die historische Auszeichnung klar von einem aktuellen oder fortlaufenden Ranking abgegrenzt.
+- Aktuelle MOVIN Leistungen und alle drei Standorte als hilfreiche weiterfuehrende Inhalte integriert.
+- Eindeutigen Canonical, AboutPage-/Organization- und Breadcrumb-Schema sowie eine suchmaschinenoptimierte Meta-Description ergaenzt.
+- Alte URL in React-Routing, Apache-Routing und Sitemap aufgenommen.
+- Auszeichnungsseite aus der Unternehmensgeschichte auf der Seite "Ueber uns" intern verlinkt.
+
+### Qualitaetssicherung
+
+- Desktop- und Mobile-Darstellung im Browser geprueft.
+- Kein horizontaler Ueberlauf bei 375 Pixel Breite.
+- Build und TypeScript-Pruefung erfolgreich abgeschlossen.
+
 ## [1.1.34-staging.1] - 2026-07-27
 
 ### Team

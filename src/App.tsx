@@ -19,6 +19,7 @@ import StationaereVersorgung from './pages/StationaereVersorgung';
 import Impressum from './pages/Impressum';
 import Datenschutz from './pages/Datenschutz';
 import GoogleStatistiken from './pages/GoogleStatistiken';
+import StadtbestePhysiotherapie from './pages/StadtbestePhysiotherapie';
 import NotFound from './pages/NotFound';
 import { CookieConsent } from './components/gdpr/CookieConsent';
 import CtaTransition from './components/effects/CtaTransition';
@@ -50,6 +51,7 @@ export default function App() {
           <Route path="training" element={<Training />} />
           <Route path="stationaere-versorgung" element={<StationaereVersorgung />} />
           <Route path="ueber-uns" element={<UeberUns />} />
+          <Route path="stadtbeste-physiotherapie" element={<StadtbestePhysiotherapie />} />
           <Route path="karriere" element={<Karriere />} />
           <Route path="faq" element={<Faq />} />
           <Route path="kontakt" element={<Kontakt />} />

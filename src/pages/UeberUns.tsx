@@ -352,6 +352,7 @@ export default function UeberUns() {
                 { year: '1998', title: 'Gründung', desc: 'Gründung der ersten Praxis mit der Vision, Physiotherapie moderner zu gestalten.', align: 'right' },
                 { year: '2003', title: 'Lorettoberg', desc: 'Umzug in die heutigen Haupträume am Lorettoberg – unser Herzstück in Freiburg.', align: 'left' },
                 { year: '2008', title: 'Wachstum', desc: 'Deutliche Teamerweiterung und Wachstum, um der steigenden Nachfrage gerecht zu werden.', align: 'right' },
+                { year: '2016 & 2017', title: 'Stadtbeste Physiotherapie', desc: 'Zweimal von Freiburgerinnen und Freiburgern zur besten Physiotherapie der Stadt gewählt.', align: 'left', href: '/stadtbeste-physiotherapie/' },
                 { year: '2019', title: 'Movin am Mooswald', desc: 'Eröffnung des Standorts Movin am Mooswald im Westen Freiburgs.', align: 'left' },
                 { year: '2024', title: 'Europa-Park Standort', desc: 'Eröffnung des Standorts am Europa-Park in Rust.', align: 'right' },
                 { year: '2025', title: 'MOVIN Digital', desc: 'Launch von MOVIN Digital und der neuen MOVIN App für eine hybride Patientenversorgung.', align: 'left' },
@@ -362,7 +363,13 @@ export default function UeberUns() {
                   <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${item.align === 'left' ? 'md:pr-12' : 'md:pl-12'}`}>
                     <div className={`text-left ${item.align === 'left' ? 'md:text-right' : 'md:text-left'}`}>
                       <span className="text-primary font-bold text-sm mb-1 block">{item.year}</span>
-                      <h3 className="text-xl font-bold text-secondary mb-2">{item.title}</h3>
+                      <h3 className="text-xl font-bold text-secondary mb-2">
+                        {item.href ? (
+                          <Link className="transition-colors hover:text-primary" to={item.href}>
+                            {item.title}
+                          </Link>
+                        ) : item.title}
+                      </h3>
                       <p className="text-dark/70">{item.desc}</p>
                     </div>
                   </div>
