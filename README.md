@@ -17,14 +17,21 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.34-staging.2`
-- Letzter Release-Tag: `v1.1.33`
-- Branch: `develop`
-- Projektstatus: Staging
+- Aktuelle Version: `1.1.34`
+- Letzter Release-Tag: `v1.1.34`
+- Branch: `main`
+- Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.34] - 2026-07-28
+
+- Frueher indexierte Seite `/stadtbeste-physiotherapie/` im aktuellen MOVIN Design und unter ihrer bestehenden URL rekonstruiert.
+- Canonical, strukturierte Daten, Sitemap, Serverrouting und interne Verlinkung fuer die historische Auszeichnungsseite ergaenzt.
+- Theresa Maier mit vorbereitetem Teambild und neutralen Platzhalterangaben im Bereich "Ueber uns" aufgenommen.
+- Experimentellen scrollbaren Video-Hero verworfen; die Startseite behaelt den bisherigen Production-Hero.
 
 ### [1.1.34-staging.2] - 2026-07-28
 

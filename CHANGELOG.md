@@ -2,6 +2,33 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.34] - 2026-07-28
+
+### SEO und historische Inhalte
+
+- Den weiterhin bei Google auffindbaren WordPress-Beitrag unter der exakten URL `/stadtbeste-physiotherapie/` als eigenstaendige Seite im aktuellen MOVIN Design rekonstruiert.
+- Kernaussage der historischen Auszeichnungen aus 2016 und 2017 erhalten und transparent von einem aktuellen oder fortlaufenden Ranking abgegrenzt.
+- Aktuelle MOVIN Leistungen und alle drei Standorte als weiterfuehrende Inhalte integriert.
+- Canonical, AboutPage-/Organization- und Breadcrumb-Schema, Meta-Description, Sitemap-Eintrag und Apache-Routing ergaenzt.
+- Auszeichnungsseite aus der Unternehmensgeschichte auf der Seite "Ueber uns" intern verlinkt.
+
+### Team
+
+- Theresa Maier im Bereich "Ueber uns" mit ihrem neuen Teambild aufgenommen.
+- Bis zur Lieferung der fachlichen Detailangaben wird die neutrale Kennzeichnung "Weitere Angaben folgen" verwendet.
+- Portrait separat als optimiertes WebP eingebunden; die hochaufgeloeste Originaldatei bleibt unveraendert.
+
+### Startseite
+
+- Den experimentellen, scrollbaren Video-Hero nach dem Staging-Test verworfen.
+- Startseiten-Hero entspricht weiterhin der bisherigen Production-Variante.
+
+### Qualitaetssicherung
+
+- Desktop- und Mobile-Darstellung der Auszeichnungsseite im Browser geprueft.
+- Kein horizontaler Ueberlauf bei 375 Pixel Breite.
+- Build, TypeScript-Pruefung, Sitemap und Staging-Routing erfolgreich validiert.
+
 ## [1.1.34-staging.2] - 2026-07-28
 
 ### SEO und historische Inhalte
