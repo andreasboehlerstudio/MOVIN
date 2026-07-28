@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.35-staging.1`
-- Letzter Release-Tag: `v1.1.34`
-- Branch: `develop`
-- Projektstatus: Staging
+- Aktuelle Version: `1.1.35`
+- Letzter Release-Tag: `v1.1.35`
+- Branch: `main`
+- Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.35] - 2026-07-28
+
+- Theresa Maiers Portrait auf das einheitliche Teamraster gebracht und farblich an die bestehende Serie angeglichen.
+- Theresa Maier am Standort Mooswald mit Portrait und den Fachgebieten Ellenbogen, Kiefer und Hand ergaenzt.
+- Lena Prell am Standort Mooswald mit den Fachgebieten Huefte, Knie und Schulter aktualisiert.
 
 ### [1.1.35-staging.1] - 2026-07-28
 

@@ -2,6 +2,21 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.35] - 2026-07-28
+
+### Team
+
+- Theresa Maiers hochaufgeloesten Freisteller separat als neue 1800-x-1800-WebP eingebunden.
+- Kopfhoehe, Kopfgroesse, Schulterbreite, Shirtweiss, Hautton und Farbabstimmung an die bestehende Portraitserie angeglichen.
+- Die zuvor verwendete Theresa-Datei als Rueckfalloption erhalten.
+- Theresa Maier mit Portrait und den Fachgebieten "Ellenbogen / Kiefer / Hand" dem Standort Mooswald zugeordnet.
+- Lena Prell am Standort Mooswald mit den Fachgebieten "Huefte / Knie / Schulter" aktualisiert.
+
+### Qualitaetssicherung
+
+- Darstellung auf der Staging-Seite "Ueber uns" und der Mooswald-Standortseite geprueft.
+- TypeScript-Pruefung und Production-Build erfolgreich ausgefuehrt.
+
 ## [1.1.35-staging.1] - 2026-07-28
 
 ### Team
