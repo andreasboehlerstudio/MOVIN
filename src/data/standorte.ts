@@ -379,7 +379,7 @@ export const standorteData: Record<string, Standort> = {
       {
         name: 'Lena Prell',
         role: 'Physiotherapeutin',
-        image: '/images/team-uniform/lena-prell.webp',
+        image: '/images/team-location/lena-prell.webp',
         spec: 'Hüfte / Knie / Schulter'
       },
       {
@@ -390,7 +390,7 @@ export const standorteData: Record<string, Standort> = {
       {
         name: 'Theresa Maier',
         role: 'Physiotherapeutin',
-        image: '/images/team-uniform/theresa-maier.webp',
+        image: '/images/team-location/theresa-maier.webp',
         spec: 'Ellenbogen / Kiefer / Hand'
       },
       {

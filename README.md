@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.35`
+- Aktuelle Version: `1.1.36-staging.1`
 - Letzter Release-Tag: `v1.1.35`
-- Branch: `main`
-- Projektstatus: Production
+- Branch: `develop`
+- Projektstatus: Staging
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.36-staging.1] - 2026-07-28
+
+- Eigene runde Standortportraits aus den aktuellen Freistellern fuer Lena Prell und Theresa Maier erstellt.
+- Gesichtsgroesse, Augenlinie, Kopfabstand und Schulteranschnitt fuer die Mooswald-Teamkacheln vereinheitlicht.
+- Alte Mooswald-Bildquellen durch die neuen Standortportraits ersetzt.
 
 ### [1.1.35] - 2026-07-28
 
