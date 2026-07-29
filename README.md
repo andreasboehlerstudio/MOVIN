@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.36-staging.2`
-- Letzter Release-Tag: `v1.1.35`
-- Branch: `develop`
-- Projektstatus: Staging
+- Aktuelle Version: `1.1.36`
+- Letzter Release-Tag: `v1.1.36`
+- Branch: `main`
+- Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.36] - 2026-07-29
+
+- Aktuelle Portraits von Lena Prell und Theresa Maier auf der Mooswald-Seite eingebunden.
+- Beide Bilder auf den Oberkoerper-Ausschnitt, Personenmassstab und neutralgrauen Hintergrund der bestehenden Standortserie abgestimmt.
 
 ### [1.1.36-staging.2] - 2026-07-28
 

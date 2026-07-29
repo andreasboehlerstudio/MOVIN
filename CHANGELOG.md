@@ -2,6 +2,20 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.36] - 2026-07-29
+
+### Standort Mooswald
+
+- Das alte Standortportrait von Lena Prell durch ihr aktuelles Portrait ersetzt.
+- Die Platzierung des Portraits von Theresa Maier korrigiert.
+- Beide Bilder auf den Oberkoerper-Ausschnitt, Kopfraum, Personenmassstab und unteren Abschluss der bestehenden Mooswald-Teamserie abgestimmt.
+- Einheitlichen neutralgrauen Hintergrund der vorhandenen Standortportraits verwendet.
+
+### Qualitaetssicherung
+
+- Beide Bilddateien im Staging einzeln sowie innerhalb der Mooswald-Teamdarstellung geprueft.
+- TypeScript-Pruefung und Production-Build erfolgreich ausgefuehrt.
+
 ## [1.1.36-staging.2] - 2026-07-28
 
 ### Standort Mooswald
