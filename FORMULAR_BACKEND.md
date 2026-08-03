@@ -23,9 +23,12 @@ Diese Werte werden getrennt unter `Settings > Environments > Staging` und `Setti
 | `SMTP_FROM_NAME` | `MOVIN Website` |
 | `CONTACT_RECEIVER_EMAIL` | `kontakt@movin-freiburg.de` |
 | `CAREER_RECEIVER_EMAIL` | `daniel.klein@movin-freiburg.de` |
+| `CAREER_BACKUP_RECEIVER_EMAIL` | Optionales internes Bewerbungs-Postfach, z. B. `bewerbung@movin-freiburg.de` |
 | `ANAMNESE_RECEIVER_EMAIL` | `anamnesebogen@movin-freiburg.de` |
 
 Ohne `SMTP_USER` oder `SMTP_PASS` antwortet das Backend kontrolliert mit HTTP 503 und behauptet keinen erfolgreichen Versand.
+
+Ist `CAREER_BACKUP_RECEIVER_EMAIL` gesetzt, wird jede Bewerbung zusaetzlich als nicht sichtbare BCC-Kopie an dieses interne Postfach gesendet. Die Adresse muss ein tatsaechlich eingerichtetes, zugriffsgeschuetztes MOVIN-Postfach sein. Sie darf nicht mit `CAREER_RECEIVER_EMAIL` identisch sein. Ohne Secret bleibt der bisherige Versand ausschliesslich an Daniel Klein aktiv.
 
 ## Sicherheitsumfang
 
@@ -37,6 +40,7 @@ Ohne `SMTP_USER` oder `SMTP_PASS` antwortet das Backend kontrolliert mit HTTP 50
 - PDF-Signatur-, Einzelgroessen- und Gesamtgroessenpruefung
 - maximal 10 MB pro PDF und 15 MB pro Bewerbung
 - SMTP-Zugangsdaten werden nicht ins Repository geschrieben
+- optionale zweite interne Zustellung fuer Bewerbungen ohne dauerhafte Webserver-Ablage
 - direkte Webzugriffe auf Bootstrap und SMTP-Konfiguration werden per `.htaccess` gesperrt
 
 ## Funktionstest

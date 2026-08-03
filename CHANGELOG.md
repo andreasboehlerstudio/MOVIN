@@ -2,6 +2,24 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.38] - 2026-08-03
+
+### Bewerbungsformular und Ausfallsicherheit
+
+- Optionale zweite interne Zustellung jeder Bewerbung als nicht sichtbare BCC-Kopie ergaenzt.
+- Backup-Adresse wird nur verwendet, wenn `CAREER_BACKUP_RECEIVER_EMAIL` gesetzt, gueltig und nicht mit dem Hauptempfaenger identisch ist.
+- Keine zusaetzliche Speicherung personenbezogener Bewerbungsunterlagen auf dem Webserver eingefuehrt.
+- Staging- und Production-Workflows um das geschuetzte Environment-Secret fuer das Backup-Postfach erweitert.
+
+### Datenschutz und Dokumentation
+
+- Datenschutzerklaerung um die optionale interne Sicherungszustellung an ein zugriffsgeschuetztes MOVIN-Bewerbungspostfach ergaenzt.
+- Einrichtung und Verhalten des neuen Secrets in der Formular-Backend-Dokumentation beschrieben.
+
+### Qualitaetssicherung
+
+- TypeScript-Pruefung und Production-Build erfolgreich ausgefuehrt.
+
 ## [1.1.37] - 2026-08-03
 
 ### FAQ und Sportphysiotherapie

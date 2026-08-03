@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.37`
-- Letzter Release-Tag: `v1.1.37`
+- Aktuelle Version: `1.1.38`
+- Letzter Release-Tag: `v1.1.38`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.38] - 2026-08-03
+
+- Optionale, nicht sichtbare BCC-Sicherungskopie von Bewerbungen an ein separates internes MOVIN-Bewerbungspostfach ergaenzt.
+- Staging- und Production-Deployments um das geschuetzte Secret `CAREER_BACKUP_RECEIVER_EMAIL` erweitert.
+- Datenschutzerklaerung und Backend-Dokumentation an die interne Sicherungszustellung angepasst.
 
 ### [1.1.37] - 2026-08-03
 

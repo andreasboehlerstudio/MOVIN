@@ -51,6 +51,7 @@ jobs:
           SMTP_FROM_NAME: ${{ secrets.SMTP_FROM_NAME }}
           CONTACT_RECEIVER_EMAIL: ${{ secrets.CONTACT_RECEIVER_EMAIL }}
           CAREER_RECEIVER_EMAIL: ${{ secrets.CAREER_RECEIVER_EMAIL }}
+          CAREER_BACKUP_RECEIVER_EMAIL: ${{ secrets.CAREER_BACKUP_RECEIVER_EMAIL }}
           ANAMNESE_RECEIVER_EMAIL: ${{ secrets.ANAMNESE_RECEIVER_EMAIL }}
         shell: bash
         run: |
@@ -69,6 +70,7 @@ jobs:
               'from_name' => base64_decode('$(encode "${SMTP_FROM_NAME:-MOVIN Website}")'),
               'contact_receiver' => base64_decode('$(encode "${CONTACT_RECEIVER_EMAIL:-kontakt@movin-freiburg.de}")'),
               'career_receiver' => base64_decode('$(encode "${CAREER_RECEIVER_EMAIL:-daniel.klein@movin-freiburg.de}")'),
+              'career_backup_receiver' => base64_decode('$(encode "${CAREER_BACKUP_RECEIVER_EMAIL:-}")'),
               'anamnese_receiver' => base64_decode('$(encode "${ANAMNESE_RECEIVER_EMAIL:-anamnesebogen@movin-freiburg.de}")'),
           ];
           PHP

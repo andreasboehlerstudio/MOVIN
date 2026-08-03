@@ -36,7 +36,17 @@ foreach ($files as $file) {
 
 $config = config();
 $mail = mailer($config);
-$mail->addAddress((string) $config['career_receiver']);
+$careerReceiver = (string) $config['career_receiver'];
+$mail->addAddress($careerReceiver);
+
+$careerBackupReceiver = trim((string) ($config['career_backup_receiver'] ?? ''));
+if (
+    $careerBackupReceiver !== ''
+    && filter_var($careerBackupReceiver, FILTER_VALIDATE_EMAIL)
+    && strcasecmp($careerBackupReceiver, $careerReceiver) !== 0
+) {
+    $mail->addBCC($careerBackupReceiver);
+}
 $mail->addReplyTo($email, $name);
 $mail->Subject = 'Neue Bewerbung: ' . $name;
 $mail->Body = implode("\n", [
