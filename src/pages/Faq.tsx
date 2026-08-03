@@ -140,6 +140,10 @@ export default function Faq() {
       icon: HelpCircle,
       items: [
         {
+          question: "Betreut MOVIN auch Sportler mit Sportphysiotherapie?",
+          answer: "Ja, wir sind offizieller Sportphysiotherapie-Partner der Red Sparrows Freiburg (Handball, 2. Bundesliga Frauen) sowie des EHC Freiburg (Eishockey, DEL2 Männer). Neben der Betreuung dieser Teams begleiten wir auch zahlreiche weitere Leistungssportler im Return-to-Sport-Prozess – von der Diagnostik bis zur vollständigen Wiederherstellung der Belastbarkeit."
+        },
+        {
           question: "Was ist der Unterschied zwischen Physiotherapie und Krankengymnastik?",
           answer: "Im heutigen Sprachgebrauch werden die Begriffe meist synonym verwendet. Historisch gesehen war die Krankengymnastik eher auf aktive Bewegungsübungen beschränkt. Die moderne Physiotherapie hingegen ist der Oberbegriff und umfasst das gesamte Spektrum: aktive Übungen (Krankengymnastik), passive Techniken (Manuelle Therapie, Massage, Lymphdrainage) sowie physikalische Therapien (Wärme, Kälte)."
         },
@@ -403,7 +407,7 @@ export default function Faq() {
               <div className="space-y-4 border-t border-border pt-6 mb-6">
                 <div className="flex items-center gap-3 text-xs text-dark/65 font-medium">
                   <span className="w-2 h-2 rounded-full bg-primary" />
-                  <span>29 praxisrelevante Antworten</span>
+                  <span>{allFaqsWithCat.length} praxisrelevante Antworten</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs text-dark/65 font-medium">
                   <span className="w-2 h-2 rounded-full bg-primary" />

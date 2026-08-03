@@ -2,6 +2,20 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.37] - 2026-08-03
+
+### FAQ und Sportphysiotherapie
+
+- Neue Frage "Betreut MOVIN auch Sportler mit Sportphysiotherapie?" in die allgemeinen Fachfragen aufgenommen.
+- Red Sparrows Freiburg als Handball-Partner in der 2. Bundesliga Frauen sowie EHC Freiburg als Eishockey-Partner in der DEL2 Maenner aufgefuehrt.
+- Begleitung weiterer Leistungssportler im Return-to-Sport-Prozess von der Diagnostik bis zur Wiederherstellung der Belastbarkeit ergaenzt.
+- FAQ-Antwortenzahl von einem festen Wert auf eine dynamische Berechnung umgestellt.
+- Neue Frage wird automatisch in Volltextsuche, Kategorienfilter und strukturierten FAQPage-Daten ausgegeben.
+
+### Qualitaetssicherung
+
+- TypeScript-Pruefung und Production-Build erfolgreich ausgefuehrt.
+
 ## [1.1.36] - 2026-07-29
 
 ### Standort Mooswald

@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.36`
-- Letzter Release-Tag: `v1.1.36`
+- Aktuelle Version: `1.1.37`
+- Letzter Release-Tag: `v1.1.37`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.37] - 2026-08-03
+
+- Neue FAQ zur Sportphysiotherapie und zur Partnerschaft mit Red Sparrows Freiburg sowie EHC Freiburg ergaenzt.
+- Anzahl der praxisrelevanten FAQ-Antworten dynamisch aus den vorhandenen Fragen berechnet.
 
 ### [1.1.36] - 2026-07-29
 
