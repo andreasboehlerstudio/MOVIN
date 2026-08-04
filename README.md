@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.38`
-- Letzter Release-Tag: `v1.1.38`
+- Aktuelle Version: `1.1.39`
+- Letzter Release-Tag: `v1.1.39`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.39] - 2026-08-04
+
+- Google-Ads-Basistag `AW-702733253` consent-gesteuert integriert.
+- Google Consent Mode v2 fuer Analytics und Werbung umgesetzt.
+- Cookie-Banner und Datenschutzerklaerung um Google Ads und Conversion-Messung ergaenzt.
 
 ### [1.1.38] - 2026-08-03
 

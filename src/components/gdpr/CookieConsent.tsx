@@ -128,7 +128,7 @@ export const CookieConsent: React.FC = () => {
                 />
                 <CookieOption
                   title="Externe Medien & Marketing"
-                  description="Ermöglicht das Anzeigen von Inhalten von Drittanbietern wie Spotify, YouTube oder Instagram."
+                  description="Ermöglicht Inhalte von Drittanbietern sowie Google Ads zur Werbe- und Conversion-Messung."
                   checked={tempConsent.marketing}
                   onToggle={() => handleToggle('marketing')}
                 />

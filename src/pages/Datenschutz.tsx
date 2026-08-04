@@ -86,7 +86,7 @@ export default function Datenschutz() {
                   </tr>
                   <tr>
                     <td className="p-4 font-semibold text-secondary">Externe Medien & Marketing</td>
-                    <td className="p-4 text-dark/75">Einbettung externer Inhalte wie YouTube, Google Maps, Spotify oder Instagram.</td>
+                    <td className="p-4 text-dark/75">Einbettung externer Inhalte wie YouTube, Google Maps, Spotify oder Instagram sowie Werbe- und Conversion-Messung mit Google Ads.</td>
                     <td className="p-4 text-dark/75">Erst nach aktiver Freigabe im Banner oder direkt am blockierten Inhalt.</td>
                   </tr>
                 </tbody>
@@ -98,7 +98,11 @@ export default function Datenschutz() {
             </p>
 
             <p className="mb-4">
-              Bei externen Medien können nach Ihrer Freigabe personenbezogene Daten, insbesondere Ihre IP-Adresse und technische Browserinformationen, an den jeweiligen Anbieter übermittelt werden. Die Datenverarbeitung erfolgt dann in eigener Verantwortung des Anbieters. Eingesetzte Drittanbieter können insbesondere Google/YouTube und Google Maps, Spotify sowie Instagram/Meta sein.
+              Google Ads (Kennung AW-702733253) wird ebenfalls ausschließlich nach Ihrer Einwilligung in die Kategorie Externe Medien & Marketing aktiviert. Der Dienst dient der Messung, ob Nutzerinnen und Nutzer nach dem Kontakt mit einer Anzeige bestimmte Aktionen auf der Website ausführen. Dabei können insbesondere Anzeigen-Klickinformationen, aufgerufene Seiten, technische Browserdaten und Kennungen in Cookies wie <strong>_gcl_*</strong> verarbeitet werden. Bei einem Widerruf werden die Werbespeicherung und werbebezogene Datennutzung über Google Consent Mode v2 deaktiviert und vorhandene Google-Ads-Cookies der Website entfernt.
+            </p>
+
+            <p className="mb-4">
+              Bei externen Medien und Marketingdiensten können nach Ihrer Freigabe personenbezogene Daten, insbesondere Ihre IP-Adresse, technische Browserinformationen und Informationen zu Ihrer Nutzung der Website, an den jeweiligen Anbieter übermittelt werden. Die Datenverarbeitung erfolgt dann in eigener Verantwortung des Anbieters. Eingesetzte Drittanbieter können insbesondere Google mit Google Ads, YouTube und Google Maps, Spotify sowie Instagram/Meta sein.
             </p>
             <p className="mb-4">
               Rechtsgrundlage für technisch notwendige Speicherungen ist Art. 6 Abs. 1 lit. f DSGVO in Verbindung mit den Vorgaben für den Zugriff auf Endeinrichtungen. Optionale Dienste werden auf Grundlage Ihrer Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO aktiviert. Sie können eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen.

@@ -2,6 +2,21 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.39] - 2026-08-04
+
+### Google Ads und Einwilligung
+
+- Google-Ads-Basistag `AW-702733253` in die bestehende zentrale Google-Tag-Integration aufgenommen.
+- Google Ads wird erst nach aktiver Zustimmung zu "Externe Medien & Marketing" geladen und konfiguriert.
+- Google Consent Mode v2 fuer `ad_storage`, `ad_user_data`, `ad_personalization` und `analytics_storage` umgesetzt.
+- Google Analytics und Google Ads lassen sich weiterhin getrennt ueber die Cookie-Einstellungen freigeben oder widerrufen.
+- Bei Widerruf werden vorhandene Google-Ads-Cookies der Website entfernt und die weitere Werbedatennutzung deaktiviert.
+
+### Datenschutz und Qualitaetssicherung
+
+- Cookie-Banner und Datenschutzerklaerung um Google Ads, Conversion-Messung und die eingesetzte Ads-Kennung ergaenzt.
+- TypeScript-Pruefung und Production-Build erfolgreich ausgefuehrt.
+
 ## [1.1.38] - 2026-08-03
 
 ### Bewerbungsformular und Ausfallsicherheit
