@@ -4,6 +4,7 @@ import { useCookieConsent } from '../gdpr/CookieContext';
 
 const GA_MEASUREMENT_ID = 'G-V6PKV5XVJL';
 const GOOGLE_ADS_ID = 'AW-702733253';
+const GOOGLE_ADS_LEAD_DESTINATION = 'AW-702733253/4iA0CLfk5tscEMW3i88C';
 const GOOGLE_TAG_SCRIPT_ID = 'movin-google-tag';
 const GOOGLE_TAG_INITIALIZED_FLAG = '__movinGoogleTagInitialized';
 const GA_INITIALIZED_FLAG = '__movinGoogleAnalyticsInitialized';
@@ -98,6 +99,12 @@ function initializeGoogleAds() {
     window.gtag?.('config', GOOGLE_ADS_ID);
     window[ADS_INITIALIZED_FLAG] = true;
   }
+}
+
+export function trackGoogleAdsLeadConversion() {
+  window.gtag?.('event', 'conversion', {
+    send_to: GOOGLE_ADS_LEAD_DESTINATION,
+  });
 }
 
 export default function GoogleAnalytics() {

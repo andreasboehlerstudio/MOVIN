@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import SEO from '../components/seo/SEO';
+import { trackGoogleAdsLeadConversion } from '../components/analytics/GoogleAnalytics';
+import { useCookieConsent } from '../components/gdpr/CookieContext';
 
 export default function Kontakt() {
+  const { consent, hasResponded } = useCookieConsent();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,6 +33,10 @@ export default function Kontakt() {
 
       if (!response.ok) {
         throw new Error('Kontaktanfrage konnte nicht gesendet werden.');
+      }
+
+      if (hasResponded && consent.marketing) {
+        trackGoogleAdsLeadConversion();
       }
 
       setIsSuccess(true);

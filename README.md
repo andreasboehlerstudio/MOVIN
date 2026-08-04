@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.39`
-- Letzter Release-Tag: `v1.1.39`
+- Aktuelle Version: `1.1.40`
+- Letzter Release-Tag: `v1.1.40`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.40] - 2026-08-04
+
+- Google-Ads-Lead-Conversion fuer erfolgreich gesendete allgemeine Kontaktanfragen integriert.
+- Conversion-Ausloesung an erfolgreiche Serverantwort und Marketing-Einwilligung gekoppelt.
 
 ### [1.1.39] - 2026-08-04
 

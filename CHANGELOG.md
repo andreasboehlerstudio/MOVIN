@@ -2,6 +2,19 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.40] - 2026-08-04
+
+### Google-Ads-Lead-Conversion
+
+- Conversion-Event `AW-702733253/4iA0CLfk5tscEMW3i88C` fuer erfolgreich gesendete allgemeine Kontaktanfragen integriert.
+- Conversion wird erst nach erfolgreicher Serverantwort des Kontaktformulars ausgeloest.
+- Ausloesung an die aktive Marketing-Einwilligung gekoppelt; ohne Zustimmung wird kein Google-Ads-Conversion-Event gesendet.
+- Bewerbungen und Anamneseboegen bewusst nicht derselben Lead-Conversion zugeordnet, damit diese bei Bedarf separat ausgewertet werden koennen.
+
+### Qualitaetssicherung
+
+- TypeScript-Pruefung und Production-Build erfolgreich ausgefuehrt.
+
 ## [1.1.39] - 2026-08-04
 
 ### Google Ads und Einwilligung
