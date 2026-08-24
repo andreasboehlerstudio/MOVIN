@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import { trackGoogleAdsLeadConversion } from '../components/analytics/GoogleAnalytics';
 import { useCookieConsent } from '../components/gdpr/CookieContext';
+import TurnstileWidget from '../components/security/TurnstileWidget';
 
 export default function Kontakt() {
   const { consent, hasResponded } = useCookieConsent();
@@ -18,9 +19,16 @@ export default function Kontakt() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileKey, setTurnstileKey] = useState(0);
+  const formStartedAtRef = useRef(Date.now());
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!turnstileToken) {
+      setSubmitError('Bitte warten Sie kurz, bis die Sicherheitsprüfung abgeschlossen ist.');
+      return;
+    }
     setIsSubmitting(true);
     setSubmitError('');
 
@@ -28,10 +36,23 @@ export default function Kontakt() {
       const response = await fetch('/api/send-contact.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken,
+          _formElapsedMs: Date.now() - formStartedAtRef.current,
+        }),
       });
 
       if (!response.ok) {
+        if (response.status === 403) {
+          throw new Error('Die Sicherheitsprüfung ist abgelaufen oder fehlgeschlagen. Bitte versuchen Sie es erneut.');
+        }
+        if (response.status === 409) {
+          throw new Error('Diese Nachricht wurde bereits übermittelt.');
+        }
+        if (response.status === 429) {
+          throw new Error('Es wurden zu viele Anfragen gesendet. Bitte warten Sie einige Minuten.');
+        }
         throw new Error('Kontaktanfrage konnte nicht gesendet werden.');
       }
 
@@ -41,10 +62,16 @@ export default function Kontakt() {
 
       setIsSuccess(true);
       setFormData({ name: '', email: '', phone: '', message: '', standort: 'lorettoberg', privacyAccepted: false, _website: '' });
+      setTurnstileToken('');
+      formStartedAtRef.current = Date.now();
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       console.error(error);
-      setSubmitError('Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie direkt an kontakt@movin-freiburg.de.');
+      setSubmitError(error instanceof Error
+        ? error.message
+        : 'Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie direkt an kontakt@movin-freiburg.de.');
+      setTurnstileToken('');
+      setTurnstileKey((key) => key + 1);
     } finally {
       setIsSubmitting(false);
     }
@@ -160,6 +187,18 @@ export default function Kontakt() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                    <div className="absolute left-[-10000px] h-px w-px overflow-hidden" aria-hidden="true">
+                      <label htmlFor="contact-company-website">Ihre Website</label>
+                      <input
+                        id="contact-company-website"
+                        name="_website"
+                        type="text"
+                        value={formData._website}
+                        onChange={handleChange}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="flex flex-col gap-2">
                         <label htmlFor="name" className="text-sm font-semibold text-secondary">Name *</label>
@@ -247,6 +286,8 @@ export default function Kontakt() {
                       </label>
                     </div>
 
+                    <TurnstileWidget key={turnstileKey} action="contact" onTokenChange={setTurnstileToken} />
+
                     {submitError && (
                       <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
                         {submitError}
@@ -255,7 +296,7 @@ export default function Kontakt() {
 
                     <button 
                       type="submit" 
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || !turnstileToken}
                       className="btn-primary w-full justify-center text-lg py-4 mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? 'Wird gesendet...' : 'Nachricht senden'}

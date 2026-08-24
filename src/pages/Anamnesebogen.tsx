@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import { generateAnamnesisPdf } from '../utils/anamnesisPdf';
+import TurnstileWidget from '../components/security/TurnstileWidget';
 
 const SUBMIT_TIMEOUT_MS = 60_000;
 
@@ -223,7 +224,11 @@ export default function Anamnesebogen() {
   const [error, setError] = useState<string | null>(null);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
   const [sendPatientCopy, setSendPatientCopy] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileKey, setTurnstileKey] = useState(0);
   const pdfRef = useRef<HTMLDivElement>(null);
+  const formStartedAtRef = useRef(Date.now());
 
   const totalSteps = 6;
   const selectedPainLabels = formData.painPoints
@@ -271,6 +276,10 @@ export default function Anamnesebogen() {
       setError("Bitte bestätigen Sie den Datenschutzhinweis, bevor Sie den Anamnesebogen absenden.");
       return;
     }
+    if (!turnstileToken) {
+      setError('Bitte warten Sie kurz, bis die Sicherheitsprüfung abgeschlossen ist.');
+      return;
+    }
     setIsSubmitting(true);
     setError(null);
     setPatientCopySent(null);
@@ -296,11 +305,19 @@ export default function Anamnesebogen() {
           email: formData.email,
           privacyAccepted,
           sendPatientCopy,
-          _website: ''
+          _website: honeypot,
+          turnstileToken,
+          _formElapsedMs: Date.now() - formStartedAtRef.current,
         })
       });
 
       if (!response.ok) {
+        if (response.status === 403) {
+          throw new Error('Die Sicherheitsprüfung ist abgelaufen oder fehlgeschlagen. Bitte versuchen Sie es erneut.');
+        }
+        if (response.status === 409) {
+          throw new Error('Dieser Anamnesebogen wurde bereits übermittelt.');
+        }
         if (response.status === 413) {
           throw new Error('Das erzeugte PDF ist für den E-Mail-Versand zu groß. Bitte laden Sie es herunter und senden Sie es direkt an anamnesebogen@movin-freiburg.de.');
         }
@@ -327,6 +344,8 @@ export default function Anamnesebogen() {
           ? err.message
           : 'Der Anamnesebogen konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut.');
       }
+      setTurnstileToken('');
+      setTurnstileKey((key) => key + 1);
     } finally {
       window.clearTimeout(timeoutId);
       setIsSubmitting(false);
@@ -385,6 +404,18 @@ export default function Anamnesebogen() {
 
           {!isSuccess ? (
             <form onSubmit={handleSubmit} className="p-8">
+              <div className="absolute left-[-10000px] h-px w-px overflow-hidden" aria-hidden="true">
+                <label htmlFor="anamnese-company-website">Ihre Website</label>
+                <input
+                  id="anamnese-company-website"
+                  name="_website"
+                  type="text"
+                  value={honeypot}
+                  onChange={(event) => setHoneypot(event.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               <AnimatePresence mode="wait">
                 {step === 1 && (
                   <motion.div 
@@ -818,7 +849,7 @@ export default function Anamnesebogen() {
               )}
 
               {step === totalSteps && (
-                <div className="mt-8 rounded-2xl border border-border bg-light p-4">
+                <div className="mt-8 space-y-4 rounded-2xl border border-border bg-light p-4">
                   <label htmlFor="anamnese-privacy" className="flex items-start gap-3 text-sm text-dark/70 leading-relaxed cursor-pointer">
                     <input
                       id="anamnese-privacy"
@@ -844,6 +875,7 @@ export default function Anamnesebogen() {
                       Ich möchte eine Kopie des Anamnesebogens als PDF an <strong>{formData.email || 'meine angegebene E-Mail-Adresse'}</strong> erhalten. Mir ist bewusst, dass die E-Mail sensible Gesundheitsdaten enthalten kann.
                     </span>
                   </label>
+                  <TurnstileWidget key={turnstileKey} action="anamnese" onTokenChange={setTurnstileToken} />
                 </div>
               )}
 
@@ -882,7 +914,7 @@ export default function Anamnesebogen() {
                     </button>
                     <button 
                       type="submit"
-                      disabled={isSubmitting || isGeneratingPdf}
+                      disabled={isSubmitting || isGeneratingPdf || !turnstileToken}
                       className="btn-primary flex items-center gap-2 disabled:cursor-wait disabled:opacity-60"
                     >
                       {isSubmitting ? <LoaderCircle className="h-5 w-5 animate-spin" /> : <Send className="h-5 w-5" />}

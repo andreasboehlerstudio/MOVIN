@@ -2,6 +2,28 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.41] - 2026-08-24
+
+### Spam-Schutz fuer Formulare
+
+- Cloudflare Turnstile fuer Kontaktformular, Bewerbungsformular und digitalen Anamnesebogen integriert.
+- Turnstile-Token werden vor jeder Zustellung serverseitig geprueft; Hostname und Formularaktion werden dabei validiert.
+- Unsichtbare Honeypot-Felder und eine Mindest-Ausfuellzeit gegen einfache Formularbots ergaenzt.
+- Bestehende IP-Ratenbegrenzung um Inhaltspruefung und zeitlich begrenzte Duplikaterkennung erweitert.
+- Mehrfachsendungen gleicher Kontaktanfragen, Bewerbungen oder Anamneseboegen werden ohne dauerhafte Speicherung der Formulardaten abgefangen.
+- Nutzerfreundliche Fehlermeldungen fuer Sicherheitspruefung, Mehrfachsendung und Ratenbegrenzung ergaenzt.
+
+### Deployment und Datenschutz
+
+- Staging- und Production-Workflows um getrennte Turnstile-Site- und Secret-Keys erweitert.
+- Deployments brechen kontrolliert ab, wenn die erforderlichen Turnstile-Secrets fehlen.
+- Datenschutzerklaerung und Formular-Backend-Dokumentation um Cloudflare Turnstile und die neuen Schutzmechanismen ergaenzt.
+
+### Qualitaetssicherung
+
+- TypeScript-Pruefung und Production-Build erfolgreich ausgefuehrt.
+- Lokale Darstellung der Turnstile-Pruefung in allen drei Formularstrecken kontrolliert.
+
 ## [1.1.40] - 2026-08-04
 
 ### Google-Ads-Lead-Conversion

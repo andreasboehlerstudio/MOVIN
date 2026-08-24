@@ -24,6 +24,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/seo/SEO';
 import { GdprEmbed } from '../components/gdpr/GdprEmbed';
+import TurnstileWidget from '../components/security/TurnstileWidget';
 
 interface Job {
   id: string;
@@ -66,9 +67,13 @@ export default function Karriere() {
   const [submitStep, setSubmitStep] = useState(0);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileKey, setTurnstileKey] = useState(0);
   
   const fileInputRef = useRef<HTMLInputElement>(null);
   const formSectionRef = useRef<HTMLDivElement>(null);
+  const formStartedAtRef = useRef(Date.now());
 
   const jobs: Job[] = [
     {
@@ -387,6 +392,10 @@ startxref
       alert("Bitte bestätigen Sie den Datenschutzhinweis.");
       return;
     }
+    if (!turnstileToken) {
+      setSubmitError('Bitte warten Sie kurz, bis die Sicherheitsprüfung abgeschlossen ist.');
+      return;
+    }
 
     setIsSubmitting(true);
     setSubmitStep(1);
@@ -409,7 +418,9 @@ startxref
         signal: controller.signal,
         body: JSON.stringify({
           ...formData,
-          _website: '',
+          _website: honeypot,
+          turnstileToken,
+          _formElapsedMs: Date.now() - formStartedAtRef.current,
           selectedJobId: selectedJob,
           selectedJobTitle: selectedJobData?.title || 'Initiativbewerbung',
           files,
@@ -417,6 +428,12 @@ startxref
       });
 
       if (!response.ok) {
+        if (response.status === 403) {
+          throw new Error('Die Sicherheitsprüfung ist abgelaufen oder fehlgeschlagen. Bitte versuchen Sie es erneut.');
+        }
+        if (response.status === 409) {
+          throw new Error('Diese Bewerbung wurde bereits übermittelt.');
+        }
         if (response.status === 413) {
           throw new Error('Die PDF-Unterlagen sind für den E-Mail-Versand zu groß. Bitte reduzieren Sie die Dateigröße.');
         }
@@ -440,6 +457,8 @@ startxref
           ? error.message
           : 'Die Bewerbung konnte gerade nicht gesendet werden. Bitte versuchen Sie es später erneut oder senden Sie die Unterlagen direkt an daniel.klein@movin-freiburg.de.');
       }
+      setTurnstileToken('');
+      setTurnstileKey((key) => key + 1);
     } finally {
       window.clearTimeout(timeoutId);
       setIsSubmitting(false);
@@ -459,6 +478,10 @@ startxref
     setUploadedFiles([]);
     setIsSuccess(false);
     setSubmitError('');
+    setHoneypot('');
+    setTurnstileToken('');
+    setTurnstileKey((key) => key + 1);
+    formStartedAtRef.current = Date.now();
   };
 
   const schema = {
@@ -1056,6 +1079,18 @@ startxref
               
               /* 3. The Interactive Application Form Details */
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                <div className="absolute left-[-10000px] h-px w-px overflow-hidden" aria-hidden="true">
+                  <label htmlFor="career-company-website">Ihre Website</label>
+                  <input
+                    id="career-company-website"
+                    name="_website"
+                    type="text"
+                    value={honeypot}
+                    onChange={(event) => setHoneypot(event.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
                 
                 {/* Form Of Address & Job Selection */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1270,6 +1305,8 @@ startxref
                   </label>
                 </div>
 
+                <TurnstileWidget key={turnstileKey} action="career" onTokenChange={setTurnstileToken} />
+
                 {submitError && (
                   <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
                     {submitError}
@@ -1279,7 +1316,7 @@ startxref
                 {/* Submit button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !turnstileToken}
                   className="btn-primary w-full py-4 text-base font-bold flex items-center justify-center gap-3 shadow-lg shadow-primary/20 hover:shadow-xl mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   <Briefcase className="w-5 h-5" /> Bewerbungsunterlagen sicher abschicken

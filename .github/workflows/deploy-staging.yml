@@ -37,7 +37,21 @@ jobs:
       - name: Validate TypeScript
         run: npm run lint
 
+      - name: Check Turnstile configuration
+        env:
+          TURNSTILE_SITE_KEY: ${{ secrets.TURNSTILE_SITE_KEY }}
+          TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
+        run: |
+          for name in TURNSTILE_SITE_KEY TURNSTILE_SECRET_KEY; do
+            if [ -z "${!name:-}" ]; then
+              echo "Missing Staging Environment secret: $name"
+              exit 1
+            fi
+          done
+
       - name: Build website
+        env:
+          VITE_TURNSTILE_SITE_KEY: ${{ secrets.TURNSTILE_SITE_KEY }}
         run: npm run build
 
       - name: Create protected SMTP runtime configuration
@@ -53,6 +67,7 @@ jobs:
           CAREER_RECEIVER_EMAIL: ${{ secrets.CAREER_RECEIVER_EMAIL }}
           CAREER_BACKUP_RECEIVER_EMAIL: ${{ secrets.CAREER_BACKUP_RECEIVER_EMAIL }}
           ANAMNESE_RECEIVER_EMAIL: ${{ secrets.ANAMNESE_RECEIVER_EMAIL }}
+          TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
         shell: bash
         run: |
           set -euo pipefail
@@ -72,6 +87,7 @@ jobs:
               'career_receiver' => base64_decode('$(encode "${CAREER_RECEIVER_EMAIL:-daniel.klein@movin-freiburg.de}")'),
               'career_backup_receiver' => base64_decode('$(encode "${CAREER_BACKUP_RECEIVER_EMAIL:-}")'),
               'anamnese_receiver' => base64_decode('$(encode "${ANAMNESE_RECEIVER_EMAIL:-anamnesebogen@movin-freiburg.de}")'),
+              'turnstile_secret' => base64_decode('$(encode "${TURNSTILE_SECRET_KEY:-}")'),
           ];
           PHP
 

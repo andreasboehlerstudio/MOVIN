@@ -25,6 +25,8 @@ Diese Werte werden getrennt unter `Settings > Environments > Staging` und `Setti
 | `CAREER_RECEIVER_EMAIL` | `daniel.klein@movin-freiburg.de` |
 | `CAREER_BACKUP_RECEIVER_EMAIL` | Optionales internes Bewerbungs-Postfach, z. B. `bewerbung@movin-freiburg.de` |
 | `ANAMNESE_RECEIVER_EMAIL` | `anamnesebogen@movin-freiburg.de` |
+| `TURNSTILE_SITE_KEY` | Oeffentlicher Site Key des Cloudflare-Turnstile-Widgets |
+| `TURNSTILE_SECRET_KEY` | Geheimer Schluessel fuer die serverseitige Turnstile-Pruefung |
 
 Ohne `SMTP_USER` oder `SMTP_PASS` antwortet das Backend kontrolliert mit HTTP 503 und behauptet keinen erfolgreichen Versand.
 
@@ -34,9 +36,14 @@ Ist `CAREER_BACKUP_RECEIVER_EMAIL` gesetzt, wird jede Bewerbung zusaetzlich als 
 
 - ausschliesslich POST und JSON
 - Origin-Pruefung fuer Live, www und Staging
+- Cloudflare Turnstile mit verpflichtender serverseitiger Siteverify-Pruefung
+- Pruefung von Hostname, Formular-Aktion, Ablauf und Einmalverwendung des Turnstile-Tokens
 - serverseitige Pflichtfeld-, E-Mail- und Einwilligungspruefung
 - Rate-Limit pro IP und Formular
-- Honeypot-Feld fuer einfache Bots
+- echtes Honeypot-Feld fuer einfache Bots
+- Mindest-Ausfuellzeit gegen Sofort-Einsendungen
+- zeitlich begrenzte Duplikaterkennung fuer identische Einsendungen
+- einfache Inhaltspruefung gegen Link- und Zeichenspam im Kontaktformular
 - PDF-Signatur-, Einzelgroessen- und Gesamtgroessenpruefung
 - maximal 10 MB pro PDF und 15 MB pro Bewerbung
 - SMTP-Zugangsdaten werden nicht ins Repository geschrieben
@@ -46,3 +53,7 @@ Ist `CAREER_BACKUP_RECEIVER_EMAIL` gesetzt, wird jede Bewerbung zusaetzlich als 
 ## Funktionstest
 
 Nach einem Deployment werden zuerst Status und Validierung der drei Endpunkte geprueft. Ein echter Versandtest wird anschliessend mit klar gekennzeichneten Testdaten durchgefuehrt und muss in den drei Zielpostfaechern bestaetigt werden.
+
+Fuer lokale Tests koennen die offiziellen Cloudflare-Testschluessel verwendet werden. In Staging und Production muessen echte, hostname-gebundene Schluessel hinterlegt sein. Der geheime Schluessel darf weder in `VITE_*` noch in eine versionierte Datei geschrieben werden.
+
+Empfohlen sind zwei getrennte Turnstile-Widgets: Production fuer `movin-freiburg.de` und `www.movin-freiburg.de`, Staging ausschliesslich fuer `staging.movin-freiburg.de`. In beiden GitHub-Environments werden dieselben Secret-Namen verwendet, aber die jeweils zum Widget gehoerenden Werte hinterlegt.

@@ -5,14 +5,18 @@ require_once __DIR__ . '/bootstrap.php';
 
 rateLimit('anamnese', 3, 900);
 $data = readJsonBody();
+$config = config();
+verifyTurnstile($data, $config, 'anamnese');
+requireHumanTiming($data);
 requireConsent($data);
 
 $name = textValue($data, 'name', 160);
 $email = emailValue($data, 'email');
 $sendPatientCopy = ($data['sendPatientCopy'] ?? false) === true;
 $pdf = decodePdf((string) ($data['pdfBase64'] ?? ''));
+$fingerprint = [$name, $email, hash('sha256', $pdf)];
+rejectDuplicate('anamnese', $fingerprint, 1800);
 
-$config = config();
 $mail = mailer($config);
 $mail->addAddress((string) $config['anamnese_receiver']);
 $mail->addReplyTo($email, $name);
@@ -26,6 +30,7 @@ $mail->addStringAttachment(
 );
 
 sendOrFail($mail);
+markSubmission('anamnese', $fingerprint);
 
 // Send the patient copy separately so recipient addresses are never exposed.
 $copySent = false;

@@ -5,6 +5,9 @@ require_once __DIR__ . '/bootstrap.php';
 
 rateLimit('career', 3, 900);
 $data = readJsonBody();
+$config = config();
+verifyTurnstile($data, $config, 'career');
+requireHumanTiming($data);
 requireConsent($data, 'agree');
 
 $name = textValue($data, 'name', 160);
@@ -34,7 +37,9 @@ foreach ($files as $file) {
     $attachments[] = [safeFilename((string) ($file['fileName'] ?? 'bewerbung.pdf')), $content];
 }
 
-$config = config();
+$fingerprint = [$name, $email, $phone, $job, ...array_map(static fn ($attachment) => hash('sha256', $attachment[1]), $attachments)];
+rejectDuplicate('career', $fingerprint, 1800);
+
 $mail = mailer($config);
 $careerReceiver = (string) $config['career_receiver'];
 $mail->addAddress($careerReceiver);
@@ -67,4 +72,5 @@ foreach ($attachments as [$filename, $content]) {
 }
 
 sendOrFail($mail);
+markSubmission('career', $fingerprint);
 respond(200, ['message' => 'Application sent']);

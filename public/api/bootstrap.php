@@ -131,6 +131,114 @@ function rateLimit(string $scope, int $limit = 5, int $windowSeconds = 600): voi
     @file_put_contents($file, json_encode($attempts), LOCK_EX);
 }
 
+function requireHumanTiming(array $data, int $minimumMilliseconds = 2500): void
+{
+    $elapsed = $data['_formElapsedMs'] ?? null;
+    if (!is_int($elapsed) && !is_float($elapsed) && !is_numeric($elapsed)) {
+        respond(403, ['error' => 'Form verification failed']);
+    }
+
+    $elapsed = (int) $elapsed;
+    if ($elapsed < $minimumMilliseconds || $elapsed > 6 * 60 * 60 * 1000) {
+        respond(403, ['error' => 'Form verification failed']);
+    }
+}
+
+function verifyTurnstile(array $data, array $config, string $expectedAction): void
+{
+    $secret = trim((string) ($config['turnstile_secret'] ?? ''));
+    $token = trim((string) ($data['turnstileToken'] ?? ''));
+    if ($secret === '' || $token === '' || strlen($token) > 2048) {
+        respond($secret === '' ? 503 : 403, ['error' => 'Security verification unavailable']);
+    }
+
+    $payload = http_build_query([
+        'secret' => $secret,
+        'response' => $token,
+        'remoteip' => $_SERVER['REMOTE_ADDR'] ?? '',
+    ]);
+    $endpoint = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+    $response = false;
+
+    if (function_exists('curl_init')) {
+        $curl = curl_init($endpoint);
+        curl_setopt_array($curl, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $payload,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 4,
+            CURLOPT_TIMEOUT => 8,
+            CURLOPT_HTTPHEADER => ['Content-Type: application/x-www-form-urlencoded'],
+        ]);
+        $response = curl_exec($curl);
+        curl_close($curl);
+    } else {
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
+                'content' => $payload,
+                'timeout' => 8,
+                'ignore_errors' => true,
+            ],
+        ]);
+        $response = @file_get_contents($endpoint, false, $context);
+    }
+
+    if (!is_string($response) || $response === '') {
+        error_log('MOVIN Turnstile validation request failed');
+        respond(503, ['error' => 'Security verification unavailable']);
+    }
+
+    $result = json_decode($response, true);
+    $isTestSecret = str_starts_with($secret, '1x0000000000000000000000000000000AA');
+    $allowedHostnames = ['movin-freiburg.de', 'www.movin-freiburg.de', 'staging.movin-freiburg.de', 'localhost'];
+    $hostname = (string) ($result['hostname'] ?? '');
+    $action = (string) ($result['action'] ?? '');
+
+    if (
+        !is_array($result)
+        || ($result['success'] ?? false) !== true
+        || (!$isTestSecret && !in_array($hostname, $allowedHostnames, true))
+        || (!$isTestSecret && $action !== $expectedAction)
+    ) {
+        error_log('MOVIN Turnstile rejected: ' . json_encode($result, JSON_UNESCAPED_SLASHES));
+        respond(403, ['error' => 'Security verification failed']);
+    }
+}
+
+function rejectObviousSpam(array $values, int $maximumUrls = 2): void
+{
+    $text = implode("\n", array_map(static fn ($value) => (string) $value, $values));
+    preg_match_all('~(?:https?://|www\.)~iu', $text, $matches);
+    if (count($matches[0]) > $maximumUrls || preg_match('/(.)\1{24,}/u', $text) === 1) {
+        respond(422, ['error' => 'Submission rejected']);
+    }
+}
+
+function duplicateFile(string $scope, array $values): string
+{
+    $normalized = array_map(static function ($value): string {
+        $text = trim((string) $value);
+        return function_exists('mb_strtolower') ? mb_strtolower($text) : strtolower($text);
+    }, $values);
+    $key = hash('sha256', $scope . '|' . json_encode($normalized, JSON_UNESCAPED_UNICODE));
+    return rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'movin-duplicate-' . $key;
+}
+
+function rejectDuplicate(string $scope, array $values, int $windowSeconds = 900): void
+{
+    $file = duplicateFile($scope, $values);
+    if (is_file($file) && (int) filemtime($file) > time() - $windowSeconds) {
+        respond(409, ['error' => 'Duplicate submission']);
+    }
+}
+
+function markSubmission(string $scope, array $values): void
+{
+    @file_put_contents(duplicateFile($scope, $values), (string) time(), LOCK_EX);
+}
+
 function config(): array
 {
     $path = __DIR__ . '/.smtp-config.php';

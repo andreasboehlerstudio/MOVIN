@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.40`
-- Letzter Release-Tag: `v1.1.40`
+- Aktuelle Version: `1.1.41`
+- Letzter Release-Tag: `v1.1.41`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.41] - 2026-08-24
+
+- Cloudflare Turnstile fuer Kontakt, Bewerbung und digitalen Anamnesebogen integriert.
+- Honeypot, Mindest-Ausfuellzeit, IP-Ratenbegrenzung, Inhaltspruefung und Duplikaterkennung kombiniert.
+- Staging-/Production-Deployments sowie Datenschutz und Backend-Dokumentation entsprechend erweitert.
 
 ### [1.1.40] - 2026-08-04
 

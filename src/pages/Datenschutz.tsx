@@ -71,7 +71,7 @@ export default function Datenschutz() {
                 <tbody className="divide-y divide-border">
                   <tr>
                     <td className="p-4 font-semibold text-secondary">Technisch notwendig</td>
-                    <td className="p-4 text-dark/75">Betrieb der Website, Sicherheit, Formularfunktion und Speicherung der Cookie-Auswahl.</td>
+                    <td className="p-4 text-dark/75">Betrieb der Website, Formularschutz mit Cloudflare Turnstile, Formularfunktion und Speicherung der Cookie-Auswahl.</td>
                     <td className="p-4 text-dark/75">Immer aktiv, soweit technisch erforderlich.</td>
                   </tr>
                   <tr>
@@ -127,7 +127,15 @@ export default function Datenschutz() {
               </button>
             </div>
 
-            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">4. Kontaktformular und allgemeine Anfragen</h2>
+            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">4. Schutz der Formulare mit Cloudflare Turnstile</h2>
+            <p className="mb-4">
+              Zum Schutz unserer öffentlich zugänglichen Formulare vor automatisierten Eingaben, Missbrauch und Spam verwenden wir Cloudflare Turnstile. Anbieter ist Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. Turnstile verarbeitet zur Erkennung von Bots insbesondere technische Signale wie IP-Adresse, TLS-Merkmale, Browser- und Geräteinformationen, User-Agent, Sitekey und aufgerufenen Ursprung. Die Prüfung dient ausschließlich der Sicherheit der Website und nicht der Werbung.
+            </p>
+            <p className="mb-4">
+              Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einem sicheren, verfügbaren und missbrauchsfreien Formularbetrieb nach Art. 6 Abs. 1 lit. f DSGVO. Die Sicherheitsprüfung ist für den Versand der Formulare erforderlich und wird deshalb als technisch notwendiger Dienst eingesetzt. Weitere Informationen finden Sie im <a href="https://www.cloudflare.com/de-de/turnstile-privacy-policy/" target="_blank" rel="noreferrer" className="text-primary hover:underline">Turnstile-Datenschutznachtrag von Cloudflare</a>.
+            </p>
+
+            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">5. Kontaktformular und allgemeine Anfragen</h2>
             <p className="mb-4">
               Wenn Sie das Kontaktformular nutzen, verarbeiten wir die von Ihnen eingegebenen Daten, insbesondere Name, E-Mail-Adresse, Telefonnummer, gewünschter Standort und Nachricht.
             </p>
@@ -141,7 +149,7 @@ export default function Datenschutz() {
               Kontaktanfragen werden gelöscht, sobald sie abschließend bearbeitet wurden und keine gesetzlichen Aufbewahrungsfristen oder berechtigten Nachweise mehr entgegenstehen. In der Regel erfolgt dies spätestens nach sechs Monaten, sofern kein Vertrags- oder Behandlungsverhältnis entsteht.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">5. Karriereformular und Bewerbungsupload</h2>
+            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">6. Karriereformular und Bewerbungsupload</h2>
             <p className="mb-4">
               Wenn Sie sich über das Karriereformular bewerben, verarbeiten wir Ihre Angaben aus dem Formular sowie den hochgeladenen PDF-Lebenslauf. Dazu können Name, Kontaktdaten, gewünschte Stelle, Einstiegstermin, Nachricht, Qualifikationen, beruflicher Werdegang, Dateiname, Dateigröße und technische Upload-Informationen gehören.
             </p>
@@ -155,7 +163,7 @@ export default function Datenschutz() {
               Bewerbungsunterlagen werden bei einer Absage in der Regel spätestens sechs Monate nach Abschluss des Bewerbungsverfahrens gelöscht, sofern keine längere Aufbewahrung mit Ihrer Einwilligung vereinbart wurde oder gesetzliche Gründe entgegenstehen. Kommt ein Beschäftigungsverhältnis zustande, werden erforderliche Daten in die Personalakte übernommen.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">6. Digitaler Anamnesebogen und Gesundheitsdaten</h2>
+            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">7. Digitaler Anamnesebogen und Gesundheitsdaten</h2>
             <p className="mb-4">
               Wenn Sie den digitalen Anamnesebogen nutzen, verarbeiten wir Ihre Angaben zu Person, Kontakt, Beschwerden, Symptomen, Diagnosen, Medikamenten, Körpermarkierungen, Lebenssituation und Therapiezielen. Aus Ihren Angaben wird ein PDF erzeugt und an anamnesebogen@movin-freiburg.de übermittelt. Wenn Sie die freiwillige Kopierfunktion auswählen, wird das PDF zusätzlich als separate E-Mail an die von Ihnen angegebene Adresse gesendet.
             </p>
@@ -172,7 +180,7 @@ export default function Datenschutz() {
               Wird der Anamnesebogen Teil Ihrer Patientendokumentation, gelten die gesetzlichen und berufsrechtlichen Aufbewahrungsfristen, regelmäßig bis zu zehn Jahre. Kommt kein Behandlungsverhältnis zustande, werden die Daten gelöscht, sobald sie für die Anfrage oder Terminvorbereitung nicht mehr erforderlich sind und keine gesetzlichen Gründe entgegenstehen.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">7. E-Mail-Versand, Empfänger und Auftragsverarbeitung</h2>
+            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">8. E-Mail-Versand, Empfänger und Auftragsverarbeitung</h2>
             <p className="mb-4">
               Formulardaten werden technisch über den Website-Server verarbeitet und anschließend per E-Mail an die jeweils zuständige MOVIN-Adresse weitergeleitet. Je nach technischer Einrichtung können Hosting-, Server-, E-Mail- und Wartungsdienstleister Daten im Rahmen einer Auftragsverarbeitung verarbeiten. Mit solchen Dienstleistern werden, soweit erforderlich, Verträge zur Auftragsverarbeitung geschlossen.
             </p>
@@ -180,7 +188,7 @@ export default function Datenschutz() {
               Die Übermittlung erfolgt zweckgebunden. Eine Weitergabe an Dritte zu Werbezwecken findet nicht statt.
             </p>
 
-            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">8. Ihre Rechte</h2>
+            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">9. Ihre Rechte</h2>
             <p className="mb-4">
               Sie haben im Rahmen der gesetzlichen Voraussetzungen das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Erteilte Einwilligungen können Sie jederzeit mit Wirkung für die Zukunft widerrufen. Die Rechtmäßigkeit der Verarbeitung bis zum Widerruf bleibt unberührt.
             </p>
@@ -204,13 +212,13 @@ export default function Datenschutz() {
               </a>
             </div>
 
-            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">9. Beschwerderecht</h2>
+            <h2 className="text-2xl font-bold text-secondary mt-8 mb-4">10. Beschwerderecht</h2>
             <p className="mb-4">
               Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen Datenschutzrecht verstößt.
             </p>
 
             <p className="mt-12 text-sm text-dark/60">
-              Stand: 1. Juli 2026
+              Stand: 24. August 2026
             </p>
           </div>
         </div>

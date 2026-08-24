@@ -5,6 +5,9 @@ require_once __DIR__ . '/bootstrap.php';
 
 rateLimit('contact');
 $data = readJsonBody();
+$config = config();
+verifyTurnstile($data, $config, 'contact');
+requireHumanTiming($data);
 requireConsent($data);
 
 $name = textValue($data, 'name', 160);
@@ -12,6 +15,9 @@ $email = emailValue($data, 'email');
 $phone = textValue($data, 'phone', 80);
 $message = textValue($data, 'message', 5000);
 $standort = textValue($data, 'standort', 40, false);
+rejectObviousSpam([$name, $email, $phone, $message]);
+$fingerprint = [$name, $email, $phone, $message, $standort];
+rejectDuplicate('contact', $fingerprint);
 
 $labels = [
     'lorettoberg' => 'Freiburg - Lorettoberg',
@@ -20,7 +26,6 @@ $labels = [
     'egal' => 'Egal / Keine Präferenz',
 ];
 
-$config = config();
 $mail = mailer($config);
 $mail->addAddress((string) $config['contact_receiver']);
 $mail->addReplyTo($email, $name);
@@ -38,4 +43,5 @@ $mail->Body = implode("\n", [
 ]);
 
 sendOrFail($mail);
+markSubmission('contact', $fingerprint);
 respond(200, ['message' => 'Contact request sent']);
