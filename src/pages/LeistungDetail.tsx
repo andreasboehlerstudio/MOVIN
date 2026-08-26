@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router';
-import { Activity, ArrowRight, CheckCircle2, Calendar } from 'lucide-react';
+import { Activity, ArrowRight, CheckCircle2, Calendar, PlayCircle } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import { leistungenData } from '../data/leistungen';
 
@@ -167,6 +167,43 @@ export default function LeistungDetail() {
                   ))}
                 </ul>
               </div>
+
+              {slug === 'sportphysiotherapie' && (
+                <section className="overflow-hidden rounded-2xl bg-secondary text-white shadow-2xl">
+                  <div className="p-6 sm:p-8 md:p-10">
+                    <div className="mb-4 flex items-center gap-2 text-sm font-bold uppercase text-primary">
+                      <PlayCircle className="h-5 w-5" aria-hidden="true" />
+                      Return to Sport
+                    </div>
+                    <h2 className="mb-5 text-3xl font-black text-white sm:text-4xl">
+                      Zurück in den Sport. <span className="text-primary">Bereit für volle Belastung.</span>
+                    </h2>
+                    <p className="max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
+                      Der Stadion-Spot zeigt den Kern unseres Ansatzes: Wir begleiten Sportlerinnen und Sportler nicht nur bis zur Schmerzfreiheit, sondern gezielt zurück zu Belastbarkeit, Training und Wettkampf.
+                    </p>
+                  </div>
+
+                  <div className="relative aspect-video w-full bg-black">
+                    <video
+                      className="h-full w-full object-cover"
+                      controls
+                      playsInline
+                      preload="metadata"
+                      poster="/images/leistungen/sportphysiotherapie-powerbreak-poster.webp"
+                      aria-label="MOVIN Stadion-Spot: Sportphysiotherapie und Return to Sport"
+                    >
+                      <source src="/videos/sportphysiotherapie/movin-powerbreak-20s.mp4" type="video/mp4" />
+                      Ihr Browser unterstützt die Videowiedergabe nicht.
+                    </video>
+                  </div>
+
+                  <div className="flex flex-wrap gap-x-6 gap-y-2 p-6 text-sm font-semibold text-white/80 sm:p-8">
+                    <span>Sportspezifische Diagnostik</span>
+                    <span>Progressive Belastungssteuerung</span>
+                    <span>Return to Competition</span>
+                  </div>
+                </section>
+              )}
 
               <div className="bg-light rounded-[2rem] border border-border/80 p-6 md:p-8">
                 <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Kurz erklärt</span>

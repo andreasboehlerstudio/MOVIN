@@ -2,6 +2,14 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.42-staging.3] - 2026-08-26
+
+### Stadion-Spot Lesbarkeit
+
+- Headline in "Schmerzfreiheit ist der erste Schritt. Belastbarkeit ist das Ziel." praezisiert.
+- Ersten Headline-Teil auf dem dunkelblauen Hintergrund explizit weiss gesetzt und damit den fehlenden Kontrast korrigiert.
+- Korrekte neue Stadionfassung zusaetzlich wieder auf der Sportphysiotherapie-Seite eingebunden und dort fachlich als Return-to-Sport-Inhalt eingeordnet.
+
 ## [1.1.42-staging.2] - 2026-08-26
 
 ### EHC-Stadion-Spot korrigiert
