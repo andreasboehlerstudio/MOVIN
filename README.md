@@ -17,7 +17,7 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.42-staging.2`
+- Aktuelle Version: `1.1.42-staging.3`
 - Letzter Release-Tag: `v1.1.41`
 - Branch: `develop`
 - Projektstatus: Staging
@@ -25,6 +25,11 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.42-staging.3] - 2026-08-26
+
+- Headline des EHC-Stadion-Spots sprachlich praezisiert und auf dem dunklen Hintergrund lesbar gemacht.
+- Stadion-Spot ebenfalls auf der Sportphysiotherapie-Seite mit eigener Return-to-Sport-Einordnung ergaenzt.
 
 ### [1.1.42-staging.2] - 2026-08-26
 

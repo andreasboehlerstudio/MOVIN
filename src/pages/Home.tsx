@@ -515,8 +515,8 @@ export default function Home() {
                   <PlayCircle className="h-5 w-5" aria-hidden="true" />
                   Sportphysiotherapie × EHC Freiburg
                 </div>
-                <h2 className="mb-5 text-3xl font-black sm:text-4xl">
-                  Schmerzfrei ist der Anfang. <span className="text-primary">Belastbar ist das Ziel.</span>
+                <h2 className="mb-5 text-3xl font-black text-white sm:text-4xl">
+                  Schmerzfreiheit ist der erste Schritt. <span className="text-primary">Belastbarkeit ist das Ziel.</span>
                 </h2>
                 <p className="mb-7 text-base leading-relaxed text-white/80 sm:text-lg">
                   Unser Stadion-Spot bringt auf den Punkt, wofür MOVIN Sportphysiotherapie steht: gezielte Diagnostik, progressive Belastungssteuerung und der sichere Weg zurück in Training und Wettkampf.
