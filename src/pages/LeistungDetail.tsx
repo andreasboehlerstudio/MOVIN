@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router';
-import { Activity, ArrowRight, CheckCircle2, Calendar } from 'lucide-react';
+import { Activity, ArrowRight, CheckCircle2, Calendar, PlayCircle } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import { leistungenData } from '../data/leistungen';
 
@@ -105,7 +105,17 @@ export default function LeistungDetail() {
           "item": canonicalUrl
         }
       ]
-    }
+    },
+    ...(slug === 'sportphysiotherapie' ? [{
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Stärker zurück: Sportphysiotherapie bei MOVIN",
+      "description": "MOVIN begleitet Sportlerinnen und Sportler mit Diagnostik, Belastungssteuerung und sportspezifischem Training zurück in Training und Wettkampf.",
+      "thumbnailUrl": `${baseUrl}/images/leistungen/sportphysiotherapie-powerbreak-poster.webp`,
+      "contentUrl": `${baseUrl}/videos/sportphysiotherapie/movin-powerbreak-20s.mp4`,
+      "uploadDate": "2026-08-26",
+      "duration": "PT20S"
+    }] : [])
   ];
 
   return (
@@ -167,6 +177,52 @@ export default function LeistungDetail() {
                   ))}
                 </ul>
               </div>
+
+              {slug === 'sportphysiotherapie' && (
+                <section className="overflow-hidden rounded-2xl bg-secondary text-white shadow-2xl">
+                  <div className="p-6 sm:p-8 md:p-10">
+                    <div className="mb-4 flex items-center gap-2 text-sm font-bold uppercase text-primary">
+                      <PlayCircle className="h-5 w-5" aria-hidden="true" />
+                      Sportphysiotherapie in Bewegung
+                    </div>
+                    <h2 className="mb-5 text-3xl font-black sm:text-4xl">
+                      Stärker zurück. <span className="text-primary">Belastbar ist das Ziel.</span>
+                    </h2>
+                    <p className="max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
+                      Schmerzfreiheit ist der Anfang. Mit gezielter Diagnostik, progressiver Belastungssteuerung und sportspezifischem Training begleiten wir Sie sicher zurück in Training und Wettkampf.
+                    </p>
+                  </div>
+
+                  <div className="relative aspect-video w-full bg-black">
+                    <video
+                      className="h-full w-full object-cover"
+                      controls
+                      playsInline
+                      preload="metadata"
+                      poster="/images/leistungen/sportphysiotherapie-powerbreak-poster.webp"
+                      aria-label="MOVIN Sportphysiotherapie: Stärker zurück in Training und Wettkampf"
+                    >
+                      <source src="/videos/sportphysiotherapie/movin-powerbreak-20s.mp4" type="video/mp4" />
+                      Ihr Browser unterstützt die Videowiedergabe nicht.
+                    </video>
+                  </div>
+
+                  <div className="flex flex-col gap-5 p-6 sm:p-8 md:flex-row md:items-center md:justify-between md:p-10">
+                    <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold text-white/80">
+                      <span>Sportspezifische Analyse</span>
+                      <span>Belastungssteuerung</span>
+                      <span>Return to Sport</span>
+                    </div>
+                    <Link
+                      to="/termin/"
+                      className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 font-bold text-secondary transition-colors hover:bg-accent"
+                    >
+                      Sportphysiotherapie anfragen
+                      <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                    </Link>
+                  </div>
+                </section>
+              )}
 
               <div className="bg-light rounded-[2rem] border border-border/80 p-6 md:p-8">
                 <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Kurz erklärt</span>

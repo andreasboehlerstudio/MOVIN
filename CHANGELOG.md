@@ -2,6 +2,16 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.42-staging.1] - 2026-08-26
+
+### Sportphysiotherapie Video-Vorschlag
+
+- Neuen 20-Sekunden-MOVIN-Spot als eigenstaendigen Bereich auf der Sportphysiotherapie-Seite integriert.
+- Inhaltliche Dramaturgie auf den Return-to-Sport-Prozess ausgerichtet: Schmerzfreiheit als Ausgangspunkt, Belastbarkeit als Ziel.
+- Video lokal und ohne externe Cookies eingebunden, inklusive Ton, Wiedergabesteuerung und responsivem 16:9-Format.
+- Original-Master unangetastet gelassen und eine weboptimierte 720p-Fassung mit eigenem Posterbild erstellt.
+- Strukturierte Videodaten und direkte Anfrage zur Sportphysiotherapie ergaenzt.
+
 ## [1.1.41] - 2026-08-24
 
 ### Spam-Schutz fuer Formulare
