@@ -2,6 +2,15 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.42-staging.2] - 2026-08-26
+
+### EHC-Stadion-Spot korrigiert
+
+- Versehentlich verwendetes lokales Powerbreak-Video durch exakt die neue YouTube-Fassung `7cIPrwJDcP4` ersetzt.
+- Stadion-Spot aus dem allgemeinen Sportphysiotherapie-Leistungsblock entfernt und direkt unter "Unsere starken Partner" auf der Startseite platziert.
+- Inhalt und Verlinkung auf die Sportphysiotherapie sowie die Partnerschaft mit dem EHC Freiburg ausgerichtet.
+- Neue YouTube-Fassung lokal, datenschutzfreundlich und responsiv als weboptimiertes MP4 mit eigenem Eishockey-Poster eingebunden.
+
 ## [1.1.42-staging.1] - 2026-08-26
 
 ### Sportphysiotherapie Video-Vorschlag
