@@ -507,6 +507,44 @@ export default function Home() {
         <div className="container-custom">
           <p className="text-center text-sm font-heading font-bold text-dark/50 uppercase tracking-widest mb-12">Unsere starken Partner</p>
           <PartnerLogos />
+
+          <div className="mt-16 overflow-hidden rounded-2xl bg-secondary text-white shadow-2xl">
+            <div className="grid items-stretch lg:grid-cols-[0.85fr_1.15fr]">
+              <div className="flex flex-col justify-center p-7 sm:p-10 lg:p-12">
+                <div className="mb-4 flex items-center gap-2 text-sm font-bold uppercase text-primary">
+                  <PlayCircle className="h-5 w-5" aria-hidden="true" />
+                  Sportphysiotherapie × EHC Freiburg
+                </div>
+                <h2 className="mb-5 text-3xl font-black sm:text-4xl">
+                  Schmerzfrei ist der Anfang. <span className="text-primary">Belastbar ist das Ziel.</span>
+                </h2>
+                <p className="mb-7 text-base leading-relaxed text-white/80 sm:text-lg">
+                  Unser Stadion-Spot bringt auf den Punkt, wofür MOVIN Sportphysiotherapie steht: gezielte Diagnostik, progressive Belastungssteuerung und der sichere Weg zurück in Training und Wettkampf.
+                </p>
+                <Link
+                  to="/leistungen/sportphysiotherapie/"
+                  className="inline-flex w-fit items-center gap-2 rounded-full bg-primary px-6 py-3 font-bold text-secondary transition-colors hover:bg-accent"
+                >
+                  Sportphysiotherapie entdecken
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
+                </Link>
+              </div>
+
+              <div className="relative aspect-video min-h-[220px] bg-black lg:aspect-auto">
+                <video
+                  className="absolute inset-0 h-full w-full object-cover"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster="/images/leistungen/sportphysiotherapie-powerbreak-poster.webp"
+                  aria-label="MOVIN Stadion-Spot zur Sportphysiotherapie und Partnerschaft mit dem EHC Freiburg"
+                >
+                  <source src="/videos/sportphysiotherapie/movin-powerbreak-20s.mp4" type="video/mp4" />
+                  Ihr Browser unterstützt die Videowiedergabe nicht.
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
