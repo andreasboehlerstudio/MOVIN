@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.42-staging.3`
-- Letzter Release-Tag: `v1.1.41`
-- Branch: `develop`
-- Projektstatus: Staging
+- Aktuelle Version: `1.1.42`
+- Letzter Release-Tag: `v1.1.42`
+- Branch: `main`
+- Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.42] - 2026-08-29
+
+- Neuen EHC-Stadion-Spot unter den Partnern auf der Startseite und auf der Sportphysiotherapie-Seite integriert.
+- Video lokal, datenschutzfreundlich und responsiv aufbereitet.
+- Return-to-Sport-Kommunikation sowie Lesbarkeit und Kundentext finalisiert.
 
 ### [1.1.42-staging.3] - 2026-08-26
 

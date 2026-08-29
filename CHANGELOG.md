@@ -2,6 +2,21 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.42] - 2026-08-29
+
+### EHC-Stadion-Spot und Sportphysiotherapie
+
+- Neue EHC-Stadionfassung des MOVIN Spots lokal, responsiv und ohne externe YouTube-Cookies eingebunden.
+- Video direkt unter "Unsere starken Partner" auf der Startseite mit Verlinkung zur Sportphysiotherapie platziert.
+- Stadion-Spot ebenfalls auf der Sportphysiotherapie-Seite als Return-to-Sport-Inhalt integriert.
+- Headline auf "Schmerzfreiheit ist der erste Schritt. Belastbarkeit ist das Ziel." praezisiert und den Kontrast auf dunkelblauem Hintergrund korrigiert.
+- Kundentext auf "Unser Stadion-Spot bringt es auf den Punkt ..." korrigiert.
+- Videodatei fuer die Website optimiert und mit eigenem Eishockey-Poster versehen.
+
+### Qualitaetssicherung
+
+- TypeScript-Pruefung, Production-Build und beide Video-Platzierungen auf Staging kontrolliert.
+
 ## [1.1.42-staging.3] - 2026-08-26
 
 ### Stadion-Spot Lesbarkeit
