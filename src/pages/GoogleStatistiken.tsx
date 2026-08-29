@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
-import { Activity, BarChart3, Clock, Eye, KeyRound, Lock, MonitorSmartphone, MousePointerClick, RefreshCw, Search, Users } from 'lucide-react';
+import { Activity, BarChart3, Clock, Download, Eye, KeyRound, Lock, MonitorSmartphone, MousePointerClick, QrCode, RefreshCw, Search, Users } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 
 type AnalyticsSummary = {
@@ -33,6 +33,25 @@ type AnalyticsSummary = {
   devices: Array<{
     device: string;
     sessions: number;
+  }>;
+  qrRedirects: Array<{
+    campaign: string;
+    label: string;
+    analyticsCampaign: string;
+    shortUrl: string;
+    target: string;
+    accesses: number;
+    totalAccesses: number;
+    lastAccess: string;
+  }>;
+  qrCampaigns: Array<{
+    campaign: string;
+    medium: string;
+    content: string;
+    sessions: number;
+    activeUsers: number;
+    pageViews: number;
+    engagementRate: number;
   }>;
 };
 
@@ -171,6 +190,14 @@ export default function GoogleStatistiken() {
     return Math.max(1, ...(data?.sources || []).map((source) => source.sessions));
   }, [data]);
 
+  const qrLinkAccesses = useMemo(() => {
+    return (data?.qrRedirects || []).reduce((sum, item) => sum + item.accesses, 0);
+  }, [data]);
+
+  const qrAnalyticsSessions = useMemo(() => {
+    return (data?.qrCampaigns || []).reduce((sum, item) => sum + item.sessions, 0);
+  }, [data]);
+
   const handleTokenSubmit = (event: FormEvent) => {
     event.preventDefault();
     const trimmedCode = accessCode.trim();
@@ -287,6 +314,91 @@ export default function GoogleStatistiken() {
                 <StatCard icon={Eye} label="Seitenaufrufe" value={formatNumber(data.summary.pageViews)} detail="Alle gemessenen Aufrufe" />
                 <StatCard icon={Clock} label="Ø Sitzungsdauer" value={formatDuration(data.summary.averageSessionDuration)} detail="Durchschnittliche Dauer" />
                 <StatCard icon={Activity} label="Engagement" value={formatPercent(data.summary.engagementRate)} detail="GA4 Engagement Rate" />
+              </div>
+
+              <div className="overflow-hidden rounded-[2rem] border border-primary/20 bg-white shadow-sm">
+                <div className="grid gap-6 bg-secondary p-6 text-white md:grid-cols-[1fr_auto_auto] md:items-center md:p-8">
+                  <div>
+                    <div className="mb-3 flex items-center gap-3">
+                      <QrCode className="h-7 w-7 text-primary-light" />
+                      <h2 className="m-0 text-2xl font-black text-white">QR-Kampagnen</h2>
+                    </div>
+                    <p className="m-0 max-w-2xl text-sm leading-relaxed text-white/65">
+                      Anonyme Link-Aufrufe vom IONOS-Server und einwilligungsbasierte Website-Sitzungen aus GA4.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-white/10 px-6 py-4">
+                    <p className="mb-1 text-xs font-bold uppercase tracking-[0.14em] text-white/55">Link-Aufrufe</p>
+                    <p className="m-0 text-3xl font-black text-primary-light">{formatNumber(qrLinkAccesses)}</p>
+                  </div>
+                  <div className="rounded-2xl bg-white/10 px-6 py-4">
+                    <p className="mb-1 text-xs font-bold uppercase tracking-[0.14em] text-white/55">GA4-Sitzungen</p>
+                    <p className="m-0 text-3xl font-black text-primary-light">{formatNumber(qrAnalyticsSessions)}</p>
+                  </div>
+                </div>
+
+                <div className="overflow-x-auto p-6 md:p-8">
+                  <table className="w-full min-w-[920px] text-left">
+                    <thead>
+                      <tr className="border-b border-slate-100 text-xs uppercase tracking-[0.12em] text-dark/45">
+                        <th className="pb-4 pr-5">Kampagne</th>
+                        <th className="pb-4 pr-5">QR-Adresse</th>
+                        <th className="pb-4 pr-5">Aufrufe</th>
+                        <th className="pb-4 pr-5">GA4</th>
+                        <th className="pb-4">Druckdatei</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {data.qrRedirects.map((redirect) => {
+                        const analytics = data.qrCampaigns.find(
+                          (campaign) => campaign.campaign === redirect.analyticsCampaign,
+                        );
+
+                        return (
+                          <tr key={redirect.campaign} className="border-b border-slate-100 last:border-0">
+                            <td className="py-5 pr-5">
+                              <p className="mb-1 font-black text-secondary">{redirect.label}</p>
+                              <p className="m-0 text-xs text-dark/45">
+                                Letzter Aufruf: {redirect.lastAccess
+                                  ? new Date(redirect.lastAccess).toLocaleString('de-DE')
+                                  : 'noch keiner'}
+                              </p>
+                            </td>
+                            <td className="py-5 pr-5">
+                              <code className="rounded-lg bg-light px-3 py-2 text-sm font-bold text-secondary">
+                                movin-freiburg.de{redirect.shortUrl}
+                              </code>
+                              <p className="mb-0 mt-2 text-xs text-dark/45">Ziel: {redirect.target}</p>
+                            </td>
+                            <td className="py-5 pr-5">
+                              <p className="mb-1 text-xl font-black text-primary">{formatNumber(redirect.accesses)}</p>
+                              <p className="m-0 text-xs text-dark/45">gesamt {formatNumber(redirect.totalAccesses)}</p>
+                            </td>
+                            <td className="py-5 pr-5">
+                              <p className="mb-1 text-xl font-black text-secondary">{formatNumber(analytics?.sessions || 0)}</p>
+                              <p className="m-0 text-xs text-dark/45">
+                                {formatNumber(analytics?.activeUsers || 0)} Nutzer · {formatPercent(analytics?.engagementRate || 0)} Engagement
+                              </p>
+                            </td>
+                            <td className="py-5">
+                              <a
+                                href={`/downloads/qr/${redirect.campaign}-qr.svg`}
+                                download
+                                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-primary-hover"
+                              >
+                                <Download className="h-4 w-4" />
+                                SVG
+                              </a>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                  <p className="mb-0 mt-5 text-xs leading-relaxed text-dark/45">
+                    Link-Aufrufe können Wiederholungen oder technische Vorschauen enthalten. GA4 zählt nur Sitzungen nach erteilter Analytics-Einwilligung.
+                  </p>
+                </div>
               </div>
 
               <div className="grid gap-8 xl:grid-cols-[1.25fr_0.75fr]">

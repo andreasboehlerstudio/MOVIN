@@ -137,6 +137,7 @@ async function startServer() {
       dimensions?: Array<{ name: string }>;
       metrics: Array<{ name: string }>;
       orderBys?: Array<Record<string, any>>;
+      dimensionFilter?: Record<string, any>;
       limit?: number;
     }
   ) => {
@@ -206,6 +207,17 @@ async function startServer() {
     res.redirect(301, "/leistungen/");
   });
 
+  app.get(["/q/ehc-container", "/q/ehc-container/"], (req, res) => {
+    const query = new URLSearchParams({
+      utm_source: "qr",
+      utm_medium: "offline",
+      utm_campaign: "ehc_container",
+      utm_content: "container_startseite",
+    });
+    res.setHeader("Cache-Control", "no-store");
+    res.redirect(302, `/?${query.toString()}`);
+  });
+
   // API Route to detect uploaded video files in /public folder
   app.get("/api/list-videos", async (req, res) => {
     try {
@@ -241,7 +253,7 @@ async function startServer() {
 
     try {
       const accessToken = await getGoogleAccessToken();
-      const [summaryReport, dailyReport, pagesReport, sourcesReport, devicesReport] = await Promise.all([
+      const [summaryReport, dailyReport, pagesReport, sourcesReport, devicesReport, qrCampaignsReport] = await Promise.all([
         runAnalyticsReport(accessToken, {
           dateRanges,
           metrics: [
@@ -288,6 +300,32 @@ async function startServer() {
           orderBys: [{ metric: { metricName: "sessions" }, desc: true }],
           limit: 5,
         }),
+        runAnalyticsReport(accessToken, {
+          dateRanges,
+          dimensions: [
+            { name: "sessionManualCampaignName" },
+            { name: "sessionManualMedium" },
+            { name: "sessionManualAdContent" },
+          ],
+          metrics: [
+            { name: "sessions" },
+            { name: "activeUsers" },
+            { name: "screenPageViews" },
+            { name: "engagementRate" },
+          ],
+          dimensionFilter: {
+            filter: {
+              fieldName: "sessionManualSource",
+              stringFilter: {
+                matchType: "EXACT",
+                value: "qr",
+                caseSensitive: false,
+              },
+            },
+          },
+          orderBys: [{ metric: { metricName: "sessions" }, desc: true }],
+          limit: 20,
+        }),
       ]);
 
       const summaryRow = summaryReport.rows?.[0];
@@ -322,6 +360,25 @@ async function startServer() {
         devices: (devicesReport.rows || []).map((row: any) => ({
           device: dimensionValue(row, 0),
           sessions: metricValue(row, 0),
+        })),
+        qrRedirects: [{
+          campaign: "ehc-container",
+          label: "EHC-Container",
+          analyticsCampaign: "ehc_container",
+          shortUrl: "/q/ehc-container",
+          target: "/",
+          accesses: 0,
+          totalAccesses: 0,
+          lastAccess: "",
+        }],
+        qrCampaigns: (qrCampaignsReport.rows || []).map((row: any) => ({
+          campaign: dimensionValue(row, 0),
+          medium: dimensionValue(row, 1),
+          content: dimensionValue(row, 2),
+          sessions: metricValue(row, 0),
+          activeUsers: metricValue(row, 1),
+          pageViews: metricValue(row, 2),
+          engagementRate: metricValue(row, 3),
         })),
       });
     } catch (error: any) {

@@ -106,6 +106,7 @@ async function runAnalyticsReport(
     dimensions?: Array<{ name: string }>;
     metrics: Array<{ name: string }>;
     orderBys?: Array<Record<string, any>>;
+    dimensionFilter?: Record<string, any>;
     limit?: number;
   }
 ) {
@@ -165,7 +166,7 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
 
   try {
     const accessToken = await getGoogleAccessToken();
-    const [summaryReport, dailyReport, pagesReport, sourcesReport, devicesReport] = await Promise.all([
+    const [summaryReport, dailyReport, pagesReport, sourcesReport, devicesReport, qrCampaignsReport] = await Promise.all([
       runAnalyticsReport(accessToken, {
         dateRanges,
         metrics: [
@@ -212,6 +213,32 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
         orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
         limit: 5,
       }),
+      runAnalyticsReport(accessToken, {
+        dateRanges,
+        dimensions: [
+          { name: 'sessionManualCampaignName' },
+          { name: 'sessionManualMedium' },
+          { name: 'sessionManualAdContent' },
+        ],
+        metrics: [
+          { name: 'sessions' },
+          { name: 'activeUsers' },
+          { name: 'screenPageViews' },
+          { name: 'engagementRate' },
+        ],
+        dimensionFilter: {
+          filter: {
+            fieldName: 'sessionManualSource',
+            stringFilter: {
+              matchType: 'EXACT',
+              value: 'qr',
+              caseSensitive: false,
+            },
+          },
+        },
+        orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+        limit: 20,
+      }),
     ]);
 
     const summaryRow = summaryReport.rows?.[0];
@@ -246,6 +273,25 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
       devices: (devicesReport.rows || []).map((row: any) => ({
         device: dimensionValue(row, 0),
         sessions: metricValue(row, 0),
+      })),
+      qrRedirects: [{
+        campaign: 'ehc-container',
+        label: 'EHC-Container',
+        analyticsCampaign: 'ehc_container',
+        shortUrl: '/q/ehc-container',
+        target: '/',
+        accesses: 0,
+        totalAccesses: 0,
+        lastAccess: '',
+      }],
+      qrCampaigns: (qrCampaignsReport.rows || []).map((row: any) => ({
+        campaign: dimensionValue(row, 0),
+        medium: dimensionValue(row, 1),
+        content: dimensionValue(row, 2),
+        sessions: metricValue(row, 0),
+        activeUsers: metricValue(row, 1),
+        pageViews: metricValue(row, 2),
+        engagementRate: metricValue(row, 3),
       })),
     });
   } catch (error: any) {

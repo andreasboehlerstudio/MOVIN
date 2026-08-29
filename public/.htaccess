@@ -6,6 +6,10 @@ ErrorDocument 404 /404.html
   RewriteEngine On
   RewriteBase /
 
+  # Dauerhafter Kurzlink fuer den QR-Code auf dem EHC-Container.
+  # Die Auswertung und Weiterleitung erfolgen serverseitig ohne personenbezogene Speicherung.
+  RewriteRule ^q/ehc-container/?$ /api/qr-redirect.php?campaign=ehc-container [L]
+
   # Alte WordPress-URLs auf ihre fachlich passenden neuen Seiten umleiten.
   RewriteRule ^anamnesebogen/?$ /digital/anamnesebogen/ [R=301,L]
   RewriteRule ^ki-gestuetzte-physiotherapie/?$ /digital/ki-physiotherapie/ [R=301,L]

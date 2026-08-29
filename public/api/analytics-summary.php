@@ -187,6 +187,56 @@ function dimensionValue(?array $row, int $index): string
     return (string) ($row['dimensionValues'][$index]['value'] ?? '');
 }
 
+function qrRedirectStats(int $rangeDays): array
+{
+    $campaigns = [
+        'ehc-container' => [
+            'label' => 'EHC-Container',
+            'analyticsCampaign' => 'ehc_container',
+            'shortUrl' => '/q/ehc-container',
+            'target' => '/',
+        ],
+    ];
+    $statsPath = __DIR__ . '/.qr-stats.json';
+    $storedStats = [];
+
+    if (is_file($statsPath) && is_readable($statsPath)) {
+        $decoded = json_decode((string) file_get_contents($statsPath), true);
+        if (is_array($decoded)) {
+            $storedStats = $decoded;
+        }
+    }
+
+    $firstDay = gmdate('Y-m-d', strtotime('-' . max(0, $rangeDays - 1) . ' days'));
+    $lastDay = gmdate('Y-m-d');
+    $result = [];
+
+    foreach ($campaigns as $slug => $details) {
+        $entry = is_array($storedStats[$slug] ?? null) ? $storedStats[$slug] : [];
+        $days = is_array($entry['days'] ?? null) ? $entry['days'] : [];
+        $rangeTotal = 0;
+
+        foreach ($days as $date => $count) {
+            if ($date >= $firstDay && $date <= $lastDay) {
+                $rangeTotal += max(0, (int) $count);
+            }
+        }
+
+        $result[] = [
+            'campaign' => $slug,
+            'label' => $details['label'],
+            'analyticsCampaign' => $details['analyticsCampaign'],
+            'shortUrl' => $details['shortUrl'],
+            'target' => $details['target'],
+            'accesses' => $rangeTotal,
+            'totalAccesses' => max(0, (int) ($entry['total'] ?? 0)),
+            'lastAccess' => (string) ($entry['lastAccess'] ?? ''),
+        ];
+    }
+
+    return $result;
+}
+
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'GET') {
     header('Allow: GET');
     analyticsRespond(405, ['message' => 'Method not allowed']);
@@ -202,9 +252,9 @@ if ($providedToken === '' || !hash_equals((string) $config['dashboard_token'], $
 }
 
 $ranges = [
-    '7d' => ['startDate' => '7daysAgo', 'label' => 'Letzte 7 Tage'],
-    '30d' => ['startDate' => '30daysAgo', 'label' => 'Letzte 30 Tage'],
-    '90d' => ['startDate' => '90daysAgo', 'label' => 'Letzte 90 Tage'],
+    '7d' => ['startDate' => '7daysAgo', 'label' => 'Letzte 7 Tage', 'days' => 7],
+    '30d' => ['startDate' => '30daysAgo', 'label' => 'Letzte 30 Tage', 'days' => 30],
+    '90d' => ['startDate' => '90daysAgo', 'label' => 'Letzte 90 Tage', 'days' => 90],
 ];
 $rangeKey = (string) ($_GET['range'] ?? '30d');
 $selectedRange = $ranges[$rangeKey] ?? $ranges['30d'];
@@ -250,6 +300,32 @@ try {
         'orderBys' => [['metric' => ['metricName' => 'sessions'], 'desc' => true]],
         'limit' => 5,
     ]);
+    $qrCampaignsReport = runAnalyticsReport($config, $accessToken, [
+        'dateRanges' => $dateRanges,
+        'dimensions' => [
+            ['name' => 'sessionManualCampaignName'],
+            ['name' => 'sessionManualMedium'],
+            ['name' => 'sessionManualAdContent'],
+        ],
+        'metrics' => [
+            ['name' => 'sessions'],
+            ['name' => 'activeUsers'],
+            ['name' => 'screenPageViews'],
+            ['name' => 'engagementRate'],
+        ],
+        'dimensionFilter' => [
+            'filter' => [
+                'fieldName' => 'sessionManualSource',
+                'stringFilter' => [
+                    'matchType' => 'EXACT',
+                    'value' => 'qr',
+                    'caseSensitive' => false,
+                ],
+            ],
+        ],
+        'orderBys' => [['metric' => ['metricName' => 'sessions'], 'desc' => true]],
+        'limit' => 20,
+    ]);
 
     $summaryRow = $summaryReport['rows'][0] ?? null;
     analyticsRespond(200, [
@@ -284,6 +360,16 @@ try {
             'device' => dimensionValue($row, 0),
             'sessions' => metricValue($row, 0),
         ], $devicesReport['rows'] ?? []),
+        'qrRedirects' => qrRedirectStats((int) $selectedRange['days']),
+        'qrCampaigns' => array_map(static fn (array $row): array => [
+            'campaign' => dimensionValue($row, 0),
+            'medium' => dimensionValue($row, 1),
+            'content' => dimensionValue($row, 2),
+            'sessions' => metricValue($row, 0),
+            'activeUsers' => metricValue($row, 1),
+            'pageViews' => metricValue($row, 2),
+            'engagementRate' => metricValue($row, 3),
+        ], $qrCampaignsReport['rows'] ?? []),
     ]);
 } catch (Throwable $error) {
     error_log('MOVIN Analytics dashboard failed: ' . $error->getMessage());

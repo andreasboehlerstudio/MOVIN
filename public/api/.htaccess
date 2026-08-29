@@ -3,10 +3,10 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteRule ^(send-contact|send-bewerbung|send-anamnese|analytics-summary)/?$ $1.php [L]
+  RewriteRule ^(send-contact|send-bewerbung|send-anamnese|analytics-summary|qr-redirect)/?$ $1.php [L]
 </IfModule>
 
-<FilesMatch "^(bootstrap|\.smtp-config|\.analytics-config)\.php$">
+<FilesMatch "^(bootstrap|\.smtp-config|\.analytics-config)\.php$|^\.qr-stats\.json$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>
