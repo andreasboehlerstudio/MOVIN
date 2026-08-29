@@ -519,7 +519,7 @@ export default function Home() {
                   Schmerzfreiheit ist der erste Schritt. <span className="text-primary">Belastbarkeit ist das Ziel.</span>
                 </h2>
                 <p className="mb-7 text-base leading-relaxed text-white/80 sm:text-lg">
-                  Unser Stadion-Spot bringt auf den Punkt, wofür MOVIN Sportphysiotherapie steht: gezielte Diagnostik, progressive Belastungssteuerung und der sichere Weg zurück in Training und Wettkampf.
+                  Unser Stadion-Spot bringt es auf den Punkt, wofür MOVIN Sportphysiotherapie steht: gezielte Diagnostik, progressive Belastungssteuerung und der sichere Weg zurück in Training und Wettkampf.
                 </p>
                 <Link
                   to="/leistungen/sportphysiotherapie/"
