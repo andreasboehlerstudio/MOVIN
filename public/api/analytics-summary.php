@@ -196,6 +196,12 @@ function qrRedirectStats(int $rangeDays): array
             'shortUrl' => '/q/ehc-container',
             'target' => '/',
         ],
+        'red-sparrows-bande' => [
+            'label' => 'Red Sparrows – Bande',
+            'analyticsCampaign' => 'red_sparrows_bande',
+            'shortUrl' => '/q/red-sparrows-bande',
+            'target' => '/',
+        ],
     ];
     $statsPath = __DIR__ . '/.qr-stats.json';
     $storedStats = [];

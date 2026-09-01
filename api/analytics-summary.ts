@@ -283,6 +283,15 @@ export default async function handler(req: ApiRequest, res: ApiResponse) {
         accesses: 0,
         totalAccesses: 0,
         lastAccess: '',
+      }, {
+        campaign: 'red-sparrows-bande',
+        label: 'Red Sparrows – Bande',
+        analyticsCampaign: 'red_sparrows_bande',
+        shortUrl: '/q/red-sparrows-bande',
+        target: '/',
+        accesses: 0,
+        totalAccesses: 0,
+        lastAccess: '',
       }],
       qrCampaigns: (qrCampaignsReport.rows || []).map((row: any) => ({
         campaign: dimensionValue(row, 0),

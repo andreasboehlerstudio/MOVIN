@@ -22,6 +22,13 @@ $campaigns = [
         'utm_campaign' => 'ehc_container',
         'utm_content' => 'container_startseite',
     ],
+    'red-sparrows-bande' => [
+        'destination' => '/',
+        'utm_source' => 'qr',
+        'utm_medium' => 'offline',
+        'utm_campaign' => 'red_sparrows_bande',
+        'utm_content' => 'bande_startseite',
+    ],
 ];
 
 $campaign = strtolower(trim((string) ($_GET['campaign'] ?? '')));

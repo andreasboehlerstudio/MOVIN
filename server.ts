@@ -218,6 +218,17 @@ async function startServer() {
     res.redirect(302, `/?${query.toString()}`);
   });
 
+  app.get(["/q/red-sparrows-bande", "/q/red-sparrows-bande/"], (req, res) => {
+    const query = new URLSearchParams({
+      utm_source: "qr",
+      utm_medium: "offline",
+      utm_campaign: "red_sparrows_bande",
+      utm_content: "bande_startseite",
+    });
+    res.setHeader("Cache-Control", "no-store");
+    res.redirect(302, `/?${query.toString()}`);
+  });
+
   // API Route to detect uploaded video files in /public folder
   app.get("/api/list-videos", async (req, res) => {
     try {
@@ -366,6 +377,15 @@ async function startServer() {
           label: "EHC-Container",
           analyticsCampaign: "ehc_container",
           shortUrl: "/q/ehc-container",
+          target: "/",
+          accesses: 0,
+          totalAccesses: 0,
+          lastAccess: "",
+        }, {
+          campaign: "red-sparrows-bande",
+          label: "Red Sparrows – Bande",
+          analyticsCampaign: "red_sparrows_bande",
+          shortUrl: "/q/red-sparrows-bande",
           target: "/",
           accesses: 0,
           totalAccesses: 0,
