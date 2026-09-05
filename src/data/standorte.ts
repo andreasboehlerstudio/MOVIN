@@ -188,7 +188,7 @@ export const standorteData: Record<string, Standort> = {
         spec: 'Hand / Knie / Hüfte'
       },
       {
-        name: 'Heidrun Drinkmann',
+        name: 'Heidrun Brinkmann',
         role: 'Rezeptionistin',
         image: '/images/team-uniform/heidrun-brinkmann.webp',
         spec: 'Verwaltung / Abrechnung'
@@ -359,7 +359,7 @@ export const standorteData: Record<string, Standort> = {
         spec: 'HWS / Knie / Hüfte'
       },
       {
-        name: 'Heidrun Drinkmann',
+        name: 'Heidrun Brinkmann',
         role: 'Rezeptionistin',
         image: '/images/team-uniform/heidrun-brinkmann.webp',
         spec: 'Verwaltung / Abrechnung'

@@ -17,14 +17,18 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.42`
-- Letzter Release-Tag: `v1.1.42`
+- Aktuelle Version: `1.1.43`
+- Letzter Release-Tag: `v1.1.43`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.43] - 2026-09-05
+
+- Nachnamen von Heidrun Brinkmann auf "Ueber uns" und den Standortseiten Lorettoberg und Mooswald korrigiert.
 
 ### [1.1.42] - 2026-08-29
 

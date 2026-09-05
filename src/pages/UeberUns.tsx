@@ -505,7 +505,7 @@ export default function UeberUns() {
                 image: '/images/team-uniform/elina-kovacs.webp'
               },
               {
-                name: 'Heidrun Drinkmann',
+                name: 'Heidrun Brinkmann',
                 category: 'Anmeldung / Verwaltung',
                 role: 'Rezeptionistin',
                 spec: 'Verwaltung / Abrechnung / Terminierung',

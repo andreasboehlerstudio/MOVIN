@@ -2,6 +2,10 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.43] - 2026-09-05
+
+- Nachnamen von Heidrun Brinkmann auf "Ueber uns" und den Standortseiten Lorettoberg und Mooswald korrigiert.
+
 ## [1.1.42] - 2026-08-29
 
 ### EHC-Stadion-Spot und Sportphysiotherapie
