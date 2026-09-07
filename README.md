@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.44-staging.2`
-- Letzter Release-Tag: `v1.1.44-staging.2`
-- Branch: `develop`
-- Projektstatus: Staging
+- Aktuelle Version: `1.1.44`
+- Letzter Release-Tag: `v1.1.44`
+- Branch: `main`
+- Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.44] - 2026-09-07
+
+- Larissa Broghammer ersetzt Lasse Nockemann in den Teamlisten, mit angeglichenem Portraetausschnitt und MOVIN-Look.
+- Red-Sparrows- und Artemed-Partnerlinks korrigiert.
 
 ### [1.1.44-staging.2] - 2026-09-07
 

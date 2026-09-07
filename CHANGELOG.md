@@ -2,6 +2,13 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.44] - 2026-09-07
+
+- Larissa Broghammer als Physiotherapeutin mit Huefte / Knie / Schulter auf "Ueber uns" und am Standort Mooswald integriert; Lasse Nockemann entfernt.
+- Freigestelltes Originalportraet in Kopf- und Oberkoerpergroesse angeglichen, Helligkeit abgestimmt und MOVIN-Hintergrund samt Lichtlinien aktiviert.
+- Partnerlinks auf https://redsparrows.de/ und https://www.rkk-klinikum.de/ korrigiert.
+- Darstellung auf Staging visuell geprueft und fuer Production freigegeben.
+
 ## [1.1.44-staging.2] - 2026-09-07
 
 - Larissas freigestelltes Original mit einheitlichem Oberkoerperausschnitt, abgestimmter Helligkeit und bestehenden MOVIN-Hintergruenden und Lichtlinien integriert.
