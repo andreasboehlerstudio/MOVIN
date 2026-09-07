@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.43`
-- Letzter Release-Tag: `v1.1.43`
-- Branch: `main`
-- Projektstatus: Production
+- Aktuelle Version: `1.1.44-staging.1`
+- Letzter Release-Tag: `v1.1.44-staging.1`
+- Branch: `develop`
+- Projektstatus: Staging
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.44-staging.1] - 2026-09-07
+
+- Larissa Broghammer mit Portraet und Schwerpunkten Huefte, Knie und Schulter auf "Ueber uns" und am Standort Mooswald eingefuegt; Lasse Nockemann entfernt.
+- Partnerlinks fuer Red Sparrows und Artemed auf redsparrows.de und rkk-klinikum.de korrigiert.
+- Aktuellen Live-Stand inklusive Heidruns Namenskorrektur auf Staging uebernommen.
 
 ### [1.1.43] - 2026-09-05
 

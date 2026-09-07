@@ -2,6 +2,13 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.44-staging.1] - 2026-09-07
+
+- Larissa Broghammer mit optimiertem Originalportraet als Physiotherapeutin (Huefte / Knie / Schulter) in der Teamuebersicht und am Standort Mooswald eingefuegt.
+- Lasse Nockemann aus beiden Teamlisten entfernt.
+- Partnerlinks fuer Red Sparrows und Artemed auf https://redsparrows.de/ und https://www.rkk-klinikum.de/ korrigiert.
+- Aktuellen Live-Stand inklusive Heidruns Namenskorrektur auf Staging uebernommen.
+
 ## [1.1.43] - 2026-09-05
 
 - Nachnamen von Heidrun Brinkmann auf "Ueber uns" und den Standortseiten Lorettoberg und Mooswald korrigiert.

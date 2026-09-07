@@ -30,7 +30,7 @@ export default function PartnerLogos() {
 
           {/* Red Sparrows */}
           <a 
-            href="https://red-sparrows-freiburg.de/" 
+            href="https://redsparrows.de/"
             target="_blank" 
             rel="noopener noreferrer" 
             className="group flex flex-col items-center transition-all duration-300 transform hover:scale-105"
@@ -146,7 +146,7 @@ export default function PartnerLogos() {
 
           {/* Artemed Lorettoberg */}
           <a 
-            href="https://www.artemed-freiburg.de/" 
+            href="https://www.rkk-klinikum.de/"
             target="_blank" 
             rel="noopener noreferrer" 
             className="group flex flex-col items-center transition-all duration-300 transform hover:scale-105"

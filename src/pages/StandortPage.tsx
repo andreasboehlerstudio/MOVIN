@@ -268,6 +268,7 @@ export default function StandortPage() {
                             <img 
                               src={member.image} 
                               alt={member.name} 
+                              style={{ objectPosition: member.imagePosition }}
                               className="w-full h-full object-cover"
                               referrerPolicy="no-referrer"
                             />

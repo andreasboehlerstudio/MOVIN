@@ -568,10 +568,12 @@ export default function UeberUns() {
                 image: '/images/team-uniform/lena-prell.webp'
               },
               {
-                name: 'Lasse Nockemann',
+                name: 'Larissa Broghammer',
                 category: 'Physiotherapie',
-                role: 'Physiotherapeut',
-                spec: 'Ohne Bild'
+                role: 'Physiotherapeutin',
+                spec: 'Hüfte / Knie / Schulter',
+                image: '/images/team-uniform/larissa-broghammer.webp',
+                imagePosition: 'center top'
               },
               {
                 name: 'Theresa Maier',
@@ -612,6 +614,7 @@ export default function UeberUns() {
                     <img
                       src={memberImage}
                       alt={member.name}
+                      style={{ objectPosition: 'imagePosition' in member ? member.imagePosition : undefined }}
                       className="relative z-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       referrerPolicy="no-referrer"
                     />

@@ -11,6 +11,7 @@ export interface TeamMember {
   name: string;
   role: string;
   image?: string;
+  imagePosition?: string;
   spec?: string;
 }
 
@@ -383,9 +384,11 @@ export const standorteData: Record<string, Standort> = {
         spec: 'Hüfte / Knie / Schulter'
       },
       {
-        name: 'Lasse Nockemann',
-        role: 'Physiotherapeut',
-        spec: 'Ohne Bild'
+        name: 'Larissa Broghammer',
+        role: 'Physiotherapeutin',
+        image: '/images/team-uniform/larissa-broghammer.webp',
+        imagePosition: 'center top',
+        spec: 'Hüfte / Knie / Schulter'
       },
       {
         name: 'Theresa Maier',
