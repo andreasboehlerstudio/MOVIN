@@ -11,7 +11,7 @@ export interface TeamMember {
   name: string;
   role: string;
   image?: string;
-  imagePosition?: string;
+  portraitClassName?: string;
   spec?: string;
 }
 
@@ -387,7 +387,7 @@ export const standorteData: Record<string, Standort> = {
         name: 'Larissa Broghammer',
         role: 'Physiotherapeutin',
         image: '/images/team-uniform/larissa-broghammer.webp',
-        imagePosition: 'center top',
+        portraitClassName: 'team-portrait--upper-body',
         spec: 'Hüfte / Knie / Schulter'
       },
       {

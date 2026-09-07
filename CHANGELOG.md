@@ -2,6 +2,11 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.44-staging.2] - 2026-09-07
+
+- Larissas freigestelltes Original mit einheitlichem Oberkoerperausschnitt, abgestimmter Helligkeit und bestehenden MOVIN-Hintergruenden und Lichtlinien integriert.
+- Portraetgroesse auch auf der Mooswald-Seite angeglichen; Original und Gesicht unveraendert erhalten.
+
 ## [1.1.44-staging.1] - 2026-09-07
 
 - Larissa Broghammer mit optimiertem Originalportraet als Physiotherapeutin (Huefte / Knie / Schulter) in der Teamuebersicht und am Standort Mooswald eingefuegt.

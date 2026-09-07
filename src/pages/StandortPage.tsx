@@ -263,12 +263,11 @@ export default function StandortPage() {
                   <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6">
                     {standort.team.map((member, i) => (
                       <div key={i} className="flex flex-col items-center text-center p-4 rounded-2xl bg-light border border-border/50 hover:border-primary/20 transition-all duration-300">
-                        <div className="w-24 h-24 rounded-full bg-border overflow-hidden mb-4 border-2 border-primary/20 shadow-sm relative shrink-0">
+                        <div className={`w-24 h-24 rounded-full bg-border overflow-hidden mb-4 border-2 border-primary/20 shadow-sm relative shrink-0 ${member.portraitClassName || ''}`}>
                           {member.image ? (
                             <img 
                               src={member.image} 
                               alt={member.name} 
-                              style={{ objectPosition: member.imagePosition }}
                               className="w-full h-full object-cover"
                               referrerPolicy="no-referrer"
                             />

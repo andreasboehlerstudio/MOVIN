@@ -6,6 +6,7 @@ import Logo from '../components/common/Logo';
 import { getYearsOfExperience } from '../data/companyInfo';
 
 const teamCutoutPreviewByImage: Record<string, string> = {
+  '/images/team-uniform/larissa-broghammer.webp': '/images/team-uniform/larissa-broghammer.webp',
   '/images/team-uniform/martin-klein.webp': '/images/team-cutouts-polished-bottom/martin-klein.webp',
   '/images/team-uniform/daniel-klein.webp': '/images/team-cutouts-polished-bottom/daniel-klein.webp',
   '/images/team-uniform/maik-forsbach.webp': '/images/team-cutouts-polished-bottom/maik-forsbach.webp',
@@ -573,7 +574,7 @@ export default function UeberUns() {
                 role: 'Physiotherapeutin',
                 spec: 'Hüfte / Knie / Schulter',
                 image: '/images/team-uniform/larissa-broghammer.webp',
-                imagePosition: 'center top'
+                portraitClassName: 'team-portrait--upper-body'
               },
               {
                 name: 'Theresa Maier',
@@ -599,7 +600,7 @@ export default function UeberUns() {
 
               return (
               <div key={i} className="card-base group">
-                <div className={`relative isolate aspect-square overflow-hidden ${cutoutPreview ? brandBackground : ''}`}>
+                <div className={`relative isolate aspect-square overflow-hidden ${cutoutPreview ? brandBackground : ''} ${'portraitClassName' in member ? member.portraitClassName : ''}`}>
                   {cutoutPreview ? (
                     <>
                       <img
@@ -614,7 +615,6 @@ export default function UeberUns() {
                     <img
                       src={memberImage}
                       alt={member.name}
-                      style={{ objectPosition: 'imagePosition' in member ? member.imagePosition : undefined }}
                       className="relative z-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       referrerPolicy="no-referrer"
                     />

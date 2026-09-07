@@ -260,6 +260,16 @@
     --team-bg-mid: #9bc2cb;
     --team-bg-deep: #5f92a0;
   }
+  /* Match a full-length cutout to the square upper-body team portraits. */
+  .team-portrait--upper-body > img {
+    position: absolute;
+    top: 5%;
+    left: 18%;
+    width: 64%;
+    height: auto;
+    max-width: none;
+    filter: brightness(1.07) saturate(0.94);
+  }
   .team-light-trails {
     @apply pointer-events-none absolute inset-0 z-20 overflow-hidden;
     background-image: url('/images/effects/lightstreak-portrait-overlay-left.webp');

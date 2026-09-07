@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.44-staging.1`
-- Letzter Release-Tag: `v1.1.44-staging.1`
+- Aktuelle Version: `1.1.44-staging.2`
+- Letzter Release-Tag: `v1.1.44-staging.2`
 - Branch: `develop`
 - Projektstatus: Staging
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.44-staging.2] - 2026-09-07
+
+- Larissas freigestelltes Original mit einheitlichem Oberkoerperausschnitt, abgestimmter Helligkeit und bestehenden MOVIN-Hintergruenden und Lichtlinien integriert.
+- Portraetgroesse auch auf der Mooswald-Seite angeglichen.
 
 ### [1.1.44-staging.1] - 2026-09-07
 
