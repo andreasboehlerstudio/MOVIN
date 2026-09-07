@@ -17,14 +17,18 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.44`
-- Letzter Release-Tag: `v1.1.44`
+- Aktuelle Version: `1.1.45`
+- Letzter Release-Tag: `v1.1.45`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.45] - 2026-09-07
+
+- Saettigung von Larissas Portraet auf Kundenwunsch dezent erhoeht.
 
 ### [1.1.44] - 2026-09-07
 

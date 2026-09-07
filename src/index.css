@@ -268,7 +268,7 @@
     width: 64%;
     height: auto;
     max-width: none;
-    filter: brightness(1.07) saturate(0.94);
+    filter: brightness(1.07) saturate(1.05);
   }
   .team-light-trails {
     @apply pointer-events-none absolute inset-0 z-20 overflow-hidden;
