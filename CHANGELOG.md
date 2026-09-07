@@ -2,6 +2,11 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.46] - 2026-09-07
+
+- Larissas Portraet direkt vom hochaufgeloesten Original als WebP mit 720 Pixel Breite optimiert (101.756 statt 229.824 Bytes).
+- Optimierte Datei in Teamuebersicht und Mooswald eingebunden; Transparenz, Darstellung und Originaldatei erhalten.
+
 ## [1.1.45] - 2026-09-07
 
 - Saettigung von Larissas Portraet auf Kundenwunsch dezent erhoeht; Ausschnitt und Helligkeit beibehalten.

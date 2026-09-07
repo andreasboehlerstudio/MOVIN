@@ -6,7 +6,7 @@ import Logo from '../components/common/Logo';
 import { getYearsOfExperience } from '../data/companyInfo';
 
 const teamCutoutPreviewByImage: Record<string, string> = {
-  '/images/team-uniform/larissa-broghammer.webp': '/images/team-uniform/larissa-broghammer.webp',
+  '/images/team-uniform/larissa-broghammer-optimized.webp': '/images/team-uniform/larissa-broghammer-optimized.webp',
   '/images/team-uniform/martin-klein.webp': '/images/team-cutouts-polished-bottom/martin-klein.webp',
   '/images/team-uniform/daniel-klein.webp': '/images/team-cutouts-polished-bottom/daniel-klein.webp',
   '/images/team-uniform/maik-forsbach.webp': '/images/team-cutouts-polished-bottom/maik-forsbach.webp',
@@ -573,7 +573,7 @@ export default function UeberUns() {
                 category: 'Physiotherapie',
                 role: 'Physiotherapeutin',
                 spec: 'Hüfte / Knie / Schulter',
-                image: '/images/team-uniform/larissa-broghammer.webp',
+                image: '/images/team-uniform/larissa-broghammer-optimized.webp',
                 portraitClassName: 'team-portrait--upper-body'
               },
               {

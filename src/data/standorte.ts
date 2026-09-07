@@ -386,7 +386,7 @@ export const standorteData: Record<string, Standort> = {
       {
         name: 'Larissa Broghammer',
         role: 'Physiotherapeutin',
-        image: '/images/team-uniform/larissa-broghammer.webp',
+        image: '/images/team-uniform/larissa-broghammer-optimized.webp',
         portraitClassName: 'team-portrait--upper-body',
         spec: 'Hüfte / Knie / Schulter'
       },
