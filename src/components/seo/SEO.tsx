@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import * as HelmetAsync from 'react-helmet-async';
 import { useLocation } from 'react-router';
 
@@ -33,6 +33,38 @@ export default function SEO({ title, description, canonical, schema, preloadImag
     if (canonical) return canonical;
     return `${baseUrl}${normalizePath(location.pathname)}`;
   }, [canonical, location.pathname]);
+
+  useEffect(() => {
+    const managedSelectors = [
+      'title',
+      'meta[name="description"]',
+      'meta[property="og:title"]',
+      'meta[property="og:description"]',
+      'meta[property="og:type"]',
+      'meta[property="og:image"]',
+      'meta[property="og:image:secure_url"]',
+      'meta[property="og:image:type"]',
+      'meta[property="og:image:width"]',
+      'meta[property="og:image:height"]',
+      'meta[property="og:image:alt"]',
+      'meta[name="twitter:card"]',
+      'meta[name="twitter:title"]',
+      'meta[name="twitter:description"]',
+      'meta[name="twitter:image"]',
+    ];
+
+    const removeFallbackDuplicates = () => {
+      managedSelectors.forEach((selector) => {
+        const elements = Array.from(document.head.querySelectorAll(selector));
+        elements.slice(0, -1).forEach((element) => element.remove());
+      });
+    };
+
+    removeFallbackDuplicates();
+    const animationFrame = window.requestAnimationFrame(removeFallbackDuplicates);
+
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [currentUrl, description, fullTitle]);
 
   return (
     <Helmet>

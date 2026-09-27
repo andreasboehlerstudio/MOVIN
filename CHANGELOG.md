@@ -2,6 +2,11 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.48] - 2026-09-27
+
+- Doppelte statische und React-gesteuerte Title-, Description-, Open-Graph- und Twitter-Metadaten im Browser bereinigt.
+- Jede gerenderte Seite liefert damit genau einen eindeutigen Satz SEO-Metadaten fuer ihre jeweilige Suchintention.
+
 ## [1.1.47] - 2026-09-27
 
 - Startseite eindeutig auf die allgemeine Suchintention "Physiotherapie Freiburg" ausgerichtet und Lorettoberg als lokale Standortseite abgegrenzt.
