@@ -57,8 +57,8 @@ export interface Standort {
 export const standorteData: Record<string, Standort> = {
   'physiotherapie-freiburg-lorettoberg': {
     name: 'Lorettoberg',
-    seoTitle: 'Physiotherapie Freiburg Lorettoberg | MOVIN',
-    seoDesc: 'Ihre MOVIN Physiotherapiepraxis am Lorettoberg in Freiburg. Modernste Ausstattung, erfahrene Therapeuten und 48h Termingarantie.',
+    seoTitle: 'Physiotherapie am Lorettoberg in Freiburg-Wiehre | MOVIN',
+    seoDesc: 'MOVIN Physiotherapie am Lorettoberg in Freiburg-Wiehre. Moderne Therapie, medizinisches Training und schnelle Termine in der Mercystrasse.',
     address: 'Mercystrasse 14, 79100 Freiburg im Breisgau',
     phone: '+49 761 707 33 66',
     email: 'kontakt@movin-freiburg.de',

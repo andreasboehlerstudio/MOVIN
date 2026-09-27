@@ -196,7 +196,7 @@ export default function LeistungenHub() {
         <div className="container-custom text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-6xl font-black mb-6 text-gradient-teal-mint">Unsere Leistungen</h1>
           <p className="text-xl text-dark/80 leading-relaxed">
-            Wir bieten ein breites Spektrum an physiotherapeutischen Therapieformen.
+            Bei <Link to="/" className="font-semibold text-primary hover:underline">MOVIN Physiotherapie in Freiburg</Link> und Rust bieten wir ein breites Spektrum an physiotherapeutischen Therapieformen.
           </p>
         </div>
       </section>

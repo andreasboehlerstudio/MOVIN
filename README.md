@@ -17,14 +17,19 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.46`
-- Letzter Release-Tag: `v1.1.46`
+- Aktuelle Version: `1.1.47`
+- Letzter Release-Tag: `v1.1.47`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.47] - 2026-09-27
+
+- Startseite fuer die allgemeine Suche nach Physiotherapie in Freiburg gestaerkt und die Lorettoberg-Seite klar als lokalen Standort abgegrenzt.
+- Strukturierte Organisationsdaten auf alle MOVIN Standorte erweitert.
 
 ### [1.1.46] - 2026-09-07
 

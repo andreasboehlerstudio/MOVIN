@@ -13,11 +13,12 @@ interface SEOProps {
   schema?: any;
   preloadImage?: string;
   noindex?: boolean;
+  appendSiteName?: boolean;
 }
 
-export default function SEO({ title, description, canonical, schema, preloadImage, noindex }: SEOProps) {
+export default function SEO({ title, description, canonical, schema, preloadImage, noindex, appendSiteName = true }: SEOProps) {
   const siteName = "MOVIN Physiotherapie Freiburg";
-  const fullTitle = `${title} | ${siteName}`;
+  const fullTitle = appendSiteName ? `${title} | ${siteName}` : title;
   const location = useLocation();
 
   const baseUrl = "https://movin-freiburg.de";

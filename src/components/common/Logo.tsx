@@ -11,7 +11,7 @@ export default function Logo({ className = "h-10 md:h-12 w-auto", variant = 'def
       <div className={`relative flex items-center ${className}`}>
         <img 
           src="/images/logos/movin-logo-2026-horizontal-1c-pos.png" 
-          alt="MOVIN Logo" 
+          alt="MOVIN Physiotherapie Freiburg"
           className="h-full w-auto object-contain"
           referrerPolicy="no-referrer"
         />
@@ -23,13 +23,13 @@ export default function Logo({ className = "h-10 md:h-12 w-auto", variant = 'def
     <div className={`relative flex items-center ${className}`}>
       <img 
         src="/images/logos/movin-logo-2026-horizontal-rgb-gradient.png" 
-        alt="MOVIN Logo" 
+        alt="MOVIN Physiotherapie Freiburg"
         className="h-full w-auto object-contain dark:hidden"
         referrerPolicy="no-referrer"
       />
       <img 
         src="/images/logos/movin-logo-2026-horizontal-1c-pos.png" 
-        alt="MOVIN Logo" 
+        alt="MOVIN Physiotherapie Freiburg"
         className="h-full w-auto object-contain hidden dark:block"
         referrerPolicy="no-referrer"
       />

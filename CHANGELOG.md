@@ -2,6 +2,14 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.47] - 2026-09-27
+
+- Startseite eindeutig auf die allgemeine Suchintention "Physiotherapie Freiburg" ausgerichtet und Lorettoberg als lokale Standortseite abgegrenzt.
+- Seitentitel, Hauptueberschrift, Einleitung und interne Verlinkung der Startseite fuer eine klare Themenzuordnung ueberarbeitet.
+- Strukturierte Daten der Startseite von einem einzelnen Lorettoberg-Betrieb auf die standortuebergreifende MOVIN Organisation mit allen drei Adressen umgestellt.
+- SEO-Titel und Beschreibung der Lorettoberg-Seite staerker auf Freiburg-Wiehre und den konkreten Standort fokussiert.
+- Standard-Metadaten und Sitemap-Aenderungsdaten fuer die ueberarbeiteten Seiten aktualisiert.
+
 ## [1.1.46] - 2026-09-07
 
 - Larissas Portraet direkt vom hochaufgeloesten Original als WebP mit 720 Pixel Breite optimiert (101.756 statt 229.824 Bytes).

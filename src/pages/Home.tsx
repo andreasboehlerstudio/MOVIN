@@ -52,28 +52,45 @@ export default function Home() {
 
   const schema = {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
+    "@type": "Organization",
     "name": "MOVIN Physiotherapie Freiburg",
-    "image": "https://movin-freiburg.de/images/standorte/lorettoberg/lorettoberg-startseite-20260622.webp",
-    "@id": "https://movin-freiburg.de",
-    "url": "https://movin-freiburg.de",
-    "telephone": "+497617073366",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Mercystrasse 14",
-      "addressLocality": "Freiburg",
-      "postalCode": "79100",
-      "addressCountry": "DE"
-    }
+    "@id": "https://movin-freiburg.de/#organization",
+    "url": "https://movin-freiburg.de/",
+    "logo": "https://movin-freiburg.de/images/logos/movin-logo-2026-horizontal-rgb-gradient.png",
+    "image": "https://movin-freiburg.de/og-image.jpg",
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "Mercystrasse 14",
+        "addressLocality": "Freiburg im Breisgau",
+        "postalCode": "79100",
+        "addressCountry": "DE"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "Wirthstraße 9",
+        "addressLocality": "Freiburg im Breisgau",
+        "postalCode": "79110",
+        "addressCountry": "DE"
+      },
+      {
+        "@type": "PostalAddress",
+        "streetAddress": "Peter-Thumb-Str. 8",
+        "addressLocality": "Rust",
+        "postalCode": "77977",
+        "addressCountry": "DE"
+      }
+    ]
   };
 
   return (
     <>
       <SEO 
-        title="Physiotherapie Freiburg – Innovativ. Bewegt. Wirksam."
-        description={`MOVIN Physiotherapie in Freiburg & Europa-Park Rust. ${years} Jahre Erfahrung, KI-gestützte Therapie, 48h Termingarantie. Jetzt Termin buchen!`}
+        title="Physiotherapie Freiburg | MOVIN"
+        description={`MOVIN Physiotherapie in Freiburg: moderne Behandlung an den Standorten Lorettoberg und Mooswald. ${years} Jahre Erfahrung und schnelle Termine.`}
         schema={schema}
         preloadImage="/images/MOVIN_Header_Home_V3-poster.webp"
+        appendSiteName={false}
       />
 
       {/* Hero Section */}
@@ -110,7 +127,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-sm md:text-base text-white/90 font-heading font-medium tracking-[0.15em] uppercase mb-4"
             >
-              Physiotherapie in Freiburg und Rust
+              MOVIN in Freiburg und Rust
             </motion.div>
             
             <motion.h1 
@@ -119,8 +136,8 @@ export default function Home() {
               transition={{ duration: 0.7, delay: 0.4 }}
               className="text-4xl sm:text-5xl md:text-[5rem] font-bold mb-6 leading-[1.1] text-white tracking-tight uppercase break-words hyphens-auto [overflow-wrap:anywhere]"
             >
-              Evidenzbasierte<br />
-              <span className="text-gradient-teal-mint">Physiotherapie</span><br />
+              Physiotherapie<br />
+              <span className="text-gradient-teal-mint">in Freiburg</span><br />
               für nachhaltige Erfolge.
             </motion.h1>
             
@@ -130,7 +147,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="text-lg md:text-xl text-white/90 mb-10 max-w-3xl font-light leading-relaxed"
             >
-              Innovativ · Bewegt · Auf Basis aktueller Evidenz durch unser spezialisiertes<br className="hidden md:inline" /> Hands-Off Konzept an drei Standorten von Freiburg bis Rust.
+              Moderne, individuelle und evidenzbasierte Physiotherapie an zwei Standorten in Freiburg sowie direkt am Europa-Park in Rust.
             </motion.p>
             
             <motion.div 
@@ -219,9 +236,9 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
               <h2 className="text-4xl md:text-5xl mb-6 tracking-tight">
-                Unsere <span className="text-gradient-teal-mint">Standorte</span>
+                Physiotherapie in Freiburg an <span className="text-gradient-teal-mint">zwei Standorten</span>
               </h2>
-              <p className="text-lg text-dark/80">Individueller Charme trifft auf gewohnte Qualität. Erleben Sie an jedem Standort unser volles großes Leistungsangebot mit der Kompetenz unseres gesamten Teams.</p>
+              <p className="text-lg text-dark/80">Am Lorettoberg und im Mooswald verbindet MOVIN moderne Physiotherapie, medizinisches Training und persönliche Betreuung. Ergänzt wird unser Angebot durch den Standort direkt am Europa-Park in Rust.</p>
             </div>
             <Link to="/standorte/" className="btn-outline shrink-0">Alle Standorte</Link>
           </div>
