@@ -35,28 +35,38 @@ export default function SEO({ title, description, canonical, schema, preloadImag
   }, [canonical, location.pathname]);
 
   useEffect(() => {
-    const managedSelectors = [
-      'title',
-      'meta[name="description"]',
-      'meta[property="og:title"]',
-      'meta[property="og:description"]',
-      'meta[property="og:type"]',
-      'meta[property="og:image"]',
-      'meta[property="og:image:secure_url"]',
-      'meta[property="og:image:type"]',
-      'meta[property="og:image:width"]',
-      'meta[property="og:image:height"]',
-      'meta[property="og:image:alt"]',
-      'meta[name="twitter:card"]',
-      'meta[name="twitter:title"]',
-      'meta[name="twitter:description"]',
-      'meta[name="twitter:image"]',
+    const managedHeadElements = [
+      { selector: 'title', value: fullTitle },
+      { selector: 'meta[name="description"]', value: description },
+      { selector: 'meta[property="og:title"]', value: fullTitle },
+      { selector: 'meta[property="og:description"]', value: description },
+      { selector: 'meta[property="og:type"]', value: 'website' },
+      { selector: 'meta[property="og:image"]', value: shareImage },
+      { selector: 'meta[property="og:image:secure_url"]', value: shareImage },
+      { selector: 'meta[property="og:image:type"]', value: 'image/jpeg' },
+      { selector: 'meta[property="og:image:width"]', value: '1200' },
+      { selector: 'meta[property="og:image:height"]', value: '630' },
+      { selector: 'meta[property="og:image:alt"]', value: 'MOVIN Physiotherapie innovativ bewegt' },
+      { selector: 'meta[name="twitter:card"]', value: 'summary_large_image' },
+      { selector: 'meta[name="twitter:title"]', value: fullTitle },
+      { selector: 'meta[name="twitter:description"]', value: description },
+      { selector: 'meta[name="twitter:image"]', value: shareImage },
     ];
 
     const removeFallbackDuplicates = () => {
-      managedSelectors.forEach((selector) => {
+      managedHeadElements.forEach(({ selector, value }) => {
         const elements = Array.from(document.head.querySelectorAll(selector));
-        elements.slice(0, -1).forEach((element) => element.remove());
+        if (elements.length < 2) return;
+
+        const matchingElements = elements.filter((element) => {
+          if (element instanceof HTMLTitleElement) return element.textContent === value;
+          return element.getAttribute('content') === value;
+        });
+        const elementToKeep = matchingElements.at(-1) ?? elements.at(-1);
+
+        elements.forEach((element) => {
+          if (element !== elementToKeep) element.remove();
+        });
       });
     };
 
@@ -64,7 +74,7 @@ export default function SEO({ title, description, canonical, schema, preloadImag
     const animationFrame = window.requestAnimationFrame(removeFallbackDuplicates);
 
     return () => window.cancelAnimationFrame(animationFrame);
-  }, [currentUrl, description, fullTitle]);
+  }, [description, fullTitle, shareImage]);
 
   return (
     <Helmet>

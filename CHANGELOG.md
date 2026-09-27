@@ -2,6 +2,11 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.49] - 2026-09-27
+
+- Bereinigung doppelter Head-Metadaten so abgesichert, dass bei direkten Unterseitenaufrufen immer der routenspezifische Titel erhalten bleibt.
+- Direkten Aufruf sowie clientseitigen Wechsel zwischen Start- und Lorettoberg-Seite mit eindeutigen Metadaten validiert.
+
 ## [1.1.48] - 2026-09-27
 
 - Doppelte statische und React-gesteuerte Title-, Description-, Open-Graph- und Twitter-Metadaten im Browser bereinigt.

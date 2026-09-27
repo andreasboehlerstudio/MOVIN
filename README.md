@@ -17,14 +17,18 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.48`
-- Letzter Release-Tag: `v1.1.48`
+- Aktuelle Version: `1.1.49`
+- Letzter Release-Tag: `v1.1.49`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.49] - 2026-09-27
+
+- Eindeutige routenspezifische Titel beim direkten Aufruf aller Seiten abgesichert.
 
 ### [1.1.48] - 2026-09-27
 
