@@ -195,6 +195,12 @@ export const standorteData: Record<string, Standort> = {
         spec: 'Verwaltung / Abrechnung'
       },
       {
+        name: 'Noemi Stefanski',
+        role: 'Auszubildende Kauffrau im Gesundheitswesen',
+        image: '/images/team-uniform/noemi-stefanski.webp',
+        spec: 'Ausbildung / Verwaltung'
+      },
+      {
         name: 'Marco Rebstock',
         role: 'Physiotherapeut',
         image: '/images/team-uniform/marco-rebstock.webp',
@@ -364,6 +370,12 @@ export const standorteData: Record<string, Standort> = {
         role: 'Rezeptionistin',
         image: '/images/team-uniform/heidrun-brinkmann.webp',
         spec: 'Verwaltung / Abrechnung'
+      },
+      {
+        name: 'Noemi Stefanski',
+        role: 'Auszubildende Kauffrau im Gesundheitswesen',
+        image: '/images/team-uniform/noemi-stefanski.webp',
+        spec: 'Ausbildung / Verwaltung'
       },
       {
         name: 'Julius Leibold',

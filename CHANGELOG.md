@@ -2,6 +2,11 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.51] - 2026-09-28
+
+- Noemi Stefanski in die Teamuebersicht sowie die Standortteams Lorettoberg und Mooswald aufgenommen.
+- Neues quadratisches WebP-Portraet und freigestellte Teamkarten-Variante im bestehenden Bildstil eingebunden.
+
 ## [1.1.50] - 2026-09-28
 
 - Hellen Retuschefleck zwischen den Augenbrauen in Lea Rufs Portraet mikro-lokal entfernt.

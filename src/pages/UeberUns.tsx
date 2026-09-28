@@ -24,6 +24,7 @@ const teamCutoutPreviewByImage: Record<string, string> = {
   '/images/team-uniform/daniela-fichter.webp': '/images/team-cutouts-polished-bottom/daniela-fichter.webp',
   '/images/team-uniform/elina-kovacs.webp': '/images/team-cutouts-polished-bottom/elina-kovacs.webp',
   '/images/team-uniform/heidrun-brinkmann.webp': '/images/team-cutouts-polished-bottom/heidrun-brinkmann.webp',
+  '/images/team-uniform/noemi-stefanski.webp': '/images/team-cutouts-polished-bottom/noemi-stefanski.webp',
   '/images/team-uniform/julius-leibold.webp': '/images/team-cutouts-hr-safe/julius-leibold.webp',
   '/images/team-uniform/marco-rebstock.webp': '/images/team-cutouts-polished-bottom/marco-rebstock.webp',
   '/images/team-uniform/bianca-kohler.webp': '/images/team-cutouts-polished-bottom/bianca-kohler.webp',
@@ -511,6 +512,13 @@ export default function UeberUns() {
                 role: 'Rezeptionistin',
                 spec: 'Verwaltung / Abrechnung / Terminierung',
                 image: '/images/team-uniform/heidrun-brinkmann.webp'
+              },
+              {
+                name: 'Noemi Stefanski',
+                category: 'Anmeldung / Verwaltung',
+                role: 'Auszubildende Kauffrau im Gesundheitswesen',
+                spec: 'Ausbildung / Verwaltung',
+                image: '/images/team-uniform/noemi-stefanski.webp'
               },
               {
                 name: 'Julius Leibold',

@@ -17,14 +17,18 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.50`
-- Letzter Release-Tag: `v1.1.50`
+- Aktuelle Version: `1.1.51`
+- Letzter Release-Tag: `v1.1.51`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.51] - 2026-09-28
+
+- Noemi Stefanski zur Teamuebersicht und zu den Standorten Lorettoberg und Mooswald hinzugefuegt.
 
 ### [1.1.50] - 2026-09-28
 
