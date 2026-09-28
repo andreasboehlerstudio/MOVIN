@@ -29,7 +29,7 @@ const teamCutoutPreviewByImage: Record<string, string> = {
   '/images/team-uniform/bianca-kohler.webp': '/images/team-cutouts-polished-bottom/bianca-kohler.webp',
   '/images/team-uniform/heather-mitgorden-keller.webp': '/images/team-cutouts-polished-bottom/heather-mitgorden-keller.webp',
   '/images/team-uniform/laura-walter.webp': '/images/team-cutouts-polished-bottom/laura-walter.webp',
-  '/images/team-uniform/lea-ruf.webp': '/images/team-cutouts-polished-bottom/lea-ruf.webp',
+  '/images/team-uniform/lea-ruf-retouched.webp': '/images/team-cutouts-polished-bottom/lea-ruf-retouched.webp',
   '/images/team-uniform/mara-schoeneck.webp': '/images/team-cutouts-polished-bottom/mara-schoeneck.webp',
   '/images/team-uniform/lena-pall.webp': '/images/team-cutouts-polished-bottom/lena-pall.webp',
   '/images/team-uniform/lena-prell.webp': '/images/team-cutouts-polished-bottom/lena-prell.webp',
@@ -552,7 +552,7 @@ export default function UeberUns() {
                 category: 'Physiotherapie',
                 role: 'Physiotherapeutin',
                 spec: 'Hüfte / Knie / HWS',
-                image: '/images/team-uniform/lea-ruf.webp'
+                image: '/images/team-uniform/lea-ruf-retouched.webp'
               },
               {
                 name: 'Mara Schöneck',

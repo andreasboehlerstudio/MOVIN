@@ -2,6 +2,12 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.50] - 2026-09-28
+
+- Hellen Retuschefleck zwischen den Augenbrauen in Lea Rufs Portraet mikro-lokal entfernt.
+- Korrigierte, ansonsten unveraenderte Bildvarianten fuer Teamuebersicht sowie die Standorte Lorettoberg und Mooswald eingebunden.
+- Bestehende Originaldateien als Rueckfalloption erhalten.
+
 ## [1.1.49] - 2026-09-27
 
 - Bereinigung doppelter Head-Metadaten so abgesichert, dass bei direkten Unterseitenaufrufen immer der routenspezifische Titel erhalten bleibt.

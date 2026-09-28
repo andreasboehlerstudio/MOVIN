@@ -17,14 +17,18 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.49`
-- Letzter Release-Tag: `v1.1.49`
+- Aktuelle Version: `1.1.50`
+- Letzter Release-Tag: `v1.1.50`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.50] - 2026-09-28
+
+- Hellen Retuschefleck in Lea Rufs Portraet entfernt und korrigierte Dateien auf allen Teamkarten eingebunden.
 
 ### [1.1.49] - 2026-09-27
 

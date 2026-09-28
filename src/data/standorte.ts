@@ -221,7 +221,7 @@ export const standorteData: Record<string, Standort> = {
       {
         name: 'Lea Ruf',
         role: 'Physiotherapeutin',
-        image: '/images/team-uniform/lea-ruf.webp',
+        image: '/images/team-uniform/lea-ruf-retouched.webp',
         spec: 'Hüfte / Knie / HWS'
       },
       {
@@ -374,7 +374,7 @@ export const standorteData: Record<string, Standort> = {
       {
         name: 'Lea Ruf',
         role: 'Physiotherapeutin',
-        image: '/images/team-uniform/lea-ruf.webp',
+        image: '/images/team-uniform/lea-ruf-retouched.webp',
         spec: 'Hüfte / Knie / HWS'
       },
       {
