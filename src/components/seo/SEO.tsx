@@ -35,46 +35,13 @@ export default function SEO({ title, description, canonical, schema, preloadImag
   }, [canonical, location.pathname]);
 
   useEffect(() => {
-    const managedHeadElements = [
-      { selector: 'title', value: fullTitle },
-      { selector: 'meta[name="description"]', value: description },
-      { selector: 'meta[property="og:title"]', value: fullTitle },
-      { selector: 'meta[property="og:description"]', value: description },
-      { selector: 'meta[property="og:type"]', value: 'website' },
-      { selector: 'meta[property="og:image"]', value: shareImage },
-      { selector: 'meta[property="og:image:secure_url"]', value: shareImage },
-      { selector: 'meta[property="og:image:type"]', value: 'image/jpeg' },
-      { selector: 'meta[property="og:image:width"]', value: '1200' },
-      { selector: 'meta[property="og:image:height"]', value: '630' },
-      { selector: 'meta[property="og:image:alt"]', value: 'MOVIN Physiotherapie innovativ bewegt' },
-      { selector: 'meta[name="twitter:card"]', value: 'summary_large_image' },
-      { selector: 'meta[name="twitter:title"]', value: fullTitle },
-      { selector: 'meta[name="twitter:description"]', value: description },
-      { selector: 'meta[name="twitter:image"]', value: shareImage },
-    ];
-
-    const removeFallbackDuplicates = () => {
-      managedHeadElements.forEach(({ selector, value }) => {
-        const elements = Array.from(document.head.querySelectorAll(selector));
-        if (elements.length < 2) return;
-
-        const matchingElements = elements.filter((element) => {
-          if (element instanceof HTMLTitleElement) return element.textContent === value;
-          return element.getAttribute('content') === value;
-        });
-        const elementToKeep = matchingElements.at(-1) ?? elements.at(-1);
-
-        elements.forEach((element) => {
-          if (element !== elementToKeep) element.remove();
-        });
-      });
-    };
-
-    removeFallbackDuplicates();
-    const animationFrame = window.requestAnimationFrame(removeFallbackDuplicates);
-
-    return () => window.cancelAnimationFrame(animationFrame);
-  }, [description, fullTitle, shareImage]);
+    // The static index contains SEO fallbacks for clients and crawlers before React loads.
+    // Remove only those explicitly marked nodes. Helmet owns every other head element and
+    // must remain the sole authority for adding/removing route-specific metadata.
+    document.head
+      .querySelectorAll('[data-seo-fallback="true"]')
+      .forEach((element) => element.remove());
+  }, []);
 
   return (
     <Helmet>

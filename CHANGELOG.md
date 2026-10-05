@@ -2,6 +2,12 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.52] - 2026-10-05
+
+- Absturz der clientseitigen Navigation durch konkurrierende SEO-Head-Bereinigung behoben.
+- Statische SEO-Fallback-Tags eindeutig markiert, sodass nur diese entfernt werden und React Helmet seine routenspezifischen Metadaten sicher verwaltet.
+- Sitemap-Aktualisierungsdaten fuer Startseite und Standort Lorettoberg erneuert.
+
 ## [1.1.51] - 2026-09-28
 
 - Noemi Stefanski in die Teamuebersicht sowie die Standortteams Lorettoberg und Mooswald aufgenommen.

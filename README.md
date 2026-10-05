@@ -17,14 +17,18 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.51`
-- Letzter Release-Tag: `v1.1.51`
+- Aktuelle Version: `1.1.52`
+- Letzter Release-Tag: `v1.1.52`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.52] - 2026-10-05
+
+- Clientseitige Navigation repariert: SEO-Fallbacks und React-verwaltete Head-Tags greifen nicht mehr konkurrierend auf dieselben DOM-Elemente zu.
 
 ### [1.1.51] - 2026-09-28
 
