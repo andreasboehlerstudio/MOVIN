@@ -56,8 +56,23 @@ export default function Home() {
     "name": "MOVIN Physiotherapie Freiburg",
     "@id": "https://movin-freiburg.de/#organization",
     "url": "https://movin-freiburg.de/",
+    "description": "MOVIN Physiotherapie in Freiburg mit den Standorten Lorettoberg und Mooswald sowie einem weiteren Standort am Europa-Park in Rust.",
     "logo": "https://movin-freiburg.de/images/logos/movin-logo-2026-horizontal-rgb-gradient.png",
     "image": "https://movin-freiburg.de/og-image.jpg",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Freiburg im Breisgau"
+      },
+      {
+        "@type": "Place",
+        "name": "Freiburg-Wiehre"
+      },
+      {
+        "@type": "Place",
+        "name": "Freiburg-Mooswald"
+      }
+    ],
     "address": [
       {
         "@type": "PostalAddress",
@@ -86,7 +101,7 @@ export default function Home() {
   return (
     <>
       <SEO 
-        title="Physiotherapie Freiburg | MOVIN"
+        title="Physiotherapie Freiburg | MOVIN Lorettoberg & Mooswald"
         description={`MOVIN Physiotherapie in Freiburg: moderne Behandlung an den Standorten Lorettoberg und Mooswald. ${years} Jahre Erfahrung und schnelle Termine.`}
         schema={schema}
         preloadImage="/images/MOVIN_Header_Home_V3-poster.webp"

@@ -114,12 +114,13 @@ const appFeatures: AppFeature[] = [
   },
   {
     id: "telemedizin",
-    title: "Videotherapie (Coming Soon)",
+    title: "Videotherapie",
     subtitle: "Sichere Video-Therapie",
-    desc: "Die Videotherapie ist im neuen App-Menü bereits vorbereitet und wird freigeschaltet, sobald diese Funktion verfügbar ist.",
+    desc: "Führen Sie Therapieberatungen und Feedback-Gespräche bequem per verschlüsseltem Video-Call – flexibel, ortsunabhängig und in gewohnter MOVIN Qualität.",
     icon: Video,
+    videoUrl: "/videos/app/Video Telemedizin-optimized.mp4",
     videoKeywords: ["telemedizin"],
-    poster: "/images/movin-app/app-redesign-service.webp",
+    poster: "/images/movin-app/telemedizin-video-poster.webp",
     tag: "#telemedizin"
   },
   {
@@ -205,7 +206,7 @@ export default function DigitalApp() {
     "name": "MOVIN App",
     "operatingSystem": "iOS, Android",
     "applicationCategory": "HealthAndFitnessApplication",
-    "description": "Die MOVIN App begleitet Sie durch Ihre Physiotherapie. Trainingspläne, Fortschritts-Tracking und direkter Chat mit Ihrem Therapeuten.",
+    "description": "Die MOVIN App begleitet Sie durch Ihre Physiotherapie mit Trainingsplänen, Fortschritts-Tracking, direktem Kontakt und Videotherapie.",
     "url": "https://movin-freiburg.de/digital/movin-app/"
   };
 
@@ -215,7 +216,7 @@ export default function DigitalApp() {
     <>
       <SEO 
         title="MOVIN App | Ihre Physiotherapie für die Hosentasche"
-        description="Mit der MOVIN App begleiten wir Sie auch außerhalb der Praxis. Personalisierte Übungsvideos, Fortschritts-Tracking und direkter Chat mit Ihrem Therapeuten."
+        description="Mit der MOVIN App begleiten wir Sie auch außerhalb der Praxis: Übungsvideos, Fortschritts-Tracking, Videotherapie und direkter Kontakt."
         schema={schema}
       />
 
@@ -497,26 +498,36 @@ export default function DigitalApp() {
         </div>
       </section>
 
-      {/* Telemedizin - Coming soon */}
+      {/* Telemedizin */}
       <section className="section-padding bg-white border-t border-border/40">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-secondary p-12 md:p-16 rounded-[2.5rem] text-white flex flex-col md:flex-row items-center justify-between gap-8 max-w-4xl mx-auto shadow-xl"
+            className="mx-auto grid max-w-5xl items-center gap-10 overflow-hidden rounded-[2.5rem] bg-secondary p-8 text-white shadow-xl md:p-12 lg:grid-cols-[1.05fr_0.95fr]"
           >
             <div className="max-w-xl">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-xs font-medium mb-4">
-                <Video className="w-4 h-4 text-primary animate-pulse" /> Coming Soon
+                <Video className="w-4 h-4 text-primary" /> Jetzt verfügbar
               </div>
-              <h3 className="text-3xl font-bold text-white mb-4">Telemedizin – Coming soon</h3>
+              <h3 className="text-3xl font-bold text-white mb-4">Videotherapie in der MOVIN App</h3>
               <p className="text-blue-tint/80 leading-relaxed text-base">
-                Bald können Sie Ihre Therapieberatungen und Feedback-Gespräche auch bequem per verschlüsseltem Video-Call führen. Flexibel, ortsunabhängig und in gewohnter erstklassiger MOVIN Qualität.
+                Führen Sie Therapieberatungen und Feedback-Gespräche bequem per verschlüsseltem Video-Call. Das neue Video zeigt, wie Sie eine Einladung erhalten und die Videotherapie direkt in der MOVIN App starten.
               </p>
             </div>
-            <div className="w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center text-primary shrink-0 self-center md:self-auto shadow-inner">
-              <Video className="w-8 h-8" />
+            <div className="relative mx-auto w-full max-w-[340px] overflow-hidden rounded-[2rem] border border-white/10 bg-black shadow-2xl">
+              <video
+                src="/videos/app/Video Telemedizin-optimized.mp4"
+                poster="/images/movin-app/telemedizin-video-poster.webp"
+                controls
+                playsInline
+                preload="metadata"
+                aria-label="So funktioniert die Videotherapie in der MOVIN App"
+                className="aspect-[478/850] h-auto w-full object-cover"
+              >
+                Ihr Browser unterstützt die Videowiedergabe nicht.
+              </video>
             </div>
           </motion.div>
         </div>
@@ -597,8 +608,6 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
   const [currentPlaylistIndex, setCurrentPlaylistIndex] = useState(0);
   const [videoFailed, setVideoFailed] = useState(false);
 
-  const isStaticImage = feature.id === 'telemedizin';
-
   // Derive custom playlist for specific multi-part features
   const playlist = React.useMemo(() => {
     if (feature.id === 'anamnese') {
@@ -623,11 +632,11 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
 
   // React strictly to current source updates
   useEffect(() => {
-    if (!isStaticImage && currentVideoSrc && videoRef.current) {
+    if (currentVideoSrc && videoRef.current) {
       videoRef.current.load();
       videoRef.current.play().catch(() => {});
     }
-  }, [currentVideoSrc, isStaticImage]);
+  }, [currentVideoSrc]);
 
   const handleEnded = () => {
     if (playlist.length > 1) {
@@ -641,19 +650,6 @@ function AppVideoPlayer({ feature, resolvedVideoUrl, detectedVideos = [] }: AppV
   };
 
   const shouldLoop = playlist.length <= 1;
-
-  if (isStaticImage) {
-    return (
-      <div className="relative mx-auto flex w-full max-w-[340px] select-none justify-center sm:max-w-[380px] md:max-w-[420px]">
-        <img
-          src="/images/telemedizin_soon-1.png"
-          alt="Telemedizin Coming Soon"
-          className="pointer-events-none block h-auto max-h-[70vh] w-auto max-w-full rounded-[2.5rem] border border-neutral-100 bg-transparent object-contain shadow-md"
-          referrerPolicy="no-referrer"
-        />
-      </div>
-    );
-  }
 
   if (!currentVideoSrc || videoFailed) {
     return (

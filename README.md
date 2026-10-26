@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.52`
-- Letzter Release-Tag: `v1.1.52`
+- Aktuelle Version: `1.1.53`
+- Letzter Release-Tag: `v1.1.53`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.53] - 2026-10-26
+
+- Startseite und Mooswald fuer die allgemeine beziehungsweise lokale Suchintention klarer voneinander abgegrenzt.
+- Mara Schoeneck aus Teamuebersicht und Standort Lorettoberg entfernt.
+- Videotherapie in der MOVIN App freigeschaltet und das neue Erklaervideo anstelle des Coming-Soon-Platzhalters eingebunden.
 
 ### [1.1.52] - 2026-10-05
 

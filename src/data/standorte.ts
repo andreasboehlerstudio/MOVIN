@@ -231,12 +231,6 @@ export const standorteData: Record<string, Standort> = {
         spec: 'Hüfte / Knie / HWS'
       },
       {
-        name: 'Mara Schöneck',
-        role: 'Physiotherapeutin',
-        image: '/images/team-uniform/mara-schoeneck.webp',
-        spec: 'Knie / Hüfte / Wirbelsäule'
-      },
-      {
         name: 'Aushilfen',
         role: 'Aushilfe',
         spec: 'Wechselnd'
@@ -257,8 +251,8 @@ export const standorteData: Record<string, Standort> = {
   },
   'physiotherapie-freiburg-mooswald': {
     name: 'Mooswald',
-    seoTitle: 'Boutique Physiotherapie Freiburg Mooswald | MOVIN',
-    seoDesc: 'MOVIN Physiotherapie in Freiburg Mooswald. Exklusive Boutique-Praxis, KI-gestützte Therapie und individuelle Betreuung. Jetzt Termin vereinbaren!',
+    seoTitle: 'Physiotherapie Mooswald | MOVIN Freiburg-West',
+    seoDesc: 'MOVIN am Standort Mooswald in Freiburg-West: Boutique-Praxis, KI-gestützte Therapie und persönliche Betreuung. Jetzt Termin vereinbaren!',
     address: 'Wirthstraße 9, 79110 Freiburg',
     phone: '+49 761 707 33 77',
     email: 'physiotherapie.mooswald@movin-freiburg.de',

@@ -2,6 +2,13 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.53] - 2026-10-26
+
+- Startseite und Standort Mooswald in Titel, Beschreibung und strukturierten Daten klarer voneinander abgegrenzt: allgemeine Suche nach Physiotherapie in Freiburg auf der Startseite, lokale Suche nach Mooswald auf der Standortseite.
+- Sitemap-Aktualisierungsdaten fuer Startseite, Lorettoberg, Mooswald und Teamseite erneuert.
+- Mara Schoeneck aus der Teamuebersicht und dem Standortteam Lorettoberg entfernt.
+- Videotherapie als verfuegbare MOVIN-App-Funktion gekennzeichnet und das neue Kundenvideo weboptimiert anstelle des Coming-Soon-Platzhalters eingebunden.
+
 ## [1.1.52] - 2026-10-05
 
 - Absturz der clientseitigen Navigation durch konkurrierende SEO-Head-Bereinigung behoben.
