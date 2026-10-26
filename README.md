@@ -17,14 +17,20 @@ Die Seite ist als moderne React/Vite-Anwendung aufgebaut und verbindet klassisch
 
 ## Aktueller Stand
 
-- Aktuelle Version: `1.1.53`
-- Letzter Release-Tag: `v1.1.53`
+- Aktuelle Version: `1.1.54`
+- Letzter Release-Tag: `v1.1.54`
 - Branch: `main`
 - Projektstatus: Production
 
 ## Changelog
 
 Das vollstaendige Changelog liegt in [CHANGELOG.md](./CHANGELOG.md).
+
+### [1.1.54] - 2026-10-26
+
+- Funktionskarten der MOVIN App fuer kleine Smartphones und schmale Desktop-Spalten ohne Textueberlappung angepasst.
+- Tablet-Kopfzeile mit kompaktem Menue bis zum Desktop-Breakpoint abgesichert.
+- Standort-Ueberschriften fuer kleine Smartphones ohne abgeschnittene Woerter angepasst.
 
 ### [1.1.53] - 2026-10-26
 

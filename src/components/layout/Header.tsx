@@ -71,12 +71,12 @@ export default function Header() {
     >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 z-50">
+        <Link to="/" className="flex shrink-0 items-center gap-2 z-50">
           <Logo className="h-10 md:h-12 w-auto" variant={theme === 'dark' ? 'white' : 'default'} />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden xl:flex items-center gap-8">
           {navLinks.map((link) => (
             <div key={link.name} className="relative group">
               <Link 
@@ -132,7 +132,7 @@ export default function Header() {
             Termin vereinbaren
           </Link>
           <button 
-            className="lg:hidden p-2 text-secondary dark:text-white hover:text-primary transition-colors"
+            className="xl:hidden p-2 text-secondary dark:text-white hover:text-primary transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Menu"
           >
@@ -148,7 +148,7 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-white dark:bg-slate-900 border-t border-border dark:border-slate-800 shadow-xl lg:hidden max-h-[calc(100vh-80px)] overflow-y-auto"
+            className="absolute top-full left-0 right-0 bg-white dark:bg-slate-900 border-t border-border dark:border-slate-800 shadow-xl xl:hidden max-h-[calc(100vh-80px)] overflow-y-auto"
           >
             <div className="flex flex-col p-4 gap-2">
               {navLinks.map((link) => (

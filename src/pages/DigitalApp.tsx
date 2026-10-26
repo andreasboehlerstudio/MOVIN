@@ -386,7 +386,7 @@ export default function DigitalApp() {
                   <motion.div
                     key={feature.id}
                     onClick={() => setActiveId(feature.id)}
-                    className={`cursor-pointer group flex flex-col p-6 rounded-2xl border transition-all ${
+                    className={`cursor-pointer group flex min-w-0 flex-col p-4 sm:p-6 rounded-2xl border transition-all ${
                       isSelected 
                         ? 'bg-white border-primary/40 shadow-md ring-1 ring-primary/10' 
                         : 'bg-white/60 border-border/60 hover:bg-white hover:border-primary/20 hover:shadow-sm'
@@ -394,9 +394,9 @@ export default function DigitalApp() {
                     whileHover={{ x: isSelected ? 0 : 3 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 25 }}
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3 sm:gap-4">
                       {/* Active highlighted Icon container */}
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                      <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
                         isSelected 
                           ? 'bg-primary text-white' 
                           : 'bg-[#f5f8f8] text-primary ring-1 ring-border/60 group-hover:bg-mint group-hover:ring-primary/20'
@@ -404,10 +404,10 @@ export default function DigitalApp() {
                         <IconComponent className="w-5 h-5" />
                       </div>
                       
-                      <div className="flex-grow">
-                        <div className="flex items-center justify-between">
-                          <h3 className="text-lg font-bold text-secondary">{feature.title}</h3>
-                          <span className="text-xs font-mono font-medium text-primary uppercase tracking-widest">{feature.tag}</span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-col items-start gap-1 xl:flex-row xl:flex-wrap xl:items-baseline xl:justify-between xl:gap-x-3">
+                          <h3 className="max-w-full break-words text-lg font-bold text-secondary">{feature.title}</h3>
+                          <span className="max-w-full [overflow-wrap:anywhere] text-xs font-mono font-medium text-primary uppercase tracking-widest">{feature.tag}</span>
                         </div>
                         <p className="text-xs text-dark/50 mt-0.5">{feature.subtitle}</p>
                       </div>

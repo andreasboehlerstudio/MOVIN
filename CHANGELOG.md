@@ -2,6 +2,12 @@
 
 Alle relevanten Aenderungen an der MOVIN Website werden in dieser Datei dokumentiert.
 
+## [1.1.54] - 2026-10-26
+
+- Responsive Funktionskarten der MOVIN App korrigiert: Titel und Schlagwoerter umbrechen auf schmalen Displays ohne Ueberlappung; Abstaende und Icons passen sich kleinen Smartphones an.
+- Kopfzeile bis 1279 Pixel mit kompaktem Menue dargestellt, damit Logo und Desktop-Navigation auf Tablets nicht ineinanderlaufen.
+- Standort-Hauptueberschriften auf kleinen Smartphones verkleinert, damit Physiotherapie vollstaendig lesbar bleibt.
+
 ## [1.1.53] - 2026-10-26
 
 - Startseite und Standort Mooswald in Titel, Beschreibung und strukturierten Daten klarer voneinander abgegrenzt: allgemeine Suche nach Physiotherapie in Freiburg auf der Startseite, lokale Suche nach Mooswald auf der Standortseite.

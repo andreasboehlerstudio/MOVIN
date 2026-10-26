@@ -133,7 +133,7 @@ export default function StandortPage() {
           <div className="flex items-center gap-2 text-primary font-semibold uppercase tracking-wider text-sm mb-4">
             <MapPin className="w-4 h-4" /> Standort
           </div>
-          <h1 className="text-5xl md:text-7xl font-black mb-6 text-gradient-teal-mint">Physiotherapie {standort.name}</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-6 text-gradient-teal-mint">Physiotherapie {standort.name}</h1>
           <p className="text-xl text-blue-tint/90 max-w-2xl">
             {standort.description.split('.')[0]}.
           </p>
